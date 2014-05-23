@@ -22,8 +22,10 @@
 defined('_PS_VERSION_') || require dirname(__FILE__).'/index.php';
 
 // Include Froggy Library
-if (!class_exists('FroggyModule', false)) require_once _PS_MODULE_DIR_.'/froggytoolbar/froggy/FroggyModule.php';
+if (!class_exists('FroggyModule', false)) require_once _PS_MODULE_DIR_.'/froggypricenegociator/froggy/FroggyModule.php';
 
+// Require Object Model
+require_once _PS_MODULE_DIR_.'/froggypricenegociator/classes/FroggyPriceNegociatorObject.php';
 
 class FroggyPriceNegociator extends FroggyModule
 {
@@ -37,15 +39,6 @@ class FroggyPriceNegociator extends FroggyModule
 		$this->displayName = $this->l('Froggy Price Negociator');
 		$this->description = $this->l('Display a price negociation button on product page for your customers');
 	}
-
-	/**
-	 * Hook back office header
-	 * @param $params
-	 */
-	public function hookDisplayBackOfficeHeader($params)
-	{
-	}
-
 
 	// Retrocompat 1.4
 	public function hookBackOfficeHeader($params) { return $this->hookDisplayBackOfficeHeader($params); }

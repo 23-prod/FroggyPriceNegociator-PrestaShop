@@ -3,5 +3,10 @@
 	"version": "1.0.0",
 	"need_instance": 0,
 
-	"hooks": { "all" : [ "BackOfficeHeader" ] }
+	"hooks": { "all" : [ "BackOfficeHeader" ] },
+
+    "sql" : {
+        "install" : [ "install.sql" ],
+        "uninstall" : [ "uninstall.sql" ]
+    }
 }

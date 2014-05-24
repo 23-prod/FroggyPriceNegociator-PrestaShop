@@ -8,5 +8,20 @@
     "sql" : {
         "install" : [ "install.sql" ],
         "uninstall" : [ "uninstall.sql" ]
+    },
+
+    "configurations" : {
+        "FC_PN_ENABLE_GENERAL_OPTION" : "0",
+        "FC_PN_GENERAL_REDUCTION" : "",
+        "FC_PN_TYPE" : "PRICE_MINI",
+        "FC_PN_MAX_PRODUCT_BY_CART" : "",
+        "FC_PN_COMPLIANT_PROMO" : "1",
+        "FC_PN_COMPLIANT_NEW" : "1",
+        "FC_PN_COMPLIANT_DISCOUNT" : "1",
+        "FC_PN_DISABLE_FOR_CATS" : "",
+        "FC_PN_DISABLE_FOR_BRANDS" : "",
+        "FC_PN_DISABLE_FOR_CUSTS" : "",
+        "FC_PN_DISPLAY_DELAYED" : "5",
+        "FC_PN_DISPLAY_MODE" : "FANCYBOX"
     }
 }

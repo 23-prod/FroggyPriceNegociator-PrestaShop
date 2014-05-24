@@ -40,6 +40,15 @@ class FroggyPriceNegociator extends FroggyModule
 		$this->description = $this->l('Display a price negociation button on product page for your customers');
 	}
 
+	/**
+	 * Configuration method
+	 * @return string $html
+	 */
+	public function getContent()
+	{
+		return $this->hookGetContent();
+	}
+
 	// Retrocompat 1.4
 	public function hookBackOfficeHeader($params) { return $this->hookDisplayBackOfficeHeader($params); }
 }

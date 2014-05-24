@@ -33,18 +33,18 @@
             <br>
 
             <label>{l s='Enable price negotiation button on all products:' mod='froggypricenegociator'}</label>
-            <div class="margin-form"><input type="checkbox" name="FC_PN_ENABLE_GENERAL_OPTION" value="1"{if $froggypricenegociator.FC_PN_ENABLE_GENERAL_OPTION} checked="checked"{/if} /></div>
+            <div class="margin-form"><input type="checkbox" id="FC_PN_ENABLE_GENERAL_OPTION" name="FC_PN_ENABLE_GENERAL_OPTION" value="1"{if $froggypricenegociator.FC_PN_ENABLE_GENERAL_OPTION} checked="checked"{/if} /></div>
             <br><span>{l s='Enable price negotiation button for all products (you won\'t have to set a configuration for each product).' mod='froggypricenegociator'}</span>
             <br><br><br>
 
             <label>{l s='General reduction in percent:' mod='froggypricenegociator'}</label>
-            <div class="margin-form"><input type="text" name="FC_PN_GENERAL_REDUCTION" value="{$froggypricenegociator.FC_PN_GENERAL_REDUCTION}" /> %</div>
+            <div class="margin-form"><input type="text" id="FC_PN_GENERAL_REDUCTION" name="FC_PN_GENERAL_REDUCTION" value="{$froggypricenegociator.FC_PN_GENERAL_REDUCTION}" /> %</div>
             <span>{l s='If you enabled the button for all products, you have to set a reduction in percent for all products.' mod='froggypricenegociator'}</span>
             <br><br><br>
 
             <label>{l s='Type reduction:' mod='froggypricenegociator'}</label>
             <div class="margin-form">
-                <select name="FC_PN_TYPE">
+                <select name="FC_PN_TYPE" id="FC_PN_TYPE">
                     <option value="PRICE_MINI" {if $froggypricenegociator.FC_PN_TYPE eq 'PRICE_MINI'}selected="selected"{/if}>{l s='Define price minimum' mod='froggypricenegociator'}</option>
                     <option value="PERCENT" {if $froggypricenegociator.FC_PN_TYPE eq 'PERCENT'}selected="selected"{/if}>{l s='Define maximum percent' mod='froggypricenegociator'}</option>
                 </select>
@@ -109,3 +109,4 @@
 	</div>
 </fieldset>
 
+<script type="text/javascript" src="{$froggypricenegociator.module_dir}views/js/getContent-common.js"></script>

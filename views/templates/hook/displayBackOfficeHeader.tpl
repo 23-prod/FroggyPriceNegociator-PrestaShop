@@ -25,6 +25,7 @@
 <script>
     var negociator_options = '<tr>' +
             '<td colspan="2"><div class="separation"></div></td></tr><tr>' +
+            '<td colspan="2"><h4>{l s='Froggy price negociator' mod='froggypricenegociator'}</h4></td></tr><tr>' +
             '<td><label>&nbsp;</label></td>' +
             '<td><input type="checkbox" value="1" style="padding-top: 5px;" id="froggypricenegociator_option" name="froggypricenegociator_option" {if $froggypricenegociator.fpn_product->active}checked="checked"{/if}>&nbsp;' +
             '<label class="t" for="negociator_option">{l s='Enable price negociation button for this product' mod='froggypricenegociator'}</label></td>' +

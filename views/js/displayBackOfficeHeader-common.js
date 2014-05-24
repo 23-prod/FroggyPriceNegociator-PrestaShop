@@ -15,4 +15,23 @@ function froggyPriceNegociatorUpdatePercent()
     }, 200);
 }
 
+function froggyPriceNegociatorOptionStatus()
+{
+    if ($('#froggypricenegociator_option').is(':checked'))
+    {
+        $('#froggypricenegociator_price_min').removeClass('disable');
+        $('#froggypricenegociator_percent_reduction_max').removeClass('disable');
+    }
+    else
+    {
+        $('#froggypricenegociator_price_min').addClass('disable');
+        $('#froggypricenegociator_percent_reduction_max').addClass('disable');
+    }
+}
+
+function froggyPriceNegociatorInit()
+{
+    froggyPriceNegociatorOptionStatus();
+    $('#froggypricenegociator_option').click(function() { froggyPriceNegociatorOptionStatus(); });
+}
 

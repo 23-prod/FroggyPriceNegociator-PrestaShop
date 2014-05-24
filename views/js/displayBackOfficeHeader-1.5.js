@@ -12,13 +12,19 @@ $(document).ready(function() {
             froggyPriceNegociatorUpdatePercent();
         }
         froggypricenegociator_displayed = 1;
-    });
 
-    // If price is updated, we update percent
-    $('#priceTE').keydown(function() {
-        froggyPriceNegociatorUpdatePercent();
-    });
-    $('#priceTI').keydown(function() {
-        froggyPriceNegociatorUpdatePercent();
+        // If price is updated, we update percent
+        $('#priceTE').keydown(function() {
+            froggyPriceNegociatorUpdatePercent();
+        });
+        $('#priceTI').keydown(function() {
+            froggyPriceNegociatorUpdatePercent();
+        });
+        $('#froggypricenegociator_price_min').keydown(function() {
+            froggyPriceNegociatorUpdatePercent();
+        });
+
+        // Init
+        froggyPriceNegociatorInit();
     });
 });

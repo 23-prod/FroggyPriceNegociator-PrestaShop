@@ -65,7 +65,7 @@
                 '<div class="input-group col-lg-2">' +
                 '<span class="input-group-addon">- %</span>' +
                 '<input type="text" value="{$froggypricenegociator.fpn_product->reduction_percent_max}" id="froggypricenegociator-reduction-percent-max" name="froggypricenegociator_reduction_percent_max" maxlength="14">' +
-                '<span class="input-group-addon" id="froggypricenegociator-price-min">{l s='In that case, the minimum sell price will be' mod='froggypricenegociator'} {$froggypricenegociator.fpn_product->price_min} {$froggypricenegociator.currency->sign}</span>' +
+                '<span class="input-group-addon" id="froggypricenegociator-price-min">{$froggypricenegociator.fpn_product->price_min} {$froggypricenegociator.currency->sign}</span>' +
                 '<input type="hidden" id="froggypricenegociator-price-min-hidden" name="froggypricenegociator_price_min" value="{$froggypricenegociator.fpn_product->price_min}" />' +
                 '</div>' +
         '</div>';

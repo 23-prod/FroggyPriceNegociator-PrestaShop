@@ -68,6 +68,7 @@ class FroggyPriceNegociatorHookDisplayBackOfficeHeaderProcessor extends FroggyHo
 	public function displayProductNegociatorConfiguration()
 	{
 		$assign = array(
+			'path_template_dir' => dirname(__FILE__).'/../views/templates/hook/',
 			'module_dir' => $this->path,
 			'ps_version' => substr(_PS_VERSION_, 0, 3),
 			'currency' => $this->context->currency,

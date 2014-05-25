@@ -21,10 +21,12 @@
 
 class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 {
+	public $configuration_result = '';
 	public $configurations = array(
 		'FC_PN_ENABLE_GENERAL_OPTION' => 'int',
 		'FC_PN_GENERAL_REDUCTION' => 'float',
 		'FC_PN_TYPE' => 'string',
+		'FC_PN_MAX_QUANTITY_BY_PRODUCT' => 'int',
 		'FC_PN_MAX_PRODUCT_BY_CART' => 'int',
 		'FC_PN_COMPLIANT_PROMO' => 'int',
 		'FC_PN_COMPLIANT_NEW' => 'int',
@@ -49,16 +51,17 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 					$value = (float)$value;
 				Configuration::updateValue($conf, $value);
 			}
+			$this->configuration_result = 'ok';
 		}
 	}
 
 	public function displayModuleConfiguration()
 	{
-
 		$assign = array();
 		$assign['module_dir'] = $this->path;
 		foreach ($this->configurations as $conf => $format)
 			$assign[$conf] = Configuration::get($conf);
+		$assign['result'] = $this->configuration_result;
 
 		$this->smarty->assign($this->module->name, $assign);
 		return $this->module->fcdisplay(__FILE__, 'getContent.tpl');

@@ -21,7 +21,7 @@
 <fieldset id="froggypricenegociator_fieldset">
 	<legend><img src="{$froggypricenegociator.module_dir}logo.png" alt="" width="16" />{l s='Froggy Price Negociator' mod='froggypricenegociator'}</legend>
 
-    {if isset($froggypricenegociator.result)}
+    {if isset($froggypricenegociator.result) && $froggypricenegociator.result eq 'ok'}
         <div class="conf confirm">{l s='The new configuration has been saved!' mod='froggypricenegociator'}</div>
     {/if}
 
@@ -53,6 +53,11 @@
             <br><br><br>
 
             <h3>{l s='General option:' mod='froggypricenegociator'}</h3>
+
+            <label>{l s='Max quantity by product:' mod='froggypricenegociator'}</label>
+            <div class="margin-form"><input type="text" name="FC_PN_MAX_QUANTITY_BY_PRODUCT" value="{$froggypricenegociator.FC_PN_MAX_QUANTITY_BY_PRODUCT}" /></div>
+            <span>{l s='Limit the maximum quantity for negociated products.' mod='froggypricenegociator'}</span>
+            <br><br><br>
 
             <label>{l s='Max product by cart:' mod='froggypricenegociator'}</label>
             <div class="margin-form"><input type="text" name="FC_PN_MAX_PRODUCT_BY_CART" value="{$froggypricenegociator.FC_PN_MAX_PRODUCT_BY_CART}" /></div>

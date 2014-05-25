@@ -23,7 +23,7 @@ $(document).ready(function() {
         $('#froggypricenegociator-price-min').keydown(function() {
             froggyPriceNegociatorUpdatePercent();
         });
-        $('#froggypricenegociator-percent-reduction-max').keydown(function() {
+        $('#froggypricenegociator-reduction-percent-max').keydown(function() {
             froggyPriceNegociatorUpdatePercent();
         });
 

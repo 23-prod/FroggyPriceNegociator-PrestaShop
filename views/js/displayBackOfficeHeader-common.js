@@ -10,7 +10,8 @@ function froggyPriceNegociatorUpdatePercent()
         var percent_reduction_max = 100 - (price_min * 100 / current_price);
         percent_reduction_max = Math.round(percent_reduction_max * 100) / 100;
 
-        $('#froggypricenegociator-percent-reduction-max').html('- ' + percent_reduction_max + '%');
+        $('#froggypricenegociator-reduction-percent-max').html('- ' + percent_reduction_max + '%');
+        $('#froggypricenegociator-reduction-percent-max-hidden').val(percent_reduction_max);
 
         // If general option is enabled
         if (fc_pn_enable_general_option == 1)
@@ -31,7 +32,7 @@ function froggyPriceNegociatorOptionStatus()
         $('.froggypricenegociator-label').addClass('disable');
         $('#froggypricenegociator-option').addClass('disable');
         $('#froggypricenegociator-price-min').addClass('disable');
-        $('#froggypricenegociator-percent-reduction-max').addClass('disable');
+        $('#froggypricenegociator-reduction-percent-max').addClass('disable');
         return false;
     }
 
@@ -40,13 +41,13 @@ function froggyPriceNegociatorOptionStatus()
     {
         $('#froggypricenegociator-label-field-2').removeClass('disable');
         $('#froggypricenegociator-price-min').removeClass('disable');
-        $('#froggypricenegociator-percent-reduction-max').removeClass('disable');
+        $('#froggypricenegociator-reduction-percent-max').removeClass('disable');
     }
     else
     {
         $('#froggypricenegociator-label-field-2').addClass('disable');
         $('#froggypricenegociator-price-min').addClass('disable');
-        $('#froggypricenegociator-percent-reduction-max').addClass('disable');
+        $('#froggypricenegociator-reduction-percent-max').addClass('disable');
     }
     return false;
 }

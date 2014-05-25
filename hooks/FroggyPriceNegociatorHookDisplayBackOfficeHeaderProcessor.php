@@ -54,7 +54,7 @@ class FroggyPriceNegociatorHookDisplayBackOfficeHeaderProcessor extends FroggyHo
 		$this->fpn_product->id_shop = $this->context->shop->id;
 		$this->fpn_product->id_product = (int)Tools::getValue('id_product');
 		$this->fpn_product->price_min = (float)Tools::getValue('froggypricenegociator_price_min');
-		$this->fpn_product->reduction_percent_max = 0;
+		$this->fpn_product->reduction_percent_max = (float)Tools::getValue('froggypricenegociator_reduction_percent_max');
 		$this->fpn_product->active = (int)Tools::getValue('froggypricenegociator_option');
 
 		// We update it

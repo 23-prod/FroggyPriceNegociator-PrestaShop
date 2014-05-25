@@ -27,7 +27,7 @@
     var fc_pn_general_reduction = '{$froggypricenegociator.FC_PN_GENERAL_REDUCTION}'
     var fc_pn_type = '{$froggypricenegociator.FC_PN_TYPE}'
     var fc_pn_currency_sign = '{$froggypricenegociator.currency->sign}';
-    var fc_pn_negociator_options = '<tr><td colspan="2"><div class="separation"></div></td></tr>' +
+    var fc_pn_negociator_options = '<tr><td colspan="2">{if $froggypricenegociator.ps_version eq '1.4'}<hr style="width:100%;">{else}<div class="separation"></div>{/if}</td></tr>' +
             '<tr><td colspan="2"><h4>{l s='Froggy price negociator' mod='froggypricenegociator'}</h4></td></tr>' +
             {if $froggypricenegociator.FC_PN_ENABLE_GENERAL_OPTION eq '1'}
                 '<tr><td colspan="2">' +

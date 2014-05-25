@@ -23,17 +23,42 @@
 *}
 
 <script>
-    var negociator_options = '<tr>' +
-            '<td colspan="2"><div class="separation"></div></td></tr><tr>' +
-            '<td colspan="2"><h4>{l s='Froggy price negociator' mod='froggypricenegociator'}</h4></td></tr><tr>' +
-            '<td><label>&nbsp;</label></td>' +
-            '<td><input type="checkbox" value="1" style="padding-top: 5px;" id="froggypricenegociator_option" name="froggypricenegociator_option" {if $froggypricenegociator.fpn_product->active}checked="checked"{/if}>&nbsp;' +
-            '<label class="t" for="negociator_option">{l s='Enable price negociation button for this product' mod='froggypricenegociator'}</label></td>' +
-            '</tr>' +
+    var fc_pn_enable_general_option = '{$froggypricenegociator.FC_PN_ENABLE_GENERAL_OPTION}';
+    var fc_pn_general_reduction = '{$froggypricenegociator.FC_PN_GENERAL_REDUCTION}'
+    var fc_pn_type = '{$froggypricenegociator.FC_PN_TYPE}'
+    var fc_pn_currency_sign = '{$froggypricenegociator.currency->sign}';
+    var fc_pn_negociator_options = '<tr><td colspan="2"><div class="separation"></div></td></tr>' +
+            '<tr><td colspan="2"><h4>{l s='Froggy price negociator' mod='froggypricenegociator'}</h4></td></tr>' +
+            {if $froggypricenegociator.FC_PN_ENABLE_GENERAL_OPTION eq '1'}
+                '<tr><td colspan="2">' +
+                    '<p>{l s='The general negociation option has been enabled in the module configuration.' mod='froggypricenegociator'}<br>' +
+                    '{l s='All products (including this one) will have a maximum negociation of' mod='froggypricenegociator'} {$froggypricenegociator.FC_PN_GENERAL_REDUCTION}%.<br>' +
+                    '{l s='In that case, the minimum sell price will be' mod='froggypricenegociator'} <b><span id="froggypricenegociator_minimum_sell_price"></span></b>.</p>' +
+                '</tr></td>' +
+            {/if}
             '<tr>' +
-            '<td><label>{l s='Minimum price sell:' mod='froggypricenegociator'}</label></td>' +
-            '<td><input type="text" value="{$froggypricenegociator.fpn_product->price_min}" style="padding-top: 5px;" id="froggypricenegociator_price_min" name="froggypricenegociator_price_min">&nbsp;<span id="froggypricenegociator_percent_reduction_max">- {$froggypricenegociator.fpn_product->reduction_percent_max}%</span></td>' +
-            '</tr>';
+              '<td><label>&nbsp;</label></td>' +
+              '<td><input type="checkbox" value="1" style="padding-top: 5px;" id="froggypricenegociator-option" name="froggypricenegociator_option" {if $froggypricenegociator.fpn_product->active}checked="checked"{/if}>&nbsp;' +
+              '<label class="t froggypricenegociator-label" for="negociator_option">{l s='Enable price negociation button for this product' mod='froggypricenegociator'}</label></td>' +
+            '</tr>' +
+            {if $froggypricenegociator.FC_PN_TYPE eq 'PRICE_MINI'}
+              '<tr>' +
+                '<td><label class="froggypricenegociator-label" id="froggypricenegociator-label-field-2">{l s='Minimum price sell:' mod='froggypricenegociator'}</label></td>' +
+                '<td>' +
+                  '<input type="text" value="{$froggypricenegociator.fpn_product->price_min}" style="padding-top: 5px;" id="froggypricenegociator-price-min" name="froggypricenegociator_price_min">&nbsp;' +
+                  '<span id="froggypricenegociator-percent-reduction-max">- {$froggypricenegociator.fpn_product->reduction_percent_max}%</span>' +
+                '</td>' +
+              '</tr>' +
+            {else}
+              '<tr>' +
+                '<td><label class="froggypricenegociator-label" id="froggypricenegociator-label-field-2">{l s='Percent:' mod='froggypricenegociator'}</label></td>' +
+                '<td>' +
+                    '<input type="text" value="{$froggypricenegociator.fpn_product->reduction_percent_max}" style="padding-top: 5px;" id="froggypricenegociator-percent-reduction-max" name="froggypricenegociator_percent_reduction-max">&nbsp;' +
+                    '<span id="froggypricenegociator-price-min">- {$froggypricenegociator.fpn_product->price_min}%</span>' +
+                '</td>' +
+              '</tr>' +
+            {/if}
+            '';
 </script>
 <script type="text/javascript" src="{$froggypricenegociator.module_dir}views/js/displayBackOfficeHeader-{$froggypricenegociator.ps_version}.js"></script>
 <script type="text/javascript" src="{$froggypricenegociator.module_dir}views/js/displayBackOfficeHeader-common.js"></script>

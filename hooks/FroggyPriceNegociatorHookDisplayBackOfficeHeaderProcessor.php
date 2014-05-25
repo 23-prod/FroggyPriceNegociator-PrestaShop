@@ -68,9 +68,13 @@ class FroggyPriceNegociatorHookDisplayBackOfficeHeaderProcessor extends FroggyHo
 	public function displayProductNegociatorConfiguration()
 	{
 		$assign = array(
-			'fpn_product' => $this->fpn_product,
 			'module_dir' => $this->path,
 			'ps_version' => substr(_PS_VERSION_, 0, 3),
+			'currency' => $this->context->currency,
+			'fpn_product' => $this->fpn_product,
+			'FC_PN_ENABLE_GENERAL_OPTION' => Configuration::get('FC_PN_ENABLE_GENERAL_OPTION'),
+			'FC_PN_GENERAL_REDUCTION' => Configuration::get('FC_PN_GENERAL_REDUCTION'),
+			'FC_PN_TYPE' => Configuration::get('FC_PN_TYPE'),
 		);
 		$this->smarty->assign($this->module->name, $assign);
 		return $this->module->fcdisplay(__FILE__, 'displayBackOfficeHeader.tpl');

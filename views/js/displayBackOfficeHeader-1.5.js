@@ -8,7 +8,7 @@ $(document).ready(function() {
     $('#link-Prices').click(function() {
         if (froggypricenegociator_displayed == 0)
         {
-            $('#tr_unit_price').parent().find('tr:last').after(negociator_options);
+            $('#tr_unit_price').parent().find('tr:last').after(fc_pn_negociator_options);
             froggyPriceNegociatorUpdatePercent();
         }
         froggypricenegociator_displayed = 1;
@@ -20,7 +20,10 @@ $(document).ready(function() {
         $('#priceTI').keydown(function() {
             froggyPriceNegociatorUpdatePercent();
         });
-        $('#froggypricenegociator_price_min').keydown(function() {
+        $('#froggypricenegociator-price-min').keydown(function() {
+            froggyPriceNegociatorUpdatePercent();
+        });
+        $('#froggypricenegociator-percent-reduction-max').keydown(function() {
             froggyPriceNegociatorUpdatePercent();
         });
 

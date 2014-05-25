@@ -9,22 +9,22 @@ $(document).ready(function() {
         if (froggypricenegociator_displayed == 0)
         {
             $('#tr_unit_price').parent().find('tr:last').after(fc_pn_negociator_options);
-            froggyPriceNegociatorUpdatePercent();
+            froggyPriceNegociatorUpdate();
         }
         froggypricenegociator_displayed = 1;
 
         // If price is updated, we update percent
         $('#priceTE').keydown(function() {
-            froggyPriceNegociatorUpdatePercent();
+            froggyPriceNegociatorUpdate();
         });
         $('#priceTI').keydown(function() {
-            froggyPriceNegociatorUpdatePercent();
+            froggyPriceNegociatorUpdate();
         });
         $('#froggypricenegociator-price-min').keydown(function() {
-            froggyPriceNegociatorUpdatePercent();
+            froggyPriceNegociatorUpdate();
         });
         $('#froggypricenegociator-reduction-percent-max').keydown(function() {
-            froggyPriceNegociatorUpdatePercent();
+            froggyPriceNegociatorUpdate();
         });
 
         // Init

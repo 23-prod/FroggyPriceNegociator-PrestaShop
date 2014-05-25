@@ -1,17 +1,31 @@
-function froggyPriceNegociatorUpdatePercent()
+function froggyPriceNegociatorUpdate()
 {
     // Wait a few milliseconds (wait for the tab to be displayed), then calcul percent reduction
     setTimeout(function() {
 
+        // Get current price
         var current_price = $(froggypricenegociator_current_price_field).val();
         if (!current_price)
             current_price = $(froggypricenegociator_current_price_field).text()
-        var price_min = $('#froggypricenegociator-price-min').val();
-        var percent_reduction_max = 100 - (price_min * 100 / current_price);
-        percent_reduction_max = Math.round(percent_reduction_max * 100) / 100;
 
-        $('#froggypricenegociator-reduction-percent-max').html('- ' + percent_reduction_max + '%');
-        $('#froggypricenegociator-reduction-percent-max-hidden').val(percent_reduction_max);
+        if (fc_pn_type == 'PRICE_MINI')
+        {
+            // If "PRICE_MINI" is the configuration
+            var price_min = $('#froggypricenegociator-price-min').val();
+            var reduction_percent_max = 100 - (price_min * 100 / current_price);
+            reduction_percent_max = Math.round(reduction_percent_max * 100) / 100;
+            $('#froggypricenegociator-reduction-percent-max').html('- ' + reduction_percent_max + '%');
+            $('#froggypricenegociator-reduction-percent-max-hidden').val(reduction_percent_max);
+        }
+        else
+        {
+            // IF "PERCENT" is the configuration
+            var reduction_percent_max = $('#froggypricenegociator-reduction-percent-max').val();
+            var price_min = current_price * ((100 - reduction_percent_max) / 100);
+            price_min = Math.round(price_min * 100) / 100;
+            $('#froggypricenegociator-price-min').html(price_min + ' ' + fc_pn_currency_sign);
+            $('#froggypricenegociator-price-min-hidden').val(price_min);
+        }
 
         // If general option is enabled
         if (fc_pn_enable_general_option == 1)

@@ -64,4 +64,4 @@
 </script>
 <script type="text/javascript" src="{$froggypricenegociator.module_dir}views/js/displayBackOfficeHeader-{$froggypricenegociator.ps_version}.js"></script>
 <script type="text/javascript" src="{$froggypricenegociator.module_dir}views/js/displayBackOfficeHeader-common.js"></script>
-
+<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}views/css/displayBackOfficeHeader-{$froggypricenegociator.ps_version}.css" />

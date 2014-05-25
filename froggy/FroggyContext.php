@@ -120,6 +120,8 @@ class FroggyContext
 			$this->customer = null;
 			$this->employee = null;
 		}
+		if (!Validate::isLoadedObject($this->currency))
+			$this->currency = new Currency((int)Configuration::get('PS_CURRENCY_DEFAULT'));
 
 		$this->shop = new FroggyShopBackwardModule();
 	}

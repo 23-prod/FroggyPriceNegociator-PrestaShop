@@ -4,7 +4,7 @@
 	"need_instance": 0,
 
     "hooks": {
-        "all" : [ "BackOfficeHeader" ],
+        "all" : [ "header", "BackOfficeHeader" ],
         "1.4" : [ "extraRight" ],
         "1.5" : [ "displayRightColumnProduct" ],
         "1.6" : [ "displayRightColumnProduct" ]

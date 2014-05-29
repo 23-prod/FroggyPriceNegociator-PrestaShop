@@ -50,6 +50,7 @@ class FroggyPriceNegociator extends FroggyModule
 	}
 
 	// Retrocompat 1.4
+	public function hookHeader($params) { return $this->hookDisplayHeader($params); }
 	public function hookExtraRight($params) { return $this->hookDisplayRightColumnProduct($params); }
 	public function hookBackOfficeHeader($params) { return $this->hookDisplayBackOfficeHeader($params); }
 }

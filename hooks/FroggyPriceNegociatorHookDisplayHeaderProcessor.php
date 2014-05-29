@@ -23,6 +23,7 @@ class FroggyPriceNegociatorHookDisplayHeaderProcessor extends FroggyHookProcesso
 {
 	public function run()
 	{
+		$this->context->controller->addCss($this->path.'views/css/buttons.css');
 		$this->context->controller->addCss($this->path.'views/css/reveal.css');
 		$this->context->controller->addJs($this->path.'views/js/jquery.reveal.js');
 	}

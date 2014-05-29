@@ -8,7 +8,7 @@ $(document).ready(function() {
     $('#link-Prices').click(function() {
         if (froggypricenegociator_displayed == 0)
         {
-            $('#tr_unit_price').parent().find('tr:last').after(fc_pn_negociator_options);
+            $('#tr_unit_price').parent().parent().after(fc_pn_negociator_options);
             froggyPriceNegociatorUpdate();
         }
         froggypricenegociator_displayed = 1;

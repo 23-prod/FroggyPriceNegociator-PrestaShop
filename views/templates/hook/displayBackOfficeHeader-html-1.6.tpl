@@ -37,8 +37,7 @@
             '</div>' +
     {/if}
 
-            '<div class="form-group">' +
-            '<label for="on_sale" class="control-label col-lg-3"></label>' +
+            '<div class="form-group" id="froggypricenegociator-checkbox-details">' +
             '<div class="col-lg-9">' +
             '<div class="checkbox">' +
             '<label for="froggypricenegociator-option" class="control-label froggypricenegociator-label">' +
@@ -50,7 +49,7 @@
             '</div>' +
 
     {if $froggypricenegociator.FC_PN_TYPE eq 'PRICE_MINI'}
-        '<div class="form-group">' +
+        '<div class="form-group" id="froggypricenegociator-details">' +
                 '<label for="froggypricenegociator-price-min" class="control-label col-lg-3 froggypricenegociator-label" id="froggypricenegociator-label-field-2">{l s='Minimum price sell:' mod='froggypricenegociator'}</label>' +
                 '<div class="input-group col-lg-2">' +
                 '<span class="input-group-addon"> {$froggypricenegociator.currency->sign}</span>' +
@@ -60,7 +59,7 @@
                 '</div>' +
         '</div>';
     {else}
-        '<div class="form-group">' +
+        '<div class="form-group" id="froggypricenegociator-details">' +
                 '<label for="froggypricenegociator-price-min" class="control-label col-lg-3 froggypricenegociator-label" id="froggypricenegociator-label-field-2">{l s='Percent:' mod='froggypricenegociator'}</label>' +
                 '<div class="input-group col-lg-2">' +
                 '<span class="input-group-addon">- %</span>' +

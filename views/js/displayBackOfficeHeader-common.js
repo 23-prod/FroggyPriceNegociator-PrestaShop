@@ -43,26 +43,16 @@ function froggyPriceNegociatorOptionStatus()
     // If general option is enabled
     if (fc_pn_enable_general_option == 1)
     {
-        $('.froggypricenegociator-label').addClass('disable');
-        $('#froggypricenegociator-option').addClass('disable');
-        $('#froggypricenegociator-price-min').addClass('disable');
-        $('#froggypricenegociator-reduction-percent-max').addClass('disable');
+        $('#froggypricenegociator-checkbox-details').fadeOut(500);
+        $('#froggypricenegociator-details').fadeOut(500);
         return false;
     }
 
     // Else depending if option is enabled for this product
     if ($('#froggypricenegociator-option').is(':checked'))
-    {
-        $('#froggypricenegociator-label-field-2').removeClass('disable');
-        $('#froggypricenegociator-price-min').removeClass('disable');
-        $('#froggypricenegociator-reduction-percent-max').removeClass('disable');
-    }
+        $('#froggypricenegociator-details').fadeIn(500);
     else
-    {
-        $('#froggypricenegociator-label-field-2').addClass('disable');
-        $('#froggypricenegociator-price-min').addClass('disable');
-        $('#froggypricenegociator-reduction-percent-max').addClass('disable');
-    }
+        $('#froggypricenegociator-details').fadeOut(500);
     return false;
 }
 

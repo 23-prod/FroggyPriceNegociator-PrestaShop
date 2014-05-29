@@ -3,7 +3,12 @@
 	"version": "1.0.0",
 	"need_instance": 0,
 
-	"hooks": { "all" : [ "BackOfficeHeader" ] },
+    "hooks": {
+        "all" : [ "BackOfficeHeader" ],
+        "1.4" : [ "extraRight" ],
+        "1.5" : [ "displayRightColumnProduct" ],
+        "1.6" : [ "displayRightColumnProduct" ]
+    },
 
     "sql" : {
         "install" : [ "install.sql" ],

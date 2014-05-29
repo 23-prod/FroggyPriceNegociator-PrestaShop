@@ -23,6 +23,12 @@ class FroggyPriceNegociatorHookDisplayRightColumnProductProcessor extends Froggy
 {
 	public function display()
 	{
+		$assign = array(
+			'path_template_dir' => dirname(__FILE__).'/../views/templates/hook/',
+			'module_dir' => $this->path,
+			'FC_PN_DISPLAY_MODE' => Configuration::get('FC_PN_DISPLAY_MODE'),
+		);
+		$this->smarty->assign($this->module->name, $assign);
 		return $this->module->fcdisplay(__FILE__, 'displayRightColumnProduct.tpl');
 	}
 

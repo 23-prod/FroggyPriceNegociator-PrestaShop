@@ -24,7 +24,12 @@ class FroggyPriceNegociatorHookDisplayHeaderProcessor extends FroggyHookProcesso
 	public function run()
 	{
 		$this->context->controller->addCss($this->path.'views/css/buttons.css');
-		$this->context->controller->addCss($this->path.'views/css/reveal.css');
-		$this->context->controller->addJs($this->path.'views/js/jquery.reveal.js');
+		if (Configuration::get('FC_PN_DISPLAY_MODE') == 'REVEAL')
+		{
+			$this->context->controller->addCss($this->path.'views/css/reveal.css');
+			$this->context->controller->addJs($this->path.'views/js/jquery.reveal.js');
+		}
+		else
+			$this->context->controller->addJs($this->path.'views/js/jquery.fancybox.action.js');
 	}
 }

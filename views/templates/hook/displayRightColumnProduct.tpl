@@ -22,10 +22,14 @@
 *  @license		http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *}
 
-<a href="#" data-reveal-id="myModal" title="Négocier le prix" class="button-1 ppfroggy-price-negociator-button-front red radius">Négocier le prix</a>
+<a href="#" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negociate the price' mod='froggypricenegociator'}" class="button-1 ppfroggy-price-negociator-button-front red radius">{l s='Negociate the price' mod='froggypricenegociator'}</a>
+
 
 <div id="myModal" class="reveal-modal">
     <h1>Modal Title</h1>
     <p>Any content could go in here.</p>
-    <a class="close-reveal-modal">&#215;</a>
+    {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}<a class="close-reveal-modal">&#215;</a>{/if}
 </div>
+
+
+

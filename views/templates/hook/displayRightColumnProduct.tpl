@@ -22,14 +22,44 @@
 *  @license		http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *}
 
-<a href="#" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negociate the price' mod='froggypricenegociator'}" class="button-1 ppfroggy-price-negociator-button-front red radius">{l s='Negociate the price' mod='froggypricenegociator'}</a>
+<a href="#" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negociate the price' mod='froggypricenegociator'}" class="button-12 froggy-price-negociator-button-front yellow radius">{l s='Negociate the price' mod='froggypricenegociator'}</a>
 
 
 <div id="myModal" class="reveal-modal">
-    <h1>Modal Title</h1>
-    <p>Any content could go in here.</p>
-    {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}<a class="close-reveal-modal">&#215;</a>{/if}
+	<div class="froggy-negociator-container-modal">
+		<p class="froggy-negociator-title-modal">Vous n'avez pas le budget ?</p>
+		<p class="">quel est votre budget pour ce produit ?</p>
+
+		<form action="">
+
+			<fieldset class="froggy-negociator-input-offer">
+				<input type="text" placeholder="Faite une offre"/>
+			</fieldset>
+
+			<fieldset>
+				<input type="radio" class="radio" name="progress" value="five" id="five">
+				<label for="five" class="label">5%</label>
+
+				<input type="radio" class="radio" name="progress" value="twentyfive" id="twentyfive" checked>
+				<label for="twentyfive" class="label">25%</label>
+
+				<input type="radio" class="radio" name="progress" value="fifty" id="fifty">
+				<label for="fifty" class="label">50%</label>
+
+				<input type="radio" class="radio" name="progress" value="seventyfive" id="seventyfive">
+				<label for="seventyfive" class="label">75%</label>
+
+				<input type="radio" class="radio" name="progress" value="onehundred" id="onehundred">
+				<label for="onehundred" class="label">100%</label>
+
+				<div class="progress">
+					<div class="progress-bar"></div>
+				</div>
+			</fieldset>
+
+
+
+		</form>
+		{if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}<a class="close-reveal-modal">&#215;</a>{/if}
+	</div>
 </div>
-
-
-

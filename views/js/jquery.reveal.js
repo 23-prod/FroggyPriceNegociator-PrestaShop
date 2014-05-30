@@ -39,6 +39,7 @@
 	$('a[data-reveal-id]').live('click', function(e) {
 		e.preventDefault();
 		var modalLocation = $(this).attr('data-reveal-id');
+		$('#'+modalLocation).appendTo($('body'));
 		$('#'+modalLocation).reveal($(this).data());
 	});
 
@@ -75,7 +76,7 @@
 ----------------------------*/
 			if(modalBG.length == 0) {
 				modalBG = $('<div class="reveal-modal-bg" />').insertAfter(modal);
-			}		    
+			}
      
 /*---------------------------
  Open & Close Animations
@@ -171,7 +172,7 @@
 			}
 			function lockModal() {
 				locked = true;
-			}	
+			}
 			
         });//each call
     }//orbit plugin call

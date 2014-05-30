@@ -51,9 +51,17 @@
 
 				<input type="radio" class="radio" name="progress" value="onehundred" id="onehundred">
 				<label for="onehundred" class="label">100%</label>
-
+				<p class="froggy-negociator-label-probability">Chance de succès :</p>
 				<div class="progress">
 					<div class="progress-bar"></div>
+				</div>
+				<div class="froggy-negociator-comparaison-container">
+					<div class="froggy-negociator">
+						<p>prix d'origine : <br/></p>
+					</div>
+					<div class="froggy-negociator">
+						<p>Réduction possible : <br/> 1.50 € ( soit 4.5 % )</p>
+					</div>
 				</div>
 			</fieldset>
 

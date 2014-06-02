@@ -189,7 +189,7 @@
 
 .froggy-negociator-container-modal{
 	margin: 5%;
-	padding: 4%;
+	padding: 0 10% 2%;
 	background: #fff;
 	border-radius: 5px;
 }
@@ -199,16 +199,99 @@
 	font-weight: bold;
 	color: #25c70a;
 	padding: 0;
-	margin: 15px;
+	line-height: 1em;
+	margin: 15px 0;
 	display: inline-block;
-	text-align: center;
 	width: 100%;
 }
 
+.froggy-negociator-subtitle-modal{
+	text-align: center;
+	font-size: 15px;
+	line-height: 1em;
+}
+
 .froggy-negociator-input-offer input{
+	border: 1px solid #ebebeb;
+	border-right: none;
+	padding: 0.25em 0;
+	font-size: 30px;
+	color: #000;
+	text-align: center;
+	width: calc(90% - 1px);
+	line-height: 30px;
+	height: 30px;
+	float: left;
+}
+.froggy-negociator-input-offer label{
+	border: 1px solid #ebebeb;
+	background: #f1f1f1;
+	color:#777;
+	border-left: none;
+	width: calc(10% - 1px);
+	font-size: 30px;
+	padding: 0.25em 0;
+	text-align: center;
+	line-height: 30px;
+	height: 30px;
+	cursor: pointer;
+	float: left;
+}
+.froggy-negociator-progressbar-container label{
+	margin: 0;
+}
+
+.froggy-negociator-label-probability{
+	padding: 0;
+	margin:5px 0;
+	font-size: 12px;
 
 }
 
+.froggy-negociator-price-info{
+	text-align: center;
+	border-right: 1px solid #777;
+	color:#777777;
+	margin-top: 10px;
+	width: calc(50% - 1px);
+	padding-top: 5px;
+	height:40px;
+	font-size: 15px;
+	float: left;
+}
+.froggy-negociator-price-info+.froggy-negociator-price-info{
+	border: none;
+}
+
+.froggy-negociator-price-info p{
+	padding: 0;
+}
+
+.froggy-negociator-price-elements{
+	font-size: 15px;
+	margin-top: 8px;
+	display: inline-block;
+	color: #000;
+}
+
+.froggy-negociator-validation-step1{
+	margin: 15px 0;
+	text-align: center;
+}
+
+.froggy-negociator-validation-step1 input{
+	border: 1px solid #ECECEC;
+	background: #a6a6a6;
+	background: -webkit-linear-gradient( bottom, #B4B4B4, #8f8f8f);
+	background: -moz-linear-gradient( bottom, #B4B4B4, #8f8f8f);
+	background: -ms-linear-gradient( bottom, #B4B4B4, #8f8f8f);
+	background: -o-linear-gradient( bottom, #B4B4B4, #8f8f8f);
+	background: linear-gradient( to bottom, #B4B4B4, #8f8f8f);
+	color:#fff;
+	font-size: 18px;
+	padding: 8px 18px 10px;
+	cursor:pointer;
+}
 /*Modal front office*/
 
 

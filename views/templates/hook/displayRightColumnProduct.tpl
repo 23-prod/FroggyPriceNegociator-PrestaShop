@@ -28,15 +28,16 @@
 <div id="myModal" class="reveal-modal">
 	<div class="froggy-negociator-container-modal">
 		<p class="froggy-negociator-title-modal">Vous n'avez pas le budget ?</p>
-		<p class="">quel est votre budget pour ce produit ?</p>
+		<p class="froggy-negociator-subtitle-modal">quel est votre budget pour ce produit ?</p>
 
 		<form action="">
 
 			<fieldset class="froggy-negociator-input-offer">
-				<input type="text" placeholder="Faite une offre"/>
+				<input type="text" placeholder="Faite une offre" id="froggy-negociator-input-offer"/>
+				<label for="froggy-negociator-input-offer">€</label>
 			</fieldset>
 
-			<fieldset>
+			<fieldset class="froggy-negociator-progressbar-container">
 				<input type="radio" class="radio" name="progress" value="five" id="five">
 				<label for="five" class="label">5%</label>
 
@@ -51,20 +52,22 @@
 
 				<input type="radio" class="radio" name="progress" value="onehundred" id="onehundred">
 				<label for="onehundred" class="label">100%</label>
-				<p class="froggy-negociator-label-probability">Chance de succès :</p>
+				<p class="froggy-negociator-label-probability">Chance de succès de votre négociation :</p>
 				<div class="progress">
 					<div class="progress-bar"></div>
 				</div>
 				<div class="froggy-negociator-comparaison-container">
-					<div class="froggy-negociator">
-						<p>prix d'origine : <br/></p>
+					<div class="froggy-negociator-price-info">
+						<p>prix d'origine : <br/><span class="froggy-negociator-price-elements">36.89 €</span></p>
 					</div>
-					<div class="froggy-negociator">
-						<p>Réduction possible : <br/> 1.50 € ( soit 4.5 % )</p>
+					<div class="froggy-negociator-price-info">
+						<p>Réduction possible : <br/> <span class="froggy-negociator-price-elements">1.50 € ( soit 4.5 % )</span></p>
 					</div>
 				</div>
 			</fieldset>
-
+			<fieldset class="froggy-negociator-validation-step1">
+				<input type="submit" value="proposer le prix" />
+			</fieldset>
 
 
 		</form>

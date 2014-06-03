@@ -102,3 +102,44 @@ function froggyPriceNegociatorInit(combination)
     $('#froggypricenegociator-' + combination_identifier + 'option').click(function() { froggyPriceNegociatorOptionStatus(combination); });
 }
 
+
+function froggyPriceNegociatorLoadConfigurationCombination(id_product_attribute)
+{
+    // Init to blank
+    $('#froggypricenegociator-combination-option').removeAttr("checked");
+    $('#froggypricenegociator-combination-price-min').val('');
+    $('#froggypricenegociator-combination-price-min-hidden').val('');
+    $('#froggypricenegociator-combination-reduction-percent-max').val('');
+    $('#froggypricenegociator-combination-reduction-percent-max-hidden').val('');
+
+    // Set the matching configuration (if there is any)
+    for (i = 1; froggypricenegociator_combinations[i]; i++)
+    {
+        if (froggypricenegociator_combinations[i][0] == id_product_attribute)
+        {
+            if (froggypricenegociator_combinations[i][3] == "1")
+                $('#froggypricenegociator-combination-option').attr("checked", true);
+            $('#froggypricenegociator-combination-price-min').val(froggypricenegociator_combinations[i][1]);
+            $('#froggypricenegociator-combination-price-min-hidden').val(froggypricenegociator_combinations[i][1]);
+            $('#froggypricenegociator-combination-reduction-percent-max').val(froggypricenegociator_combinations[i][2]);
+            $('#froggypricenegociator-combination-reduction-percent-max-hidden').val(froggypricenegociator_combinations[i][2]);
+        }
+    }
+
+    // Check if box is checked (we hide the input text if not) and we update price min and percent max
+    froggyPriceNegociatorOptionStatus(true);
+    froggyPriceNegociatorUpdate(true);
+}
+
+
+function froggyPriceNegociatorGetParamsFromUrl(query, query_string)
+{
+    var vars = query.split("&");
+    for (var i=0; i < vars.length; i++)
+    {
+        var pair = vars[i].split("=");
+        if (pair[0] == query_string)
+            return pair[1];
+    }
+    return '';
+}

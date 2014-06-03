@@ -57,7 +57,7 @@ $(document).ready(function() {
     });
 
     // When document is ready, if merchant click on link price tab, we add the price negociator fields
-    $('#product-tab-content-Combinations').click(function() {
+    $('#link-Combinations').click(function() {
 
         if ($('#froggypricenegociator-combination-option').length == 0)
         {
@@ -87,6 +87,13 @@ $(document).ready(function() {
                 });
                 $('#froggypricenegociator-combination-reduction-percent-max').keydown(function() {
                     froggyPriceNegociatorUpdate(true);
+                });
+
+                // Load configuration combination when an edit button is clicked
+                froggyPriceNegociatorLoadConfigurationCombination(0);
+                $('.edit').click(function() {
+                    var id_product_attribute = froggyPriceNegociatorGetParamsFromUrl($(this).attr('href'), 'id_product_attribute');
+                    froggyPriceNegociatorLoadConfigurationCombination(id_product_attribute);
                 });
 
             }, 500);

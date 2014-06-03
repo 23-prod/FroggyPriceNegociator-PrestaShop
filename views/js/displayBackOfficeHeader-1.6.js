@@ -28,24 +28,29 @@ $(document).ready(function() {
         if ($('#froggypricenegociator-option').length == 0)
         {
             $('#finalPrice').parent().parent().parent().parent().after(fc_pn_negociator_options);
-            froggyPriceNegociatorUpdate();
 
-            // If price is updated, we update percent
-            $('#priceTE').keydown(function() {
-                froggyPriceNegociatorUpdate();
-            });
-            $('#priceTI').keydown(function() {
-                froggyPriceNegociatorUpdate();
-            });
-            $('#froggypricenegociator-price-min').keydown(function() {
-                froggyPriceNegociatorUpdate();
-            });
-            $('#froggypricenegociator-reduction-percent-max').keydown(function() {
-                froggyPriceNegociatorUpdate();
-            });
+            // Init display and binding
+            setTimeout(function() {
 
-            // Init
-            froggyPriceNegociatorInit();
+                // Init display
+                froggyPriceNegociatorInit();
+                froggyPriceNegociatorUpdate();
+
+                // If price is updated, we update percent
+                $('#priceTE').keydown(function() {
+                    froggyPriceNegociatorUpdate();
+                });
+                $('#priceTI').keydown(function() {
+                    froggyPriceNegociatorUpdate();
+                });
+                $('#froggypricenegociator-price-min').keydown(function() {
+                    froggyPriceNegociatorUpdate();
+                });
+                $('#froggypricenegociator-reduction-percent-max').keydown(function() {
+                    froggyPriceNegociatorUpdate();
+                });
+
+            }, 500);
         }
     });
 

@@ -26,7 +26,7 @@ class FroggyPriceNegociatorHookDisplayBackOfficeHeaderProcessor extends FroggyHo
 	public function initProductNegociatorConfiguration()
 	{
 		// We load the current configuration for this product
-		$this->fpn_product = FroggyPriceNegociatorObject::getByIdProduct((int)Tools::getValue('id_product'));
+		$this->fpn_product = FroggyPriceNegociatorObject::getByIdProduct((int)Tools::getValue('id_product'), (int)Tools::getValue('id_product_attribute'));
 
 		// We create an empty object if there is no configuration yet
 		if ($this->fpn_product === false)
@@ -53,7 +53,7 @@ class FroggyPriceNegociatorHookDisplayBackOfficeHeaderProcessor extends FroggyHo
 		// We store the configuration
 		$this->fpn_product->id_shop = $this->context->shop->id;
 		$this->fpn_product->id_product = (int)Tools::getValue('id_product');
-		$this->fpn_product->id_product_attribute = 0;
+		$this->fpn_product->id_product_attribute = (int)Tools::getValue('id_product_attribute');
 		$this->fpn_product->price_min = (float)Tools::getValue('froggypricenegociator_price_min');
 		$this->fpn_product->reduction_percent_max = (float)Tools::getValue('froggypricenegociator_reduction_percent_max');
 		$this->fpn_product->active = (int)Tools::getValue('froggypricenegociator_option');

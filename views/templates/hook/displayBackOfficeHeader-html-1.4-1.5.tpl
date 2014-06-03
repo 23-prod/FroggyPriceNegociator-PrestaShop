@@ -23,6 +23,7 @@
 *}
 
 <script>
+    var fc_pn_negociator_label_product_attribute = '{l s='Enable price negociation button for this product attribute' mod='froggypricenegociator'}';
     var fc_pn_negociator_options = '{if $froggypricenegociator.ps_version eq '1.4'}<hr style="width:100%;">{else}<div class="separation"></div>{/if}<table>' +
         '<tr><td colspan="2"><h4>{l s='Froggy price negociator' mod='froggypricenegociator'}</h4></td></tr>' +
         {if $froggypricenegociator.FC_PN_ENABLE_GENERAL_OPTION eq '1'}
@@ -35,7 +36,7 @@
         '<tr id="froggypricenegociator-checkbox-details">' +
             '<td class="col-left"><label>&nbsp;</label></td>' +
             '<td><input type="checkbox" value="1" style="padding-top: 5px;" id="froggypricenegociator-option" name="froggypricenegociator_option" {if $froggypricenegociator.fpn_product->active}checked="checked"{/if}>&nbsp;' +
-                '<label class="t froggypricenegociator-label" for="froggypricenegociator-option">{l s='Enable price negociation button for this product' mod='froggypricenegociator'}</label></td>' +
+                '<label id="froggypricenegociator-option-label" class="t froggypricenegociator-label" for="froggypricenegociator-option">{l s='Enable price negociation button for this product' mod='froggypricenegociator'}</label></td>' +
             '</tr>' +
         {if $froggypricenegociator.FC_PN_TYPE eq 'PRICE_MINI'}
         '<tr id="froggypricenegociator-details">' +

@@ -29,6 +29,9 @@ class FroggyPriceNegociatorObject extends ObjectModel
 	/** @var integer Product ID */
 	public $id_product;
 
+	/** @var integer Product Attribute ID */
+	public $id_product_attribute;
+
 	/** @var float Price min */
 	public $price_min;
 
@@ -54,6 +57,7 @@ class FroggyPriceNegociatorObject extends ObjectModel
 		'fields' => array(
 			'id_shop' => 					array('type' => 1, 'validate' => 'isUnsignedId', 'required' => true),
 			'id_product' => 				array('type' => 1, 'validate' => 'isUnsignedId', 'required' => true),
+			'id_product_attribute' => 		array('type' => 1, 'validate' => 'isUnsignedId', 'required' => true),
 			'price_min' => 					array('type' => 4, 'validate' => 'isPrice', 'required' => true),
 			'reduction_percent_max' => 		array('type' => 4, 'validate' => 'isFloat', 'required' => true),
 			'date_add' => 					array('type' => 5, 'validate' => 'isDateFormat', 'copy_post' => false),
@@ -90,6 +94,7 @@ class FroggyPriceNegociatorObject extends ObjectModel
 
 		$fields['id_shop'] = (int)$this->id_shop;
 		$fields['id_product'] = (int)$this->id_product;
+		$fields['id_product_attribute'] = (int)$this->id_product_attribute;
 		$fields['price_min'] = (float)$this->price_min;
 		$fields['reduction_percent_max'] = (float)$this->reduction_percent_max;
 		$fields['active'] = (int)$this->active;
@@ -98,11 +103,12 @@ class FroggyPriceNegociatorObject extends ObjectModel
 		return $fields;
 	}
 
-	public static function getByIdProduct($id_product)
+	public static function getByIdProduct($id_product, $id_product_attribute = 0)
 	{
 		$id_fpn_product = Db::getInstance()->getValue('
 		SELECT `id_fpn_product` FROM `'._DB_PREFIX_.'fpn_product`
-		WHERE `id_product` = '.(int)$id_product);
+		WHERE `id_product` = '.(int)$id_product.'
+		AND `id_product_attribute` = '.(int)$id_product_attribute);
 		if ($id_fpn_product > 0)
 			return new FroggyPriceNegociatorObject($id_fpn_product);
 		return false;

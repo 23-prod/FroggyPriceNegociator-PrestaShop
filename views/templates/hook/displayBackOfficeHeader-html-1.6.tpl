@@ -32,7 +32,7 @@
             '<div class="alert alert-warning">' +
             '<p>{l s='The general negociation option has been enabled in the module configuration.' mod='froggypricenegociator'}<br>' +
             '{l s='All products (including this one) will have a maximum negociation of' mod='froggypricenegociator'} {$froggypricenegociator.FC_PN_GENERAL_REDUCTION}%.<br>' +
-            '{l s='In that case, the minimum sell price will be' mod='froggypricenegociator'} <b><span id="froggypricenegociator_minimum_sell_price"></span></b>.</p>' +
+            '{l s='In that case, the minimum sell price will be' mod='froggypricenegociator'} <b><span id="froggypricenegociator-minimum-sell-price"></span></b>.</p>' +
             '</div>' +
             '</div>' +
             '</div>' +

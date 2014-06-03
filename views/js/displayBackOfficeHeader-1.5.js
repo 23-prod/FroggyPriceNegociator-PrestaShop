@@ -52,6 +52,19 @@ $(document).ready(function() {
 
             }, 500);
         }
+
+    });
+
+    // When document is ready, if merchant click on link price tab, we add the price negociator fields
+    $('#link-Combinations').click(function() {
+
+        if ($('#froggypricenegociator-combination-option').length == 0)
+        {
+            var tmp = fc_pn_negociator_options.replace(/id="froggypricenegociator-/g, 'id="froggypricenegociator-combination-');
+            $('#tr_unit_impact').parent().parent().after(tmp);
+            $('#froggypricenegociator-combination-option-label').text(fc_pn_negociator_label_product_attribute);
+        }
+
     });
 
 });

@@ -113,4 +113,11 @@ class FroggyPriceNegociatorObject extends ObjectModel
 			return new FroggyPriceNegociatorObject($id_fpn_product);
 		return false;
 	}
+
+	public static function getCombinationsByIdProduct($id_product)
+	{
+		return Db::getInstance()->executeS('
+		SELECT * FROM `'._DB_PREFIX_.'fpn_product`
+		WHERE `id_product` = '.(int)$id_product);
+	}
 }

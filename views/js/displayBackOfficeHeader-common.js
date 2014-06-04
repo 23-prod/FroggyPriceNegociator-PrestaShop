@@ -105,7 +105,22 @@ function froggyPriceNegociatorInit(combination)
 
 function froggyPriceNegociatorLoadConfigurationCombination(id_product_attribute)
 {
-    // Init to blank
+    // If we are not editing a combination (eg. add combination), we hide the form
+    if (id_product_attribute < 1)
+    {
+        $('#froggypricenegociator-combination-title').hide();
+        $('#froggypricenegociator-combination-separator').hide();
+        $('#froggypricenegociator-combination-checkbox-details').hide();
+        $('#froggypricenegociator-combination-details').hide();
+        return false;
+    }
+    // Else we display it
+    $('#froggypricenegociator-combination-title').show();
+    $('#froggypricenegociator-combination-separator').show();
+    $('#froggypricenegociator-combination-checkbox-details').show();
+    $('#froggypricenegociator-combination-details').show();
+
+    // Init value of field to blank (in case, there is no configuration yet
     $('#froggypricenegociator-combination-option').removeAttr("checked");
     $('#froggypricenegociator-combination-price-min').val('');
     $('#froggypricenegociator-combination-price-min-hidden').val('');

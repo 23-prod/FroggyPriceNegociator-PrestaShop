@@ -95,6 +95,9 @@ $(document).ready(function() {
                     var id_product_attribute = froggyPriceNegociatorGetParamsFromUrl($(this).attr('href'), 'id_product_attribute');
                     froggyPriceNegociatorLoadConfigurationCombination(id_product_attribute);
                 });
+                $('#desc-product-newCombination').click(function() {
+                    froggyPriceNegociatorLoadConfigurationCombination(0);
+                });
 
             }, 500);
         }

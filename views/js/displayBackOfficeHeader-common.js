@@ -30,7 +30,7 @@ var froggypricenegociator_current_price_combination_field = '#attribute_new_tota
  * Call functions to init and add all triggers needed
  * @param boolean combination (are we in combination context ?)
  */
-function froggyPriceNegociatorInit(combination)
+function froggyPriceNegociatorInit(combination, fields_to_watch)
 {
     // Set combination identifier, if we are on a combination edition
     var combination_identifier = '';
@@ -40,6 +40,16 @@ function froggyPriceNegociatorInit(combination)
     // Display or hide fields depending of configuration
     froggyPriceNegociatorOptionStatus(combination);
     $('#froggypricenegociator-' + combination_identifier + 'option').click(function() { froggyPriceNegociatorOptionStatus(combination); });
+
+    // Refresh values
+    // eg. If price is updated, we update percent
+    froggyPriceNegociatorUpdate(combination);
+    for (i = 0; fields_to_watch[i]; i++)
+    {
+        $(fields_to_watch[i]).keydown(function() {
+            froggyPriceNegociatorUpdate(combination);
+        });
+    }
 }
 
 /**
@@ -124,7 +134,7 @@ function froggyPriceNegociatorUpdate(combination)
             $('#froggypricenegociator-' + combination_identifier + 'minimum-sell-price').text(price_min + ' ' + fc_pn_currency_sign);
         }
 
-    }, 200);
+    }, 100);
 }
 
 

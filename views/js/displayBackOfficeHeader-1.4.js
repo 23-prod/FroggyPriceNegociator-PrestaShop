@@ -26,22 +26,13 @@ $(document).ready(function() {
     setTimeout(function() {
 
         // Init display
-        froggyPriceNegociatorInit();
-        froggyPriceNegociatorUpdate();
-
-        // If price is updated, we update percent
-        $('#priceTE').keydown(function() {
-            froggyPriceNegociatorUpdate();
-        });
-        $('#priceTI').keydown(function() {
-            froggyPriceNegociatorUpdate();
-        });
-        $('#froggypricenegociator-price-min').keydown(function() {
-            froggyPriceNegociatorUpdate();
-        });
-        $('#froggypricenegociator-reduction-percent-max').keydown(function() {
-            froggyPriceNegociatorUpdate();
-        });
+        var fields_to_watch = new Array(
+            '#priceTE',
+            '#priceTI',
+            '#froggypricenegociator-price-min',
+            '#froggypricenegociator-reduction-percent-max'
+        );
+        froggyPriceNegociatorInit(false, fields_to_watch);
 
     }, 500);
 
@@ -61,26 +52,17 @@ $(document).ready(function() {
                     // Init display and binding
                     setTimeout(function() {
 
-                        // Init display
-                        froggyPriceNegociatorInit(true);
-                        froggyPriceNegociatorUpdate(true);
 
-                        // If price is updated, we update percent
-                        $('#attribute_price_impact').keydown(function() {
-                            froggyPriceNegociatorUpdate(true);
-                        });
-                        $('#attribute_price').keydown(function() {
-                            froggyPriceNegociatorUpdate(true);
-                        });
-                        $('#attribute_priceTI').keydown(function() {
-                            froggyPriceNegociatorUpdate(true);
-                        });
-                        $('#froggypricenegociator-combination-price-min').keydown(function() {
-                            froggyPriceNegociatorUpdate(true);
-                        });
-                        $('#froggypricenegociator-combination-reduction-percent-max').keydown(function() {
-                            froggyPriceNegociatorUpdate(true);
-                        });
+                        // Init
+                        var fields_to_watch = new Array(
+                            '#attribute_price_impact',
+                            '#attribute_price',
+                            '#attribute_priceTI',
+                            '#froggypricenegociator-combination-price-min',
+                            '#froggypricenegociator-combination-reduction-percent-max'
+                        );
+                        froggyPriceNegociatorInit(true, fields_to_watch);
+
 
                         // Load configuration combination when an edit button is clicked
                         froggyPriceNegociatorLoadConfigurationCombination(0);
@@ -91,6 +73,7 @@ $(document).ready(function() {
                         $('#ResetBtn').click(function() {
                             froggyPriceNegociatorLoadConfigurationCombination(0);
                         });
+
 
                     }, 500);
                 }

@@ -138,17 +138,11 @@ function froggyPriceNegociatorLoadConfigurationCombination(id_product_attribute)
     // If we are not editing a combination (eg. add combination), we hide the form
     if (id_product_attribute < 1)
     {
-        $('#froggypricenegociator-combination-title').hide();
-        $('#froggypricenegociator-combination-separator').hide();
-        $('#froggypricenegociator-combination-checkbox-details').hide();
-        $('#froggypricenegociator-combination-details').hide();
+        froggyPriceNegociatorDisplayHideAll(false, true);
         return false;
     }
     // Else we display it
-    $('#froggypricenegociator-combination-title').show();
-    $('#froggypricenegociator-combination-separator').show();
-    $('#froggypricenegociator-combination-checkbox-details').show();
-    $('#froggypricenegociator-combination-details').show();
+    froggyPriceNegociatorDisplayHideAll(true, true);
 
     // Init value of field to blank (in case, there is no configuration yet
     $('#froggypricenegociator-combination-option').removeAttr("checked");
@@ -174,6 +168,35 @@ function froggyPriceNegociatorLoadConfigurationCombination(id_product_attribute)
     // Check if box is checked (we hide the input text if not) and we update price min and percent max
     froggyPriceNegociatorOptionStatus(true);
     froggyPriceNegociatorUpdate(true);
+}
+
+
+/**
+ * Display or hide it all
+ * @param boolean display
+ * @param boolean combination (are we in combination context ?)
+ */
+function froggyPriceNegociatorDisplayHideAll(display, combination)
+{
+    // Set combination identifier, if we are on a combination edition
+    var combination_identifier = '';
+    if (combination)
+        combination_identifier = 'combination-';
+
+    if (display)
+    {
+        $('#froggypricenegociator-' + combination_identifier + 'title').hide();
+        $('#froggypricenegociator-' + combination_identifier + 'separator').hide();
+        $('#froggypricenegociator-' + combination_identifier + 'checkbox-details').hide();
+        $('#froggypricenegociator-' + combination_identifier + 'details').hide();
+    }
+    else
+    {
+        $('#froggypricenegociator-' + combination_identifier + 'title').show();
+        $('#froggypricenegociator-' + combination_identifier + 'separator').show();
+        $('#froggypricenegociator-' + combination_identifier + 'checkbox-details').show();
+        $('#froggypricenegociator-' + combination_identifier + 'details').show();
+    }
 }
 
 

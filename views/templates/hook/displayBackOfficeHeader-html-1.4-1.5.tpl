@@ -31,7 +31,7 @@
     {/foreach}
 
     var fc_pn_negociator_label_product_attribute = '{l s='Enable price negociation button for this product attribute' mod='froggypricenegociator'}';
-    var fc_pn_negociator_options = '{if $froggypricenegociator.ps_version eq '1.4'}<hr style="width:100%;" id="froggypricenegociator-separator">{else}<div class="separation" id="froggypricenegociator-separator"></div>{/if}<table>' +
+    var fc_pn_negociator_options = '{if $froggypricenegociator.ps_version eq '1.4'}<tr><td colspan="2"><hr style="width:100%;" id="froggypricenegociator-separator">{else}<div class="separation" id="froggypricenegociator-separator"></div>{/if}<table>' +
         '<tr><td colspan="2"><h4 id="froggypricenegociator-title">{l s='Froggy price negociator' mod='froggypricenegociator'}</h4></td></tr>' +
         {if $froggypricenegociator.FC_PN_ENABLE_GENERAL_OPTION eq '1'}
         '<tr><td colspan="2">' +
@@ -64,5 +64,5 @@
                 '</td>' +
             '</tr>' +
         {/if}
-        '';
+        '{if $froggypricenegociator.ps_version eq '1.4'}</table></td></tr>{/if}';
 </script>

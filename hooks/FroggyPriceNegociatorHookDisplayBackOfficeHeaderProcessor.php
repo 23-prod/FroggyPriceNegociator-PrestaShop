@@ -36,7 +36,7 @@ class FroggyPriceNegociatorHookDisplayBackOfficeHeaderProcessor extends FroggyHo
 	public function saveProductNegociatorConfiguration()
 	{
 		// Check if product form has been submit
-		if (!Tools::isSubmit('submitAddproduct') && !Tools::isSubmit('submitAddproductAndStay'))
+		if (!Tools::isSubmit('submitAddproduct') && !Tools::isSubmit('submitAddproductAndStay') && !Tools::isSubmit('submitProductAttribute'))
 			return false;
 
 		// If fields are empty

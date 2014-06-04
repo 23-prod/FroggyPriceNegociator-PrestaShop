@@ -17,9 +17,6 @@
  *  @copyright  2013-2014 Froggy Commerce
  */
 
-// Init var
-var froggypricenegociator_current_price_field = '#finalPrice';
-
 $(document).ready(function() {
 
     // When document is ready, we add the price negociator fields
@@ -47,5 +44,61 @@ $(document).ready(function() {
         });
 
     }, 500);
+
+
+    // When document is ready, if merchant click on combinations tab, we add the price negociator fields
+    $('h4.tab').click(function() {
+        setTimeout(function() {
+            if ($('#step4').is(':visible'))
+            {
+
+                if ($('#froggypricenegociator-combination-option').length == 0)
+                {
+                    var tmp = fc_pn_negociator_options.replace(/id="froggypricenegociator-/g, 'id="froggypricenegociator-combination-');
+                    $('#attr_qty_stock').after(tmp);
+                    $('#froggypricenegociator-combination-option-label').text(fc_pn_negociator_label_product_attribute);
+
+                    // Init display and binding
+                    setTimeout(function() {
+
+                        // Init display
+                        froggyPriceNegociatorInit(true);
+                        froggyPriceNegociatorUpdate(true);
+
+                        // If price is updated, we update percent
+                        $('#attribute_price_impact').keydown(function() {
+                            froggyPriceNegociatorUpdate(true);
+                        });
+                        $('#attribute_price').keydown(function() {
+                            froggyPriceNegociatorUpdate(true);
+                        });
+                        $('#attribute_priceTI').keydown(function() {
+                            froggyPriceNegociatorUpdate(true);
+                        });
+                        $('#froggypricenegociator-combination-price-min').keydown(function() {
+                            froggyPriceNegociatorUpdate(true);
+                        });
+                        $('#froggypricenegociator-combination-reduction-percent-max').keydown(function() {
+                            froggyPriceNegociatorUpdate(true);
+                        });
+
+                        // Load configuration combination when an edit button is clicked
+                        froggyPriceNegociatorLoadConfigurationCombination(0);
+                        $('img[src=../img/admin/edit.gif]').click(function() {
+                            var id_product_attribute = froggyPriceNegociatorGetParamsFromUrl($(this).parent().next().attr('href'), 'id_product_attribute');
+                            froggyPriceNegociatorLoadConfigurationCombination(id_product_attribute);
+                        });
+                        $('#ResetBtn').click(function() {
+                            froggyPriceNegociatorLoadConfigurationCombination(0);
+                        });
+
+                    }, 500);
+                }
+
+
+            }
+        }, 200);
+    });
+
 
 });

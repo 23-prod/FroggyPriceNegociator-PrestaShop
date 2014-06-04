@@ -56,7 +56,7 @@ $(document).ready(function() {
 
     });
 
-    // When document is ready, if merchant click on link price tab, we add the price negociator fields
+    // When document is ready, if merchant click on combinations tab, we add the price negociator fields
     $('#link-Combinations').click(function() {
 
         if ($('#froggypricenegociator-combination-option').length == 0)

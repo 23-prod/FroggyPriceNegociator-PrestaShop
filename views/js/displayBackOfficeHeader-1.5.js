@@ -17,10 +17,6 @@
  *  @copyright  2013-2014 Froggy Commerce
  */
 
-// Init var
-var froggypricenegociator_current_price_field = '#finalPrice';
-var froggypricenegociator_current_price_combination_field = '#attribute_new_total_price';
-
 $(document).ready(function() {
 
     // When document is ready, if merchant click on link price tab, we add the price negociator fields

@@ -17,6 +17,10 @@
  *  @copyright  2013-2014 Froggy Commerce
  */
 
+// Init var
+var froggypricenegociator_current_price_field = '#finalPrice';
+var froggypricenegociator_current_price_combination_field = '#attribute_new_total_price';
+
 function froggyPriceNegociatorUpdate(combination)
 {
     // Set combination identifier, if we are on a combination edition

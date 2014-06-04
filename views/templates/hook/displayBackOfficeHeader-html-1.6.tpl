@@ -23,8 +23,15 @@
 *}
 
 <script>
+    var froggypricenegociator_combinations = new Array();
+    {foreach from=$froggypricenegociator.combinations key=kpnc item=pnc}
+        {if $pnc.id_product_attribute gt 0}
+        froggypricenegociator_combinations[{$kpnc}] = new Array("{$pnc.id_product_attribute}", "{$pnc.price_min}", "{$pnc.reduction_percent_max}", "{$pnc.active}");
+        {/if}
+    {/foreach}
+
     var fc_pn_negociator_label_product_attribute = '{l s='Enable price negociation button for this product attribute' mod='froggypricenegociator'}';
-    var fc_pn_negociator_options = '<h3>{l s='Froggy price negociator' mod='froggypricenegociator'}</h3>' +
+    var fc_pn_negociator_options = '<h3 id="froggypricenegociator-title">{l s='Froggy price negociator' mod='froggypricenegociator'}</h3>' +
 
     {if $froggypricenegociator.FC_PN_ENABLE_GENERAL_OPTION eq '1'}
             '<div class="form-group">' +

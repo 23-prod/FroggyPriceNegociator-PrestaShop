@@ -46,7 +46,7 @@ function froggyPriceNegociatorInit(combination, fields_to_watch)
     froggyPriceNegociatorUpdate(combination);
     for (i = 0; fields_to_watch[i]; i++)
     {
-        $(fields_to_watch[i]).keydown(function() {
+        $(fields_to_watch[i]).keyup(function() {
             froggyPriceNegociatorUpdate(combination);
         });
     }

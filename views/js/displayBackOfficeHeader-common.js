@@ -17,10 +17,65 @@
  *  @copyright  2013-2014 Froggy Commerce
  */
 
-// Init var
+/**
+ *  Init var
+ *  Define selectors for product price and product attribute price)
+ */
 var froggypricenegociator_current_price_field = '#finalPrice';
 var froggypricenegociator_current_price_combination_field = '#attribute_new_total_price';
 
+
+/**
+ * Init function
+ * Call functions to init and add all triggers needed
+ * @param boolean combination (are we in combination context ?)
+ */
+function froggyPriceNegociatorInit(combination)
+{
+    // Set combination identifier, if we are on a combination edition
+    var combination_identifier = '';
+    if (combination)
+        combination_identifier = 'combination-';
+
+    // Display or hide fields depending of configuration
+    froggyPriceNegociatorOptionStatus(combination);
+    $('#froggypricenegociator-' + combination_identifier + 'option').click(function() { froggyPriceNegociatorOptionStatus(combination); });
+}
+
+/**
+ * Option status
+ * Display or hide fields depending if there is a general configuration of if the option is enabled (checkbox checked)
+ * @param boolean combination (are we in combination context ?)
+ */
+function froggyPriceNegociatorOptionStatus(combination)
+{
+    // Set combination identifier, if we are on a combination edition
+    var combination_identifier = '';
+    if (combination)
+        combination_identifier = 'combination-';
+
+    // If general option is enabled
+    if (fc_pn_enable_general_option == 1)
+    {
+        $('#froggypricenegociator-' + combination_identifier + 'checkbox-details').fadeOut(500);
+        $('#froggypricenegociator-' + combination_identifier + 'details').fadeOut(500);
+        return false;
+    }
+
+    // Else depending if option is enabled for this product
+    if ($('#froggypricenegociator-' + combination_identifier + 'option').is(':checked'))
+        $('#froggypricenegociator-' + combination_identifier + 'details').fadeIn(500);
+    else
+        $('#froggypricenegociator-' + combination_identifier + 'details').fadeOut(500);
+    return false;
+}
+
+
+/**
+ * Update value
+ * Refresh percent or price min depending on others fields update
+ * @param boolean combination (are we in combination context ?)
+ */
 function froggyPriceNegociatorUpdate(combination)
 {
     // Set combination identifier, if we are on a combination edition
@@ -72,41 +127,12 @@ function froggyPriceNegociatorUpdate(combination)
     }, 200);
 }
 
-function froggyPriceNegociatorOptionStatus(combination)
-{
-    // Set combination identifier, if we are on a combination edition
-    var combination_identifier = '';
-    if (combination)
-        combination_identifier = 'combination-';
 
-    // If general option is enabled
-    if (fc_pn_enable_general_option == 1)
-    {
-        $('#froggypricenegociator-' + combination_identifier + 'checkbox-details').fadeOut(500);
-        $('#froggypricenegociator-' + combination_identifier + 'details').fadeOut(500);
-        return false;
-    }
-
-    // Else depending if option is enabled for this product
-    if ($('#froggypricenegociator-' + combination_identifier + 'option').is(':checked'))
-        $('#froggypricenegociator-' + combination_identifier + 'details').fadeIn(500);
-    else
-        $('#froggypricenegociator-' + combination_identifier + 'details').fadeOut(500);
-    return false;
-}
-
-function froggyPriceNegociatorInit(combination)
-{
-    // Set combination identifier, if we are on a combination edition
-    var combination_identifier = '';
-    if (combination)
-        combination_identifier = 'combination-';
-
-    froggyPriceNegociatorOptionStatus(combination);
-    $('#froggypricenegociator-' + combination_identifier + 'option').click(function() { froggyPriceNegociatorOptionStatus(combination); });
-}
-
-
+/**
+ * Load configuration combination
+ * Set configuration values depending of the combination selected
+ * @param integer id_product_attribute
+ */
 function froggyPriceNegociatorLoadConfigurationCombination(id_product_attribute)
 {
     // If we are not editing a combination (eg. add combination), we hide the form
@@ -151,6 +177,12 @@ function froggyPriceNegociatorLoadConfigurationCombination(id_product_attribute)
 }
 
 
+/**
+ *
+ * @param string query (url)
+ * @param string query_string (get param in url we want to retrieve)
+ * @return integer id_product_attribute
+ */
 function froggyPriceNegociatorGetParamsFromUrl(query, query_string)
 {
     var vars = query.split("&");
@@ -160,5 +192,5 @@ function froggyPriceNegociatorGetParamsFromUrl(query, query_string)
         if (pair[0] == query_string)
             return pair[1];
     }
-    return '';
+    return 0;
 }

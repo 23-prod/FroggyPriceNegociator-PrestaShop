@@ -27,6 +27,19 @@
 
 <div id="myModal" class="reveal-modal">
 	<div class="froggy-negociator-container-modal">
+		<div class="froggy-negociator-breadcrumb-container">
+			<ul>
+				<li class="froggy-negociator-step-indicator froggy-negociator-done-step">
+					1. Négociation
+				</li>
+				<li class="froggy-negociator-step-indicator froggy-negociator-current-step">
+					2. Validation
+				</li>
+				<li class="froggy-negociator-step-indicator froggy-negociator-next-step">
+					3. Confirmation
+				</li>
+			</ul>
+		</div>
 		<p class="froggy-negociator-title-modal">Vous n'avez pas le budget ?</p>
 		<p class="froggy-negociator-subtitle-modal">quel est votre budget pour ce produit ?</p>
 

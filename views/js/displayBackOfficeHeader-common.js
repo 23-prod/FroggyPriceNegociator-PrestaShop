@@ -43,11 +43,11 @@ function froggyPriceNegociatorInit(combination, fields_to_watch)
 
     // Refresh values
     // eg. If price is updated, we update percent
-    froggyPriceNegociatorUpdate(combination);
+    froggyPriceNegociatorUpdate(combination, true);
     for (i = 0; fields_to_watch[i]; i++)
     {
         $(fields_to_watch[i]).keyup(function() {
-            froggyPriceNegociatorUpdate(combination);
+            froggyPriceNegociatorUpdate(combination, false);
         });
     }
 }
@@ -86,7 +86,7 @@ function froggyPriceNegociatorOptionStatus(combination)
  * Refresh percent or price min depending on others fields update
  * @param boolean combination (are we in combination context ?)
  */
-function froggyPriceNegociatorUpdate(combination)
+function froggyPriceNegociatorUpdate(combination, init)
 {
     // Set combination identifier, if we are on a combination edition
     var combination_identifier = '';
@@ -111,7 +111,7 @@ function froggyPriceNegociatorUpdate(combination)
         {
             // If "PRICE_MINI" is the configuration
 			var price_min_selector = $('#froggypricenegociator-' + combination_identifier + 'price-min');
-			if (price_min_selector.val() == '')
+			if (price_min_selector.val() == '' && init)
 				price_min_selector.val(current_price);
 
             var price_min = price_min_selector.val();
@@ -134,20 +134,22 @@ function froggyPriceNegociatorUpdate(combination)
         {
             // IF "PERCENT" is the configuration
 			var reduction_percent_max_selector = $('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max');
-			if (reduction_percent_max_selector.val() == '')
+			if (reduction_percent_max_selector.val() == '' && init)
 				reduction_percent_max_selector.val(0);
 
             var reduction_percent_max = reduction_percent_max_selector.val();
             var price_min = current_price * ((100 - reduction_percent_max) / 100);
             price_min = Math.round(price_min * 100) / 100;
 
-			if (reduction_percent_max < 0)
+			if (reduction_percent_max < 0 || reduction_percent_max > 100)
 			{
+				$('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max-label').hide();
 				$('#froggypricenegociator-' + combination_identifier + 'price-min').html(fc_pn_negociator_label_price_error);
 				$('#froggypricenegociator-' + combination_identifier + 'price-min').css('color', 'red');
 			}
 			else
 			{
+				$('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max-label').show();
 				$('#froggypricenegociator-' + combination_identifier + 'price-min').html(price_min + ' ' + fc_pn_currency_sign);
 				$('#froggypricenegociator-' + combination_identifier + 'price-min').css('color', 'black');
 			}
@@ -205,7 +207,7 @@ function froggyPriceNegociatorLoadConfigurationCombination(id_product_attribute)
 
     // Check if box is checked (we hide the input text if not) and we update price min and percent max
     froggyPriceNegociatorOptionStatus(true);
-    froggyPriceNegociatorUpdate(true);
+    froggyPriceNegociatorUpdate(true, true);
 }
 
 

@@ -59,7 +59,7 @@
         <tr id="froggypricenegociator-details"> \
             <td class="col-left"><label class="froggypricenegociator-label" id="froggypricenegociator-label-field-2">{l s='Percent:' mod='froggypricenegociator'}</label></td> \
             <td> \
-                - <input type="text" value="{$froggypricenegociator.fpn_product->reduction_percent_max}" style="padding-top: 5px;" id="froggypricenegociator-reduction-percent-max" name="froggypricenegociator_reduction_percent_max">%, {l s='In that case, the minimum sell price will be' mod='froggypricenegociator'}  \
+                - <input type="text" value="{$froggypricenegociator.fpn_product->reduction_percent_max}" style="padding-top: 5px;" id="froggypricenegociator-reduction-percent-max" name="froggypricenegociator_reduction_percent_max"><span id="froggypricenegociator-reduction-percent-max-label">%, {l s='In that case, the minimum sell price will be' mod='froggypricenegociator'}</span>  \
                 <b><span id="froggypricenegociator-price-min">{$froggypricenegociator.fpn_product->price_min}</span></b> \
                 <input type="hidden" id="froggypricenegociator-price-min-hidden" name="froggypricenegociator_price_min" value="{$froggypricenegociator.fpn_product->price_min}" /> \
                 </td> \

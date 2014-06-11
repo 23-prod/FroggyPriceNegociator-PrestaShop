@@ -33,7 +33,7 @@
     var fc_pn_negociator_label_product_attribute = '{l s='Enable price negociation button for this product attribute' mod='froggypricenegociator'}';
 	var fc_pn_negociator_label_price_error = '{l s='Beware, the minimum price sell is superior to the final retail place.'}';
     var fc_pn_negociator_options = '<h3 id="froggypricenegociator-title">{l s='Froggy price negociator' mod='froggypricenegociator'}</h3> \
-
+    \
     {if $froggypricenegociator.FC_PN_ENABLE_GENERAL_OPTION eq '1'}
             <div class="form-group"> \
             <div class="col-lg-9 col-lg-offset-3"> \
@@ -45,7 +45,7 @@
             </div> \
             </div> \
     {/if}
-
+	        \
             <div class="form-group" id="froggypricenegociator-checkbox-details"> \
             <div class="col-lg-9"> \
             <div class="checkbox"> \
@@ -56,7 +56,7 @@
             </div> \
             </div> \
             </div> \
-
+            \
     {if $froggypricenegociator.FC_PN_TYPE eq 'PRICE_MINI'}
         <div class="form-group" id="froggypricenegociator-details"> \
                 <label for="froggypricenegociator-price-min" class="control-label col-lg-3 froggypricenegociator-label" id="froggypricenegociator-label-field-2">{l s='Minimum price sell:' mod='froggypricenegociator'}</label> \
@@ -78,5 +78,4 @@
                 </div> \
         </div>';
     {/if}
-
 </script>

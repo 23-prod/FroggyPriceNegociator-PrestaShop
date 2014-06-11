@@ -1,1 +1,1 @@
-DROP TABLE `@PREFIX@fpn_product`;
+DROP TABLE IF EXISTS `@PREFIX@fpn_product`;

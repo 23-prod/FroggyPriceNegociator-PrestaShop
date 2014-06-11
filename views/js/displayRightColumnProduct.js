@@ -17,15 +17,25 @@
  *  @copyright  2013-2014 Froggy Commerce
  */
 
-function froggyCleanPrice(value_price)
+/** Tool functions **/
+
+function froggyPriceNegociatorCleanPrice(value_price)
 {
 	value_price = value_price.replace(',', '.');
 	value_price = value_price.replace(/[^\d.-]/g, '');
 	return value_price;
 }
 
-$(document).ready(function() {
+function froggyPriceNegociatorRefrechPrice()
+{
+	$('#froggy-negociator-product-price').text($('#our_price_display').text());
+}
 
+
+/** FEATURE 1 : Display button with delay **/
+
+function froggyPriceNegociatorDisplayButtonWithDelay()
+{
 	// If option "display button with a delay" is enabled
 	if (FC_PN_DISPLAY_DELAYED > 0)
 	{
@@ -50,16 +60,28 @@ $(document).ready(function() {
 				$('#froggypricenegociator-button').fadeIn(3000);
 		}, FC_PN_DISPLAY_DELAYED * 1000);
 	}
+}
 
-	// Empty reduction block and display product price
+
+
+/** FEATURE 2 : Dynamize modal **/
+
+function froggyPriceNegociatorDynamizeModal()
+{
+	// Init : Empty reduction block and retrieve product price
 	$('#froggy-negociator-product-price-reduction').text();
-	$('#froggy-negociator-product-price').text($('#our_price_display').text());
+	froggyPriceNegociatorRefrechPrice();
 
 	// When an offer is wrote
 	$('#froggy-negociator-input-offer').keyup(function() {
 
-		var froggypricenegociator_current_price = froggyCleanPrice($('#froggy-negociator-product-price').text());
-		var froggypricenegociator_offer = froggyCleanPrice($('#froggy-negociator-input-offer').val());
+		// Retrieve price
+		froggyPriceNegociatorRefrechPrice();
+		var froggypricenegociator_current_price = froggyPriceNegociatorCleanPrice($('#froggy-negociator-product-price').text());
+		var froggypricenegociator_offer = froggyPriceNegociatorCleanPrice($('#froggy-negociator-input-offer').val());
+
+
+
 		var froggypricenegociator_reduction = froggypricenegociator_current_price - froggypricenegociator_offer;
 		var froggypricenegociator_reduction_percent = froggypricenegociator_reduction * 100 / froggypricenegociator_current_price;
 		froggypricenegociator_reduction = formatCurrency(froggypricenegociator_reduction, currencyFormat, currencySign, currencyBlank);
@@ -71,5 +93,12 @@ $(document).ready(function() {
 
 		$('#froggy-negociator-seventyfive').trigger('click');
 	});
+}
 
+
+/** Launch script **/
+
+$(document).ready(function() {
+	froggyPriceNegociatorDisplayButtonWithDelay();
+	froggyPriceNegociatorDynamizeModal();
 });

@@ -132,7 +132,7 @@ function froggyPriceNegociatorUpdate(combination, init)
             reduction_percent_max = Math.round(reduction_percent_max * 100) / 100;
 
 			// Update display
-			if (reduction_percent_max < 0)
+			if (reduction_percent_max < 0 || reduction_percent_max > 100)
 			{
 				$('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max').html(fc_pn_negociator_label_price_error);
 				$('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max').css('color', 'red');

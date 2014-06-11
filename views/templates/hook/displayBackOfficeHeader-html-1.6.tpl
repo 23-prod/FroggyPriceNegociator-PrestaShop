@@ -31,6 +31,7 @@
     {/foreach}
 
     var fc_pn_negociator_label_product_attribute = '{l s='Enable price negociation button for this product attribute' mod='froggypricenegociator'}';
+	var fc_pn_negociator_label_price_error = '{l s='Beware, the minimum price sell is superior to the final retail place.'}';
     var fc_pn_negociator_options = '<h3 id="froggypricenegociator-title">{l s='Froggy price negociator' mod='froggypricenegociator'}</h3> \
 
     {if $froggypricenegociator.FC_PN_ENABLE_GENERAL_OPTION eq '1'}

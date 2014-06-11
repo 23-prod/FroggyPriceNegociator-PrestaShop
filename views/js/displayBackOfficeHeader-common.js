@@ -118,7 +118,16 @@ function froggyPriceNegociatorUpdate(combination)
             var reduction_percent_max = 100 - (price_min * 100 / current_price);
             reduction_percent_max = Math.round(reduction_percent_max * 100) / 100;
 
-            $('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max').html('- ' + reduction_percent_max + '%');
+			if (reduction_percent_max < 0)
+			{
+				$('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max').html(fc_pn_negociator_label_price_error);
+				$('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max').css('color', 'red');
+			}
+			else
+			{
+            	$('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max').html('- ' + reduction_percent_max + '%');
+				$('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max').css('color', 'black');
+			}
             $('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max-hidden').val(reduction_percent_max);
         }
         else
@@ -130,9 +139,18 @@ function froggyPriceNegociatorUpdate(combination)
 
             var reduction_percent_max = reduction_percent_max_selector.val();
             var price_min = current_price * ((100 - reduction_percent_max) / 100);
-
             price_min = Math.round(price_min * 100) / 100;
-            $('#froggypricenegociator-' + combination_identifier + 'price-min').html(price_min + ' ' + fc_pn_currency_sign);
+
+			if (reduction_percent_max < 0)
+			{
+				$('#froggypricenegociator-' + combination_identifier + 'price-min').html(fc_pn_negociator_label_price_error);
+				$('#froggypricenegociator-' + combination_identifier + 'price-min').css('color', 'red');
+			}
+			else
+			{
+				$('#froggypricenegociator-' + combination_identifier + 'price-min').html(price_min + ' ' + fc_pn_currency_sign);
+				$('#froggypricenegociator-' + combination_identifier + 'price-min').css('color', 'black');
+			}
             $('#froggypricenegociator-' + combination_identifier + 'price-min-hidden').val(price_min);
         }
 

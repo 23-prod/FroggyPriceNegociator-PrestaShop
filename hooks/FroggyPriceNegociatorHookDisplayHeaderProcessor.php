@@ -32,5 +32,6 @@ class FroggyPriceNegociatorHookDisplayHeaderProcessor extends FroggyHookProcesso
 		}
 		else
 			$this->context->controller->addJs($this->path.'views/js/jquery.fancybox.action.js');
+		$this->context->controller->addJs($this->path.'views/js/buttons.js');
 	}
 }

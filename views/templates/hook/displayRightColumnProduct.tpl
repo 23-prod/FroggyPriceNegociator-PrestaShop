@@ -22,6 +22,10 @@
 *  @license		http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *}
 
+<script>
+	var FC_PN_DISPLAY_DELAYED = '{$froggypricenegociator.FC_PN_DISPLAY_DELAYED}';
+</script>
+
 <a href="#" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negociate the price' mod='froggypricenegociator'}" class="button-12 froggy-price-negociator-button-front yellow radius">{l s='Negociate the price' mod='froggypricenegociator'}</a>
 
 

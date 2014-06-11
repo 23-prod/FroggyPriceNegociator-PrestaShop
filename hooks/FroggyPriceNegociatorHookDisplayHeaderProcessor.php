@@ -23,6 +23,9 @@ class FroggyPriceNegociatorHookDisplayHeaderProcessor extends FroggyHookProcesso
 {
 	public function run()
 	{
+		if (Tools::getValue('id_product') < 1)
+			return true;
+
 		$this->context->controller->addCss($this->path.'views/css/buttons.css');
 		$this->context->controller->addCss($this->path.'views/css/modal.css');
 		if (Configuration::get('FC_PN_DISPLAY_MODE') == 'REVEAL')
@@ -32,6 +35,6 @@ class FroggyPriceNegociatorHookDisplayHeaderProcessor extends FroggyHookProcesso
 		}
 		else
 			$this->context->controller->addJs($this->path.'views/js/jquery.fancybox.action.js');
-		$this->context->controller->addJs($this->path.'views/js/buttons.js');
+		$this->context->controller->addJs($this->path.'views/js/displayRightColumnProduct.js');
 	}
 }

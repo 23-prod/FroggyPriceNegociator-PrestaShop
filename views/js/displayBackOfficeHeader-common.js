@@ -98,19 +98,19 @@ function froggyPriceNegociatorUpdate(combination, init)
     if (combination)
         combination_identifier = 'combination-';
 
-    // Get current price
-    var current_price = $(froggypricenegociator_current_price_field).val();
-    if (!current_price)
-        current_price = $(froggypricenegociator_current_price_field).text()
-    if (combination)
-    {
-        var current_price = $(froggypricenegociator_current_price_combination_field).val();
-        if (!current_price)
-            current_price = $(froggypricenegociator_current_price_combination_field).text()
-    }
-
     // Wait a few milliseconds (wait for the tab to be displayed), then calcul percent reduction
     setTimeout(function() {
+
+		// Get current price
+		var current_price = $(froggypricenegociator_current_price_field).val();
+		if (!current_price)
+			current_price = $(froggypricenegociator_current_price_field).text()
+		if (combination)
+		{
+			var current_price = $(froggypricenegociator_current_price_combination_field).val();
+			if (!current_price)
+				current_price = $(froggypricenegociator_current_price_combination_field).text()
+		}
 
         if (fc_pn_type == 'PRICE_MINI')
         {

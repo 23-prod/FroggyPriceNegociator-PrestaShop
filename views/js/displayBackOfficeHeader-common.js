@@ -67,8 +67,7 @@ function froggyPriceNegociatorOptionStatus(combination)
     // If general option is enabled
     if (fc_pn_enable_general_option == 1)
     {
-        $('#froggypricenegociator-' + combination_identifier + 'checkbox-details').fadeOut(500);
-        $('#froggypricenegociator-' + combination_identifier + 'details').fadeOut(500);
+		froggyPriceNegociatorDisplayHideAll(false, combination);
         return false;
     }
 

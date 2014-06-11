@@ -23,67 +23,63 @@
 *}
 
 <script>
+    var froggypricenegociator_about_label = '{l s='about' mod='froggypricenegociator'}';
 	var FC_PN_DISPLAY_DELAYED = '{$froggypricenegociator.FC_PN_DISPLAY_DELAYED}';
 </script>
 
-<a href="#" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negociate the price' mod='froggypricenegociator'}" class="button-12 froggy-price-negociator-button-front yellow radius">{l s='Negociate the price' mod='froggypricenegociator'}</a>
+<a href="#" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negotiate the price' mod='froggypricenegociator'}" class="button-12 froggy-price-negociator-button-front yellow radius">{l s='Negotiate the price' mod='froggypricenegociator'}</a>
 
 
 <div id="myModal" class="reveal-modal">
 	<div class="froggy-negociator-container-modal">
 		<div class="froggy-negociator-breadcrumb-container">
 			<ul>
-				<li class="froggy-negociator-step-indicator froggy-negociator-done-step">
-					1. Négociation
-				</li>
 				<li class="froggy-negociator-step-indicator froggy-negociator-current-step">
-					2. Validation
+					1. {l s='Negotiation' mod='froggypricenegociator'}
 				</li>
 				<li class="froggy-negociator-step-indicator froggy-negociator-next-step">
-					3. Confirmation
+					2. {l s='Validation' mod='froggypricenegociator'}
+				</li>
+				<li class="froggy-negociator-step-indicator froggy-negociator-next-step">
+					3. {l s='Confirmation' mod='froggypricenegociator'}
 				</li>
 			</ul>
 		</div>
-		<p class="froggy-negociator-title-modal">Vous n'avez pas le budget ?</p>
-		<p class="froggy-negociator-subtitle-modal">quel est votre budget pour ce produit ?</p>
+		<p class="froggy-negociator-title-modal">{l s='You do not have the budget?' mod='froggypricenegociator'}</p>
+		<p class="froggy-negociator-subtitle-modal">{l s='How much you would pay for this product?' mod='froggypricenegociator'}</p>
 
 		<form action="">
 
 			<fieldset class="froggy-negociator-input-offer">
-				<input type="text" placeholder="Faite une offre" id="froggy-negociator-input-offer"/>
+				<input type="text" placeholder="{l s='Make an offer' mod='froggypricenegociator'}" id="froggy-negociator-input-offer"/>
 				<label for="froggy-negociator-input-offer">€</label>
 			</fieldset>
 
 			<fieldset class="froggy-negociator-progressbar-container">
-				<input type="radio" class="radio" name="progress" value="five" id="five">
-				<label for="five" class="label">5%</label>
 
-				<input type="radio" class="radio" name="progress" value="twentyfive" id="twentyfive" checked>
-				<label for="twentyfive" class="label">25%</label>
+				<input type="radio" class="radio" name="progress" value="zero" id="froggy-negociator-zero" checked>
+				<input type="radio" class="radio" name="progress" value="five" id="froggy-negociator-five">
+				<input type="radio" class="radio" name="progress" value="twentyfive" id="froggy-negociator-twentyfive">
+				<input type="radio" class="radio" name="progress" value="fifty" id="froggy-negociator-fifty">
+				<input type="radio" class="radio" name="progress" value="seventyfive" id="froggy-negociator-seventyfive">
+				<input type="radio" class="radio" name="progress" value="onehundred" id="froggy-negociator-onehundred">
 
-				<input type="radio" class="radio" name="progress" value="fifty" id="fifty">
-				<label for="fifty" class="label">50%</label>
+				<p class="froggy-negociator-label-probability">{l s='Chance of success in your negotiation:' mod='froggypricenegociator'}</p>
 
-				<input type="radio" class="radio" name="progress" value="seventyfive" id="seventyfive">
-				<label for="seventyfive" class="label">75%</label>
-
-				<input type="radio" class="radio" name="progress" value="onehundred" id="onehundred">
-				<label for="onehundred" class="label">100%</label>
-				<p class="froggy-negociator-label-probability">Chance de succès de votre négociation :</p>
 				<div class="progress">
 					<div class="progress-bar"></div>
 				</div>
 				<div class="froggy-negociator-comparaison-container">
 					<div class="froggy-negociator-price-info">
-						<p>prix d'origine : <br/><span class="froggy-negociator-price-elements">36.89 €</span></p>
+						<p>{l s='Product price:' mod='froggypricenegociator'} <br/><span class="froggy-negociator-price-elements" id="froggy-negociator-product-price"></span></p>
 					</div>
-					<div class="froggy-negociator-price-info">
-						<p>Réduction possible : <br/> <span class="froggy-negociator-price-elements">1.50 € ( soit 4.5 % )</span></p>
+					<div class="froggy-negociator-price-info" id="froggy-negociator-product-price-reduction-info">
+						<p>{l s='Reduction:' mod='froggypricenegociator'} <br/> <span class="froggy-negociator-price-elements" id="froggy-negociator-product-price-reduction"></span></p>
 					</div>
 				</div>
 			</fieldset>
 			<fieldset class="froggy-negociator-validation-step1">
-				<input type="submit" value="proposer le prix" />
+				<input type="submit" value="{l s='Submit my offer' mod='froggypricenegociator'}" />
 			</fieldset>
 
 

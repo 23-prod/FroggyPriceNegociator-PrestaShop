@@ -17,6 +17,13 @@
  *  @copyright  2013-2014 Froggy Commerce
  */
 
+function froggyCleanPrice(value_price)
+{
+	value_price = value_price.replace(',', '.');
+	value_price = value_price.replace(/[^\d.-]/g, '');
+	return value_price;
+}
+
 $(document).ready(function() {
 
 	// If option "display button with a delay" is enabled
@@ -43,5 +50,26 @@ $(document).ready(function() {
 				$('#froggypricenegociator-button').fadeIn(3000);
 		}, FC_PN_DISPLAY_DELAYED * 1000);
 	}
+
+	// Empty reduction block and display product price
+	$('#froggy-negociator-product-price-reduction').text();
+	$('#froggy-negociator-product-price').text($('#our_price_display').text());
+
+	// When an offer is wrote
+	$('#froggy-negociator-input-offer').keyup(function() {
+
+		var froggypricenegociator_current_price = froggyCleanPrice($('#froggy-negociator-product-price').text());
+		var froggypricenegociator_offer = froggyCleanPrice($('#froggy-negociator-input-offer').val());
+		var froggypricenegociator_reduction = froggypricenegociator_current_price - froggypricenegociator_offer;
+		var froggypricenegociator_reduction_percent = froggypricenegociator_reduction * 100 / froggypricenegociator_current_price;
+		froggypricenegociator_reduction = formatCurrency(froggypricenegociator_reduction, currencyFormat, currencySign, currencyBlank);
+		froggypricenegociator_reduction_percent = Math.round(froggypricenegociator_reduction_percent);
+		var froggypricenegociator_reduction_label = froggypricenegociator_reduction + ' ( ' + froggypricenegociator_about_label + ' ' + froggypricenegociator_reduction_percent + ' % )';
+
+		$('#froggy-negociator-input-offer').val(froggypricenegociator_offer);
+		$('#froggy-negociator-product-price-reduction').text(froggypricenegociator_reduction_label);
+
+		$('#froggy-negociator-seventyfive').trigger('click');
+	});
 
 });

@@ -103,6 +103,18 @@ class FroggyPriceNegociatorObject extends ObjectModel
 		return $fields;
 	}
 
+	/*** End of Retrocompatibility 1.4 ***/
+
+
+	public function __construct($id = null, $id_lang = null, $id_shop = null)
+	{
+		$return = parent::__construct($id, $id_lang, $id_shop);
+		$this->price_min = number_format($this->price_min, 2);
+		$this->reduction_percent_max = number_format($this->reduction_percent_max, 2);
+		return $return;
+	}
+
+
 	public static function getByIdProduct($id_product, $id_product_attribute = 0)
 	{
 		$id_fpn_product = Db::getInstance()->getValue('
@@ -116,8 +128,14 @@ class FroggyPriceNegociatorObject extends ObjectModel
 
 	public static function getCombinationsByIdProduct($id_product)
 	{
-		return Db::getInstance()->executeS('
+		$result = Db::getInstance()->executeS('
 		SELECT * FROM `'._DB_PREFIX_.'fpn_product`
 		WHERE `id_product` = '.(int)$id_product);
+		foreach ($result as $k => $v)
+		{
+			$result[$k]['price_min'] = number_format($result[$k]['price_min'], 2);
+			$result[$k]['reduction_percent_max'] = number_format($result[$k]['reduction_percent_max'], 2);
+		}
+		return $result;
 	}
 }

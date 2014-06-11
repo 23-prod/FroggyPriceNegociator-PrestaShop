@@ -110,14 +110,23 @@ function froggyPriceNegociatorUpdate(combination, init)
         if (fc_pn_type == 'PRICE_MINI')
         {
             // If "PRICE_MINI" is the configuration
+
+			// Init
 			var price_min_selector = $('#froggypricenegociator-' + combination_identifier + 'price-min');
 			if (price_min_selector.val() == '' && init)
 				price_min_selector.val(current_price);
 
-            var price_min = price_min_selector.val();
+			// Uniformize value
+			var price_min = price_min_selector.val();
+			price_min = price_min.replace(',', '.');
+			price_min = price_min.replace(/[^\d.-]/g, '');
+			price_min_selector.val(price_min);
+
+			// Calcul max percent reduction
             var reduction_percent_max = 100 - (price_min * 100 / current_price);
             reduction_percent_max = Math.round(reduction_percent_max * 100) / 100;
 
+			// Update display
 			if (reduction_percent_max < 0)
 			{
 				$('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max').html(fc_pn_negociator_label_price_error);
@@ -133,14 +142,23 @@ function froggyPriceNegociatorUpdate(combination, init)
         else
         {
             // IF "PERCENT" is the configuration
+
+			// Init
 			var reduction_percent_max_selector = $('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max');
 			if (reduction_percent_max_selector.val() == '' && init)
 				reduction_percent_max_selector.val(0);
 
-            var reduction_percent_max = reduction_percent_max_selector.val();
+			// Uniformize value
+			var reduction_percent_max = reduction_percent_max_selector.val();
+			reduction_percent_max = reduction_percent_max.replace(',', '.');
+			reduction_percent_max = reduction_percent_max.replace(/[^\d.-]/g, '');
+			reduction_percent_max_selector.val(reduction_percent_max);
+
+			// Calcul min price
             var price_min = current_price * ((100 - reduction_percent_max) / 100);
             price_min = Math.round(price_min * 100) / 100;
 
+			// Update display
 			if (reduction_percent_max < 0 || reduction_percent_max > 100)
 			{
 				$('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max-label').hide();

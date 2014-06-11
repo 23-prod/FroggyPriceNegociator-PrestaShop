@@ -26,11 +26,25 @@ function froggyPriceNegociatorCleanPrice(value_price)
 	return value_price;
 }
 
-function froggyPriceNegociatorRefrechPrice()
+function froggyPriceNegociatorRefreshPrice()
 {
 	$('#froggy-negociator-product-price').text($('#our_price_display').text());
 }
 
+function froggyPriceNegociatorCalculReduction()
+{
+	var froggypricenegociator_current_price = froggyPriceNegociatorCleanPrice($('#froggy-negociator-product-price').text());
+	var froggypricenegociator_offer = froggyPriceNegociatorCleanPrice($('#froggy-negociator-input-offer').val());
+
+	var froggypricenegociator_reduction = froggypricenegociator_current_price - froggypricenegociator_offer;
+	var froggypricenegociator_reduction_percent = froggypricenegociator_reduction * 100 / froggypricenegociator_current_price;
+	froggypricenegociator_reduction = formatCurrency(froggypricenegociator_reduction, currencyFormat, currencySign, currencyBlank);
+	froggypricenegociator_reduction_percent = Math.round(froggypricenegociator_reduction_percent);
+	var froggypricenegociator_reduction_label = froggypricenegociator_reduction + ' ( ' + froggypricenegociator_about_label + ' ' + froggypricenegociator_reduction_percent + ' % )';
+
+	$('#froggy-negociator-input-offer').val(froggypricenegociator_offer);
+	$('#froggy-negociator-product-price-reduction').text(froggypricenegociator_reduction_label);
+}
 
 /** FEATURE 1 : Display button with delay **/
 
@@ -69,27 +83,20 @@ function froggyPriceNegociatorDisplayButtonWithDelay()
 function froggyPriceNegociatorDynamizeModal()
 {
 	// Init : Empty reduction block and retrieve product price
+	froggyPriceNegociatorRefreshPrice();
 	$('#froggy-negociator-product-price-reduction').text();
-	froggyPriceNegociatorRefrechPrice();
+
+	// Refresh price when we click on the negociate button
+	$('#froggypricenegociator-button').click(function() {
+		froggyPriceNegociatorRefreshPrice();
+		froggyPriceNegociatorCalculReduction();
+	});
 
 	// When an offer is wrote
 	$('#froggy-negociator-input-offer').keyup(function() {
 
-		// Retrieve price
-		froggyPriceNegociatorRefrechPrice();
-		var froggypricenegociator_current_price = froggyPriceNegociatorCleanPrice($('#froggy-negociator-product-price').text());
-		var froggypricenegociator_offer = froggyPriceNegociatorCleanPrice($('#froggy-negociator-input-offer').val());
-
-
-
-		var froggypricenegociator_reduction = froggypricenegociator_current_price - froggypricenegociator_offer;
-		var froggypricenegociator_reduction_percent = froggypricenegociator_reduction * 100 / froggypricenegociator_current_price;
-		froggypricenegociator_reduction = formatCurrency(froggypricenegociator_reduction, currencyFormat, currencySign, currencyBlank);
-		froggypricenegociator_reduction_percent = Math.round(froggypricenegociator_reduction_percent);
-		var froggypricenegociator_reduction_label = froggypricenegociator_reduction + ' ( ' + froggypricenegociator_about_label + ' ' + froggypricenegociator_reduction_percent + ' % )';
-
-		$('#froggy-negociator-input-offer').val(froggypricenegociator_offer);
-		$('#froggy-negociator-product-price-reduction').text(froggypricenegociator_reduction_label);
+		froggyPriceNegociatorRefreshPrice();
+		froggyPriceNegociatorCalculReduction();
 
 		$('#froggy-negociator-seventyfive').trigger('click');
 	});

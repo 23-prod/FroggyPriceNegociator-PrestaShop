@@ -110,7 +110,10 @@ function froggyPriceNegociatorUpdate(combination)
         if (fc_pn_type == 'PRICE_MINI')
         {
             // If "PRICE_MINI" is the configuration
-            var price_min = $('#froggypricenegociator-' + combination_identifier + 'price-min').val();
+			var price_min_selector = $('#froggypricenegociator-' + combination_identifier + 'price-min');
+			if (price_min_selector.val() == '')
+				price_min_selector.val(current_price);
+            var price_min = price_min_selector.val();
             var reduction_percent_max = 100 - (price_min * 100 / current_price);
             reduction_percent_max = Math.round(reduction_percent_max * 100) / 100;
             $('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max').html('- ' + reduction_percent_max + '%');
@@ -119,7 +122,10 @@ function froggyPriceNegociatorUpdate(combination)
         else
         {
             // IF "PERCENT" is the configuration
-            var reduction_percent_max = $('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max').val();
+			var reduction_percent_max_selector = $('#froggypricenegociator-' + combination_identifier + 'reduction-percent-max');
+			if (reduction_percent_max_selector.val() == '')
+				reduction_percent_max_selector.val(0);
+            var reduction_percent_max = reduction_percent_max_selector.val();
             var price_min = current_price * ((100 - reduction_percent_max) / 100);
             price_min = Math.round(price_min * 100) / 100;
             $('#froggypricenegociator-' + combination_identifier + 'price-min').html(price_min + ' ' + fc_pn_currency_sign);

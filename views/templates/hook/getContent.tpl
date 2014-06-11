@@ -37,20 +37,24 @@
             <br><span>{l s='Enable price negotiation button for all products (you won\'t have to set a configuration for each product).' mod='froggypricenegociator'}</span>
             <br><br><br>
 
-            <label>{l s='General reduction in percent:' mod='froggypricenegociator'}</label>
-            <div class="margin-form"><input type="text" id="FC_PN_GENERAL_REDUCTION" name="FC_PN_GENERAL_REDUCTION" value="{$froggypricenegociator.FC_PN_GENERAL_REDUCTION}" /> %</div>
-            <span>{l s='If you enabled the button for all products, you have to set a reduction in percent for all products.' mod='froggypricenegociator'}</span>
-            <br><br><br>
-
-            <label>{l s='Type reduction:' mod='froggypricenegociator'}</label>
-            <div class="margin-form">
-                <select name="FC_PN_TYPE" id="FC_PN_TYPE">
-                    <option value="PRICE_MINI" {if $froggypricenegociator.FC_PN_TYPE eq 'PRICE_MINI'}selected="selected"{/if}>{l s='Define price minimum' mod='froggypricenegociator'}</option>
-                    <option value="PERCENT" {if $froggypricenegociator.FC_PN_TYPE eq 'PERCENT'}selected="selected"{/if}>{l s='Define maximum percent' mod='froggypricenegociator'}</option>
-                </select>
+			<div id="fc-pn-general-reduction-block">
+                <label>{l s='General reduction in percent:' mod='froggypricenegociator'}</label>
+                <div class="margin-form"><input type="text" id="FC_PN_GENERAL_REDUCTION" name="FC_PN_GENERAL_REDUCTION" value="{$froggypricenegociator.FC_PN_GENERAL_REDUCTION}" /> %</div>
+                <span>{l s='If you enabled the button for all products, you have to set a reduction in percent for all products.' mod='froggypricenegociator'}</span>
+				<br><br><br>
             </div>
-            <span>{l s='Please look at the documentation for more details.' mod='froggypricenegociator'}</span>
-            <br><br><br>
+
+			<div id="fc-pn-type-block">
+                <label>{l s='Type reduction:' mod='froggypricenegociator'}</label>
+                <div class="margin-form">
+                    <select name="FC_PN_TYPE" id="FC_PN_TYPE">
+                        <option value="PRICE_MINI" {if $froggypricenegociator.FC_PN_TYPE eq 'PRICE_MINI'}selected="selected"{/if}>{l s='Define price minimum' mod='froggypricenegociator'}</option>
+                        <option value="PERCENT" {if $froggypricenegociator.FC_PN_TYPE eq 'PERCENT'}selected="selected"{/if}>{l s='Define maximum percent' mod='froggypricenegociator'}</option>
+                    </select>
+                </div>
+                <span>{l s='Please look at the documentation for more details.' mod='froggypricenegociator'}</span>
+                <br><br><br>
+            </div>
 
             <h3>{l s='General option:' mod='froggypricenegociator'}</h3>
 

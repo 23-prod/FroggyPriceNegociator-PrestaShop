@@ -31,12 +31,12 @@ function froggyPriceNegociatorConfigurationFormStatus()
 {
     if ($('#FC_PN_ENABLE_GENERAL_OPTION').is(':checked'))
     {
-        $('#FC_PN_GENERAL_REDUCTION').removeClass('disable');
-        $('#FC_PN_TYPE').addClass('disable');
+		$('#fc-pn-type-block').hide();
+        $('#fc-pn-general-reduction-block').fadeIn();
     }
     else
     {
-        $('#FC_PN_GENERAL_REDUCTION').addClass('disable');
-        $('#FC_PN_TYPE').removeClass('disable');
+		$('#fc-pn-general-reduction-block').hide();
+		$('#fc-pn-type-block').fadeIn();
     }
 }

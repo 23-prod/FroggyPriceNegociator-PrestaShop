@@ -75,7 +75,13 @@ function froggyPriceNegociatorOptionStatus(combination)
     if ($('#froggypricenegociator-' + combination_identifier + 'option').is(':checked'))
         $('#froggypricenegociator-' + combination_identifier + 'details').fadeIn(500);
     else
-        $('#froggypricenegociator-' + combination_identifier + 'details').fadeOut(500);
+	{
+		// Fadeout is not executed in some cases when container is not visible yet
+		if ($('#froggypricenegociator-' + combination_identifier + 'details').is(':visible'))
+        	$('#froggypricenegociator-' + combination_identifier + 'details').fadeOut(500);
+		else
+			$('#froggypricenegociator-' + combination_identifier + 'details').hide();
+	}
     return false;
 }
 

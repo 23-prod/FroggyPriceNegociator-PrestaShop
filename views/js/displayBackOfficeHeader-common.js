@@ -243,17 +243,17 @@ function froggyPriceNegociatorDisplayHideAll(display, combination)
 
     if (display)
     {
-        $('#froggypricenegociator-' + combination_identifier + 'title').hide();
-        $('#froggypricenegociator-' + combination_identifier + 'separator').hide();
-        $('#froggypricenegociator-' + combination_identifier + 'checkbox-details').hide();
-        $('#froggypricenegociator-' + combination_identifier + 'details').hide();
+		$('#froggypricenegociator-' + combination_identifier + 'title').show();
+		$('#froggypricenegociator-' + combination_identifier + 'separator').show();
+		$('#froggypricenegociator-' + combination_identifier + 'checkbox-details').show();
+		$('#froggypricenegociator-' + combination_identifier + 'details').show();
     }
     else
     {
-        $('#froggypricenegociator-' + combination_identifier + 'title').show();
-        $('#froggypricenegociator-' + combination_identifier + 'separator').show();
-        $('#froggypricenegociator-' + combination_identifier + 'checkbox-details').show();
-        $('#froggypricenegociator-' + combination_identifier + 'details').show();
+		$('#froggypricenegociator-' + combination_identifier + 'title').hide();
+		$('#froggypricenegociator-' + combination_identifier + 'separator').hide();
+		$('#froggypricenegociator-' + combination_identifier + 'checkbox-details').hide();
+		$('#froggypricenegociator-' + combination_identifier + 'details').hide();
     }
 }
 

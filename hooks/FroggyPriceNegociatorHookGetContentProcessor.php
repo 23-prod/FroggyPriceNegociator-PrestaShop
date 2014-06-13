@@ -62,6 +62,7 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 		foreach ($this->configurations as $conf => $format)
 			$assign[$conf] = Configuration::get($conf);
 		$assign['result'] = $this->configuration_result;
+		$assign['ps_version'] = substr(_PS_VERSION_, 0, 3);
 
 		$this->smarty->assign($this->module->name, $assign);
 		return $this->module->fcdisplay(__FILE__, 'getContent.tpl');

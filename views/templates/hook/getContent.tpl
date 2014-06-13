@@ -150,7 +150,7 @@
 
 <script type="text/javascript" src="{$froggypricenegociator.module_dir}views/js/getContent-common.js"></script>
 <script type="text/javascript" src="{$froggypricenegociator.module_dir}views/js/jquery.responsiveTabs.min.js"></script>
-<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}views/css/style.css" />
+<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}views/css/style.bootstrap.css" />
 <link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}views/css/responsive-tabs.css" />
 <script type="text/javascript">
 	$('#Froggy-price-negociator-admin-tab').responsiveTabs({

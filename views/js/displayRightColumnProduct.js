@@ -48,7 +48,21 @@ function froggyPriceNegociatorCalculReduction()
 
 function froggyPriceNegociatorCalculSuccessInAjax()
 {
-	$('#froggy-negociator-seventyfive').trigger('click');
+	$.ajax({
+		type: 'GET',
+		url: baseDir + 'modules/froggypricenegociator/ajax.php',
+		data: {
+			method: 'calculate.chance.success',
+			id_product: id_product,
+			id_product_attribute: $('#idCombination').val(),
+			offer: $('#froggy-negociator-input-offer').val()
+		},
+		success: function(data, textStatus, jqXHR) {
+			$('#froggy-negociator-'+data).trigger('click');
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+		}
+	});
 }
 
 /** FEATURE 1 : Display button with delay **/

@@ -8,7 +8,7 @@ body {
 }
 
 .r-tabs .r-tabs-nav {
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #E5E5E5;
 }
 
 .r-tabs .r-tabs-nav .r-tabs-tab {
@@ -17,22 +17,22 @@ body {
 }
 
 .r-tabs .r-tabs-nav .r-tabs-anchor {
-	background: #f8f8f8;
+	background: #D7DBE3;
 	margin-bottom: 3px;
 	padding: 10px 12px;
 	display: inline-block;
 	text-decoration: none;
-	color: #000;
-	font-weight: bold;
+	color: #585A69;
+	text-transform: uppercase;
 	display: block;
 }
 
 .r-tabs .r-tabs-nav .r-tabs-state-active {
 	background-color: #fff;
 	margin-bottom: -1px;
-	border-top: 1px solid #ccc;
-	border-right: 1px solid #ccc;
-	border-left: 1px solid #ccc;
+	border-top: 1px solid #E5E5E5;
+	border-right: 1px solid #E5E5E5;
+	border-left: 1px solid #E5E5E5;
 	width: calc(18% - 2px);
 }
 
@@ -46,9 +46,9 @@ body {
 }
 
 .r-tabs .r-tabs-panel {
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-	border-left: 1px solid #ccc;
+	border-right: 1px solid #E5E5E5;
+	border-bottom: 1px solid #E5E5E5;
+	border-left: 1px solid #E5E5E5;
 	margin-bottom: 3px;
 	background: #fff;
 }
@@ -70,8 +70,8 @@ body {
 .r-tabs .r-tabs-accordion-title.r-tabs-state-active .r-tabs-anchor {
 	background-color: #fff;
 	color: #585A69;
-	border-top: 1px solid #ccc;
-	border-right: 1px solid #ccc;
-	border-left: 1px solid #ccc;
+	border-top: 1px solid #E5E5E5;
+	border-right: 1px solid #E5E5E5;
+	border-left: 1px solid #E5E5E5;
 	margin-bottom: 0;
 }

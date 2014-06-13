@@ -46,6 +46,11 @@ function froggyPriceNegociatorCalculReduction()
 	$('#froggy-negociator-product-price-reduction').text(froggypricenegociator_reduction_label);
 }
 
+function froggyPriceNegociatorCalculSuccessInAjax()
+{
+	$('#froggy-negociator-seventyfive').trigger('click');
+}
+
 /** FEATURE 1 : Display button with delay **/
 
 function froggyPriceNegociatorDisplayButtonWithDelay()
@@ -97,8 +102,8 @@ function froggyPriceNegociatorDynamizeModal()
 
 		froggyPriceNegociatorRefreshPrice();
 		froggyPriceNegociatorCalculReduction();
+		froggyPriceNegociatorCalculSuccessInAjax();
 
-		$('#froggy-negociator-seventyfive').trigger('click');
 	});
 }
 

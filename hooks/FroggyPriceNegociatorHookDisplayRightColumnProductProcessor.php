@@ -35,9 +35,18 @@ class FroggyPriceNegociatorHookDisplayRightColumnProductProcessor extends Froggy
 
 	public function run()
 	{
-		if (Tools::getValue('id_product') < 1)
+		// Retrieve product ID
+		$id_product = (int)Tools::getValue('id_product');
+
+		// Check product ID
+		if ($id_product < 1)
 			return '';
 
+		// Check if product is eligible
+		if (!FroggyPriceNegociatorObject::isProductEligible($id_product))
+			return '';
+
+		// Return display
 		return $this->display();
 	}
 }

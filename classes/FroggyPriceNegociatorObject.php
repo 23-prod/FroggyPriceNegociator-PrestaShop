@@ -114,6 +114,45 @@ class FroggyPriceNegociatorObject extends ObjectModel
 		return $return;
 	}
 
+	public static function getProductMinimumPrice($id_product, $id_product_attribute = 0)
+	{
+		// Get product current price
+		$current_price = Product::getPriceStatic($id_product, true, $id_product_attribute);
+
+		// Check if there is a general configuration
+		if (Configuration::get('FC_PN_ENABLE_GENERAL_OPTION') == 1)
+		{
+			$percent_reduction = Configuration::get('FC_PN_GENERAL_REDUCTION');
+			$price_min = $current_price * (100 - $percent_reduction) / 100;
+			return $price_min;
+		}
+
+		// Check if there is a possible negotiation on specific id_product & id_product_attribute
+		$fpno = FroggyPriceNegociatorObject::getByIdProduct((int)$id_product, (int)$id_product_attribute);
+		if (!ValidateCore::isLoadedObject($fpno) || $fpno->active == 0)
+		{
+			// We free data
+			unset($fpno);
+
+			// Check if there is a possible negotiation on id_product in general
+			$fpno = FroggyPriceNegociatorObject::getByIdProduct((int)$id_product);
+		}
+
+		// If no product configuration, we return false
+		if (!ValidateCore::isLoadedObject($fpno) || $fpno->active == 0)
+			return false;
+
+		// Check type configuration and calculate minimum price
+		if (Configuration::get('FC_PN_TYPE') == 'PRICE_MINI')
+			$price_min = $fpno->price_min;
+		else
+		{
+			$percent_reduction = $fpno->reduction_percent_max;
+			$price_min = $current_price * (100 - $percent_reduction) / 100;
+		}
+
+		return $price_min;
+	}
 
 	public static function getByIdProduct($id_product, $id_product_attribute = 0)
 	{

@@ -27,10 +27,6 @@ class FroggyPriceNegociatorHookDisplayBackOfficeHeaderProcessor extends FroggyHo
 	{
 		// We load the current configuration for this product
 		$this->fpn_product = FroggyPriceNegociatorObject::getByIdProduct((int)Tools::getValue('id_product'), (int)Tools::getValue('id_product_attribute'));
-
-		// We create an empty object if there is no configuration yet
-		if ($this->fpn_product === false)
-			$this->fpn_product = new FroggyPriceNegociatorObject();
 	}
 
 	public function saveProductNegociatorConfiguration()

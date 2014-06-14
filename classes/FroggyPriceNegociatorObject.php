@@ -123,7 +123,7 @@ class FroggyPriceNegociatorObject extends ObjectModel
 		AND `id_product_attribute` = '.(int)$id_product_attribute);
 		if ($id_fpn_product > 0)
 			return new FroggyPriceNegociatorObject($id_fpn_product);
-		return false;
+		return new FroggyPriceNegociatorObject();
 	}
 
 	public static function getCombinationsByIdProduct($id_product)

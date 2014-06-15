@@ -33,7 +33,7 @@ function froggyPriceNegociatorRefreshPrice()
 
 function froggyPriceNegociatorCalculReduction()
 {
-	var froggypricenegociator_current_price = froggyPriceNegociatorCleanPrice($('#froggy-negociator-product-price').text());
+	var froggypricenegociator_current_price = parseFloat(froggyPriceNegociatorCleanPrice($('#froggy-negociator-product-price').text()));
 	var froggypricenegociator_offer = froggyPriceNegociatorCleanPrice($('#froggy-negociator-input-offer').val());
 
 	var froggypricenegociator_reduction = froggypricenegociator_current_price - froggypricenegociator_offer;
@@ -44,6 +44,9 @@ function froggyPriceNegociatorCalculReduction()
 
 	$('#froggy-negociator-input-offer').val(froggypricenegociator_offer);
 	$('#froggy-negociator-product-price-reduction').text(froggypricenegociator_reduction_label);
+
+	if (froggypricenegociator_offer > froggypricenegociator_current_price)
+		$('#froggy-negociator-product-price-reduction').text('-');
 }
 
 function froggyPriceNegociatorCalculSuccessInAjax()
@@ -53,6 +56,8 @@ function froggyPriceNegociatorCalculSuccessInAjax()
 
 	if (froggypricenegociator_offer > froggypricenegociator_current_price)
 	{
+		$('#froggy-negociator-validation-step1-input-submit').hide();
+		$('#froggy-negociator-validation-step1-error').text(froggypricenegociator_error_too_high_label);
 		$('#froggy-negociator-onehundred').trigger('click');
 		return true;
 	}
@@ -64,6 +69,14 @@ function froggyPriceNegociatorCalculSuccessInAjax()
 	for (i = 0; possible_values[i]; i++)
 		if (froggypricenegociator_offer < froggypricenegociator_configurations[id_product_attribute][possible_values[i]])
 			result = possible_values[i];
+
+	$('#froggy-negociator-validation-step1-input-submit').show();
+	$('#froggy-negociator-validation-step1-error').text('');
+	if (result == 'zero')
+	{
+		$('#froggy-negociator-validation-step1-input-submit').hide();
+		$('#froggy-negociator-validation-step1-error').text(froggypricenegociator_error_too_low_label);
+	}
 
 	$('#froggy-negociator-' + result).trigger('click');
 }
@@ -85,6 +98,8 @@ function froggyPriceNegociatorGetNewPriceAjax()
 		}
 	});
 }
+
+
 
 /** FEATURE 1 : Display button with delay **/
 

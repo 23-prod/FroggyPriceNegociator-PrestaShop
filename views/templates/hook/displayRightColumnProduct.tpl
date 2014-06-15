@@ -23,7 +23,6 @@
 *}
 
 <script>
-    var froggypricenegociator_about_label = '{l s='about' mod='froggypricenegociator'}';
 	var FC_PN_DISPLAY_DELAYED = '{$froggypricenegociator.FC_PN_DISPLAY_DELAYED}';
     var froggypricenegociator_configurations = new Array();
     {foreach from=$froggypricenegociator.configurations key=id_product_attribute item=steps}
@@ -32,6 +31,10 @@
 		    froggypricenegociator_configurations[{$id_product_attribute}]['{$class}'] = {$price};
         {/foreach}
     {/foreach}
+
+	var froggypricenegociator_about_label = '{l s='about' mod='froggypricenegociator'}';
+	var froggypricenegociator_error_too_high_label = '{l s='Your offer is superior to the current price of the product.' mod='froggypricenegociator'}';
+	var froggypricenegociator_error_too_low_label = '{l s='Your offer is too low.' mod='froggypricenegociator'}';
 </script>
 
 <a href="#" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negotiate the price' mod='froggypricenegociator'}" class="button-12 froggy-price-negociator-button-front yellow radius">{l s='Negotiate the price' mod='froggypricenegociator'}</a>
@@ -86,7 +89,8 @@
 				</div>
 			</fieldset>
 			<fieldset class="froggy-negociator-validation-step1">
-				<input type="submit" value="{l s='Submit my offer' mod='froggypricenegociator'}" />
+				<input id="froggy-negociator-validation-step1-input-submit" type="submit" value="{l s='Submit my offer' mod='froggypricenegociator'}" />
+                <span id="froggy-negociator-validation-step1-error"></span>
 			</fieldset>
 
 

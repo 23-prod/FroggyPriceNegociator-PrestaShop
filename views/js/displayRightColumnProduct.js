@@ -33,51 +33,62 @@ function froggyPriceNegociatorRefreshPrice()
 
 function froggyPriceNegociatorCalculReduction()
 {
+	// Retrieve current price and offer and clean them if contains non numeric chars
 	var froggypricenegociator_current_price = parseFloat(froggyPriceNegociatorCleanPrice($('#froggy-negociator-product-price').text()));
 	var froggypricenegociator_offer = froggyPriceNegociatorCleanPrice($('#froggy-negociator-input-offer').val());
 
+	// Calculate reduction
 	var froggypricenegociator_reduction = froggypricenegociator_current_price - froggypricenegociator_offer;
 	var froggypricenegociator_reduction_percent = froggypricenegociator_reduction * 100 / froggypricenegociator_current_price;
 	froggypricenegociator_reduction = formatCurrency(froggypricenegociator_reduction, currencyFormat, currencySign, currencyBlank);
 	froggypricenegociator_reduction_percent = Math.round(froggypricenegociator_reduction_percent);
 	var froggypricenegociator_reduction_label = froggypricenegociator_reduction + ' ( ' + froggypricenegociator_about_label + ' ' + froggypricenegociator_reduction_percent + ' % )';
 
+	// Display cleaned offer price and reduction
 	$('#froggy-negociator-input-offer').val(froggypricenegociator_offer);
 	$('#froggy-negociator-product-price-reduction').text(froggypricenegociator_reduction_label);
-
-	if (froggypricenegociator_offer > froggypricenegociator_current_price)
-		$('#froggy-negociator-product-price-reduction').text('-');
 }
 
 function froggyPriceNegociatorCalculSuccessInAjax()
 {
+	// Retrieve current price and offer and clean them if contains non numeric chars
 	var froggypricenegociator_current_price = parseFloat(froggyPriceNegociatorCleanPrice($('#froggy-negociator-product-price').text()));
 	var froggypricenegociator_offer = froggyPriceNegociatorCleanPrice($('#froggy-negociator-input-offer').val());
 
+	// If price is too high, we hide "Submit offer" button, we hide calculated reduction and we display an error message
 	if (froggypricenegociator_offer > froggypricenegociator_current_price)
 	{
+		$('#froggy-negociator-product-price-reduction').text('-');
 		$('#froggy-negociator-validation-step1-input-submit').hide();
 		$('#froggy-negociator-validation-step1-error').text(froggypricenegociator_error_too_high_label);
 		$('#froggy-negociator-onehundred').trigger('click');
 		return true;
 	}
 
+	// We retrieve id product attribute and we check the possible values
 	var id_product_attribute = $('#idCombination').val();
 	var possible_values = new Array('seventyfive', 'fifty', 'twentyfive', 'five', 'zero');
 
+	// Success is one hundred unless offer is lower than one of the precalculated price of "froggypricenegociator_configurations"
 	var result = 'onehundred';
 	for (i = 0; possible_values[i]; i++)
 		if (froggypricenegociator_offer < froggypricenegociator_configurations[id_product_attribute][possible_values[i]])
 			result = possible_values[i];
 
-	$('#froggy-negociator-validation-step1-input-submit').show();
-	$('#froggy-negociator-validation-step1-error').text('');
+	// If chance of success is zero, we hide "Submit offer" button and we display a message
 	if (result == 'zero')
 	{
 		$('#froggy-negociator-validation-step1-input-submit').hide();
 		$('#froggy-negociator-validation-step1-error').text(froggypricenegociator_error_too_low_label);
 	}
+	else
+	{
+		// Else we show "Submit offer" button and hide delete error message
+		$('#froggy-negociator-validation-step1-input-submit').show();
+		$('#froggy-negociator-validation-step1-error').text('');
+	}
 
+	// We trig the right radio button (for the progress bar)
 	$('#froggy-negociator-' + result).trigger('click');
 }
 
@@ -137,8 +148,9 @@ function froggyPriceNegociatorDisplayButtonWithDelay()
 
 function froggyPriceNegociatorDynamizeModal()
 {
-	// Init : Empty reduction block and retrieve product price
+	// Init : Empty reduction block, hide "Submit offer button" and retrieve product price
 	froggyPriceNegociatorRefreshPrice();
+	$('#froggy-negociator-validation-step1-input-submit').hide();
 	$('#froggy-negociator-product-price-reduction').text();
 
 	// Refresh price when we click on the negociate button

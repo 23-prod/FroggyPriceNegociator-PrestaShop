@@ -48,17 +48,30 @@ function froggyPriceNegociatorCalculReduction()
 
 function froggyPriceNegociatorCalculSuccessInAjax()
 {
+	var id_product_attribute = $('#idCombination').val();
+	var offer = $('#froggy-negociator-input-offer').val();
+	var possible_values = new Array('seventyfive', 'fifty', 'twentyfive', 'five');
+
+	var result = 'onehundred';
+	for (i = 0; possible_values[i]; i++)
+		if (offer < froggypricenegociator_configurations[id_product_attribute][possible_values[i]])
+			result = possible_values[i];
+
+	$('#froggy-negociator-' + result).trigger('click');
+}
+
+function froggyPriceNegociatorGetNewPriceAjax()
+{
 	$.ajax({
 		type: 'GET',
 		url: baseDir + 'modules/froggypricenegociator/ajax.php',
 		data: {
-			method: 'calculate.chance.success',
+			method: 'get.new.price',
 			id_product: id_product,
 			id_product_attribute: $('#idCombination').val(),
 			offer: $('#froggy-negociator-input-offer').val()
 		},
 		success: function(data, textStatus, jqXHR) {
-			$('#froggy-negociator-'+data).trigger('click');
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
 		}

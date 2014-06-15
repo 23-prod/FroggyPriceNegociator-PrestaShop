@@ -25,6 +25,13 @@
 <script>
     var froggypricenegociator_about_label = '{l s='about' mod='froggypricenegociator'}';
 	var FC_PN_DISPLAY_DELAYED = '{$froggypricenegociator.FC_PN_DISPLAY_DELAYED}';
+    var froggypricenegociator_configurations = new Array();
+    {foreach from=$froggypricenegociator.configurations key=id_product_attribute item=steps}
+	    froggypricenegociator_configurations[{$id_product_attribute}] = new Array();
+        {foreach from=$steps key=class item=price}
+		    froggypricenegociator_configurations[{$id_product_attribute}]['{$class}'] = {$price};
+        {/foreach}
+    {/foreach}
 </script>
 
 <a href="#" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negotiate the price' mod='froggypricenegociator'}" class="button-12 froggy-price-negociator-button-front yellow radius">{l s='Negotiate the price' mod='froggypricenegociator'}</a>

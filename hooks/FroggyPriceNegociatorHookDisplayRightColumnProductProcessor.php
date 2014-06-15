@@ -23,9 +23,13 @@ class FroggyPriceNegociatorHookDisplayRightColumnProductProcessor extends Froggy
 {
 	public function display()
 	{
+		// Check if there is a possible negotiation on product
+		$configurations = FroggyPriceNegociatorObject::getProductCombinationsNegociationSuccessChance((int)Tools::getValue('id_product'));
+
 		$assign = array(
 			'path_template_dir' => dirname(__FILE__).'/../views/templates/hook/',
 			'module_dir' => $this->path,
+			'configurations' => $configurations,
 			'FC_PN_DISPLAY_MODE' => Configuration::get('FC_PN_DISPLAY_MODE'),
 			'FC_PN_DISPLAY_DELAYED' => Configuration::get('FC_PN_DISPLAY_DELAYED'),
 		);

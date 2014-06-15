@@ -128,6 +128,27 @@ class FroggyPriceNegociatorObject extends ObjectModel
 		return false;
 	}
 
+	public static function getProductCombinationsNegociationSuccessChance($id_product)
+	{
+		// Get minimum price for each combination
+		$combinations = array();
+		$combinations[0] = self::getProductMinimumPrice($id_product, 0);
+		$list = Db::getInstance()->executeS('SELECT `id_product_attribute` FROM `'._DB_PREFIX_.'product_attribute` WHERE `id_product` = '.(int)$id_product);
+		foreach ($list as $l)
+			$combinations[$l['id_product_attribute']] = self::getProductMinimumPrice($id_product, $l['id_product_attribute']);
+
+		// Calcul negotiation chance of success
+		foreach ($combinations as $id_product_attribute => $price_min)
+			$combinations[$id_product_attribute] = array(
+				'five' => $price_min * 0.50,
+				'twentyfive' => $price_min * 0.70,
+				'fifty' => $price_min * 1,
+				'seventyfive' => $price_min * 1.30,
+			);
+
+		return $combinations;
+	}
+
 	public static function getProductMinimumPrice($id_product, $id_product_attribute = 0)
 	{
 		// Get product current price

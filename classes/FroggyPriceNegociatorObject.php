@@ -121,7 +121,7 @@ class FroggyPriceNegociatorObject extends ObjectModel
 
 		$id_fpn_product = Db::getInstance()->getValue('
 		SELECT `id_fpn_product` FROM `'._DB_PREFIX_.'fpn_product`
-		WHERE `id_product` = '.(int)$id_product.' AND `active` = 1');
+		WHERE `id_product` = '.(int)$id_product.' AND `id_product_attribute` = 0 AND `active` = 1');
 		if ($id_fpn_product > 0)
 			return true;
 

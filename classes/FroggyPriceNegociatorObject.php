@@ -140,10 +140,11 @@ class FroggyPriceNegociatorObject extends ObjectModel
 		// Calcul negotiation chance of success
 		foreach ($combinations as $id_product_attribute => $price_min)
 			$combinations[$id_product_attribute] = array(
-				'five' => $price_min * 0.50,
-				'twentyfive' => $price_min * 0.70,
+				'zero' => $price_min * 0.50,
+				'five' => $price_min * 0.65,
+				'twentyfive' => $price_min * 0.80,
 				'fifty' => $price_min * 1,
-				'seventyfive' => $price_min * 1.30,
+				'seventyfive' => $price_min * 1.20,
 			);
 
 		return $combinations;

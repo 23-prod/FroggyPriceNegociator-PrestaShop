@@ -58,7 +58,7 @@ function froggyPriceNegociatorCalculSuccessInAjax()
 	}
 
 	var id_product_attribute = $('#idCombination').val();
-	var possible_values = new Array('seventyfive', 'fifty', 'twentyfive', 'five');
+	var possible_values = new Array('seventyfive', 'fifty', 'twentyfive', 'five', 'zero');
 
 	var result = 'onehundred';
 	for (i = 0; possible_values[i]; i++)

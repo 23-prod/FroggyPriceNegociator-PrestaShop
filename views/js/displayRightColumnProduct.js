@@ -48,13 +48,21 @@ function froggyPriceNegociatorCalculReduction()
 
 function froggyPriceNegociatorCalculSuccessInAjax()
 {
+	var froggypricenegociator_current_price = parseFloat(froggyPriceNegociatorCleanPrice($('#froggy-negociator-product-price').text()));
+	var froggypricenegociator_offer = froggyPriceNegociatorCleanPrice($('#froggy-negociator-input-offer').val());
+
+	if (froggypricenegociator_offer > froggypricenegociator_current_price)
+	{
+		$('#froggy-negociator-onehundred').trigger('click');
+		return true;
+	}
+
 	var id_product_attribute = $('#idCombination').val();
-	var offer = $('#froggy-negociator-input-offer').val();
 	var possible_values = new Array('seventyfive', 'fifty', 'twentyfive', 'five');
 
 	var result = 'onehundred';
 	for (i = 0; possible_values[i]; i++)
-		if (offer < froggypricenegociator_configurations[id_product_attribute][possible_values[i]])
+		if (froggypricenegociator_offer < froggypricenegociator_configurations[id_product_attribute][possible_values[i]])
 			result = possible_values[i];
 
 	$('#froggy-negociator-' + result).trigger('click');

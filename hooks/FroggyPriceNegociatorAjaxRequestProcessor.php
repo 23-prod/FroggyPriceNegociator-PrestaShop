@@ -30,10 +30,43 @@ class FroggyPriceNegociatorAjaxRequestProcessor extends FroggyHookProcessor
 		return Tools::jsonEncode(array('status' => $status, 'message' => $message, 'case' => $case));
 	}
 
+	public function getNegociatedPriceInCookie($id_product, $id_product_attribute)
+	{
+		if (isset($this->context->cookie->froggypricenegociator))
+		{
+			$data = (array)Tools::jsonDecode($this->context->cookie->froggypricenegociator);
+			if (isset($data[$id_product.'-'.$id_product_attribute]))
+				return $data[$id_product.'-'.$id_product_attribute];
+		}
+		return false;
+	}
+
+	public function saveNegociatedPriceInCookie($id_product, $id_product_attribute, $price)
+	{
+		$data = array();
+		if (isset($this->context->cookie->froggypricenegociator))
+			$data = (array)Tools::jsonDecode($this->context->cookie->froggypricenegociator);
+		$data[$id_product.'-'.$id_product_attribute] = $price;
+		$this->context->cookie->froggypricenegociator = Tools::jsonEncode($data);
+	}
+
 	public function getNewPrice($price_min)
 	{
+		// Init
 		$case = 'too.low';
-		$offer = Tools::getValue('offer');
+		$offer = (float)Tools::getValue('offer');
+		$id_product = (int)Tools::getValue('id_product');
+		$id_product_attribute = (int)Tools::getValue('id_product_attribute');
+
+		// If price has already been negotiated, we return the price
+		if ($this->getNegociatedPriceInCookie($id_product, $id_product_attribute) !== false)
+		{
+			$case = 'already.negotiated';
+			$price_min = $this->getNegociatedPriceInCookie($id_product, $id_product_attribute);
+			return $this->render('success', $price_min, $case);
+		}
+
+		// Calculate new price
 		if ($offer > $price_min)
 		{
 			$case = 'good';
@@ -41,6 +74,10 @@ class FroggyPriceNegociatorAjaxRequestProcessor extends FroggyHookProcessor
 		}
 		$price_min = Tools::displayPrice($price_min);
 
+		// Save negotiated price in cookie
+		$this->saveNegociatedPriceInCookie($id_product, $id_product_attribute, $price_min);
+
+		// Render result
 		return $this->render('success', $price_min, $case);
 	}
 

@@ -110,7 +110,7 @@ function froggyPriceNegociatorGoToStep(step)
 function froggyPriceNegociatorGetNewPriceAjax()
 {
 	$.ajax({
-		type: 'GET',
+		type: 'POST',
 		url: baseDir + 'modules/froggypricenegociator/ajax.php',
 		data: {
 			method: 'get.new.price',

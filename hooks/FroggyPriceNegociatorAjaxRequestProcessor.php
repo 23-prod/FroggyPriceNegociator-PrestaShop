@@ -22,40 +22,36 @@
 class FroggyPriceNegociatorAjaxRequestProcessor extends FroggyHookProcessor
 {
 	private $methods = array(
-		'calculate.chance.success' => 'CalculateChanceSuccess',
 		'get.new.price' => 'getNewPrice',
 	);
 
-	public function CalculateChanceSuccess(FroggyPriceNegociatorObject $fpno)
+	public function render($status, $message)
 	{
-		if (rand() % 2)
-			return 'seventyfive';
-		return 'five';
+		return Tools::jsonEncode(array('status' => $status, 'message' => $message));
 	}
 
-
-	public function error($error)
+	public function getNewPrice($price_min)
 	{
-		return Tools::jsonEncode(array('error' => $error));
+		$offer = Tools::getValue('offer');
+		if ($offer > $price_min)
+			$price_min = $offer;
+		$price_min = Tools::displayPrice($price_min);
+
+		return $this->render('success', $price_min);
 	}
 
 	public function run()
 	{
 		// Check arguments
 		if ((int)Tools::getValue('id_product') < 0 || (float)Tools::getValue('offer') < 0 || !isset($this->methods[Tools::getValue('method')]))
-			return $this->error($this->module->l('System error, please contact the merchant.'));
+			return $this->render('error', $this->module->l('System error, please contact the merchant.'));
 
 		// Check if there is a possible negotiation on specific id_product & id_product_attribute
-		$fpno = FroggyPriceNegociatorObject::getByIdProduct((int)Tools::getValue('id_product'), (int)Tools::getValue('id_product_attribute'));
-		if (!Validate::isLoadedObject($fpno))
-		{
-			// Check if there is a possible negotiation on general id_product
-			$fpno = FroggyPriceNegociatorObject::getByIdProduct((int)Tools::getValue('id_product'));
-			if (!Validate::isLoadedObject($fpno))
-				return $this->error($this->module->l('The negotiation for this product is not available.'));
-		}
+		$price_min = FroggyPriceNegociatorObject::getProductMinimumPrice((int)Tools::getValue('id_product'), (int)Tools::getValue('id_product_attribute'));
+		if ($price_min === false)
+			return $this->render('error', $this->module->l('The negotiation for this product is not available.'));
 
 		// Call method
-		return $this->{$this->methods[Tools::getValue('method')]}($fpno);
+		return $this->{$this->methods[Tools::getValue('method')]}($price_min);
 	}
 }

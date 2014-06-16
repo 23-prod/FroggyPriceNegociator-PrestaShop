@@ -92,6 +92,21 @@ function froggyPriceNegociatorCalculSuccessInAjax()
 	$('#froggy-negociator-' + result).trigger('click');
 }
 
+function froggyPriceNegociatorGoToStep(step)
+{
+	// We hide step container and display the one corresponding to the step
+	$('.froggy-negociator-modal-step').hide();
+	$('#froggy-negociator-modal-step' + step).show();
+
+	// We set the previous step as done in the breadcrumb
+	$('#froggy-negociator-breadcrumb-step' + (step - 1)).removeClass('froggy-negociator-current-step');
+	$('#froggy-negociator-breadcrumb-step' + (step - 1)).addClass('froggy-negociator-done-step');
+
+	// We set the new step as current in the breadcrumb
+	$('#froggy-negociator-breadcrumb-step' + step).removeClass('froggy-negociator-next-step');
+	$('#froggy-negociator-breadcrumb-step' + step).addClass('froggy-negociator-current-step');
+}
+
 function froggyPriceNegociatorGetNewPriceAjax()
 {
 	$.ajax({
@@ -150,8 +165,10 @@ function froggyPriceNegociatorDynamizeModal()
 {
 	// Init : Empty reduction block, hide "Submit offer button" and retrieve product price
 	froggyPriceNegociatorRefreshPrice();
+	$('#froggy-negociator-input-offer').val('');
 	$('#froggy-negociator-validation-step1-input-submit').hide();
-	$('#froggy-negociator-product-price-reduction').text();
+	$('#froggy-negociator-modal-step2').hide();
+	$('#froggy-negociator-modal-step3').hide();
 
 	// Refresh price when we click on the negociate button
 	$('#froggypricenegociator-button').click(function() {
@@ -161,11 +178,16 @@ function froggyPriceNegociatorDynamizeModal()
 
 	// When an offer is wrote
 	$('#froggy-negociator-input-offer').keyup(function() {
-
 		froggyPriceNegociatorRefreshPrice();
 		froggyPriceNegociatorCalculReduction();
 		froggyPriceNegociatorCalculSuccessInAjax();
+	});
 
+	// When an offer is submitted
+	$('#froggy-negociator-validation-step1-input-submit').click(function() {
+		froggyPriceNegociatorGoToStep(2);
+		froggyPriceNegociatorGetNewPriceAjax();
+		return false;
 	});
 }
 

@@ -117,13 +117,14 @@ class FroggyPriceNegociatorAjaxRequestProcessor extends FroggyHookProcessor
 			'{expiration_date}' => $expiration_date,
 			'{product_image_url}' => $product_image_url,
 			'{contact_url}' => $this->context->link->getPageLink('contact'),
+			'{order_url}' => $this->context->link->getPageLink('order'),
 		);
 
-		if (file_exists(dirname(__FILE__).'/mails/'.$iso.'/reminder.txt') &&
-			file_exists(dirname(__FILE__).'/mails/'.$iso.'/reminder.html'))
-				Mail::Send((int)Configuration::get('PS_LANG_DEFAULT'), 'reminder', Mail::l('Negotiated price!', $id_lang), $templateVars, strval($email), NULL, strval(Configuration::get('PS_SHOP_EMAIL')), strval(Configuration::get('PS_SHOP_NAME')), NULL, NULL, dirname(__FILE__).'/mails/');
-
-		return $this->render('success', '');
+		if (file_exists(dirname(__FILE__).'/../mails/'.$iso.'/reminder.txt') &&
+			file_exists(dirname(__FILE__).'/../mails/'.$iso.'/reminder.html'))
+				if (Mail::Send((int)Configuration::get('PS_LANG_DEFAULT'), 'reminder', Mail::l('Negotiated price', $id_lang), $templateVars, strval($email), NULL, strval(Configuration::get('PS_SHOP_EMAIL')), strval(Configuration::get('PS_SHOP_NAME')), NULL, NULL, dirname(__FILE__).'/../mails/'))
+					return $this->render('success', '');
+		return $this->render('error', '');
 	}
 
 

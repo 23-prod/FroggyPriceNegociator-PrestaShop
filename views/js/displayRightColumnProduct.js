@@ -131,6 +131,7 @@ function froggyPriceNegociatorGetNewPriceAjax()
 			else
 			{
 				$('#froggy-negociator-negociated-price').text(data.message);
+				$('#froggy-negociator-negociated-price-step3').text(data.message);
 				$('#froggy-negociator-validation-message-step2').removeClass('froggy-negociator-validation-error').addClass('froggy-negociator-validation-confirmation');
 				$('#froggy-negociator-validation-message-step2').text(froggypricenegociator_message_label['step2.' + data.case]);
 			}
@@ -247,6 +248,12 @@ function froggyPriceNegociatorDynamizeModal()
 	$('#froggy-negociator-validation-step2-input-submit').click(function() {
 		froggyPriceNegociatorGoToStep(3);
 		froggyPriceNegociatorValidatePriceAjax();
+		return false;
+	});
+
+	// When an offer is confirmed
+	$('#froggy-negociator-validation-step3-input-submit').click(function() {
+		window.location.href = $(this).parent().parent().attr('action');
 		return false;
 	});
 }

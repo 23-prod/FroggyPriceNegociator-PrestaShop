@@ -37,6 +37,7 @@
 	froggypricenegociator_message_label['step1.too.high'] = '{l s='Your offer is superior to the current price of the product.' mod='froggypricenegociator'}';
 	froggypricenegociator_message_label['step1.too.low'] = '{l s='Your offer is too low.' mod='froggypricenegociator'}';
 	froggypricenegociator_message_label['step2.too.low'] = '{l s='Your offer was too low, here our final offer.' mod='froggypricenegociator'}';
+	froggypricenegociator_message_label['step2.already.negotiated'] = '{l s='You already negotiated the price of this product, here the final offer.' mod='froggypricenegociator'}';
 	froggypricenegociator_message_label['step2.good'] = '{l s='Your offer has been accepted!' mod='froggypricenegociator'}';
 </script>
 
@@ -129,7 +130,17 @@
         </div>
 
 		<div class="froggy-negociator-modal-step" id="froggy-negociator-modal-step3">
-            Step 3
+
+			<p class="froggy-negociator-title-modal">{l s='Negotiated price' mod='froggypricenegociator'}</p>
+			<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-negociated-price-step3"></p>
+
+			<form action="{$link->getPageLink('order')}">
+
+				<fieldset class="froggy-negociator-validation-step1">
+					<input id="froggy-negociator-validation-step3-input-submit" type="submit" value="{l s='Go to the cart' mod='froggypricenegociator'}" />
+				</fieldset>
+
+			</form>
 		</div>
 
 		{if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}<a class="close-reveal-modal">&#215;</a>{/if}

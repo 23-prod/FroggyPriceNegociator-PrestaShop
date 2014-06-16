@@ -131,9 +131,33 @@ function froggyPriceNegociatorGetNewPriceAjax()
 			else
 			{
 				$('#froggy-negociator-negociated-price').text(data.message);
+				$('#froggy-negociator-negociated-price-step3').text(data.message);
 				$('#froggy-negociator-validation-message-step2').removeClass('froggy-negociator-validation-error').addClass('froggy-negociator-validation-confirmation');
 				$('#froggy-negociator-validation-message-step2').text(froggypricenegociator_message_label['step2.' + data.case]);
 			}
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+		}
+	});
+}
+
+
+function froggyPriceNegociatorValidatePriceAjax()
+{
+	$.ajax({
+		type: 'POST',
+		url: baseDir + 'modules/froggypricenegociator/ajax.php',
+		data: {
+			method: 'validate.price',
+			id_product: id_product,
+			id_product_attribute: $('#idCombination').val(),
+			offer: $('#froggy-negociator-input-offer').val(),
+			email: $('#froggy-negociator-input-email').val()
+		},
+		success: function(data, textStatus, jqXHR) {
+
+			data = JSON.parse(data);
+
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
 		}
@@ -223,6 +247,13 @@ function froggyPriceNegociatorDynamizeModal()
 	// When an offer is validated
 	$('#froggy-negociator-validation-step2-input-submit').click(function() {
 		froggyPriceNegociatorGoToStep(3);
+		froggyPriceNegociatorValidatePriceAjax();
+		return false;
+	});
+
+	// When an offer is confirmed
+	$('#froggy-negociator-validation-step3-input-submit').click(function() {
+		window.location.href = $(this).parent().parent().attr('action');
 		return false;
 	});
 }

@@ -31,9 +31,9 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 		'FC_PN_COMPLIANT_PROMO' => 'int',
 		'FC_PN_COMPLIANT_NEW' => 'int',
 		'FC_PN_COMPLIANT_DISCOUNT' => 'int',
-		'FC_PN_DISABLE_FOR_CATS' => 'string',
-		'FC_PN_DISABLE_FOR_BRANDS' => 'string',
-		'FC_PN_DISABLE_FOR_CUSTS' => 'string',
+		'FC_PN_DISABLE_FOR_CATS' => array('type' => 'multiple', 'field' => 'categoryBox'),
+		'FC_PN_DISABLE_FOR_BRANDS' => array('type' => 'multiple', 'field' => 'ids_manufacturers'),
+		'FC_PN_DISABLE_FOR_CUSTS' => array('type' => 'multiple', 'field' => 'ids_groups'),
 		'FC_PN_DISPLAY_DELAYED' => 'int',
 		'FC_PN_DISPLAY_MODE' => 'string',
 	);
@@ -42,45 +42,24 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 	{
 		if (Tools::isSubmit('submitFroggyPriceNegociatorConfiguration'))
 		{
-			$manufacturers = Tools::getIsset('ids_manufacturers') ? Tools::getValue('ids_manufacturers') : '';
-			if (is_array($manufacturers)) {
-				$manufacturers = array_map('intval', $manufacturers);
-				Configuration::updateValue('FC_PN_DISABLE_FOR_BRANDS', implode(',', $manufacturers));
-			} else {
-				Configuration::updateValue('FC_PN_DISABLE_FOR_BRANDS', '');
-			}
-
-			$groups = Tools::getIsset('ids_groups') ? Tools::getValue('ids_groups') : '';
-			if (is_array($groups)) {
-				$groups = array_map('intval', $groups);
-				Configuration::updateValue('FC_PN_DISABLE_FOR_CUSTS', implode(',', $groups));
-			} else {
-				Configuration::updateValue('FC_PN_DISABLE_FOR_CUSTS', '');
-			}
-
-			$categories = Tools::getIsset('categoryBox') ? Tools::getValue('categoryBox') : '';
-			if (is_array($categories)) {
-				// Force Int conversion
-				$categories = array_map('intval', $categories);
-				Configuration::updateValue('FC_PN_DISABLE_FOR_CATS', implode(',', $categories));
-			} else {
-				Configuration::updateValue('FC_PN_DISABLE_FOR_CATS', '');
-			}
-
 			foreach ($this->configurations as $conf => $format)
 			{
-				if (in_array($conf, array(
-					'FC_PN_DISABLE_FOR_CATS',
-					'FC_PN_DISABLE_FOR_BRANDS',
-					'FC_PN_DISABLE_FOR_CUSTS'))) {
-					continue; // Already saved before with a special treatment
+				if (is_array($format)) {
+					$value = '';
+					if ($format['type'] == 'multiple') {
+						$values = Tools::getIsset($format['field']) ? Tools::getValue($format['field']) : '';
+						if (is_array($values)) {
+							$values = array_map('intval', $values);
+							$value = implode(',', $values);
+						}
+					}
+				} else {
+					$value = Tools::getValue($conf);
+					if ($format == 'int')
+						$value = (int)$value;
+					else if ($format == 'float')
+						$value = (float)$value;
 				}
-
-				$value = Tools::getValue($conf);
-				if ($format == 'int')
-					$value = (int)$value;
-				else if ($format == 'float')
-					$value = (float)$value;
 				Configuration::updateValue($conf, $value);
 			}
 			$this->configuration_result = 'ok';

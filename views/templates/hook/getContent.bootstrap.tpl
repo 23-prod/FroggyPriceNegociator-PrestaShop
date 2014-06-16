@@ -122,7 +122,7 @@
 					</div>
 
 					<div class="form-group clearfix">
-						<label class="col-lg-3">{l s='Disable price negotiation button for the following brands:' mod='froggypricenegociator'}</label>
+						<label class="col-lg-3">{l s='Disable price negotiation button for the following manufacturers:' mod='froggypricenegociator'}</label>
 						<div class="col-lg-9">
 							<p>
 								<a href="#" onclick="$('#ids_manufacturers option').each(function() { $(this).attr('selected', 'selected'); $('#ids_manufacturers').focus(); }); return false;">{l s='Select all manufacturers' mod='froggypricenegociator'}</a> |

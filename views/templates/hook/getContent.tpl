@@ -105,7 +105,7 @@
 					<p class="preference_description">{l s='If a product is associated to one of these categories, price negotiation button will be disabled.' mod='froggypricenegociator'}</p>
 				</div>
 
-				<label>{l s='Disable price negotiation button for the following brands:' mod='froggypricenegociator'}</label>
+				<label>{l s='Disable price negotiation button for the following manufacturers:' mod='froggypricenegociator'}</label>
 				<div class="margin-form">
 					<p>
 						<a href="#" onclick="$('#ids_manufacturers option').each(function() { $(this).attr('selected', 'selected'); $('#ids_manufacturers').focus(); }); return false;">{l s='Select all manufacturers' mod='froggypricenegociator'}</a> |

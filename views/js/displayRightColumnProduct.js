@@ -173,6 +173,7 @@ function froggyPriceNegociatorDynamizeModal()
 	froggyPriceNegociatorRefreshPrice();
 	$('#froggy-negociator-input-offer').val('');
 	$('#froggy-negociator-validation-step1-input-submit').hide();
+	$('#froggy-negociator-validation-step2-input-submit').hide();
 	$('#froggy-negociator-modal-step2').hide();
 	$('#froggy-negociator-modal-step3').hide();
 
@@ -193,6 +194,25 @@ function froggyPriceNegociatorDynamizeModal()
 	$('#froggy-negociator-validation-step1-input-submit').click(function() {
 		froggyPriceNegociatorGoToStep(2);
 		setTimeout(function() { froggyPriceNegociatorGetNewPriceAjax(); }, 1000)
+		return false;
+	});
+
+	// Check e-mail format
+	$('#froggy-negociator-input-email').keyup(function() {
+
+		// Init
+		var email = $('#froggy-negociator-input-email').val();
+		var checkEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+		// If e-mail is good submit button for step 2 appear
+		$('#froggy-negociator-validation-step2-input-submit').hide();
+		if (checkEmail.test(email))
+			$('#froggy-negociator-validation-step2-input-submit').show();
+	});
+
+	// When an offer is validated
+	$('#froggy-negociator-validation-step2-input-submit').click(function() {
+		froggyPriceNegociatorGoToStep(3);
 		return false;
 	});
 }

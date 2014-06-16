@@ -141,6 +141,29 @@ function froggyPriceNegociatorGetNewPriceAjax()
 }
 
 
+function froggyPriceNegociatorValidatePriceAjax()
+{
+	$.ajax({
+		type: 'POST',
+		url: baseDir + 'modules/froggypricenegociator/ajax.php',
+		data: {
+			method: 'validate.price',
+			id_product: id_product,
+			id_product_attribute: $('#idCombination').val(),
+			offer: $('#froggy-negociator-input-offer').val(),
+			email: $('#froggy-negociator-input-email').val()
+		},
+		success: function(data, textStatus, jqXHR) {
+
+			data = JSON.parse(data);
+
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+		}
+	});
+}
+
+
 
 /** FEATURE 1 : Display button with delay **/
 
@@ -223,6 +246,7 @@ function froggyPriceNegociatorDynamizeModal()
 	// When an offer is validated
 	$('#froggy-negociator-validation-step2-input-submit').click(function() {
 		froggyPriceNegociatorGoToStep(3);
+		froggyPriceNegociatorValidatePriceAjax();
 		return false;
 	});
 }

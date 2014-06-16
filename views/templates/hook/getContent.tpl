@@ -124,8 +124,19 @@
 
 				<label>{l s='Disable price negotiation button for the following customer groups:' mod='froggypricenegociator'}</label>
 				<div class="margin-form">
-					<input type="text" name="FC_PN_DISABLE_FOR_CUSTS" value="{$froggypricenegociator.FC_PN_DISABLE_FOR_CUSTS}" />
-					<p class="preference_description">{l s='Price negotiation button will be disabled for all these customers.' mod='froggypricenegociator'}</p>
+					<p>
+						<a href="#" onclick="$('#ids_groups option').each(function() { $(this).attr('selected', 'selected'); $('#ids_groups').focus(); }); return false;">{l s='Select all groups' mod='froggypricenegociator'}</a> |
+						<a href="#" onclick="$('#ids_groups option').each(function() { $(this).attr('selected', false); $('#ids_groups').focus(); }); return false;">{l s='Unselect all groups' mod='froggypricenegociator'}</a>
+					</p>
+					<select id="ids_groups" name="ids_groups[]" style="border:1px solid #AAAAAA;width:400px;height:160px" multiple>
+						{foreach from=$froggypricenegociator.groups item='group'}
+							<option value="{$group.id_group|intval}" {if in_array($group.id_group, $froggypricenegociator.selected_groups)}selected="selected"{/if}>&nbsp;{$group.name|escape}</option>
+						{/foreach}
+					</select>
+					<p class="preference_description">
+						{l s='Price negotiation button will be disabled for all customers in these groups.' mod='froggypricenegociator'}<br/>
+						<b>{l s='Press CTRL in order to select many groups.' mod='froggypricenegociator'}</b>
+					</p>
 				</div>
 			</div>
 			{*tab module option*}

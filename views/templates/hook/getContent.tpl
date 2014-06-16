@@ -107,11 +107,22 @@
 
 				<label>{l s='Disable price negotiation button for the following brands:' mod='froggypricenegociator'}</label>
 				<div class="margin-form">
-					<input type="text" name="FC_PN_DISABLE_FOR_BRANDS" value="{$froggypricenegociator.FC_PN_DISABLE_FOR_BRANDS}" />
-					<p class="preference_description">{l s='If a product is associated to one of these brands, price negotiation button will be disabled.' mod='froggypricenegociator'}</p>
+					<p>
+						<a href="#" onclick="$('#ids_manufacturers option').each(function() { $(this).attr('selected', 'selected'); $('#ids_manufacturers').focus(); }); return false;">{l s='Select all manufacturers' mod='froggypricenegociator'}</a> |
+						<a href="#" onclick="$('#ids_manufacturers option').each(function() { $(this).attr('selected', false); $('#ids_manufacturers').focus(); }); return false;">{l s='Unselect all manufacturers' mod='froggypricenegociator'}</a>
+					</p>
+					<select id="ids_manufacturers" name="ids_manufacturers[]" style="border:1px solid #AAAAAA;width:400px;height:160px" multiple>
+						{foreach from=$froggypricenegociator.manufacturers item='manufacturer'}
+							<option value="{$manufacturer.id_manufacturer|intval}" {if in_array($manufacturer.id_manufacturer, $froggypricenegociator.selected_manufacturers)}selected="selected"{/if}>&nbsp;{$manufacturer.name|escape}</option>
+						{/foreach}
+					</select>
+					<p class="preference_description">
+						{l s='If a product is associated to one of these brands, price negotiation button will be disabled.' mod='froggypricenegociator'}<br/>
+						<b>{l s='Press CTRL in order to select many manufacturers.' mod='froggypricenegociator'}</b>
+					</p>
 				</div>
 
-				<label>{l s='Disable price negotiation button for the following customers:' mod='froggypricenegociator'}</label>
+				<label>{l s='Disable price negotiation button for the following customer groups:' mod='froggypricenegociator'}</label>
 				<div class="margin-form">
 					<input type="text" name="FC_PN_DISABLE_FOR_CUSTS" value="{$froggypricenegociator.FC_PN_DISABLE_FOR_CUSTS}" />
 					<p class="preference_description">{l s='Price negotiation button will be disabled for all these customers.' mod='froggypricenegociator'}</p>

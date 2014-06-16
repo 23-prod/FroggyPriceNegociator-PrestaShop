@@ -42,6 +42,14 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 	{
 		if (Tools::isSubmit('submitFroggyPriceNegociatorConfiguration'))
 		{
+			$manufacturers = Tools::getIsset('ids_manufacturers') ? Tools::getValue('ids_manufacturers') : '';
+			if (is_array($manufacturers)) {
+				$manufacturers = array_map('intval', $manufacturers);
+				Configuration::updateValue('FC_PN_DISABLE_FOR_BRANDS', implode(',', $manufacturers));
+			} else {
+				Configuration::updateValue('FC_PN_DISABLE_FOR_BRANDS', '');
+			}
+
 			$categories = Tools::getIsset('categoryBox') ? Tools::getValue('categoryBox') : '';
 			if (is_array($categories)) {
 				// Force Int conversion
@@ -53,7 +61,7 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 
 			foreach ($this->configurations as $conf => $format)
 			{
-				if ($conf == 'FC_PN_DISABLE_FOR_CATS') continue; // Already saved before with a special treatment
+				if (in_array($conf, array('FC_PN_DISABLE_FOR_CATS', 'FC_PN_DISABLE_FOR_BRANDS'))) continue; // Already saved before with a special treatment
 
 				$value = Tools::getValue($conf);
 				if ($format == 'int')
@@ -74,6 +82,8 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 			$assign[$conf] = Configuration::get($conf);
 		$assign['result'] = $this->configuration_result;
 		$assign['ps_version'] = substr(_PS_VERSION_, 0, 3);
+		$assign['manufacturers'] = Manufacturer::getManufacturers();
+		$assign['selected_manufacturers'] = explode(',', Configuration::get('FC_PN_DISABLE_FOR_BRANDS'));
 
 		$selected_cat = explode(',', $assign['FC_PN_DISABLE_FOR_CATS']);
 		if (version_compare(_PS_VERSION_, '1.6.0', '>=') === true)

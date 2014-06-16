@@ -155,12 +155,16 @@
 	cursor:pointer;
 }
 
-#froggy-negociator-validation-step1-error {
+.froggy-negociator-validation-error {
     color:red;
     font-weight:bold;
     font-size: 14px;
 }
-
+.froggy-negociator-validation-confirmation {
+    color:green;
+    font-weight:bold;
+    font-size: 14px;
+}
 
 /*Modal front office*/
 

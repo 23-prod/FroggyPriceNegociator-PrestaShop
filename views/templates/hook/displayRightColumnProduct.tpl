@@ -33,8 +33,11 @@
     {/foreach}
 
 	var froggypricenegociator_about_label = '{l s='about' mod='froggypricenegociator'}';
-	var froggypricenegociator_error_too_high_label = '{l s='Your offer is superior to the current price of the product.' mod='froggypricenegociator'}';
-	var froggypricenegociator_error_too_low_label = '{l s='Your offer is too low.' mod='froggypricenegociator'}';
+	var froggypricenegociator_message_label = new Array();
+	froggypricenegociator_message_label['step1.too.high'] = '{l s='Your offer is superior to the current price of the product.' mod='froggypricenegociator'}';
+	froggypricenegociator_message_label['step1.too.low'] = '{l s='Your offer is too low.' mod='froggypricenegociator'}';
+	froggypricenegociator_message_label['step2.too.low'] = '{l s='Your offer was too low, here our final offer.' mod='froggypricenegociator'}';
+	froggypricenegociator_message_label['step2.good'] = '{l s='Your offer has been accepted!' mod='froggypricenegociator'}';
 </script>
 
 <a href="#" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negotiate the price' mod='froggypricenegociator'}" class="button-12 froggy-price-negociator-button-front yellow radius">{l s='Negotiate the price' mod='froggypricenegociator'}</a>
@@ -93,7 +96,7 @@
                 </fieldset>
                 <fieldset class="froggy-negociator-validation-step1">
                     <input id="froggy-negociator-validation-step1-input-submit" type="submit" value="{l s='Submit my offer' mod='froggypricenegociator'}" />
-                    <span id="froggy-negociator-validation-step1-error"></span>
+                    <span id="froggy-negociator-validation-message-step1" class="froggy-negociator-validation-error"></span>
                 </fieldset>
 
             </form>
@@ -105,7 +108,10 @@
 
 			<p class="froggy-negociator-title-modal">{l s='Negotiated price' mod='froggypricenegociator'}</p>
 			<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-negociated-price"><img src="{$froggypricenegociator.module_dir}views/img/loader.gif" /></p>
-			<p class="froggy-negociator-subtitle-modal">{l s='Please fill your e-mail address to receive this offer by e-mail and add the product to your cart.' mod='froggypricenegociator'}</p>
+			<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-validation-message-step2"></p>
+
+            <p class="froggy-negociator-subtitle-modal">{l s='Please fill your e-mail address to receive this offer by e-mail and add the product to your cart.' mod='froggypricenegociator'}</p>
+			<p class="froggy-negociator-subtitle-modal"><u>{l s='This offer will be available for 24 hours only!' mod='froggypricenegociator'}</u></p>
 
 			<form action="">
 
@@ -115,7 +121,6 @@
 
 				<fieldset class="froggy-negociator-validation-step1">
 					<input id="froggy-negociator-validation-step2-input-submit" type="submit" value="{l s='Validate my e-mail' mod='froggypricenegociator'}" />
-					<span id="froggy-negociator-validation-step2-error"></span>
 				</fieldset>
 
 			</form>

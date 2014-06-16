@@ -60,7 +60,7 @@ function froggyPriceNegociatorCalculSuccessInAjax()
 	{
 		$('#froggy-negociator-product-price-reduction').text('-');
 		$('#froggy-negociator-validation-step1-input-submit').hide();
-		$('#froggy-negociator-validation-step1-error').text(froggypricenegociator_error_too_high_label);
+		$('#froggy-negociator-validation-message-step1').text(froggypricenegociator_message_label['step1.too.high']);
 		$('#froggy-negociator-onehundred').trigger('click');
 		return true;
 	}
@@ -79,13 +79,13 @@ function froggyPriceNegociatorCalculSuccessInAjax()
 	if (result == 'zero')
 	{
 		$('#froggy-negociator-validation-step1-input-submit').hide();
-		$('#froggy-negociator-validation-step1-error').text(froggypricenegociator_error_too_low_label);
+		$('#froggy-negociator-validation-message-step1').text(froggypricenegociator_message_label['step1.too.low']);
 	}
 	else
 	{
 		// Else we show "Submit offer" button and hide delete error message
 		$('#froggy-negociator-validation-step1-input-submit').show();
-		$('#froggy-negociator-validation-step1-error').text('');
+		$('#froggy-negociator-validation-message-step1').text('');
 	}
 
 	// We trig the right radio button (for the progress bar)
@@ -119,12 +119,21 @@ function froggyPriceNegociatorGetNewPriceAjax()
 			offer: $('#froggy-negociator-input-offer').val()
 		},
 		success: function(data, textStatus, jqXHR) {
+
 			data = JSON.parse(data);
+
 			if (data.status == 'error')
-				$('#froggy-negociator-negociated-price').css('color', '#FF0000');
+			{
+				$('#froggy-negociator-negociated-price').text('-');
+				$('#froggy-negociator-validation-message-step2').removeClass('froggy-negociator-validation-confirmation').addClass('froggy-negociator-validation-error');
+				$('#froggy-negociator-validation-message-step2').text(data.message);
+			}
 			else
-				$('#froggy-negociator-negociated-price').css('color', '#000000');
-			$('#froggy-negociator-negociated-price').text(data.message);
+			{
+				$('#froggy-negociator-negociated-price').text(data.message);
+				$('#froggy-negociator-validation-message-step2').removeClass('froggy-negociator-validation-error').addClass('froggy-negociator-validation-confirmation');
+				$('#froggy-negociator-validation-message-step2').text(froggypricenegociator_message_label['step2.' + data.case]);
+			}
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
 		}
@@ -172,6 +181,7 @@ function froggyPriceNegociatorDynamizeModal()
 	// Init : Empty reduction block, hide "Submit offer button" and retrieve product price
 	froggyPriceNegociatorRefreshPrice();
 	$('#froggy-negociator-input-offer').val('');
+	$('#froggy-negociator-input-email').val('');
 	$('#froggy-negociator-validation-step1-input-submit').hide();
 	$('#froggy-negociator-validation-step2-input-submit').hide();
 	$('#froggy-negociator-modal-step2').hide();

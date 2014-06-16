@@ -25,19 +25,23 @@ class FroggyPriceNegociatorAjaxRequestProcessor extends FroggyHookProcessor
 		'get.new.price' => 'getNewPrice',
 	);
 
-	public function render($status, $message)
+	public function render($status, $message, $case = '')
 	{
-		return Tools::jsonEncode(array('status' => $status, 'message' => $message));
+		return Tools::jsonEncode(array('status' => $status, 'message' => $message, 'case' => $case));
 	}
 
 	public function getNewPrice($price_min)
 	{
+		$case = 'too.low';
 		$offer = Tools::getValue('offer');
 		if ($offer > $price_min)
+		{
+			$case = 'good';
 			$price_min = $offer;
+		}
 		$price_min = Tools::displayPrice($price_min);
 
-		return $this->render('success', $price_min);
+		return $this->render('success', $price_min, $case);
 	}
 
 	public function run()

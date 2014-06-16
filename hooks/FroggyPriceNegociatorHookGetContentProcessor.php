@@ -42,8 +42,8 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 	{
 		if (Tools::isSubmit('submitFroggyPriceNegociatorConfiguration'))
 		{
-			$categories = Tools::getIsset('FC_PN_DISABLE_FOR_CATS') ? Tools::getValue('FC_PN_DISABLE_FOR_CATS') : '';
-			if (Tools::getIsset('FC_PN_DISABLE_FOR_CATS') && is_array($categories)) {
+			$categories = Tools::getIsset('categoryBox') ? Tools::getValue('categoryBox') : '';
+			if (is_array($categories)) {
 				// Force Int conversion
 				$categories = array_map('intval', $categories);
 				Configuration::updateValue('FC_PN_DISABLE_FOR_CATS', implode(',', $categories));
@@ -76,8 +76,15 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 		$assign['ps_version'] = substr(_PS_VERSION_, 0, 3);
 
 		$selected_cat = explode(',', $assign['FC_PN_DISABLE_FOR_CATS']);
-		// Translations are not automatic for the moment ;)
-		if (version_compare(_PS_VERSION_,'1.5','>'))
+		if (version_compare(_PS_VERSION_, '1.6.0', '>=') === true)
+		{
+			$helper = new HelperTreeCategories('categories-treeview');
+			$helper->setRootCategory((Shop::getContext() == Shop::CONTEXT_SHOP ? Category::getRootCategory()->id_category : 0))
+				->setSelectedCategories($selected_cat)
+				->setUseCheckBox(true);
+			$assign['category_tree'] = $helper->render();
+		}
+		elseif (version_compare(_PS_VERSION_,'1.5','>'))
 		{
 			if (Shop::getContext() == Shop::CONTEXT_SHOP)
 			{
@@ -87,20 +94,20 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 			else
 				$root_category = array('id_category' => '0', 'name' => $this->l('Root'));
 			$helper = new Helper();
-			$assign['category_tree'] = $helper->renderCategoryTree($root_category, $selected_cat, 'FC_PN_DISABLE_FOR_CATS');
+			$assign['category_tree'] = $helper->renderCategoryTree($root_category, $selected_cat, 'categoryBox');
 		}
 		else
 		{
 			$trads = array(
-				'Home' => $this->l('Home'),
-				'selected' => $this->l('selected'),
-				'Collapse All' => $this->l('Collapse All'),
-				'Expand All' => $this->l('Expand All'),
-				'Check All' => $this->l('Check All'),
-				'Uncheck All'  => $this->l('Uncheck All'),
-				'search'  => $this->l('Search a category')
+				'Home' => $this->module->l('Home'),
+				'selected' => $this->module->l('selected'),
+				'Collapse All' => $this->module->l('Collapse All'),
+				'Expand All' => $this->module->l('Expand All'),
+				'Check All' => $this->module->l('Check All'),
+				'Uncheck All'  => $this->module->l('Uncheck All'),
+				'search'  => $this->module->l('Search a category')
 			);
-			$assign['category_tree'] = Helper::renderAdminCategorieTree($trads, $selected_cat, 'FC_PN_DISABLE_FOR_CATS');
+			$assign['category_tree'] = Helper::renderAdminCategorieTree($trads, $selected_cat, 'categoryBox');
 		}
 
 		$this->smarty->assign($this->module->name, $assign);

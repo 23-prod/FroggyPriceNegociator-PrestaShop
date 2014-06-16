@@ -119,6 +119,12 @@ function froggyPriceNegociatorGetNewPriceAjax()
 			offer: $('#froggy-negociator-input-offer').val()
 		},
 		success: function(data, textStatus, jqXHR) {
+			data = JSON.parse(data);
+			if (data.status == 'error')
+				$('#froggy-negociator-negociated-price').css('color', '#FF0000');
+			else
+				$('#froggy-negociator-negociated-price').css('color', '#000000');
+			$('#froggy-negociator-negociated-price').text(data.message);
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
 		}
@@ -186,7 +192,7 @@ function froggyPriceNegociatorDynamizeModal()
 	// When an offer is submitted
 	$('#froggy-negociator-validation-step1-input-submit').click(function() {
 		froggyPriceNegociatorGoToStep(2);
-		froggyPriceNegociatorGetNewPriceAjax();
+		setTimeout(function() { froggyPriceNegociatorGetNewPriceAjax(); }, 1000)
 		return false;
 	});
 }

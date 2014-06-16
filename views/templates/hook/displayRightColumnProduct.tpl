@@ -102,7 +102,25 @@
 
 
 		<div class="froggy-negociator-modal-step" id="froggy-negociator-modal-step2">
-            Step 2
+
+			<p class="froggy-negociator-title-modal">{l s='Negotiated price' mod='froggypricenegociator'}</p>
+			<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-negociated-price"><img src="{$froggypricenegociator.module_dir}views/img/loader.gif" /></p>
+			<p class="froggy-negociator-subtitle-modal">{l s='Please fill your e-mail address to receive this offer by e-mail and add the product to your cart.' mod='froggypricenegociator'}</p>
+
+			<form action="">
+
+				<fieldset class="froggy-negociator-input-offer">
+					<input type="text" placeholder="{l s='Your e-mail' mod='froggypricenegociator'}" id="froggy-negociator-input-email" />
+				</fieldset>
+
+				<fieldset class="froggy-negociator-validation-step1">
+					<input id="froggy-negociator-validation-step2-input-submit" type="submit" value="{l s='Validate my e-mail' mod='froggypricenegociator'}" />
+					<span id="froggy-negociator-validation-step2-error"></span>
+				</fieldset>
+
+			</form>
+
+
         </div>
 
 		<div class="froggy-negociator-modal-step" id="froggy-negociator-modal-step3">

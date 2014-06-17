@@ -38,7 +38,50 @@ $(document).ready(function() {
 		startCollapsed: 'accordion'
 	});
 
+	$('.button-choice-main').change(function() {
+		froggyPriceNegociatorUpdateButtonOptions();
+	});
+	froggyPriceNegociatorUpdateButtonOptions();
 });
+
+function froggyPriceNegociatorUpdateButtonOptions()
+{
+	var elements = buttons[$('.button-choice-main:checked').val()];
+	for (key in elements) {
+		$('.button-choice-'+key).html('');
+		if (!$.isEmptyObject(elements[key])) {
+			// Fill available options
+			var options = elements[key];
+			for (val in options) {
+				$('.button-choice-'+key).append('<option value="'+val+'">'+options[val]+'</option>');
+			}
+
+			// Show options
+			$('.button-choice-'+key+'-section').show();
+		} else {
+			// Hide useless options
+			$('.button-choice-'+key+'-section').hide();
+		}
+	}
+
+	$('.button-choice').change(function() {
+		froggyPriceNegociatorUpdateButtonPreview();
+	});
+	froggyPriceNegociatorUpdateButtonPreview();
+}
+
+function froggyPriceNegociatorUpdateButtonPreview()
+{
+	var $btn_preview = $('#froggy-price-negociator-button-preview');
+	$btn_preview.attr('class', '');
+	$('.button-choice:checked').each(function() {
+		$btn_preview.addClass($(this).val());
+	});
+	$('select.button-choice').each(function() {
+		$btn_preview.addClass($(this).val());
+	});
+	$('input[name=FC_PN_DISPLAY_BUTTON]').val($btn_preview.attr('class'));
+}
 
 function froggyPriceNegociatorConfigurationFormStatus()
 {

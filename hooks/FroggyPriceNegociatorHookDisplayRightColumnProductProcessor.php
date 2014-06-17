@@ -34,6 +34,7 @@ class FroggyPriceNegociatorHookDisplayRightColumnProductProcessor extends Froggy
 			'ps_version' => substr(_PS_VERSION_, 0, 3),
 			'FC_PN_DISPLAY_MODE' => Configuration::get('FC_PN_DISPLAY_MODE'),
 			'FC_PN_DISPLAY_DELAYED' => Configuration::get('FC_PN_DISPLAY_DELAYED'),
+			'FC_PN_DISPLAY_BUTTON' => Configuration::get('FC_PN_DISPLAY_BUTTON'),
 		);
 		$this->smarty->assign($this->module->name, $assign);
 		return $this->module->fcdisplay(__FILE__, 'displayRightColumnProduct.tpl');

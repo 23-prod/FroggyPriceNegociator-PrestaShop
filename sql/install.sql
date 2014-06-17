@@ -38,5 +38,6 @@ CREATE TABLE IF NOT EXISTS `@PREFIX@fpn_product_new_price` (
   KEY `id_shop` (`id_shop`),
   KEY `id_product` (`id_product`),
   KEY `id_product_attribute` (`id_product_attribute`),
-  KEY `id_product` (`id_product`)
+  KEY `id_customer` (`id_customer`),
+  KEY `email` (`email`)
 ) ENGINE=@ENGINE@ DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;

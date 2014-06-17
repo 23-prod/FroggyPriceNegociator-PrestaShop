@@ -8,6 +8,10 @@
 	border-radius: 5px;
 }
 
+.froggy-negociator-container-modal fieldset{
+	border: 0;
+}
+
 .froggy-negociator-breadcrumb-container{
 
 }
@@ -253,7 +257,7 @@
 	background-color: #53dc33;
 }
 
-.radio {
+.froggy-negociator-radio {
 	display: none;
 }
 

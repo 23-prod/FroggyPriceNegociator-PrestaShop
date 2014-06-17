@@ -51,14 +51,31 @@ class FroggyPriceNegociatorAjaxRequestProcessor extends FroggyHookProcessor
 		$this->context->cookie->froggypricenegociator = Tools::jsonEncode($data);
 	}
 
+	public function getAttributesNameFromIdProductAttribute($id_product_attribute, $id_lang)
+	{
+		$names = Db::getInstance()->executeS('
+		SELECT `name`
+		FROM `'._DB_PREFIX_.'attribute_lang`
+		WHERE `id_lang` = '.(int)$id_lang.' AND `id_attribute` IN (
+			SELECT `id_attribute`
+			FROM `'._DB_PREFIX_.'product_attribute_combination`
+			WHERE `id_product_attribute` = '.(int)$id_product_attribute.'
+		)');
+		$name = '';
+		foreach ($names as $n)
+			$name .= ' '.$n['name'];
+		return $name;
+	}
+
 	public function addReductionToCart($id_product, $id_product_attribute, $product, $price_reduction, $expiration_date)
 	{
+		$id_lang = (int)$this->context->language->id;
 		if (version_compare(_PS_VERSION_, '1.5.0') >= 0)
 		{
 			$cart_rule = new CartRule();
 			$cart_rule->name = array();
-			$cart_rule->name[(int)Configuration::get('PS_LANG_DEFAULT')] = $this->module->l('Negotiated price for').' '.$product->name;
-			$cart_rule->name[$id_lang] = $this->module->l('Negotiated price for').' '.$product->name;
+			$cart_rule->name[(int)Configuration::get('PS_LANG_DEFAULT')] = $this->module->l('Negotiated price for').' '.$product->name.$this->getAttributesNameFromIdProductAttribute($id_product_attribute, $id_lang);
+			$cart_rule->name[$id_lang] = $this->module->l('Negotiated price for').' '.$product->name.$this->getAttributesNameFromIdProductAttribute($id_product_attribute, $id_lang);
 			$cart_rule->id_customer = (int)$this->context->customer->id;
 			$cart_rule->date_from = date('Y-m-d H:i:s');
 			$cart_rule->date_to = $expiration_date;
@@ -69,7 +86,7 @@ class FroggyPriceNegociatorAjaxRequestProcessor extends FroggyHookProcessor
 			$cart_rule->code = date('ymdHis').'-'.(int)$id_product.'-'.$id_product_attribute.'-'.ip2long(Tools::getRemoteAddr());
 			$cart_rule->minimum_amount = 0;
 			$cart_rule->minimum_amount_tax = 0;
-			$cart_rule->minimum_amount_currency = 1;
+			$cart_rule->minimum_amount_currency = $this->context->currency->id;
 			$cart_rule->minimum_amount_shipping = 0;
 			$cart_rule->country_restriction = 0;
 			$cart_rule->carrier_restriction = 0;
@@ -81,18 +98,39 @@ class FroggyPriceNegociatorAjaxRequestProcessor extends FroggyHookProcessor
 			$cart_rule->reduction_percent = 0;
 			$cart_rule->reduction_amount = $price_reduction;
 			$cart_rule->reduction_tax = 0;
-			$cart_rule->reduction_currency = 1;
+			$cart_rule->reduction_currency = $this->context->currency->id;
 			$cart_rule->reduction_product = 0;
 			$cart_rule->gift_product = 0;
 			$cart_rule->gift_product_attribute = 0;
 			$cart_rule->highlight = 0;
 			$cart_rule->active = 1;
 			$cart_rule->add();
-			$this->context->cart->addCartRule($cart_rule->id);
+			$this->context->cart->addCartRule((int)$cart_rule->id);
 		}
 		else
 		{
-
+			$discount = new Discount();
+			$discount->id_customer = (int)$this->context->customer->id;
+			$discount->id_group = 0;
+			$discount->id_currency = $this->context->currency->id;
+			$discount->id_discount_type = 2;
+			$discount->name = date('ymdHis').'-'.(int)$id_product.'-'.$id_product_attribute.'-'.ip2long(Tools::getRemoteAddr());
+			$discount->description = array();
+			$discount->description[(int)Configuration::get('PS_LANG_DEFAULT')] = $this->module->l('Negotiated price for').' '.$product->name.$this->getAttributesNameFromIdProductAttribute($id_product_attribute, $id_lang);
+			$discount->description[$id_lang] = $this->module->l('Negotiated price for').' '.$product->name.$this->getAttributesNameFromIdProductAttribute($id_product_attribute, $id_lang);
+			$discount->value = $price_reduction;
+			$discount->quantity = 1;
+			$discount->quantity_per_user = 1;
+			$discount->cumulable = 1;
+			$discount->cumulable_reduction = 1;
+			$discount->date_from = date('Y-m-d H:i:s');
+			$discount->date_to = $expiration_date;
+			$discount->minimal = 0;
+			$discount->include_tax = 1;
+			$discount->cart_display = 0;
+			$discount->active = 1;
+			$discount->add();
+			$this->context->cart->addDiscount((int)$discount->id);
 		}
 	}
 

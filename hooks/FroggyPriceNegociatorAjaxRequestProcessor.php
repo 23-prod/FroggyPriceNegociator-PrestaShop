@@ -51,6 +51,51 @@ class FroggyPriceNegociatorAjaxRequestProcessor extends FroggyHookProcessor
 		$this->context->cookie->froggypricenegociator = Tools::jsonEncode($data);
 	}
 
+	public function addReductionToCart($id_product, $id_product_attribute, $product, $price_reduction, $expiration_date)
+	{
+		if (version_compare(_PS_VERSION_, '1.5.0') >= 0)
+		{
+			$cart_rule = new CartRule();
+			$cart_rule->name = array();
+			$cart_rule->name[(int)Configuration::get('PS_LANG_DEFAULT')] = $this->module->l('Negotiated price for').' '.$product->name;
+			$cart_rule->name[$id_lang] = $this->module->l('Negotiated price for').' '.$product->name;
+			$cart_rule->id_customer = (int)$this->context->customer->id;
+			$cart_rule->date_from = date('Y-m-d H:i:s');
+			$cart_rule->date_to = $expiration_date;
+			$cart_rule->quantity = 1;
+			$cart_rule->quantity_per_user = 1;
+			$cart_rule->priority = 1;
+			$cart_rule->partial_use = 0;
+			$cart_rule->code = date('ymdHis').'-'.(int)$id_product.'-'.$id_product_attribute.'-'.ip2long(Tools::getRemoteAddr());
+			$cart_rule->minimum_amount = 0;
+			$cart_rule->minimum_amount_tax = 0;
+			$cart_rule->minimum_amount_currency = 1;
+			$cart_rule->minimum_amount_shipping = 0;
+			$cart_rule->country_restriction = 0;
+			$cart_rule->carrier_restriction = 0;
+			$cart_rule->group_restriction = 0;
+			$cart_rule->cart_rule_restriction = 0;
+			$cart_rule->product_restriction = 1;
+			$cart_rule->shop_restriction = 0;
+			$cart_rule->free_shipping = 0;
+			$cart_rule->reduction_percent = 0;
+			$cart_rule->reduction_amount = $price_reduction;
+			$cart_rule->reduction_tax = 0;
+			$cart_rule->reduction_currency = 1;
+			$cart_rule->reduction_product = 0;
+			$cart_rule->gift_product = 0;
+			$cart_rule->gift_product_attribute = 0;
+			$cart_rule->highlight = 0;
+			$cart_rule->active = 1;
+			$cart_rule->add();
+			$this->context->cart->addCartRule($cart_rule->id);
+		}
+		else
+		{
+
+		}
+	}
+
 
 	/**
 	 * Get new price
@@ -116,40 +161,7 @@ class FroggyPriceNegociatorAjaxRequestProcessor extends FroggyHookProcessor
 
 		// Add product to cart with discount
 		$this->context->cart->updateQty(1, $id_product, $id_product_attribute);
-		$cart_rule = new CartRule();
-		$cart_rule->name = array();
-		$cart_rule->name[(int)Configuration::get('PS_LANG_DEFAULT')] = $this->module->l('Negotiated price for').' '.$product->name;
-		$cart_rule->name[$id_lang] = $this->module->l('Negotiated price for').' '.$product->name;
-		$cart_rule->id_customer = (int)$this->context->customer->id;
-		$cart_rule->date_from = date('Y-m-d H:i:s');
-		$cart_rule->date_to = $expiration_date;
-		$cart_rule->quantity = 1;
-		$cart_rule->quantity_per_user = 1;
-		$cart_rule->priority = 1;
-		$cart_rule->partial_use = 0;
-		$cart_rule->code = date('ymdHis').'-'.(int)$id_product.'-'.$id_product_attribute.'-'.ip2long(Tools::getRemoteAddr());
-		$cart_rule->minimum_amount = 0;
-		$cart_rule->minimum_amount_tax = 0;
-		$cart_rule->minimum_amount_currency = 1;
-		$cart_rule->minimum_amount_shipping = 0;
-		$cart_rule->country_restriction = 0;
-		$cart_rule->carrier_restriction = 0;
-		$cart_rule->group_restriction = 0;
-		$cart_rule->cart_rule_restriction = 0;
-		$cart_rule->product_restriction = 1;
-		$cart_rule->shop_restriction = 0;
-		$cart_rule->free_shipping = 0;
-		$cart_rule->reduction_percent = 0;
-		$cart_rule->reduction_amount = $price_reduction;
-		$cart_rule->reduction_tax = 0;
-		$cart_rule->reduction_currency = 1;
-		$cart_rule->reduction_product = 0;
-		$cart_rule->gift_product = 0;
-		$cart_rule->gift_product_attribute = 0;
-		$cart_rule->highlight = 0;
-		$cart_rule->active = 1;
-		$cart_rule->add();
-		$this->context->cart->addCartRule($cart_rule->id);
+		$this->addReductionToCart($id_product, $id_product_attribute, $product, $price_reduction, $expiration_date);
 
 
 		// Set templates vars

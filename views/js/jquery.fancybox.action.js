@@ -18,18 +18,18 @@
  */
 
 $(document).ready(function() {
-    $('#myModal').hide();
-    $('#froggypricenegociator-button').click(function() {
-        $.fancybox(
-            $('#myModal').html(),
-            {
-                'autoDimensions'	: false,
-                'width'         		: 350,
-                'height'        		: 'auto',
-                'transitionIn'		: 'none',
-                'transitionOut'		: 'none'
-            }
-        );
-        return false;
-    });
+	$('#myModal').hide();
+	$('#froggypricenegociator-button').click(function() {
+		$.fancybox(
+			$('#myModal').html(),
+			{
+				'autoDimensions'	: false,
+				'width'         		: 350,
+				'height'        		: 'auto',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			}
+		);
+		return false;
+	});
 });

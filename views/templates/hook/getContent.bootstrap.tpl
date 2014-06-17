@@ -167,10 +167,24 @@
 							<div class="form-group clearfix">
 								<label class="col-lg-3">{l s='Display mode:' mod='froggypricenegociator'}</label>
 								<div class="col-lg-9">
-									<select name="FC_PN_DISPLAY_MODE">
-										<option value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}selected="selected"{/if}>{l s='Fancybox (jQuery)' mod='froggypricenegociator'}</option>
-										<option value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}selected="selected"{/if}>{l s='Reveal (Foundation)' mod='froggypricenegociator'}</option>
-									</select>
+									<div class="choice">
+										<label>
+											<img src="{$module_dir}views/img/fancy.png" />
+											<input type="radio" name="FC_PN_DISPLAY_MODE" value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}selected="selected"{/if}/> Fancybox (jQuery)
+										</label>
+										<a id="open-fancy" class="button" href="#" data-text="{l s='This is a Fancybox' mod='froggypricenegociator'}">{l s='Preview' mod='froggypricenegociator'}</a>
+									</div>
+									<div class="choice">
+										<label>
+											<img src="{$module_dir}views/img/reveal.png" />
+											<input type="radio" name="FC_PN_DISPLAY_MODE" value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}selected="selected"{/if}/> Reveal (Foundation)
+										</label>
+										<a class="button" href="#" data-reveal-id="preview-reveal-modal">{l s='Preview' mod='froggypricenegociator'}</a>
+										<div id="preview-reveal-modal" class="reveal-modal">
+											<h2 class="title-modal">{l s='This is Reveal modal' mod='froggypricenegociator'}</h2>
+											<a class="close-reveal-modal">&#215;</a>
+										</div>
+									</div>
 									<p class="help-block">{l s='The display when customer click on the price negotiation button.' mod='froggypricenegociator'}</p>
 								</div>
 							</div>
@@ -196,10 +210,7 @@
 
 <script type="text/javascript" src="{$froggypricenegociator.module_dir}views/js/getContent-common.js"></script>
 <script type="text/javascript" src="{$froggypricenegociator.module_dir}views/js/jquery.responsiveTabs.min.js"></script>
+<script type="text/javascript" src="{$froggypricenegociator.module_dir}views/js/jquery.reveal.js"></script>
 <link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}views/css/style-1.6.css" />
 <link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}views/css/responsive-tabs.css" />
-<script type="text/javascript">
-	$('#Froggy-price-negociator-admin-tab').responsiveTabs({
-		startCollapsed: 'accordion'
-	});
-</script>
+<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}views/css/reveal.css" />

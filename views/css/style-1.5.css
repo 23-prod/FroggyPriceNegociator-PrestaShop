@@ -75,3 +75,24 @@ body {
 	border-left: 1px solid #ccc;
 	margin-bottom: 0;
 }
+
+.choice {
+	float: left;
+	text-align: center;
+	margin-bottom: 5px;
+}
+.choice label {
+	width: 100%;
+	margin-bottom: 5px;
+	text-align: center;
+}
+.choice img {
+	display: block;
+	border: 1px solid darkgray;
+	margin: 5px auto;
+	padding: 0;
+}
+.title-modal {
+	margin: 50px 0;
+	text-align: center;
+}

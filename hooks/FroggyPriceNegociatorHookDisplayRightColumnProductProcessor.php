@@ -47,7 +47,7 @@ class FroggyPriceNegociatorHookDisplayRightColumnProductProcessor extends Froggy
 			return '';
 
 		// Check if product is eligible
-		if (!FroggyPriceNegociatorObject::isProductEligible($id_product))
+		if (!FroggyPriceNegociatorObject::isProductEligible($id_product, (int)$this->context->customer->id))
 			return '';
 
 		// Return display

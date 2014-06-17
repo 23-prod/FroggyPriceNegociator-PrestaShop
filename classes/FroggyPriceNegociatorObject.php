@@ -114,17 +114,48 @@ class FroggyPriceNegociatorObject extends ObjectModel
 		return $return;
 	}
 
-	public static function isProductEligible($id_product)
+	public static function isProductEligible($id_product, $id_customer = 0)
 	{
+		// Retrieve blacklist
+		$blacklisted_categories = explode(',', Configuration::get('FC_PN_DISABLE_FOR_CATS'));
+		$blacklisted_manufacturers = explode(',', Configuration::get('FC_PN_DISABLE_FOR_BRANDS'));
+		$blacklisted_customer_groups = explode(',', Configuration::get('FC_PN_DISABLE_FOR_CUSTS'));
+
+		// If the product is associated to one of the blacklisted category, the product is not eligible
+		$categories = Db::getInstance()->executeS('
+		SELECT `id_category` FROM `'._DB_PREFIX_.'category_product`
+		WHERE `id_product` = '.(int)$id_product);
+		foreach ($categories as $cat)
+			if (in_array($cat['id_category'], $blacklisted_categories))
+				return false;
+
+		// If the product is associated to one of the blacklisted category, the product is not eligible
+		$id_manufacturer = Db::getInstance()->getValue('
+		SELECT `id_manufacturer` FROM `'._DB_PREFIX_.'product`
+		WHERE `id_product` = '.(int)$id_product);
+		if (in_array($id_manufacturer, $blacklisted_manufacturers))
+			return false;
+
+		// If the product is associated to one of the blacklisted category, the product is not eligible
+		$customer_groups = Db::getInstance()->executeS('
+		SELECT `id_group` FROM `'._DB_PREFIX_.'customer_group`
+		WHERE `id_customer` = '.(int)$id_customer);
+		foreach ($customer_groups as $cg)
+			if (in_array($cg['id_group'], $blacklisted_customer_groups))
+				return false;
+
+		// If the general configuration is enabled, the product is eligible
 		if (Configuration::get('FC_PN_ENABLE_GENERAL_OPTION') == 1)
 			return true;
 
+		// If a specific configuration is enabled for this product, the product is eligible
 		$id_fpn_product = Db::getInstance()->getValue('
 		SELECT `id_fpn_product` FROM `'._DB_PREFIX_.'fpn_product`
 		WHERE `id_product` = '.(int)$id_product.' AND `id_product_attribute` = 0 AND `active` = 1');
 		if ($id_fpn_product > 0)
 			return true;
 
+		// In any other case, the product is not eligible
 		return false;
 	}
 

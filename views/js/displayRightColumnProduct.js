@@ -172,12 +172,15 @@ function froggyPriceNegociatorValidatePriceAjax()
 
 function froggyPriceNegociatorDisplayButtonWithDelay()
 {
-	// If option "display button with a delay" is enabled
-	if (FC_PN_DISPLAY_DELAYED > 0)
-	{
-		// We hide button
-		$('#froggypricenegociator-button').hide();
+	if (typeof FC_PN_ID_PRODUCT == 'undefined') return;
 
+	var current_nb_views = localStorage.getItem('fc_pn_product_view_'+FC_PN_ID_PRODUCT) ? parseInt(localStorage.getItem('fc_pn_product_view_'+FC_PN_ID_PRODUCT)) : 0;
+	// Increment number of views
+	current_nb_views++;
+
+	// If option "display button with a delay" is enabled
+	if (FC_PN_DISPLAY_DELAYED > 0 && current_nb_views >= FC_PN_DISPLAY_DELAYED_PAGE)
+	{
 		// Set flag display
 		var froggypricenegociator_display = true;
 
@@ -196,6 +199,9 @@ function froggyPriceNegociatorDisplayButtonWithDelay()
 				$('#froggypricenegociator-button').fadeIn(3000);
 		}, FC_PN_DISPLAY_DELAYED * 1000);
 	}
+
+	// Save new number of view
+	localStorage.setItem('fc_pn_product_view_'+FC_PN_ID_PRODUCT, current_nb_views);
 }
 
 

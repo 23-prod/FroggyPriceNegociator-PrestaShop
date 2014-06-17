@@ -1,29 +1,27 @@
-{*
-* 2010 - 2014 Sellermania / Froggy Commerce / 23Prod SARL
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License (AFL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/afl-3.0.php
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to team@froggy-commerce.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade your module to newer
-* versions in the future.
-*
-*  @author Fabien Serny - Froggy Commerce <team@froggy-commerce.com>
-*  @copyright	2010-2014 Sellermania / Froggy Commerce / 23Prod SARL
-*  @version		1.0
-*  @license		http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
-*}
+{**
+ * 2013-2014 Froggy Commerce
+ *
+ * NOTICE OF LICENSE
+ *
+ * You should have received a licence with this module.
+ * If you didn't buy this module on Froggy-Commerce.com, ThemeForest.net
+ * or Addons.PrestaShop.com, please contact us immediately : contact@froggy-commerce.com
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to benefit the updates
+ * for newer PrestaShop versions in the future. If you wish to customize PrestaShop for your
+ * needs please refer to http://www.prestashop.com for more information.
+ *
+ * @author    Froggy Commerce <contact@froggy-commerce.com>
+ * @copyright 2013-2014 Froggy Commerce
+ * @license   Unauthorized copying of this file, via any medium is strictly prohibited
+ *}
 
 <script>
 	var FC_PN_DISPLAY_DELAYED = '{$froggypricenegociator.FC_PN_DISPLAY_DELAYED}';
+	var FC_PN_DISPLAY_DELAYED_PAGE = '{$froggypricenegociator.FC_PN_DISPLAY_DELAYED_PAGE}';
+	var FC_PN_ID_PRODUCT = '{$id_product}';
     var froggypricenegociator_configurations = new Array();
     {foreach from=$froggypricenegociator.configurations key=id_product_attribute item=steps}
 	    froggypricenegociator_configurations[{$id_product_attribute}] = new Array();
@@ -41,7 +39,7 @@
 	froggypricenegociator_message_label['step2.good'] = '{l s='Your offer has been accepted!' mod='froggypricenegociator'}';
 </script>
 
-<a href="#" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negotiate the price' mod='froggypricenegociator'}" class="button-12 {$froggypricenegociator.FC_PN_DISPLAY_BUTTON}">{l s='Negotiate the price' mod='froggypricenegociator'}</a>
+<a href="#" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negotiate the price' mod='froggypricenegociator'}" class="button-12 {$froggypricenegociator.FC_PN_DISPLAY_BUTTON}" style="display: none;">{l s='Negotiate the price' mod='froggypricenegociator'}</a>
 
 
 <div id="myModal" class="reveal-modal">

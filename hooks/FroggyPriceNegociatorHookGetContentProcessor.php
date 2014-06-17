@@ -78,7 +78,7 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 		$assign['manufacturers'] = Manufacturer::getManufacturers();
 		$assign['selected_manufacturers'] = explode(',', Configuration::get('FC_PN_DISABLE_FOR_BRANDS'));
 
-		$assign['groups'] = GroupCore::getGroups(Context::getContext()->language->id);
+		$assign['groups'] = GroupCore::getGroups($this->context->language->id);
 		$assign['selected_groups'] = explode(',', Configuration::get('FC_PN_DISABLE_FOR_CUSTS'));
 
 		$selected_cat = explode(',', $assign['FC_PN_DISABLE_FOR_CATS']);

@@ -30,6 +30,7 @@ class FroggyPriceNegociatorHookDisplayRightColumnProductProcessor extends Froggy
 			'path_template_dir' => dirname(__FILE__).'/../views/templates/hook/',
 			'module_dir' => $this->path,
 			'configurations' => $configurations,
+			'email' => (isset($this->context->customer->email) ? $this->context->customer->email : ''),
 			'FC_PN_DISPLAY_MODE' => Configuration::get('FC_PN_DISPLAY_MODE'),
 			'FC_PN_DISPLAY_DELAYED' => Configuration::get('FC_PN_DISPLAY_DELAYED'),
 		);

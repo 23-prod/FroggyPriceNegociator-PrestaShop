@@ -205,11 +205,11 @@ function froggyPriceNegociatorDynamizeModal()
 	// Init : Empty reduction block, hide "Submit offer button" and retrieve product price
 	froggyPriceNegociatorRefreshPrice();
 	$('#froggy-negociator-input-offer').val('');
-	$('#froggy-negociator-input-email').val('');
 	$('#froggy-negociator-validation-step1-input-submit').hide();
 	$('#froggy-negociator-validation-step2-input-submit').hide();
 	$('#froggy-negociator-modal-step2').hide();
 	$('#froggy-negociator-modal-step3').hide();
+	froggyPriceNegociatorCheckEmail();
 
 	// Refresh price when we click on the negociate button
 	$('#froggypricenegociator-button').click(function() {
@@ -232,8 +232,9 @@ function froggyPriceNegociatorDynamizeModal()
 	});
 
 	// Check e-mail format
-	$('#froggy-negociator-input-email').keyup(function() {
-
+	$('#froggy-negociator-input-email').keyup(function() { froggyPriceNegociatorCheckEmail(); });
+	function froggyPriceNegociatorCheckEmail()
+	{
 		// Init
 		var email = $('#froggy-negociator-input-email').val();
 		var checkEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -242,7 +243,7 @@ function froggyPriceNegociatorDynamizeModal()
 		$('#froggy-negociator-validation-step2-input-submit').hide();
 		if (checkEmail.test(email))
 			$('#froggy-negociator-validation-step2-input-submit').show();
-	});
+	}
 
 	// When an offer is validated
 	$('#froggy-negociator-validation-step2-input-submit').click(function() {

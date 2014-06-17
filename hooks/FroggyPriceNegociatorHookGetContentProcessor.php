@@ -36,6 +36,7 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 		'FC_PN_DISABLE_FOR_CUSTS' => array('type' => 'multiple', 'field' => 'ids_groups'),
 		'FC_PN_DISPLAY_DELAYED' => 'int',
 		'FC_PN_DISPLAY_MODE' => 'string',
+		'FC_PN_DISPLAY_BUTTON' => 'string',
 	);
 
 	public function saveModuleConfiguration()

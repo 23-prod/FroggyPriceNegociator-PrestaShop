@@ -198,7 +198,8 @@
 					</div>
 					<div class="float">
 						<h3>Preview</h3>
-						<button id="froggy-price-negociator-button-preview">Negociate the price</button>
+						<a id="froggy-price-negociator-button-preview">Negociate the price</a>
+						<input type="hidden" name="FC_PN_DISPLAY_BUTTON" value="" />
 					</div>
 					<div class="clear clearfix"></div>
 				</div>
@@ -226,7 +227,7 @@
 	<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}../../css/jquery.fancybox-1.3.4.css" />
 {/if}
 
-<script>
+<script type="text/javascript">
 	var buttons = {
 		"froggy-price-negociator-button-front": {
 			"round": {

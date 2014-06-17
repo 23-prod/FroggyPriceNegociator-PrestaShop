@@ -80,7 +80,7 @@ function froggyPriceNegociatorUpdateButtonPreview()
 	$('select.button-choice').each(function() {
 		$btn_preview.addClass($(this).val());
 	});
-
+	$('input[name=FC_PN_DISPLAY_BUTTON]').val($btn_preview.attr('class'));
 }
 
 function froggyPriceNegociatorConfigurationFormStatus()

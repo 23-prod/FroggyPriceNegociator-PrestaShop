@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS `@PREFIX@fpn_product_new_price` (
   `id_product` int(10) unsigned NOT NULL,
   `id_product_attribute` int(10) unsigned NOT NULL,
   `id_customer` int(10) unsigned NOT NULL,
+  `id_cart` int(10) unsigned NOT NULL,
   `id_discount` int(10) unsigned NOT NULL,
   `id_cart_rule` int(10) unsigned NOT NULL,
   `email` varchar(255) NOT NULL,

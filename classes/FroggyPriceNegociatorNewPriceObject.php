@@ -35,6 +35,9 @@ class FroggyPriceNegociatorNewPriceObject extends ObjectModel
 	/** @var integer Customer ID */
 	public $id_customer;
 
+	/** @var integer Cart ID */
+	public $id_cart;
+
 	/** @var integer Discount ID */
 	public $id_discount;
 
@@ -86,6 +89,7 @@ class FroggyPriceNegociatorNewPriceObject extends ObjectModel
 			'id_product' => 				array('type' => 1, 'validate' => 'isUnsignedId', 'required' => true),
 			'id_product_attribute' => 		array('type' => 1, 'validate' => 'isUnsignedId', 'required' => true),
 			'id_customer' => 				array('type' => 1, 'validate' => 'isUnsignedId', 'required' => true),
+			'id_cart' => 					array('type' => 1, 'validate' => 'isUnsignedId', 'required' => true),
 			'id_discount' => 				array('type' => 1, 'validate' => 'isUnsignedId', 'required' => true),
 			'id_cart_rule' => 				array('type' => 1, 'validate' => 'isUnsignedId', 'required' => true),
 			'email' => 						array('type' => 3, 'validate' => 'isString', 'required' => true),
@@ -114,7 +118,7 @@ class FroggyPriceNegociatorNewPriceObject extends ObjectModel
 
 	/*** Retrocompatibility 1.4 ***/
 
-	protected 	$fieldsRequired = array('id_shop', 'id_product', 'email', 'ip', 'new_price', 'active');
+	protected 	$fieldsRequired = array('id_shop', 'id_product', 'id_cart', 'email', 'ip', 'new_price', 'active');
 	protected 	$fieldsSize = array('id_shop' => 32, 'id_product' => 32, 'email' => 32, 'new_price' => 32);
 	protected 	$fieldsValidate = array('id_shop' => 'isUnsignedInt', 'id_product' => 'isUnsignedInt', 'new_price' => 'isPrice', 'email' => 'isString');
 
@@ -131,6 +135,7 @@ class FroggyPriceNegociatorNewPriceObject extends ObjectModel
 		$fields['id_shop'] = (int)$this->id_shop;
 		$fields['id_product'] = (int)$this->id_product;
 		$fields['id_product_attribute'] = (int)$this->id_product_attribute;
+		$fields['id_cart'] = (int)$this->id_cart;
 		$fields['id_customer'] = (int)$this->id_customer;
 		$fields['id_discount'] = (int)$this->id_discount;
 		$fields['id_cart_rule'] = (int)$this->id_cart_rule;

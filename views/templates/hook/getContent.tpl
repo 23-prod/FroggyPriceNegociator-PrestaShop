@@ -199,7 +199,7 @@
 					<div class="float">
 						<h3>Preview</h3>
 						<a id="froggy-price-negociator-button-preview">Negociate the price</a>
-						<input type="hidden" name="FC_PN_DISPLAY_BUTTON" value="" />
+						<input type="hidden" name="FC_PN_DISPLAY_BUTTON" value="{$froggypricenegociator.FC_PN_DISPLAY_BUTTON}" />
 					</div>
 					<div class="clear clearfix"></div>
 				</div>

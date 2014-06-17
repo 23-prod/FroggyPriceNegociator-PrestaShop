@@ -30,10 +30,10 @@
 		<form method="POST" action="#">
 			<div id="Froggy-price-negociator-admin-tab">
 				<ul>
-					<li><a href="#froggy-module-configuration"> {l s='Configuration' mod='froggypricenegociator'} </a></li>
-					<li><a href="#froggy-module-option"> {l s='Option' mod='froggypricenegociator'} </a></li>
-					<li><a href="#froggy-module-display"> {l s='Display' mod='froggypricenegociator'} </a></li>
-					<li><a href="#tab-4"> {l s='Button' mod='froggypricenegociator'} </a></li>
+					<li><a href="#froggy-module-configuration"> {l s='Configurations' mod='froggypricenegociator'} </a></li>
+					<li><a href="#froggy-module-option"> {l s='General options' mod='froggypricenegociator'} </a></li>
+					<li><a href="#froggy-module-display"> {l s='Display options' mod='froggypricenegociator'} </a></li>
+					<li><a href="#froggy-module-personalization"> {l s='Personalization' mod='froggypricenegociator'} </a></li>
 				</ul>
 
 				{*tab module configuration*}
@@ -163,43 +163,44 @@
 
 				{*tab module display*}
 				<div id="froggy-module-display">
-					<div id="froggypricenegociator_options">
-							<div class="form-group clearfix">
-								<label class="col-lg-3">{l s='Display mode:' mod='froggypricenegociator'}</label>
-								<div class="col-lg-9">
-									<div class="choice">
-										<label>
-											<img src="{$module_dir}views/img/fancy.png" />
-											<input type="radio" name="FC_PN_DISPLAY_MODE" value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}selected="selected"{/if}/> Fancybox (jQuery)
-										</label>
-										<a id="open-fancy" class="button" href="#" data-text="{l s='This is a Fancybox' mod='froggypricenegociator'}">{l s='Preview' mod='froggypricenegociator'}</a>
-									</div>
-									<div class="choice">
-										<label>
-											<img src="{$module_dir}views/img/reveal.png" />
-											<input type="radio" name="FC_PN_DISPLAY_MODE" value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}selected="selected"{/if}/> Reveal (Foundation)
-										</label>
-										<a class="button" href="#" data-reveal-id="preview-reveal-modal">{l s='Preview' mod='froggypricenegociator'}</a>
-										<div id="preview-reveal-modal" class="reveal-modal">
-											<h2 class="title-modal">{l s='This is Reveal modal' mod='froggypricenegociator'}</h2>
-											<a class="close-reveal-modal">&#215;</a>
-										</div>
-									</div>
-									<p class="help-block">{l s='The display when customer click on the price negotiation button.' mod='froggypricenegociator'}</p>
-								</div>
-							</div>
-
-							<div class="form-group clearfix">
-								<label class="col-lg-3">{l s='Display price negotiation button after (seconds):' mod='froggypricenegociator'}</label>
-								<div class="col-lg-9">
-									<input type="text" name="FC_PN_DISPLAY_DELAYED" value="{$froggypricenegociator.FC_PN_DISPLAY_DELAYED}" />
-									<p class="help-block">{l s='You can delay the display of the price negotiation button, it will permit to display the button when a customer hesitate to add a product to your cart.' mod='froggypricenegociator'}</p>
-								</div>
-							</div>
-
+					<div class="form-group clearfix">
+						<label class="col-lg-3">{l s='Display price negotiation button after (seconds):' mod='froggypricenegociator'}</label>
+						<div class="col-lg-9">
+							<input type="text" name="FC_PN_DISPLAY_DELAYED" value="{$froggypricenegociator.FC_PN_DISPLAY_DELAYED}" />
+							<p class="help-block">{l s='You can delay the display of the price negotiation button, it will permit to display the button when a customer hesitate to add a product to your cart.' mod='froggypricenegociator'}</p>
+						</div>
 					</div>
 				</div>
 				{*tab module display*}
+
+				{*tab module personalization*}
+				<div id="froggy-module-personalization">
+					<div class="form-group clearfix">
+						<label class="col-lg-3">{l s='Display mode:' mod='froggypricenegociator'}</label>
+						<div class="col-lg-9">
+							<div class="choice">
+								<label>
+									<img src="{$module_dir}views/img/fancy.png" />
+									<input type="radio" name="FC_PN_DISPLAY_MODE" value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}selected="selected"{/if}/> Fancybox (jQuery)
+								</label>
+								<a id="open-fancy" class="button" href="#" data-text="{l s='This is a Fancybox' mod='froggypricenegociator'}">{l s='Preview' mod='froggypricenegociator'}</a>
+							</div>
+							<div class="choice">
+								<label>
+									<img src="{$module_dir}views/img/reveal.png" />
+									<input type="radio" name="FC_PN_DISPLAY_MODE" value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}selected="selected"{/if}/> Reveal (Foundation)
+								</label>
+								<a class="button" href="#" data-reveal-id="preview-reveal-modal">{l s='Preview' mod='froggypricenegociator'}</a>
+								<div id="preview-reveal-modal" class="reveal-modal">
+									<h2 class="title-modal">{l s='This is Reveal modal' mod='froggypricenegociator'}</h2>
+									<a class="close-reveal-modal">&#215;</a>
+								</div>
+							</div>
+							<p class="help-block">{l s='The display when customer click on the price negotiation button.' mod='froggypricenegociator'}</p>
+						</div>
+					</div>
+				</div>
+				{*tab module personalization*}
 			</div>
 		</div>
 		<div class="form-group clearfix"><input type="submit" name="submitFroggyPriceNegociatorConfiguration" value="{l s='Save' mod='froggypricenegociator'}" name="froggypricenegociator_ft_form" class="btn btn-default pull-right" /></div>

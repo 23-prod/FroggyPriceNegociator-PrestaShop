@@ -66,7 +66,9 @@ function froggyPriceNegociatorCalculSuccessInAjax()
 	}
 
 	// We retrieve id product attribute and we check the possible values
-	var id_product_attribute = $('#idCombination').val();
+	var id_product_attribute = 0;
+	if ($('#idCombination').val() != '')
+		id_product_attribute = $('#idCombination').val();
 	var possible_values = new Array('seventyfive', 'fifty', 'twentyfive', 'five', 'zero');
 
 	// Success is one hundred unless offer is lower than one of the precalculated price of "froggypricenegociator_configurations"

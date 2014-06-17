@@ -96,7 +96,7 @@ class FroggyPriceNegociatorAjaxRequestValidatePriceProcessor extends FroggyHookP
 			$cart_rule->free_shipping = 0;
 			$cart_rule->reduction_percent = 0;
 			$cart_rule->reduction_amount = $this->reduction;
-			$cart_rule->reduction_tax = 0;
+			$cart_rule->reduction_tax = 1;
 			$cart_rule->reduction_currency = $this->context->currency->id;
 			$cart_rule->reduction_product = 0;
 			$cart_rule->gift_product = 0;
@@ -142,6 +142,7 @@ class FroggyPriceNegociatorAjaxRequestValidatePriceProcessor extends FroggyHookP
 		$fpnnp->id_product = (int)$this->id_product;
 		$fpnnp->id_product_attribute = (int)$this->id_product_attribute;
 		$fpnnp->id_customer = (int)$this->context->customer->id;
+		$fpnnp->id_cart = (int)$this->context->cart->id;
 		$fpnnp->id_discount = (int)$this->id_discount;
 		$fpnnp->id_cart_rule = (int)$this->id_cart_rule;
 		$fpnnp->email = $this->email;

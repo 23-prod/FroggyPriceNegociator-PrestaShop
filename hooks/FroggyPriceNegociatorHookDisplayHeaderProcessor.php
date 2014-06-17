@@ -56,11 +56,17 @@ class FroggyPriceNegociatorHookDisplayHeaderProcessor extends FroggyHookProcesso
 		$products = $this->context->cart->getProducts();
 		$negociated_prices = FroggyPriceNegociatorNewPriceObject::getNewPricesByCartId($this->context->cart->id);
 
-		// Add negociated price again
+		// Add authorized negociated price
 		foreach ($products as $product)
 			foreach ($negociated_prices as $price)
 				if ($price['id_product'] == $product['id_product'] && $price['id_product_attribute'] == $product['id_product_attribute'])
+				{
+					// Refresh reduction amount depending on cart quantity
+					FroggyPriceNegociatorNewPriceObject::refreshReductionAmount($price[$nameVariable], $product['cart_quantity'], $price['reduction']);
+
+					// Add reduction to the cart
 					$this->context->cart->{$addMethod}($price[$nameVariable]);
+				}
 	}
 
 	public function run()

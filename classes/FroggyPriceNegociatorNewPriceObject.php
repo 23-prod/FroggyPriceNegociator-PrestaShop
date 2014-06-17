@@ -172,4 +172,24 @@ class FroggyPriceNegociatorNewPriceObject extends ObjectModel
 			return true;
 		return false;
 	}
+
+	public static function refreshReductionAmount($id_reduction, $quantity, $reduction)
+	{
+		// Check if quantity is not higher than the limit configured
+		if ($quantity > Configuration::get('FC_PN_MAX_QUANTITY_BY_PRODUCT'))
+			$quantity = Configuration::get('FC_PN_MAX_QUANTITY_BY_PRODUCT');
+
+		if (version_compare(_PS_VERSION_, '1.5.0') >= 0)
+		{
+			$cart_rule = new CartRule((int)$id_reduction);
+			$cart_rule->reduction_amount = ($reduction * $quantity);
+			$cart_rule->update();
+		}
+		else
+		{
+			$discount = new Discount((int)$id_reduction);
+			$discount->value = ($reduction * $quantity);
+			$discount->update();
+		}
+	}
 }

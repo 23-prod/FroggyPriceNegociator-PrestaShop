@@ -98,7 +98,7 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 				$root_category = array('id_category' => $root_category->id_category, 'name' => $root_category->name);
 			}
 			else
-				$root_category = array('id_category' => '0', 'name' => $this->l('Root'));
+				$root_category = array('id_category' => '0', 'name' => $this->module->l('Root'));
 			$helper = new Helper();
 			$assign['category_tree'] = $helper->renderCategoryTree($root_category, $selected_cat, 'categoryBox');
 		}

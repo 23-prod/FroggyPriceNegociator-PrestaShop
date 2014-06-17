@@ -75,3 +75,5 @@
 	margin: 50px 0;
 	text-align: center;
 }
+
+.style-box-front label{cursor:pointer}

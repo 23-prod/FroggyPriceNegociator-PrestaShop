@@ -178,25 +178,25 @@
 					<div class="form-group clearfix">
 						<label class="col-lg-3">{l s='Display mode:' mod='froggypricenegociator'}</label>
 						<div class="col-lg-9">
-							<div class="choice">
+							<div class="col-lg-2 text-center style-box-front">
 								<label>
 									<img src="{$module_dir}views/img/fancy.png" />
-									<input type="radio" name="FC_PN_DISPLAY_MODE" value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}selected="selected"{/if}/> Fancybox (jQuery)
+									<p class="clearfix"><input type="radio" name="FC_PN_DISPLAY_MODE" value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}selected="selected"{/if}/> Fancybox (jQuery)</p>
 								</label>
-								<a id="open-fancy" class="button" href="#" data-text="{l s='This is a Fancybox' mod='froggypricenegociator'}">{l s='Preview' mod='froggypricenegociator'}</a>
+								<p class="clearfix"><a id="open-fancy" class="btn btn-default" href="#" data-text="{l s='This is a Fancybox' mod='froggypricenegociator'}">{l s='Preview' mod='froggypricenegociator'}</a></p>
 							</div>
-							<div class="choice">
+							<div class="col-lg-2 text-center style-box-front">
 								<label>
 									<img src="{$module_dir}views/img/reveal.png" />
-									<input type="radio" name="FC_PN_DISPLAY_MODE" value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}selected="selected"{/if}/> Reveal (Foundation)
+									<p class="clearfix"><input type="radio" name="FC_PN_DISPLAY_MODE" value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}selected="selected"{/if}/> Reveal (Foundation)</p>
 								</label>
-								<a class="button" href="#" data-reveal-id="preview-reveal-modal">{l s='Preview' mod='froggypricenegociator'}</a>
+								<p class="clearfix"><a class="btn btn-default" href="#" data-reveal-id="preview-reveal-modal">{l s='Preview' mod='froggypricenegociator'}</a></p>
 								<div id="preview-reveal-modal" class="reveal-modal">
 									<h2 class="title-modal">{l s='This is Reveal modal' mod='froggypricenegociator'}</h2>
 									<a class="close-reveal-modal">&#215;</a>
 								</div>
 							</div>
-							<p class="help-block">{l s='The display when customer click on the price negotiation button.' mod='froggypricenegociator'}</p>
+							<p class="help-block col-lg-12">{l s='The display when customer click on the price negotiation button.' mod='froggypricenegociator'}</p>
 						</div>
 					</div>
 				</div>

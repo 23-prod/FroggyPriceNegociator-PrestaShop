@@ -21,7 +21,7 @@
 
 class FroggyPriceNegociatorHookDisplayHeaderProcessor extends FroggyHookProcessor
 {
-	public function run()
+	public function includeMedia()
 	{
 		if (Tools::getValue('id_product') < 1)
 			return true;
@@ -36,5 +36,36 @@ class FroggyPriceNegociatorHookDisplayHeaderProcessor extends FroggyHookProcesso
 		else
 			$this->context->controller->addJs($this->path.'views/js/jquery.fancybox.action.js');
 		$this->context->controller->addJs($this->path.'views/js/displayRightColumnProduct.js');
+	}
+
+	public function checkCartContent()
+	{
+		// Retrocompatibility
+		$nameVariable = (version_compare(_PS_VERSION_, '1.5.0') >= 0 ? 'id_cart_rule' : 'id_discount');
+		$getMethod = (version_compare(_PS_VERSION_, '1.5.0') >= 0 ? 'getCartRules' : 'getDiscounts');
+		$addMethod = (version_compare(_PS_VERSION_, '1.5.0') >= 0 ? 'addCartRule' : 'addDiscount');
+		$deleteMethod = (version_compare(_PS_VERSION_, '1.5.0') >= 0 ? 'removeCartRule' : 'deleteDiscount');
+
+		// First remove all negotiated reduction
+		$reductions = $this->context->cart->{$getMethod}();
+		foreach ($reductions as $reduction)
+			if (FroggyPriceNegociatorNewPriceObject::isNegociationReduction($reduction[$nameVariable]))
+				$this->context->cart->{$deleteMethod}($reduction[$nameVariable]);
+
+		// Then retrieve products and negociated prices matching this cart
+		$products = $this->context->cart->getProducts();
+		$negociated_prices = FroggyPriceNegociatorNewPriceObject::getNewPricesByCartId($this->context->cart->id);
+
+		// Add negociated price again
+		foreach ($products as $product)
+			foreach ($negociated_prices as $price)
+				if ($price['id_product'] == $product['id_product'] && $price['id_product_attribute'] == $product['id_product_attribute'])
+					$this->context->cart->{$addMethod}($price[$nameVariable]);
+	}
+
+	public function run()
+	{
+		$this->includeMedia();
+		$this->checkCartContent();
 	}
 }

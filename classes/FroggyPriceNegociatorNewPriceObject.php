@@ -154,4 +154,22 @@ class FroggyPriceNegociatorNewPriceObject extends ObjectModel
 	}
 
 	/*** End of Retrocompatibility 1.4 ***/
+
+	public static function getNewPricesByCartId($id_cart)
+	{
+		return Db::getInstance()->executeS('
+		SELECT * FROM `'._DB_PREFIX_.'fpn_product_new_price`
+		WHERE `id_cart` = '.(int)$id_cart);
+	}
+
+	public static function isNegociationReduction($id_reduction)
+	{
+		$id = (int)Db::getInstance()->getValue('
+		SELECT `id_fpn_product_new_price`
+		FROM `'._DB_PREFIX_.'fpn_product_new_price`
+		WHERE `'.(version_compare(_PS_VERSION_, '1.5.0') >= 0 ? 'id_cart_rule' : 'id_discount').'` = '.(int)$id_reduction);
+		if ($id > 0)
+			return true;
+		return false;
+	}
 }

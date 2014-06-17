@@ -175,7 +175,7 @@ class FroggyPriceNegociatorAjaxRequestValidatePriceProcessor extends FroggyHookP
 			'{your_offer}' => Tools::displayPrice($this->customer_offer),
 			'{product_price}' => Tools::displayPrice($this->product_price),
 			'{price_reduction}' => Tools::displayPrice($this->reduction),
-			'{expiration_date}' => $this->date_expiration,
+			'{expiration_date}' => Tools::displayDate($this->date_expiration, $this->id_lang, true),
 			'{product_image_url}' => $product_image_url,
 			'{contact_url}' => $this->context->link->getPageLink('contact'),
 			'{order_url}' => $this->context->link->getPageLink('order'),

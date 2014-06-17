@@ -117,7 +117,7 @@
 			<form action="">
 
 				<fieldset class="froggy-negociator-input-offer">
-					<input type="text" placeholder="{l s='Your e-mail' mod='froggypricenegociator'}" id="froggy-negociator-input-email" value="{$froggypricenegociator.email}" />
+					<input type="text" placeholder="{l s='Your e-mail' mod='froggypricenegociator'}" id="froggy-negociator-input-email" value="{$froggypricenegociator.email}" autocomplete="off" />
 				</fieldset>
 
 				<fieldset class="froggy-negociator-validation-step1">

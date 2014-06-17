@@ -26,6 +26,7 @@ if (!class_exists('FroggyModule', false)) require_once _PS_MODULE_DIR_.'/froggyp
 
 // Require Object Model
 require_once _PS_MODULE_DIR_.'/froggypricenegociator/classes/FroggyPriceNegociatorObject.php';
+require_once _PS_MODULE_DIR_.'/froggypricenegociator/classes/FroggyPriceNegociatorNewPriceObject.php';
 
 class FroggyPriceNegociator extends FroggyModule
 {

@@ -28,6 +28,7 @@
         "FC_PN_DISABLE_FOR_BRANDS" : "",
         "FC_PN_DISABLE_FOR_CUSTS" : "",
         "FC_PN_DISPLAY_DELAYED" : "5",
+        "FC_PN_DISPLAY_DELAYED_PAGE" : "0",
         "FC_PN_DISPLAY_MODE" : "FANCYBOX",
         "FC_PN_DISPLAY_BUTTON" : "froggy-price-negociator-button-front radius froggy-price-negociator-red"
     }

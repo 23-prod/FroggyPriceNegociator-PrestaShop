@@ -167,7 +167,13 @@
 						<label class="col-lg-3">{l s='Display price negotiation button after (seconds):' mod='froggypricenegociator'}</label>
 						<div class="col-lg-9">
 							<input type="text" name="FC_PN_DISPLAY_DELAYED" value="{$froggypricenegociator.FC_PN_DISPLAY_DELAYED}" />
-							<p class="help-block">{l s='You can delay the display of the price negotiation button, it will permit to display the button when a customer hesitate to add a product to your cart.' mod='froggypricenegociator'}</p>
+							{l s='seconds and' mod='froggypricenegociator'}
+							<input type="text" name="FC_PN_DISPLAY_DELAYED_PAGE" value="{$froggypricenegociator.FC_PN_DISPLAY_DELAYED_PAGE}" />
+							{l s='view(s) of the product page.' mod='froggypricenegociator'}
+							<p class="help-block">
+								{l s='You can delay the display of the price negotiation button, it will permit to display the button when a customer hesitate to add a product to your cart.' mod='froggypricenegociator'}<br />
+								<b>{l s='Put 0 in fields if you want disable this feature and show immediately the button for negociation.' mod='froggypricenegociator'}</b>
+							</p>
 						</div>
 					</div>
 				</div>

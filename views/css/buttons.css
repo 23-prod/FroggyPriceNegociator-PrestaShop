@@ -148,11 +148,7 @@
 	color:#111;
 }
 
-
-
-/*I just made this background and wanted to save it here*/
-
-.button-1 {
+.froggy-price-negociator-button-alert{
     outline: none;
     font-family: 'helvetica neue' sans-serif;
     font-size: 1.3em;
@@ -171,11 +167,11 @@
 	4px 4px 4px 2px rgba(92, 10, 24, 0.40), 0px 0px 3px 2px rgba(184, 20, 48, 0.9), 0px 0px 2px 5px rgba(230, 25, 60, 0.9), -1px -1px 1px 5px rgba(255, 255, 255, 0.6), 0px 0px 2px 10px rgba(230, 25, 60, 0.9), 0px 0px 1px 11px rgba(184, 20, 48, 0.9), 1px 3px 9px 10px rgba(0, 0, 0, 0.4);
 }
 
-.button-1:hover{
+.froggy-price-negociator-button-alert:hover{
     text-decoration:none;
 }
-.button-1:visited{color:#fff}
-.button-1:active {
+.froggy-price-negociator-button-alert:visited{color:#fff}
+.froggy-price-negociator-button-alert:active {
     color: #d9d9d9;
     padding: 12px 17px 11px 17px;
     background-image: linear-gradient(273deg, #e6193c 50%, #e8304f 60%);

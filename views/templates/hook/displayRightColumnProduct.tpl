@@ -74,12 +74,12 @@
 
                 <fieldset class="froggy-negociator-progressbar-container">
 
-                    <input type="radio" class="radio" name="progress" value="zero" id="froggy-negociator-zero" checked>
-                    <input type="radio" class="radio" name="progress" value="five" id="froggy-negociator-five">
-                    <input type="radio" class="radio" name="progress" value="twentyfive" id="froggy-negociator-twentyfive">
-                    <input type="radio" class="radio" name="progress" value="fifty" id="froggy-negociator-fifty">
-                    <input type="radio" class="radio" name="progress" value="seventyfive" id="froggy-negociator-seventyfive">
-                    <input type="radio" class="radio" name="progress" value="onehundred" id="froggy-negociator-onehundred">
+                    <input type="radio" class="froggy-negociator-radio" name="progress" value="zero" id="froggy-negociator-zero" checked>
+                    <input type="radio" class="froggy-negociator-radio" name="progress" value="five" id="froggy-negociator-five">
+                    <input type="radio" class="froggy-negociator-radio" name="progress" value="twentyfive" id="froggy-negociator-twentyfive">
+                    <input type="radio" class="froggy-negociator-radio" name="progress" value="fifty" id="froggy-negociator-fifty">
+                    <input type="radio" class="froggy-negociator-radio" name="progress" value="seventyfive" id="froggy-negociator-seventyfive">
+                    <input type="radio" class="froggy-negociator-radio" name="progress" value="onehundred" id="froggy-negociator-onehundred">
 
                     <p class="froggy-negociator-label-probability">{l s='Chance of success in your negotiation:' mod='froggypricenegociator'}</p>
 

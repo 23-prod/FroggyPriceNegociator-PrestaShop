@@ -21,7 +21,7 @@
 <script>
 	var FC_PN_DISPLAY_DELAYED = '{$froggypricenegociator.FC_PN_DISPLAY_DELAYED}';
 	var FC_PN_DISPLAY_DELAYED_PAGE = '{$froggypricenegociator.FC_PN_DISPLAY_DELAYED_PAGE}';
-	var FC_PN_ID_PRODUCT = '{$id_product}';
+	var FC_PN_ID_PRODUCT = '{$froggypricenegociator.id_product}';
     var froggypricenegociator_configurations = new Array();
     {foreach from=$froggypricenegociator.configurations key=id_product_attribute item=steps}
 	    froggypricenegociator_configurations[{$id_product_attribute}] = new Array();

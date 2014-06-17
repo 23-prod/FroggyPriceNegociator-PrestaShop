@@ -71,6 +71,7 @@ class FroggyPriceNegociatorHookDisplayBackOfficeHeaderProcessor extends FroggyHo
 			'currency' => $this->context->currency,
 			'fpn_product' => $this->fpn_product,
 			'combinations' => FroggyPriceNegociatorObject::getCombinationsByIdProduct((int)Tools::getValue('id_product')),
+			'is_product_blacklisted' => (FroggyPriceNegociatorObject::isProductBlacklisted((int)Tools::getValue('id_product')) ? 1 : 0),
 			'FC_PN_ENABLE_GENERAL_OPTION' => Configuration::get('FC_PN_ENABLE_GENERAL_OPTION'),
 			'FC_PN_GENERAL_REDUCTION' => Configuration::get('FC_PN_GENERAL_REDUCTION'),
 			'FC_PN_TYPE' => Configuration::get('FC_PN_TYPE'),

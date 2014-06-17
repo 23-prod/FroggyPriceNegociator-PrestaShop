@@ -65,9 +65,11 @@ function froggyPriceNegociatorOptionStatus(combination)
         combination_identifier = 'combination-';
 
     // If general option is enabled
-    if (fc_pn_enable_general_option == 1)
+    if (fc_pn_enable_general_option == 1 || fc_pn_is_product_blacklisted == 1)
     {
 		froggyPriceNegociatorDisplayHideAll(false, combination);
+		$('#froggypricenegociator-' + combination_identifier + 'title').show();
+		$('#froggypricenegociator-' + combination_identifier + 'separator').show();
         return false;
     }
 

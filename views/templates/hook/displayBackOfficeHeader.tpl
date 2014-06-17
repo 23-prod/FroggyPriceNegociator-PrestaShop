@@ -23,6 +23,7 @@
 *}
 
 <script>
+    var fc_pn_is_product_blacklisted = '{$froggypricenegociator.is_product_blacklisted}';
     var fc_pn_enable_general_option = '{$froggypricenegociator.FC_PN_ENABLE_GENERAL_OPTION}';
     var fc_pn_general_reduction = '{$froggypricenegociator.FC_PN_GENERAL_REDUCTION}'
     var fc_pn_type = '{$froggypricenegociator.FC_PN_TYPE}'

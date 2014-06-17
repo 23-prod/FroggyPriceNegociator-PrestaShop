@@ -32,14 +32,24 @@
 
     var fc_pn_negociator_label_product_attribute = '{l s='Enable price negociation button for this product attribute' mod='froggypricenegociator'}';
 	var fc_pn_negociator_label_price_error = '{l s='Beware, the minimum price sell is superior to the final retail place.'}';
-    var fc_pn_negociator_options = '<h3 id="froggypricenegociator-title">{l s='Froggy price negociator' mod='froggypricenegociator'}</h3> \
+    var fc_pn_negociator_options = '<h3 id="froggypricenegociator-title">{l s='Froggy Price Negotiator' mod='froggypricenegociator'}</h3> \
     \
-    {if $froggypricenegociator.FC_PN_ENABLE_GENERAL_OPTION eq '1'}
+    {if $froggypricenegociator.is_product_blacklisted eq '1'}
+			<div class="form-group"> \
+            <div class="col-lg-9 col-lg-offset-3"> \
+            <div class="alert alert-warning"> \
+            <p>{l s='The product is not eligible for negotiation, the possible reasons are:' mod='froggypricenegociator'}<br> \
+            {l s='- One of the category associated to this product is blacklisted in the module configuration.' mod='froggypricenegociator'}<br> \
+            {l s='- The manufacturer associated to this product is blacklisted in the module configuration.' mod='froggypricenegociator'}</p> \
+            </div> \
+            </div> \
+            </div> \
+    {elseif $froggypricenegociator.FC_PN_ENABLE_GENERAL_OPTION eq '1'}
             <div class="form-group"> \
             <div class="col-lg-9 col-lg-offset-3"> \
             <div class="alert alert-warning"> \
-            <p>{l s='The general negociation option has been enabled in the module configuration.' mod='froggypricenegociator'}<br> \
-            {l s='All products (including this one) will have a maximum negociation of' mod='froggypricenegociator'} {$froggypricenegociator.FC_PN_GENERAL_REDUCTION}%.<br> \
+            <p>{l s='The general negotiation option has been enabled in the module configuration.' mod='froggypricenegociator'}<br> \
+            {l s='All products (including this one) will have a maximum negotiation of' mod='froggypricenegociator'} {$froggypricenegociator.FC_PN_GENERAL_REDUCTION}%.<br> \
             {l s='In that case, the minimum sell price will be' mod='froggypricenegociator'} <b><span id="froggypricenegociator-minimum-sell-price"></span></b>.</p> \
             </div> \
             </div> \

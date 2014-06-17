@@ -114,7 +114,7 @@ class FroggyPriceNegociatorObject extends ObjectModel
 		return $return;
 	}
 
-	public static function isProductEligible($id_product, $id_customer = 0)
+	public static function isProductBlacklisted($id_product, $id_customer = 0)
 	{
 		// Retrieve blacklist
 		$blacklisted_categories = explode(',', Configuration::get('FC_PN_DISABLE_FOR_CATS'));
@@ -127,14 +127,14 @@ class FroggyPriceNegociatorObject extends ObjectModel
 		WHERE `id_product` = '.(int)$id_product);
 		foreach ($categories as $cat)
 			if (in_array($cat['id_category'], $blacklisted_categories))
-				return false;
+				return true;
 
 		// If the product is associated to one of the blacklisted category, the product is not eligible
 		$id_manufacturer = Db::getInstance()->getValue('
 		SELECT `id_manufacturer` FROM `'._DB_PREFIX_.'product`
 		WHERE `id_product` = '.(int)$id_product);
 		if (in_array($id_manufacturer, $blacklisted_manufacturers))
-			return false;
+			return true;
 
 		// If the product is associated to one of the blacklisted category, the product is not eligible
 		$customer_groups = Db::getInstance()->executeS('
@@ -142,7 +142,16 @@ class FroggyPriceNegociatorObject extends ObjectModel
 		WHERE `id_customer` = '.(int)$id_customer);
 		foreach ($customer_groups as $cg)
 			if (in_array($cg['id_group'], $blacklisted_customer_groups))
-				return false;
+				return true;
+
+		return false;
+	}
+
+	public static function isProductEligible($id_product, $id_customer = 0)
+	{
+		// Check blacklist
+		if (self::isProductBlacklisted($id_product, $id_customer))
+			return false;
 
 		// If the general configuration is enabled, the product is eligible
 		if (Configuration::get('FC_PN_ENABLE_GENERAL_OPTION') == 1)

@@ -134,7 +134,7 @@
 			<p class="froggy-negociator-title-modal">{l s='Negotiated price' mod='froggypricenegociator'}</p>
 			<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-negociated-price-step3"></p>
 
-			<form action="{$link->getPageLink('order')}">
+			<form action="{if $froggypricenegociator.ps_version eq '1.4'}{$link->getPageLink('order.php')}{else}{$link->getPageLink('order')}{/if}">
 
 				<fieldset class="froggy-negociator-validation-step1">
 					<input id="froggy-negociator-validation-step3-input-submit" type="submit" value="{l s='Go to the cart' mod='froggypricenegociator'}" />

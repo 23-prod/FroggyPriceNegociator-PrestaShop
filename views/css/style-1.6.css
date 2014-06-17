@@ -70,3 +70,8 @@
 	border-left: 1px solid #E5E5E5;
 	margin-bottom: 0;
 }
+
+.title-modal {
+	margin: 50px 0;
+	text-align: center;
+}

@@ -19,23 +19,36 @@
 
 $(document).ready(function() {
 
-    $('#FC_PN_ENABLE_GENERAL_OPTION').click(function() {
-        froggyPriceNegociatorConfigurationFormStatus();
-    });
+	$('#FC_PN_ENABLE_GENERAL_OPTION').click(function() {
+		froggyPriceNegociatorConfigurationFormStatus();
+	});
 
-    froggyPriceNegociatorConfigurationFormStatus();
+	froggyPriceNegociatorConfigurationFormStatus();
+
+	$('#open-fancy').click(function(e) {
+		e.preventDefault();
+
+		$.fancybox({
+			content: '<h2 class="title-modal">'+$('#open-fancy').data('text')+'</h2>',
+			autoDimensions: false
+		});
+	});
+
+	$('#Froggy-price-negociator-admin-tab').responsiveTabs({
+		startCollapsed: 'accordion'
+	});
 
 });
 
 function froggyPriceNegociatorConfigurationFormStatus()
 {
-    if ($('#FC_PN_ENABLE_GENERAL_OPTION').is(':checked'))
-    {
+	if ($('#FC_PN_ENABLE_GENERAL_OPTION').is(':checked'))
+	{
 		$('#fc-pn-type-block').hide();
-        $('#fc-pn-general-reduction-block').fadeIn();
-    }
-    else
-    {
+		$('#fc-pn-general-reduction-block').fadeIn();
+	}
+	else
+	{
 		$('#fc-pn-general-reduction-block').hide();
 		$('#fc-pn-type-block').fadeIn();
     }

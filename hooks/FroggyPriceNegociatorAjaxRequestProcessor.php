@@ -31,8 +31,6 @@ class FroggyPriceNegociatorAjaxRequestProcessor extends FroggyHookProcessor
 		return Tools::jsonEncode(array('status' => $status, 'message' => $message, 'case' => $case));
 	}
 
-
-
 	public function getNegociatedPriceInCookie($id_product, $id_product_attribute)
 	{
 		if (isset($this->context->cookie->froggypricenegociator))
@@ -53,6 +51,12 @@ class FroggyPriceNegociatorAjaxRequestProcessor extends FroggyHookProcessor
 		$this->context->cookie->froggypricenegociator = Tools::jsonEncode($data);
 	}
 
+
+	/**
+	 * Get new price
+	 * @param float $price_min
+	 * @return string json data
+	 */
 	public function getNewPrice($price_min)
 	{
 		// Init
@@ -83,7 +87,11 @@ class FroggyPriceNegociatorAjaxRequestProcessor extends FroggyHookProcessor
 		return $this->render('success', Tools::displayPrice($price_min), $case);
 	}
 
-
+	/**
+	 * Validate price
+	 * @param float $price_min
+	 * @return string json data
+	 */
 	public function validatePrice($price_min)
 	{
 		// Retrieve POST values

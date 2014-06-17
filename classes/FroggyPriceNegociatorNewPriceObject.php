@@ -50,9 +50,6 @@ class FroggyPriceNegociatorNewPriceObject extends ObjectModel
 	/** @var float Product Price */
 	public $product_price;
 
-	/** @var float Product Price */
-	public $product_price;
-
 	/** @var float Customer Price */
 	public $customer_offer;
 

@@ -5,9 +5,9 @@
 
     "hooks": {
         "all" : [ "header", "BackOfficeHeader" ],
-        "1.4" : [ "extraRight" ],
-        "1.5" : [ "displayRightColumnProduct" ],
-        "1.6" : [ "displayRightColumnProduct" ]
+        "1.4" : [ "extraRight", "cart" ],
+        "1.5" : [ "displayRightColumnProduct", "actionCartSave" ],
+        "1.6" : [ "displayRightColumnProduct", "actionCartSave" ]
     },
 
     "sql" : {

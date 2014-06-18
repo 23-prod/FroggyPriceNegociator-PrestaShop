@@ -196,20 +196,20 @@
 						</div>
 					</div>
 					<div class="main-style-block float">
-						<h3>{l s='Advanced style'}</h3>
+						<h3>{l s='Advanced style' mod='froggypricenegociator'}</h3>
 						<ul>
 							<li class="button-choice-round-section">
-								<b>{l s='Round style'}</b>
+								<b>{l s='Round style' mod='froggypricenegociator'}</b>
 								<select class="button-choice button-choice-round" name="button-round"></select>
 							</li>
 							<li class="button-choice-color-section">
-								<b>{l s='Color'}</b>
+								<b>{l s='Color' mod='froggypricenegociator'}</b>
 								<select class="button-choice button-choice-color" name="button-color"></select>
 							</li>
 						</ul>
 					</div>
 					<div class="main-style-block float">
-						<h3>{l s='Preview'}</h3>
+						<h3>{l s='Preview' mod='froggypricenegociator'}</h3>
 						<a id="froggy-price-negociator-button-preview">Negociate the price</a>
 						<input type="hidden" name="FC_PN_DISPLAY_BUTTON" value="{$froggypricenegociator.FC_PN_DISPLAY_BUTTON}" />
 					</div>

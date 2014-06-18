@@ -77,3 +77,9 @@
 }
 
 .style-box-front label{cursor:pointer}
+
+.main-style-block ul{
+	margin-top: 10px;
+	list-style: none;
+	padding: 0;
+}

@@ -162,14 +162,14 @@
 					<div class="froggy-box-choice">
 						<label>
 							<div><img src="{$module_dir}views/img/fancy.png" /></div>
-							<input type="radio" name="FC_PN_DISPLAY_MODE" value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}selected="selected"{/if}/><span class="name-froggy-box">Fancybox (jQuery)</span>
+							<input type="radio" name="FC_PN_DISPLAY_MODE" value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}checked="checked"{/if}/> Fancybox (jQuery)
 						</label>
 						<p><a id="open-fancy" class="button" href="#" data-text="{l s='This is a Fancybox' mod='froggypricenegociator'}">{l s='Preview' mod='froggypricenegociator'}</a></p>
 					</div>
 					<div class="froggy-box-choice">
 						<label>
 							<div><img src="{$module_dir}views/img/reveal.png" /></div>
-							<input type="radio" name="FC_PN_DISPLAY_MODE" value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}selected="selected"{/if}/><span class="name-froggy-box">Reveal (Foundation)</span>
+							<input type="radio" name="FC_PN_DISPLAY_MODE" value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}checked="checked"{/if}/> Reveal (Foundation)
 						</label>
 						<p><a class="button" href="#" data-reveal-id="preview-reveal-modal">{l s='Preview' mod='froggypricenegociator'}</a></p>
 						<div id="preview-reveal-modal" class="reveal-modal">

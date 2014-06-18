@@ -162,14 +162,14 @@
 					<div class="choice">
 						<label>
 							<img src="{$module_dir}views/img/fancy.png" />
-							<input type="radio" name="FC_PN_DISPLAY_MODE" value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}selected="selected"{/if}/> Fancybox (jQuery)
+							<input type="radio" name="FC_PN_DISPLAY_MODE" value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}checked="checked"{/if}/> Fancybox (jQuery)
 						</label>
 						<a id="open-fancy" class="button" href="#" data-text="{l s='This is a Fancybox' mod='froggypricenegociator'}">{l s='Preview' mod='froggypricenegociator'}</a>
 					</div>
 					<div class="choice">
 						<label>
 							<img src="{$module_dir}views/img/reveal.png" />
-							<input type="radio" name="FC_PN_DISPLAY_MODE" value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}selected="selected"{/if}/> Reveal (Foundation)
+							<input type="radio" name="FC_PN_DISPLAY_MODE" value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}checked="checked"{/if}/> Reveal (Foundation)
 						</label>
 						<a class="button" href="#" data-reveal-id="preview-reveal-modal">{l s='Preview' mod='froggypricenegociator'}</a>
 						<div id="preview-reveal-modal" class="reveal-modal">

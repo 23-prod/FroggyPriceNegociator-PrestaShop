@@ -180,14 +180,14 @@
 						<div class="col-lg-9">
 							<div class="col-lg-2 text-center style-box-front">
 								<label>
-									<img src="{$module_dir}views/img/fancy.png" />
+									<p><img src="{$module_dir}views/img/fancy.png" /></p>
 									<p class="clearfix"><input type="radio" name="FC_PN_DISPLAY_MODE" value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}selected="selected"{/if}/> Fancybox (jQuery)</p>
 								</label>
 								<p class="clearfix"><a id="open-fancy" class="btn btn-default" href="#" data-text="{l s='This is a Fancybox' mod='froggypricenegociator'}">{l s='Preview' mod='froggypricenegociator'}</a></p>
 							</div>
 							<div class="col-lg-2 text-center style-box-front">
 								<label>
-									<img src="{$module_dir}views/img/reveal.png" />
+									<p><img src="{$module_dir}views/img/reveal.png" /></p>
 									<p class="clearfix"><input type="radio" name="FC_PN_DISPLAY_MODE" value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}selected="selected"{/if}/> Reveal (Foundation)</p>
 								</label>
 								<p class="clearfix"><a class="btn btn-default" href="#" data-reveal-id="preview-reveal-modal">{l s='Preview' mod='froggypricenegociator'}</a></p>

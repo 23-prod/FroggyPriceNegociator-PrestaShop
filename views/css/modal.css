@@ -95,9 +95,8 @@
 
 .froggy-negociator-label-probability{
 	padding: 0;
-	margin:5px 0;
+	margin:1em 0;
 	font-size: 12px;
-
 }
 
 .froggy-negociator-price-info{
@@ -165,9 +164,18 @@
     font-size: 14px;
 }
 .froggy-negociator-validation-confirmation {
-    color:green;
-    font-weight:bold;
-    font-size: 14px;
+	color:green;
+	font-weight:bold;
+	font-size: 14px;
+}
+
+#froggy-negociator-negociated-price {
+	font-size: 36px;
+}
+
+#froggy-negociator-input-email {
+	border-right:1px solid #ebebeb;
+	font-size: 24px;
 }
 
 /*Modal front office*/

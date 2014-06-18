@@ -39,9 +39,10 @@
 	froggypricenegociator_message_label['step2.good'] = '{l s='Your offer has been accepted!' mod='froggypricenegociator'}';
 </script>
 
-<a href="#" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negotiate the price' mod='froggypricenegociator'}" class="button-12 {$froggypricenegociator.FC_PN_DISPLAY_BUTTON}" style="display: none;">{l s='Negotiate the price' mod='froggypricenegociator'}</a>
+<a href="#myModal" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negotiate the price' mod='froggypricenegociator'}" class="button-12 {$froggypricenegociator.FC_PN_DISPLAY_BUTTON}" style="display: none;">{l s='Negotiate the price' mod='froggypricenegociator'}</a>
 
 
+<div style="display:none">
 <div id="myModal" class="reveal-modal">
 	<div class="froggy-negociator-container-modal">
 		<div class="froggy-negociator-breadcrumb-container">
@@ -142,4 +143,5 @@
 
 		{if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}<a class="close-reveal-modal">&#215;</a>{/if}
 	</div>
+</div>
 </div>

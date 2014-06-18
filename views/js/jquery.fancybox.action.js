@@ -18,18 +18,12 @@
  */
 
 $(document).ready(function() {
-	$('#myModal').hide();
-	$('#froggypricenegociator-button').click(function() {
-		$.fancybox(
-			$('#myModal').html(),
-			{
-				'autoDimensions'	: false,
-				'width'         		: 350,
-				'height'        		: 'auto',
-				'transitionIn'		: 'none',
-				'transitionOut'		: 'none'
-			}
-		);
-		return false;
+	$('#froggypricenegociator-button').fancybox({
+		'autoDimensions'	: false,
+		'width'         	: '550',
+		'height'        	: '400',
+		'transitionIn'		: 'none',
+		'transitionOut'		: 'none',
+		'titleShow'			: false
 	});
 });

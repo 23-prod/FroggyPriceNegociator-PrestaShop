@@ -3,7 +3,7 @@
 }
 
 .r-tabs .r-tabs-nav {
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #999;
 }
 
 .r-tabs .r-tabs-nav .r-tabs-tab {
@@ -12,7 +12,7 @@
 }
 
 .r-tabs .r-tabs-nav .r-tabs-anchor {
-	background: #f8f8f8;
+	background: #E2EBEE;
 	margin-bottom: 3px;
 	padding: 10px 12px;
 	display: inline-block;
@@ -25,9 +25,9 @@
 .r-tabs .r-tabs-nav .r-tabs-state-active {
 	background-color: #fff;
 	margin-bottom: -1px;
-	border-top: 1px solid #ccc;
-	border-right: 1px solid #ccc;
-	border-left: 1px solid #ccc;
+	border-top: 1px solid #999;
+	border-right: 1px solid #999;
+	border-left: 1px solid #999;
 	width: calc(18% - 2px);
 }
 
@@ -41,9 +41,9 @@
 }
 
 .r-tabs .r-tabs-panel {
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-	border-left: 1px solid #ccc;
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
 	margin-bottom: 3px;
 	background: #fff;
 }
@@ -65,29 +65,67 @@
 .r-tabs .r-tabs-accordion-title.r-tabs-state-active .r-tabs-anchor {
 	background-color: #fff;
 	color: #585A69;
-	border-top: 1px solid #ccc;
-	border-right: 1px solid #ccc;
-	border-left: 1px solid #ccc;
+	border-top: 1px solid #999;
+	border-right: 1px solid #999;
+	border-left: 1px solid #999;
 	margin-bottom: 0;
 }
 
-.choice {
+.froggy-box-choice {
 	float: left;
 	text-align: center;
-	margin-bottom: 5px;
-}
-.choice label {
-	width: 100%;
-	margin-bottom: 5px;
-	text-align: center;
-}
-.choice img {
 	display: block;
-	border: 1px solid darkgray;
 	margin: 5px auto;
 	padding: 0;
 }
+
+.froggy-box-choice label {
+	margin-bottom: 10px;
+	width: 100%;
+	margin-bottom: 15px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.froggy-box-choice img {
+	margin-bottom: 10px;
+}
+
+.froggy-box-choice+.froggy-box-choice {
+	margin-left: 40px;
+}
+
+.name-froggy-box {
+	margin-left: 5px;
+}
+
 .title-modal {
 	margin: 50px 0;
 	text-align: center;
+}
+
+.main-style-block {
+	width: 31%;
+}
+
+.main-style-block h3 {
+	margin: 3px 0 0;
+}
+
+.main-style-block label {
+	padding: 0;
+	width: auto;
+	float: none;
+	cursor: pointer;
+
+}
+
+.main-style-block li {
+	margin-bottom: 10px;
+}
+
+.main-style-block ul{
+	margin-top: 10px;
+	padding: 0;
+	list-style: none;
 }

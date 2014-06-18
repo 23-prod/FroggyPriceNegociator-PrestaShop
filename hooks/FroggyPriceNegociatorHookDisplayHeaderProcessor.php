@@ -21,7 +21,7 @@
 
 class FroggyPriceNegociatorHookDisplayHeaderProcessor extends FroggyHookProcessor
 {
-	public function run()
+	public function includeMedia()
 	{
 		if (Tools::getValue('id_product') < 1)
 			return true;
@@ -36,5 +36,11 @@ class FroggyPriceNegociatorHookDisplayHeaderProcessor extends FroggyHookProcesso
 		else
 			$this->context->controller->addJs($this->path.'views/js/jquery.fancybox.action.js');
 		$this->context->controller->addJs($this->path.'views/js/displayRightColumnProduct.js');
+	}
+
+	public function run()
+	{
+		$this->includeMedia();
+		$this->module->hookActionCartSave();
 	}
 }

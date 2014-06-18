@@ -167,7 +167,13 @@
 						<label class="col-lg-3">{l s='Display price negotiation button after (seconds):' mod='froggypricenegociator'}</label>
 						<div class="col-lg-9">
 							<input type="text" name="FC_PN_DISPLAY_DELAYED" value="{$froggypricenegociator.FC_PN_DISPLAY_DELAYED}" />
-							<p class="help-block">{l s='You can delay the display of the price negotiation button, it will permit to display the button when a customer hesitate to add a product to your cart.' mod='froggypricenegociator'}</p>
+							{l s='seconds and' mod='froggypricenegociator'}
+							<input type="text" name="FC_PN_DISPLAY_DELAYED_PAGE" value="{$froggypricenegociator.FC_PN_DISPLAY_DELAYED_PAGE}" />
+							{l s='view(s) of the product page.' mod='froggypricenegociator'}
+							<p class="help-block">
+								{l s='You can delay the display of the price negotiation button, it will permit to display the button when a customer hesitate to add a product to your cart.' mod='froggypricenegociator'}<br />
+								<b>{l s='Put 0 in fields if you want disable this feature and show immediately the button for negociation.' mod='froggypricenegociator'}</b>
+							</p>
 						</div>
 					</div>
 				</div>
@@ -199,6 +205,37 @@
 							<p class="help-block col-lg-12">{l s='The display when customer click on the price negotiation button.' mod='froggypricenegociator'}</p>
 						</div>
 					</div>
+
+					<div class="form-group clearfix">
+						<label class="col-lg-3">{l s='Button style:' mod='froggypricenegociator'}</label>
+						<div class="col-lg-9">
+							<div class="float">
+								<div>
+									<b>Main style</b>
+									<ul>
+										<li><input class="button-choice button-choice-main" type="radio" name="button-style" value="froggy-price-negociator-button-front" checked="checked" /> Normal</li>
+										<li><input class="button-choice button-choice-main" type="radio" name="button-style" value="froggy-price-negociator-flat-button" /> Flat</li>
+										<li><input class="button-choice button-choice-main" type="radio" name="button-style" value="froggy-price-negociator-button-alert" /> Alert</li>
+									</ul>
+								</div>
+								<div class="button-choice-round-section">
+									<b>Round style</b>
+									<select class="button-choice button-choice-round" name="button-round"></select>
+								</div>
+								<div class="button-choice-color-section">
+									<b>Color</b>
+									<select class="button-choice button-choice-color" name="button-color"></select>
+								</div>
+							</div>
+							<div class="float">
+								<h3>Preview</h3>
+								<a id="froggy-price-negociator-button-preview">Negociate the price</a>
+								<input type="hidden" name="FC_PN_DISPLAY_BUTTON" value="{$froggypricenegociator.FC_PN_DISPLAY_BUTTON}" />
+							</div>
+							<div class="clear clearfix"></div>
+							<p class="help-block col-lg-12">{l s='The display when customer click on the price negotiation button.' mod='froggypricenegociator'}</p>
+						</div>
+					</div>
 				</div>
 				{*tab module personalization*}
 			</div>
@@ -215,3 +252,33 @@
 <link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}views/css/style-1.6.css" />
 <link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}views/css/responsive-tabs.css" />
 <link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}views/css/reveal.css" />
+<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}views/css/buttons.css" />
+
+<script type="text/javascript">
+	var buttons = {
+		"froggy-price-negociator-button-front": {
+			"round": {
+				"radius": "{l s='Normal'  mod='froggypricenegociator'}",
+				"radius-big": "{l s='Important'  mod='froggypricenegociator'}"
+			},
+			"color": {
+				"froggy-price-negociator-red": "{l s='Red'  mod='froggypricenegociator'}",
+				"froggy-price-negociator-blue": "{l s='Blue'  mod='froggypricenegociator'}",
+				"froggy-price-negociator-yellow": "{l s='Yellow'  mod='froggypricenegociator'}"
+			}
+		},
+		"froggy-price-negociator-flat-button": {
+			"round": { },
+			"color": {
+				"froggy-price-negociator-orange": "{l s='Orange'  mod='froggypricenegociator'}",
+				"froggy-price-negociator-green": "{l s='Green'  mod='froggypricenegociator'}",
+				"froggy-price-negociator-blue": "{l s='Blue'  mod='froggypricenegociator'}",
+				"froggy-price-negociator-grey": "{l s='Grey'  mod='froggypricenegociator'}"
+			}
+		},
+		"froggy-price-negociator-button-alert": {
+			"round": { },
+			"color": { }
+		}
+	};
+</script>

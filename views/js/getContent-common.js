@@ -39,14 +39,30 @@ $(document).ready(function() {
 	});
 
 	$('.button-choice-main').change(function() {
-		froggyPriceNegociatorUpdateButtonOptions();
+		froggyPriceNegociatorUpdateButtonOptions(false);
 	});
-	froggyPriceNegociatorUpdateButtonOptions();
+	froggyPriceNegociatorUpdateButtonOptions(true);
 });
 
-function froggyPriceNegociatorUpdateButtonOptions()
+function froggyPriceNegociatorUpdateButtonOptions(first_run)
 {
-	var elements = buttons[$('.button-choice-main:checked').val()];
+	var elements = null;
+	var explode = null;
+
+	// Get current value
+	if (first_run) {
+		explode = $('input[name=FC_PN_DISPLAY_BUTTON]').val().split(' ');
+		if (explode.length) {
+			elements = buttons[explode[0]];
+			$('.button-choice-main[value='+explode[0]+']').attr('checked', 'checked');
+		}
+	}
+
+	// Else we get default values
+	if (!elements) {
+		elements = buttons[$('.button-choice-main:checked').val()];
+	}
+
 	for (key in elements) {
 		$('.button-choice-'+key).html('');
 		if (!$.isEmptyObject(elements[key])) {
@@ -61,6 +77,15 @@ function froggyPriceNegociatorUpdateButtonOptions()
 		} else {
 			// Hide useless options
 			$('.button-choice-'+key+'-section').hide();
+		}
+	}
+
+	// If configuration already available, we set button
+	if (explode) {
+		for (i in explode) {
+			if (i > 0) {
+				$('.button-choice option[value='+explode[i]+']').attr('selected', 'selected');
+			}
 		}
 	}
 
@@ -80,7 +105,7 @@ function froggyPriceNegociatorUpdateButtonPreview()
 	$('select.button-choice').each(function() {
 		$btn_preview.addClass($(this).val());
 	});
-
+	$('input[name=FC_PN_DISPLAY_BUTTON]').val($btn_preview.attr('class'));
 }
 
 function froggyPriceNegociatorConfigurationFormStatus()

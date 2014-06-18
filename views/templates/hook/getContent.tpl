@@ -145,8 +145,12 @@
 			<div id="froggy-module-display">
 				<label>{l s='Display price negotiation button after:' mod='froggypricenegociator'}</label>
 				<div class="margin-form">
-					<input type="text" name="FC_PN_DISPLAY_DELAYED" value="{$froggypricenegociator.FC_PN_DISPLAY_DELAYED}" /> s
-					<p class="preference_description">{l s='You can delay the display of the price negotiation button, it will permit to display the button when a customer hesitate to add a product to your cart.' mod='froggypricenegociator'}</p>
+					<input type="text" name="FC_PN_DISPLAY_DELAYED" value="{$froggypricenegociator.FC_PN_DISPLAY_DELAYED}" size="2" /> {l s='seconds' mod='froggypricenegociator'}<br/>
+					{l s='and' mod='froggypricenegociator'} <input type="text" name="FC_PN_DISPLAY_DELAYED_PAGE" value="{$froggypricenegociator.FC_PN_DISPLAY_DELAYED_PAGE}" size="2" />  {l s='view(s) of the product page.' mod='froggypricenegociator'}
+					<p class="preference_description">
+						{l s='You can delay the display of the price negotiation button, it will permit to display the button when a customer hesitate to add a product to your cart.' mod='froggypricenegociator'}<br />
+						<b>{l s='Put 0 in fields if you want disable this feature and show immediately the button for negociation.' mod='froggypricenegociator'}</b>
+					</p>
 				</div>
 			</div>
 			{*tab module display*}
@@ -198,7 +202,8 @@
 					</div>
 					<div class="float">
 						<h3>Preview</h3>
-						<button id="froggy-price-negociator-button-preview">Negociate the price</button>
+						<a id="froggy-price-negociator-button-preview">Negociate the price</a>
+						<input type="hidden" name="FC_PN_DISPLAY_BUTTON" value="{$froggypricenegociator.FC_PN_DISPLAY_BUTTON}" />
 					</div>
 					<div class="clear clearfix"></div>
 				</div>
@@ -226,7 +231,7 @@
 	<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}../../css/jquery.fancybox-1.3.4.css" />
 {/if}
 
-<script>
+<script type="text/javascript">
 	var buttons = {
 		"froggy-price-negociator-button-front": {
 			"round": {

@@ -5,9 +5,9 @@
 
     "hooks": {
         "all" : [ "header", "BackOfficeHeader" ],
-        "1.4" : [ "extraRight" ],
-        "1.5" : [ "displayRightColumnProduct" ],
-        "1.6" : [ "displayRightColumnProduct" ]
+        "1.4" : [ "extraRight", "cart" ],
+        "1.5" : [ "displayRightColumnProduct", "actionCartSave" ],
+        "1.6" : [ "displayRightColumnProduct", "actionCartSave" ]
     },
 
     "sql" : {
@@ -28,6 +28,8 @@
         "FC_PN_DISABLE_FOR_BRANDS" : "",
         "FC_PN_DISABLE_FOR_CUSTS" : "",
         "FC_PN_DISPLAY_DELAYED" : "5",
-        "FC_PN_DISPLAY_MODE" : "FANCYBOX"
+        "FC_PN_DISPLAY_DELAYED_PAGE" : "0",
+        "FC_PN_DISPLAY_MODE" : "FANCYBOX",
+        "FC_PN_DISPLAY_BUTTON" : "froggy-price-negociator-button-front radius froggy-price-negociator-red"
     }
 }

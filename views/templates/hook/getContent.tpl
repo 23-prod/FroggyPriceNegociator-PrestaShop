@@ -159,19 +159,19 @@
 			<div id="froggy-module-personalization">
 				<label>{l s='Display mode:' mod='froggypricenegociator'}</label>
 				<div class="margin-form">
-					<div class="choice">
+					<div class="froggy-box-choice">
 						<label>
-							<img src="{$module_dir}views/img/fancy.png" />
-							<input type="radio" name="FC_PN_DISPLAY_MODE" value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}selected="selected"{/if}/> Fancybox (jQuery)
+							<div><img src="{$module_dir}views/img/fancy.png" /></div>
+							<input type="radio" name="FC_PN_DISPLAY_MODE" value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}selected="selected"{/if}/><span class="name-froggy-box">Fancybox (jQuery)</span>
 						</label>
-						<a id="open-fancy" class="button" href="#" data-text="{l s='This is a Fancybox' mod='froggypricenegociator'}">{l s='Preview' mod='froggypricenegociator'}</a>
+						<p><a id="open-fancy" class="button" href="#" data-text="{l s='This is a Fancybox' mod='froggypricenegociator'}">{l s='Preview' mod='froggypricenegociator'}</a></p>
 					</div>
-					<div class="choice">
+					<div class="froggy-box-choice">
 						<label>
-							<img src="{$module_dir}views/img/reveal.png" />
-							<input type="radio" name="FC_PN_DISPLAY_MODE" value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}selected="selected"{/if}/> Reveal (Foundation)
+							<div><img src="{$module_dir}views/img/reveal.png" /></div>
+							<input type="radio" name="FC_PN_DISPLAY_MODE" value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}selected="selected"{/if}/><span class="name-froggy-box">Reveal (Foundation)</span>
 						</label>
-						<a class="button" href="#" data-reveal-id="preview-reveal-modal">{l s='Preview' mod='froggypricenegociator'}</a>
+						<p><a class="button" href="#" data-reveal-id="preview-reveal-modal">{l s='Preview' mod='froggypricenegociator'}</a></p>
 						<div id="preview-reveal-modal" class="reveal-modal">
 							<h2 class="title-modal">{l s='This is Reveal modal' mod='froggypricenegociator'}</h2>
 							<a class="close-reveal-modal">&#215;</a>
@@ -182,26 +182,34 @@
 
 				<label>{l s='Button style:' mod='froggypricenegociator'}</label>
 				<div class="margin-form">
-					<div class="float">
+					<div class="main-style-block float">
 						<div>
-							<b>Main style</b>
+							<h3>{l s='Main style'}</h3>
 							<ul>
-								<li><input class="button-choice button-choice-main" type="radio" name="button-style" value="froggy-price-negociator-button-front" checked="checked" /> Normal</li>
-								<li><input class="button-choice button-choice-main" type="radio" name="button-style" value="froggy-price-negociator-flat-button" /> Flat</li>
-								<li><input class="button-choice button-choice-main" type="radio" name="button-style" value="froggy-price-negociator-button-alert" /> Alert</li>
+								<li><input class="button-choice button-choice-main" type="radio" name="button-style" value="froggy-price-negociator-button-front" checked="checked" id="radio-normal-style-button" />
+									<label for="radio-normal-style-button">Normal</label></li>
+								<li><input class="button-choice button-choice-main" type="radio" name="button-style" value="froggy-price-negociator-flat-button" id="radio-flat-style-button" />
+									<label for="radio-flat-style-button">Flat</label></li>
+								<li><input class="button-choice button-choice-main" type="radio" name="button-style" value="froggy-price-negociator-button-alert" id="radio-alert-style-button" />
+									<label for="radio-alert-style-button">Alert</label></li>
 							</ul>
 						</div>
-						<div class="button-choice-round-section">
-							<b>Round style</b>
-							<select class="button-choice button-choice-round" name="button-round"></select>
-						</div>
-						<div class="button-choice-color-section">
-							<b>Color</b>
-							<select class="button-choice button-choice-color" name="button-color"></select>
-						</div>
 					</div>
-					<div class="float">
-						<h3>Preview</h3>
+					<div class="main-style-block float">
+						<h3>{l s='Advanced style'}</h3>
+						<ul>
+							<li class="button-choice-round-section">
+								<b>{l s='Round style'}</b>
+								<select class="button-choice button-choice-round" name="button-round"></select>
+							</li>
+							<li class="button-choice-color-section">
+								<b>{l s='Color'}</b>
+								<select class="button-choice button-choice-color" name="button-color"></select>
+							</li>
+						</ul>
+					</div>
+					<div class="main-style-block float">
+						<h3>{l s='Preview'}</h3>
 						<a id="froggy-price-negociator-button-preview">Negociate the price</a>
 						<input type="hidden" name="FC_PN_DISPLAY_BUTTON" value="{$froggypricenegociator.FC_PN_DISPLAY_BUTTON}" />
 					</div>

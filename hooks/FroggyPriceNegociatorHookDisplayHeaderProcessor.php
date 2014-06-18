@@ -27,7 +27,7 @@ class FroggyPriceNegociatorHookDisplayHeaderProcessor extends FroggyHookProcesso
 			return true;
 
 		$this->context->controller->addCss($this->path.'views/css/buttons.css');
-		$this->context->controller->addCss($this->path.'views/css/modal.css');
+		$this->context->controller->addCss($this->path.'views/css/modal'.(version_compare(_PS_VERSION_, '1.6.0') >= 0 ? '-1.6' : '').'.css');
 		if (Configuration::get('FC_PN_DISPLAY_MODE') == 'REVEAL')
 		{
 			$this->context->controller->addCss($this->path.'views/css/reveal.css');

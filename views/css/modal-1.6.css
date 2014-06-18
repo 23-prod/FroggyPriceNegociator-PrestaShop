@@ -1,0 +1,286 @@
+
+/*Modal front office*/
+
+.froggy-negociator-container-modal{
+	margin: 5%;
+	padding: 0 10% 2%;
+	background: #fff;
+	border-radius: 5px;
+}
+
+.froggy-negociator-container-modal fieldset{
+	border: 0;
+}
+
+.froggy-negociator-breadcrumb-container{
+
+}
+
+.froggy-negociator-breadcrumb-container ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border-bottom:1px solid #F1F1F1;
+}
+
+.froggy-negociator-step-indicator{
+	display: inline-block;
+	width: 32.5%;
+	text-align: center;
+	padding: 0.9em 0 0.5em;
+	font-size: 13px;
+}
+
+.froggy-negociator-done-step{
+	color: #222222;
+}
+
+.froggy-negociator-current-step{
+	color: #222222;
+	font-weight: bold;
+}
+
+.froggy-negociator-next-step{
+	color: #aaa;
+}
+
+.froggy-negociator-title-modal{
+	text-align: center;
+	font-size: 21px;
+	font-weight: bold;
+	color: #25c70a;
+	padding: 0;
+	line-height: 1em;
+	margin: 15px 0;
+	display: inline-block;
+	width: 100%;
+}
+
+.froggy-negociator-subtitle-modal{
+	text-align: center;
+	font-size: 15px;
+	line-height: 1em;
+}
+
+.froggy-negociator-input-offer input{
+	border: 1px solid #ebebeb;
+	border-right: none;
+	padding: 0.25em 5% 0.25em 5%;
+	font-size: 30px;
+	color: #000;
+	width: calc(80% - 1px);
+	line-height: 30px;
+	height: 30px;
+	float: left;
+}
+
+.froggy-negociator-input-offer label{
+	border: 1px solid #ebebeb;
+	background: #f1f1f1;
+	color:#777;
+	border-left: none;
+	width: calc(10% - 1px);
+	font-size: 30px;
+	padding: 0.25em 0;
+	text-align: center;
+	line-height: 30px;
+	height: 30px;
+	cursor: pointer;
+	float: left;
+}
+
+.froggy-negociator-progressbar-container label{
+	margin: 0;
+}
+
+.froggy-negociator-label-probability{
+	padding: 0;
+	margin:1em 0;
+	font-size: 12px;
+}
+
+.froggy-negociator-price-info{
+	text-align: center;
+	border-right: 1px solid #777;
+	color:#777777;
+	margin-top: 10px;
+	width: calc(50% - 1px);
+	padding-top: 5px;
+	height:40px;
+	font-size: 15px;
+	float: left;
+}
+
+.froggy-negociator-price-info+.froggy-negociator-price-info{
+	border: none;
+}
+
+.froggy-negociator-price-info p{
+	padding: 0;
+}
+
+.froggy-negociator-price-elements{
+	font-size: 15px;
+	margin-top: 8px;
+	display: inline-block;
+	color: #000;
+}
+
+.froggy-negociator-validation-step1{
+	margin: 15px 0;
+	text-align: center;
+}
+
+.froggy-negociator-validation-step1 input{
+	border: 1px solid #ECECEC;
+	background: #a6a6a6;
+	background: -webkit-linear-gradient( bottom, #3DC500, #2A9114);
+	background: -moz-linear-gradient( bottom, #3DC500, #2A9114);
+	background: -ms-linear-gradient( bottom, #3DC500, #2A9114);
+	background: -o-linear-gradient( bottom, #3DC500, #2A9114);
+	background: linear-gradient( to bottom, #3DC500, #2A9114);
+	color:#fff;
+	font-size: 18px;
+	padding: 8px 18px 10px;
+	cursor:pointer;
+}
+.froggy-negociator-validation-step1 input:hover{
+	border: 1px solid #ECECEC;
+	background: #a6a6a6;
+	background: -webkit-linear-gradient( bottom, #24A00A, #3DC500);
+	background: -moz-linear-gradient( bottom, #24A00A, #3DC500);
+	background: -ms-linear-gradient( bottom, #24A00A, #3DC500);
+	background: -o-linear-gradient( bottom, #24A00A, #3DC500);
+	background: linear-gradient( to bottom, #24A00A, #3DC500);
+	color:#fff;
+	font-size: 18px;
+	padding: 8px 18px 10px;
+	cursor:pointer;
+}
+
+.froggy-negociator-validation-error {
+    color:red;
+    font-weight:bold;
+    font-size: 14px;
+}
+.froggy-negociator-validation-confirmation {
+	color:green;
+	font-weight:bold;
+	font-size: 14px;
+}
+
+#froggy-negociator-negociated-price {
+	font-size: 36px;
+}
+
+#froggy-negociator-input-email {
+	border-right:1px solid #ebebeb;
+	font-size: 24px;
+}
+
+/*Modal front office*/
+
+
+
+
+
+
+/*Progress bar*/
+
+.progress {
+	padding: 4px;
+	background: #ECECEC;
+	border-radius: 6px;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.progress-bar {
+	position: relative;
+	height: 16px;
+	border-radius: 4px;
+	-webkit-transition: 0.4s linear;
+	-moz-transition: 0.4s linear;
+	-o-transition: 0.4s linear;
+	transition: 0.4s linear;
+	-webkit-transition-property: width, background-color;
+	-moz-transition-property: width, background-color;
+	-o-transition-property: width, background-color;
+	transition-property: width, background-color;
+	-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar:before, .progress-bar:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.progress-bar:before {
+	bottom: 0;
+	border-radius: 4px 4px 0 0;
+}
+
+.progress-bar:after {
+	z-index: 2;
+	bottom: 45%;
+	border-radius: 4px;
+	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+	background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+}
+
+/*
+ * Note: using adjacent or general sibling selectors combined with
+ *       pseudo classes doesn't work in Safari 5.0 and Chrome 12.
+ *       See this article for more info and a potential fix:
+ *       http://css-tricks.com/webkit-sibling-bug/
+ */
+#froggy-negociator-five:checked ~ .progress > .progress-bar {
+	width: 5%;
+	background-color: #f63a0f;
+}
+
+#froggy-negociator-twentyfive:checked ~ .progress > .progress-bar {
+	width: 25%;
+	background-color: #f27011;
+}
+
+#froggy-negociator-fifty:checked ~ .progress > .progress-bar {
+	width: 50%;
+	background-color: #f2b01e;
+}
+
+#froggy-negociator-seventyfive:checked ~ .progress > .progress-bar {
+	width: 75%;
+	background-color: #ccf21b;
+}
+
+#froggy-negociator-onehundred:checked ~ .progress > .progress-bar {
+	width: 100%;
+	background-color: #53dc33;
+}
+
+.froggy-negociator-radio {
+	display: none;
+}
+
+.label {
+	display: inline-block;
+	margin: 0 5px 20px;
+	padding: 3px 8px;
+	color: #aaa;
+	text-shadow: 0 1px black;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.radio:checked + .label {
+	color: white;
+	background: rgba(0, 0, 0, 0.25);
+}
+

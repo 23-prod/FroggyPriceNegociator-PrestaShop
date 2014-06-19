@@ -60,12 +60,14 @@
 	text-align: center;
 	font-size: 15px;
 	line-height: 1em;
+	margin: 10px 0;
 }
 
 .froggy-negociator-input-offer input{
 	border: 1px solid #ebebeb;
 	border-right: none;
 	padding: 0.25em 5% 0.25em 5%;
+	margin: 0;
 	font-size: 30px;
 	color: #000;
 	width: calc(80% - 1px);

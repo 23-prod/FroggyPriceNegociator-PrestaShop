@@ -93,7 +93,7 @@
 						<label class="col-lg-3">{l s='Compliant with promotions:' mod='froggypricenegociator'}</label>
 						<div class="col-lg-9">
 							<input type="checkbox" name="FC_PN_COMPLIANT_PROMO" value="1"{if $froggypricenegociator.FC_PN_COMPLIANT_PROMO} checked="checked"{/if} />
-							<p class="help-block">{l s='Display price negotiation button on product in promotion.' mod='froggypricenegociator'}</p>
+							<p class="help-block">{l s='Display price negotiation button on products in promotion.' mod='froggypricenegociator'}</p>
 						</div>
 					</div>
 

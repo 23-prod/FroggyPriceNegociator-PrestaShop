@@ -19,8 +19,6 @@
 */
 
 $configPath = '../../config/config.inc.php';
-if (strpos($_SERVER['REQUEST_URI'], 'prestashop-1605'))
-	$configPath = '../../../froggy/prestashop-1605/prestashop/config/config.inc.php';
 if (file_exists($configPath))
 {
 	include($configPath);

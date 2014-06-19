@@ -45,14 +45,18 @@ class FroggyPriceNegociatorHookActionCartSaveProcessor extends FroggyHookProcess
 			foreach ($negociated_prices as $price)
 				if ($price['id_product'] == $product['id_product'] && $price['id_product_attribute'] == $product['id_product_attribute'] && !isset($negociated_prices_added_to_cart[$product['id_product'].'-'.$product['id_product_attribute']]))
 				{
-					// Refresh reduction amount depending on cart quantity
-					FroggyPriceNegociatorNewPriceObject::refreshReductionAmount($price[$nameVariable], $product['cart_quantity'], $price['reduction']);
-
-					// Add reduction to the cart
-					$this->context->cart->{$addMethod}($price[$nameVariable]);
-
 					// Save to negotiated price added to cart to avoid trickery (doublon)
 					$negociated_prices_added_to_cart[$product['id_product'].'-'.$product['id_product_attribute']] = true;
+
+					// Check max negotiated product authorized by cart
+					if (count($negociated_prices_added_to_cart) <= Configuration::get('FC_PN_MAX_PRODUCT_BY_CART'))
+					{
+						// Refresh reduction amount depending on cart quantity
+						FroggyPriceNegociatorNewPriceObject::refreshReductionAmount($price[$nameVariable], $product['cart_quantity'], $price['reduction']);
+
+						// Add reduction to the cart
+						$this->context->cart->{$addMethod}($price[$nameVariable]);
+					}
 				}
 	}
 }

@@ -20,10 +20,15 @@
 $(document).ready(function() {
 	$('#froggypricenegociator-button').fancybox({
 		'autoDimensions'	: false,
-		'width'         	: '550',
-		'height'        	: '400',
+		fitToView 			: false,
+		autoSize 			: false,
+		'width'         	: 550,
+		'height'        	: 400,
 		'transitionIn'		: 'none',
 		'transitionOut'		: 'none',
-		'titleShow'			: false
+		'titleShow'			: false,
+		'helpers'			: {
+			title: null
+		}
 	});
 });

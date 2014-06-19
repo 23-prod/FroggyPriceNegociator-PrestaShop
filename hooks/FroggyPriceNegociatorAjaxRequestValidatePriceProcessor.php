@@ -171,7 +171,7 @@ class FroggyPriceNegociatorAjaxRequestValidatePriceProcessor extends FroggyHookP
 		$templateVars = array(
 			'{product_name}' => $this->product->name,
 			'{product_url}' => $product_url,
-			'{product_description_short}' => $this->product->description_short,
+			'{product_description_short}' => strip_tags($this->product->description_short),
 			'{negociated_price}' => Tools::displayPrice($this->new_price),
 			'{your_offer}' => Tools::displayPrice($this->customer_offer),
 			'{product_price}' => Tools::displayPrice($this->product_price),

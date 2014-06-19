@@ -155,6 +155,16 @@ class FroggyPriceNegociatorNewPriceObject extends ObjectModel
 
 	/*** End of Retrocompatibility 1.4 ***/
 
+	public static function isPriceAlreadyNegociated($id_product, $id_cart)
+	{
+		$value = (int)Db::getInstance()->getValue('
+		SELECT `id_fpn_product_new_price` FROM `'._DB_PREFIX_.'fpn_product_new_price`
+		WHERE `id_product` = '.(int)$id_product.' AND `id_cart` = '.(int)$id_cart);
+		if ($value > 0)
+			return true;
+		return false;
+	}
+
 	public static function getNewPricesByCartId($id_cart)
 	{
 		return Db::getInstance()->executeS('

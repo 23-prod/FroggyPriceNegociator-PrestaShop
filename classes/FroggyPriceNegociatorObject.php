@@ -147,10 +147,18 @@ class FroggyPriceNegociatorObject extends ObjectModel
 		return false;
 	}
 
-	public static function isProductEligible($id_product, $id_customer = 0)
+	public static function isProductEligible($id_product, $id_customer = 0, $id_cart = 0)
 	{
 		// Check blacklist
 		if (self::isProductBlacklisted($id_product, $id_customer))
+			return false;
+
+		// If price has already been negotiated
+		if (FroggyPriceNegociatorNewPriceObject::isPriceAlreadyNegociated($id_product, $id_cart))
+			return false;
+
+		// If we can't calculate the minimum price, the product is not eligible
+		if (self::getProductMinimumPrice($id_product) === false)
 			return false;
 
 		// If the general configuration is enabled, the product is eligible
@@ -226,6 +234,10 @@ class FroggyPriceNegociatorObject extends ObjectModel
 			$percent_reduction = $fpno->reduction_percent_max;
 			$price_min = $current_price * (100 - $percent_reduction) / 100;
 		}
+
+		// If minimun price is higher than current price, we return false
+		if ($current_price < $price_min)
+			return false;
 
 		return $price_min;
 	}

@@ -153,6 +153,7 @@ a.froggy-price-negociator-button-front.froggy-price-negociator-yellow:hover, a.f
 
 a.froggy-price-negociator-button-alert{
     outline: none;
+	text-decoration:none;
     font-family: 'helvetica neue' sans-serif;
     font-size: 1.3em;
     color: #fff;

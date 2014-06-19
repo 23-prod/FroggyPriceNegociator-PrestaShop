@@ -157,28 +157,6 @@
 
 			{*tab module personalization*}
 			<div id="froggy-module-personalization">
-				<label>{l s='Display mode:' mod='froggypricenegociator'}</label>
-				<div class="margin-form">
-					<div class="froggy-box-choice">
-						<label>
-							<div><img src="{$module_dir}views/img/fancy.png" /></div>
-							<input type="radio" name="FC_PN_DISPLAY_MODE" value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}checked="checked"{/if}/> Fancybox (jQuery)
-						</label>
-						<p><a id="open-fancy" class="button" href="#" data-text="{l s='This is a Fancybox' mod='froggypricenegociator'}">{l s='Preview' mod='froggypricenegociator'}</a></p>
-					</div>
-					<div class="froggy-box-choice">
-						<label>
-							<div><img src="{$module_dir}views/img/reveal.png" /></div>
-							<input type="radio" name="FC_PN_DISPLAY_MODE" value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}checked="checked"{/if}/> Reveal (Foundation)
-						</label>
-						<p><a class="button" href="#" data-reveal-id="preview-reveal-modal">{l s='Preview' mod='froggypricenegociator'}</a></p>
-						<div id="preview-reveal-modal" class="reveal-modal">
-							<h2 class="title-modal">{l s='This is Reveal modal' mod='froggypricenegociator'}</h2>
-							<a class="close-reveal-modal">&#215;</a>
-						</div>
-					</div>
-					<p class="clearfix clear preference_description">{l s='The display when customer click on the price negotiation button.' mod='froggypricenegociator'}</p>
-				</div>
 
 				<label>{l s='Button style:' mod='froggypricenegociator'}</label>
 				<div class="margin-form">
@@ -214,6 +192,29 @@
 						<input type="hidden" name="FC_PN_DISPLAY_BUTTON" value="{$froggypricenegociator.FC_PN_DISPLAY_BUTTON}" />
 					</div>
 					<div class="clear clearfix"></div>
+				</div>
+
+				<label>{l s='Display mode:' mod='froggypricenegociator'}</label>
+				<div class="margin-form">
+					<div class="froggy-box-choice">
+						<label>
+							<div><img src="{$module_dir}views/img/fancy.png" /></div>
+							<input type="radio" name="FC_PN_DISPLAY_MODE" value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}checked="checked"{/if}/> Fancybox (jQuery)
+						</label>
+						<p><a id="open-fancy" class="button" href="#" data-text="{l s='This is a Fancybox' mod='froggypricenegociator'}">{l s='Preview' mod='froggypricenegociator'}</a></p>
+					</div>
+					<div class="froggy-box-choice">
+						<label>
+							<div><img src="{$module_dir}views/img/reveal.png" /></div>
+							<input type="radio" name="FC_PN_DISPLAY_MODE" value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}checked="checked"{/if}/> Reveal (Foundation)
+						</label>
+						<p><a class="button" href="#" data-reveal-id="preview-reveal-modal">{l s='Preview' mod='froggypricenegociator'}</a></p>
+						<div id="preview-reveal-modal" class="reveal-modal">
+							<h2 class="title-modal">{l s='This is Reveal modal' mod='froggypricenegociator'}</h2>
+							<a class="close-reveal-modal">&#215;</a>
+						</div>
+					</div>
+					<p class="clearfix clear preference_description">{l s='The display when customer click on the price negotiation button.' mod='froggypricenegociator'}</p>
 				</div>
 			</div>
 			{*tab module personalization*}

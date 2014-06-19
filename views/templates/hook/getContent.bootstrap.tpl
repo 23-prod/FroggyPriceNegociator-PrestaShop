@@ -74,7 +74,7 @@
 					<h4>{l s='General option:' mod='froggypricenegociator'}</h4>
 
 					<div class="form-group clearfix">
-						<label class="col-lg-3">{l s='Max quantity by product:' mod='froggypricenegociator'}</label>
+						<label class="col-lg-3">{l s='Maximum quantity for negotiated product:' mod='froggypricenegociator'}</label>
 						<div class="col-lg-9">
 							<input type="text" name="FC_PN_MAX_QUANTITY_BY_PRODUCT" value="{$froggypricenegociator.FC_PN_MAX_QUANTITY_BY_PRODUCT}" />
 							<p class="help-block">{l s='Limit the maximum quantity for negotiated products.' mod='froggypricenegociator'}</p>
@@ -82,7 +82,7 @@
 					</div>
 
 					<div class="form-group clearfix">
-						<label class="col-lg-3">{l s='Max product by cart:' mod='froggypricenegociator'}</label>
+						<label class="col-lg-3">{l s='Maximum negotiated products by cart:' mod='froggypricenegociator'}</label>
 						<div class="col-lg-9">
 							<input type="text" name="FC_PN_MAX_PRODUCT_BY_CART" value="{$froggypricenegociator.FC_PN_MAX_PRODUCT_BY_CART}" />
 							<p class="help-block">{l s='Limit the number of negotiated products by cart.' mod='froggypricenegociator'}</p>

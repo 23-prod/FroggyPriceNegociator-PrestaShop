@@ -55,4 +55,7 @@ class FroggyPriceNegociator extends FroggyModule
 	public function hookCart($params) { return $this->hookActionCartSave($params); }
 	public function hookExtraRight($params) { return $this->hookDisplayRightColumnProduct($params); }
 	public function hookBackOfficeHeader($params) { return $this->hookDisplayBackOfficeHeader($params); }
+
+	// Compat 1.6
+	public function hookDisplayProductButtons($params) { return $this->hookDisplayRightColumnProduct($params); }
 }

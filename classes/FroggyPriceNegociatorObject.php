@@ -153,9 +153,17 @@ class FroggyPriceNegociatorObject extends ObjectModel
 		if (self::isProductBlacklisted($id_product, $id_customer))
 			return false;
 
-		// If price has already been negotiated
+		// If price has already been negotiated, the product is not eligible
 		if (FroggyPriceNegociatorNewPriceObject::isPriceAlreadyNegociated($id_product, $id_cart))
 			return false;
+
+		// If the module configuration does not accept new product and if the product is new, the product is not eligible
+		if (Configuration::get('FC_PN_COMPLIANT_NEW') != 1)
+		{
+			$product = new Product($id_product, false);
+			if ($product->isNew())
+				return false;
+		}
 
 		// If we can't calculate the minimum price, the product is not eligible
 		if (self::getProductMinimumPrice($id_product) === false)

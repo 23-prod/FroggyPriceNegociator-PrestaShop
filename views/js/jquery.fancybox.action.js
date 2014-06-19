@@ -24,6 +24,9 @@ $(document).ready(function() {
 		'height'        	: '400',
 		'transitionIn'		: 'none',
 		'transitionOut'		: 'none',
-		'titleShow'			: false
+		'titleShow'			: false,
+		'helpers'			: {
+			title: null
+		}
 	});
 });

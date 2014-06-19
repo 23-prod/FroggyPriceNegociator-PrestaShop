@@ -37,8 +37,8 @@ class FroggyPriceNegociator extends FroggyModule
 	{
 		parent::__construct();
 
-		$this->displayName = $this->l('Froggy Price Negociator');
-		$this->description = $this->l('Display a price negociation button on product page for your customers');
+		$this->displayName = $this->l('Froggy Price Negotiator');
+		$this->description = $this->l('Display a price negotiation button on product page for your customers');
 	}
 
 	/**

@@ -19,7 +19,7 @@
  *}
 
 <fieldset id="froggypricenegociator_fieldset">
-	<legend><img src="{$froggypricenegociator.module_dir}logo.png" alt="" width="16" />{l s='Froggy Price Negociator' mod='froggypricenegociator'}</legend>
+	<legend><img src="{$froggypricenegociator.module_dir}logo.png" alt="" width="16" />{l s='Froggy Price Negotiator' mod='froggypricenegociator'}</legend>
 
     {if isset($froggypricenegociator.result) && $froggypricenegociator.result eq 'ok'}
         <div class="conf confirm">{l s='The new configuration has been saved!' mod='froggypricenegociator'}</div>
@@ -72,13 +72,13 @@
 				<label>{l s='Max quantity by product:' mod='froggypricenegociator'}</label>
 				<div class="margin-form">
 					<input type="text" name="FC_PN_MAX_QUANTITY_BY_PRODUCT" value="{$froggypricenegociator.FC_PN_MAX_QUANTITY_BY_PRODUCT}" />
-					<p class="preference_description">{l s='Limit the maximum quantity for negociated products.' mod='froggypricenegociator'}</p>
+					<p class="preference_description">{l s='Limit the maximum quantity for negotiated products.' mod='froggypricenegociator'}</p>
 				</div>
 
 				<label>{l s='Max product by cart:' mod='froggypricenegociator'}</label>
 				<div class="margin-form">
 					<input type="text" name="FC_PN_MAX_PRODUCT_BY_CART" value="{$froggypricenegociator.FC_PN_MAX_PRODUCT_BY_CART}" />
-					<p class="preference_description">{l s='Limit the number of negociated products by cart.' mod='froggypricenegociator'}</p>
+					<p class="preference_description">{l s='Limit the number of negotiated products by cart.' mod='froggypricenegociator'}</p>
 				</div>
 
 				<label>{l s='Compliant with promotion:' mod='froggypricenegociator'}</label>
@@ -96,7 +96,7 @@
 				<label>{l s='Compliant with discounts:' mod='froggypricenegociator'}</label>
 				<div class="margin-form">
 					<input type="checkbox" name="FC_PN_COMPLIANT_DISCOUNT" value="1"{if $froggypricenegociator.FC_PN_COMPLIANT_DISCOUNT} checked="checked"{/if} />
-					<p class="preference_description">{l s='Customers can use discount code with negociated products.' mod='froggypricenegociator'}</p>
+					<p class="preference_description">{l s='Customers can use discount code with negotiated products.' mod='froggypricenegociator'}</p>
 				</div>
 
 				<label>{l s='Disable price negotiation button for the following categories:' mod='froggypricenegociator'}</label>
@@ -149,7 +149,7 @@
 					{l s='and' mod='froggypricenegociator'} <input type="text" name="FC_PN_DISPLAY_DELAYED_PAGE" value="{$froggypricenegociator.FC_PN_DISPLAY_DELAYED_PAGE}" size="2" />  {l s='view(s) of the product page.' mod='froggypricenegociator'}
 					<p class="preference_description">
 						{l s='You can delay the display of the price negotiation button, it will permit to display the button when a customer hesitate to add a product to your cart.' mod='froggypricenegociator'}<br />
-						<b>{l s='Put 0 in fields if you want disable this feature and show immediately the button for negociation.' mod='froggypricenegociator'}</b>
+						<b>{l s='Put 0 in fields if you want disable this feature and show immediately the button for negotiation.' mod='froggypricenegociator'}</b>
 					</p>
 				</div>
 			</div>
@@ -188,7 +188,7 @@
 					</div>
 					<div class="main-style-block float">
 						<h3>{l s='Preview' mod='froggypricenegociator'}</h3>
-						<a id="froggy-price-negociator-button-preview">Negociate the price</a>
+						<a id="froggy-price-negociator-button-preview">{l s='Negotiate the price' mod='froggypricenegociator'}</a>
 						<input type="hidden" name="FC_PN_DISPLAY_BUTTON" value="{$froggypricenegociator.FC_PN_DISPLAY_BUTTON}" />
 					</div>
 					<div class="clear clearfix"></div>

@@ -30,7 +30,7 @@
         {/if}
     {/foreach}
 
-    var fc_pn_negociator_label_product_attribute = '{l s='Enable price negociation button for this product attribute' mod='froggypricenegociator'}';
+    var fc_pn_negociator_label_product_attribute = '{l s='Enable price negotiation button for this product attribute' mod='froggypricenegociator'}';
 	var fc_pn_negociator_label_price_error = '{l s='Beware, the minimum price sell is superior to the final retail place.'}';
     var fc_pn_negociator_options = '<h3 id="froggypricenegociator-title">{l s='Froggy Price Negotiator' mod='froggypricenegociator'}</h3> \
     \
@@ -61,7 +61,7 @@
             <div class="checkbox"> \
             <label for="froggypricenegociator-option" class="control-label froggypricenegociator-label"> \
             <input type="checkbox" value="1" id="froggypricenegociator-option" name="froggypricenegociator_option" {if $froggypricenegociator.fpn_product->active}checked="checked"{/if}> \
-            <span id="froggypricenegociator-option-label">{l s='Enable price negociation button for this product' mod='froggypricenegociator'}</span> \
+            <span id="froggypricenegociator-option-label">{l s='Enable price negotiation button for this product' mod='froggypricenegociator'}</span> \
             </label> \
             </div> \
             </div> \

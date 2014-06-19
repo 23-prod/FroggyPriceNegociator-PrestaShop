@@ -30,7 +30,7 @@
         {/if}
     {/foreach}
 
-    var fc_pn_negociator_label_product_attribute = '{l s='Enable price negociation button for this product attribute' mod='froggypricenegociator'}';
+    var fc_pn_negociator_label_product_attribute = '{l s='Enable price negotiation button for this product attribute' mod='froggypricenegociator'}';
 	var fc_pn_negociator_label_price_error = '{l s='Beware, the minimum price sell is superior to the final retail place.'}';
     var fc_pn_negociator_options = '{if $froggypricenegociator.ps_version eq '1.4'}<tr><td colspan="2"><hr style="width:100%;" id="froggypricenegociator-separator">{else}<div class="separation" id="froggypricenegociator-separator"></div>{/if}<table> \
         <tr><td colspan="2"><h4 id="froggypricenegociator-title">{l s='Froggy Price Negotiator' mod='froggypricenegociator'}</h4></td></tr> \

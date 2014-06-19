@@ -23,7 +23,7 @@ $(document).ready(function() {
 		fitToView 			: false,
 		autoSize 			: false,
 		'width'         	: 550,
-		'height'        	: 420,
+		'height'        	: 460,
 		'transitionIn'		: 'none',
 		'transitionOut'		: 'none',
 		'titleShow'			: false,

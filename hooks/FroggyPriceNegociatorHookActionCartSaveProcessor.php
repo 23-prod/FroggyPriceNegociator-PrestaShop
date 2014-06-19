@@ -58,5 +58,12 @@ class FroggyPriceNegociatorHookActionCartSaveProcessor extends FroggyHookProcess
 						$this->context->cart->{$addMethod}($price[$nameVariable]);
 					}
 				}
+
+
+		// If negotiated prices are not compliant with other discount and if there is at least one negotiated price in cart, we delete other discounts
+		if (Configuration::get('FC_PN_COMPLIANT_DISCOUNT') != 1 && count($negociated_prices_added_to_cart) > 0)
+			foreach ($reductions as $reduction)
+				if (!FroggyPriceNegociatorNewPriceObject::isNegociationReduction($reduction[$nameVariable]))
+					$this->context->cart->{$deleteMethod}($reduction[$nameVariable]);
 	}
 }

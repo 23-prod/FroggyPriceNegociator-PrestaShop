@@ -95,8 +95,8 @@
 
 						<p class="froggy-negociator-label-probability">{l s='Chance of success in your negotiation:' mod='froggypricenegociator'}</p>
 
-						<div class="progress">
-							<div class="progress-bar"></div>
+						<div class="froggy-price-negociator-progress">
+							<div class="froggy-price-negociator-progress-bar"></div>
 						</div>
 						<div class="froggy-negociator-comparaison-container">
 							<div class="froggy-negociator-price-info">

@@ -47,6 +47,8 @@ function froggyPriceNegociatorCalculReduction()
 	// Display cleaned offer price and reduction
 	$('#froggy-negociator-input-offer').val(froggypricenegociator_offer);
 	$('#froggy-negociator-product-price-reduction').text(froggypricenegociator_reduction_label);
+	if (froggypricenegociator_offer == '')
+		$('#froggy-negociator-product-price-reduction').text('-');
 }
 
 function froggyPriceNegociatorCalculSuccessInAjax()

@@ -201,6 +201,10 @@ class FroggyPriceNegociatorAjaxRequestValidatePriceProcessor extends FroggyHookP
 		// Retrieve infos
 		$this->init();
 
+		// Check if product is eligible
+		if (!FroggyPriceNegociatorObject::isProductEligible($this->id_product, (int)$this->context->customer->id, (int)$this->context->cart->id))
+			return $this->params['ajaxController']->render('error', '');
+
 		// Add product to cart with discount
 		$this->context->cart->updateQty(1, $this->id_product, $this->id_product_attribute);
 		$this->addReductionToCart();

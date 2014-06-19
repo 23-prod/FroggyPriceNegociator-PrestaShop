@@ -165,6 +165,11 @@ class FroggyPriceNegociatorObject extends ObjectModel
 				return false;
 		}
 
+		// If the module configuration does not accept product in promotion and if the product is in promotion, the product is not eligible
+		if (Configuration::get('FC_PN_COMPLIANT_PROMO') != 1)
+			if (count(SpecificPrice::getByProductId($id_product)) >= 1)
+				return false;
+
 		// If we can't calculate the minimum price, the product is not eligible
 		if (self::getProductMinimumPrice($id_product) === false)
 			return false;

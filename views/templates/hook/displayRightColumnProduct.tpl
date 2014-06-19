@@ -125,20 +125,22 @@
 				<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-negociated-price"><img src="{$froggypricenegociator.module_dir}views/img/loader.gif" /></p>
 				<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-validation-message-step2"></p>
 
-				<p class="froggy-negociator-subtitle-modal">{l s='Please fill your e-mail address to receive this offer by e-mail and add the product to your cart.' mod='froggypricenegociator'}</p>
-				<p class="froggy-negociator-subtitle-modal"><u>{l s='This offer will be available for 24 hours only!' mod='froggypricenegociator'}</u></p>
+                <div id="froggy-negociator-modal-form-step2">
+                    <p class="froggy-negociator-subtitle-modal">{l s='Please fill your e-mail address to receive this offer by e-mail and add the product to your cart.' mod='froggypricenegociator'}</p>
+                    <p class="froggy-negociator-subtitle-modal"><u>{l s='This offer will be available for 24 hours only!' mod='froggypricenegociator'}</u></p>
 
-				<form action="">
+                    <form action="">
 
-					<fieldset class="froggy-negociator-input-offer">
-						<input type="text" placeholder="{l s='Your e-mail' mod='froggypricenegociator'}" id="froggy-negociator-input-email" value="{$froggypricenegociator.email}" autocomplete="off" />
-					</fieldset>
+                        <fieldset class="froggy-negociator-input-offer">
+                            <input type="text" placeholder="{l s='Your e-mail' mod='froggypricenegociator'}" id="froggy-negociator-input-email" value="{$froggypricenegociator.email}" autocomplete="off" />
+                        </fieldset>
 
-					<fieldset class="froggy-negociator-validation-step">
-						<input id="froggy-negociator-validation-step2-input-submit" type="submit" value="{l s='Validate my e-mail' mod='froggypricenegociator'}" />
-					</fieldset>
+                        <fieldset class="froggy-negociator-validation-step">
+                            <input id="froggy-negociator-validation-step2-input-submit" type="submit" value="{l s='Validate my e-mail' mod='froggypricenegociator'}" />
+                        </fieldset>
 
-				</form>
+                    </form>
+				</div>
 
 			</div>
 			{*STEP 2 MODAL*}

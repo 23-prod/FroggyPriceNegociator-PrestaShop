@@ -50,7 +50,7 @@
         <tr id="froggypricenegociator-checkbox-details"> \
             <td class="col-left"><label>&nbsp;</label></td> \
             <td><input type="checkbox" value="1" style="padding-top: 5px;" id="froggypricenegociator-option" name="froggypricenegociator_option" {if $froggypricenegociator.fpn_product->active}checked="checked"{/if}>&nbsp; \
-                <label id="froggypricenegociator-option-label" class="t froggypricenegociator-label" for="froggypricenegociator-option">{l s='Enable price negociation button for this product' mod='froggypricenegociator'}</label></td> \
+                <label id="froggypricenegociator-option-label" class="t froggypricenegociator-label" for="froggypricenegociator-option">{l s='Enable price negotiation button for this product' mod='froggypricenegociator'}</label></td> \
             </tr> \
         {if $froggypricenegociator.FC_PN_TYPE eq 'PRICE_MINI'}
         <tr id="froggypricenegociator-details"> \

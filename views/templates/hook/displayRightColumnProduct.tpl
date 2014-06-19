@@ -153,7 +153,7 @@
 
 				<form action="{if $froggypricenegociator.ps_version eq '1.4'}{$link->getPageLink('order.php')}{else}{$link->getPageLink('order')}{/if}">
 
-					<fieldset class="froggy-negociator-validation-step1">
+					<fieldset class="froggy-negociator-validation-step">
 						<input id="froggy-negociator-validation-step3-input-submit" type="submit" value="{l s='Go to the cart' mod='froggypricenegociator'}" />
 					</fieldset>
 

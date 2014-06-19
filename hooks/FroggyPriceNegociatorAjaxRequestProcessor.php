@@ -38,7 +38,11 @@ class FroggyPriceNegociatorAjaxRequestProcessor extends FroggyHookProcessor
 		{
 			$data = (array)Tools::jsonDecode($this->context->cookie->froggypricenegociator);
 			if (isset($data[$id_product.'-'.$id_product_attribute]))
-				return (float)$data[$id_product.'-'.$id_product_attribute];
+			{
+				$productPrice = Product::getPriceStatic($id_product, true, $id_product_attribute);
+				if ($data[$id_product.'-'.$id_product_attribute] < $productPrice)
+					return (float)$data[$id_product.'-'.$id_product_attribute];
+			}
 		}
 		return false;
 	}

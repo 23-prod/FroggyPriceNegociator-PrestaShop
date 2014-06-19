@@ -130,12 +130,12 @@
 	color: #000;
 }
 
-.froggy-negociator-validation-step1{
+.froggy-negociator-validation-step{
 	margin: 15px 0;
 	text-align: center;
 }
 
-.froggy-negociator-validation-step1 input{
+.froggy-negociator-validation-step input{
 	border: 1px solid #ECECEC;
 	background: #a6a6a6;
 	background: -webkit-linear-gradient( bottom, #3DC500, #2A9114);
@@ -148,7 +148,7 @@
 	padding: 8px 18px 10px;
 	cursor:pointer;
 }
-.froggy-negociator-validation-step1 input:hover{
+.froggy-negociator-validation-step input:hover{
 	border: 1px solid #ECECEC;
 	background: #a6a6a6;
 	background: -webkit-linear-gradient( bottom, #24A00A, #3DC500);
@@ -160,6 +160,11 @@
 	font-size: 18px;
 	padding: 8px 18px 10px;
 	cursor:pointer;
+}
+
+.froggy-negociator-validation-step input#froggy-negociator-validation-step2-input-submit.froggy-negociator-button-disabled {
+	background: #BFBFBF;
+	color: #333
 }
 
 .froggy-negociator-validation-error {
@@ -180,6 +185,11 @@
 #froggy-negociator-input-email {
 	border-right:1px solid #ebebeb;
 	font-size: 24px;
+	float: none;
+}
+
+#froggy-negociator-modal-step2 fieldset.froggy-negociator-input-offer {
+	text-align: center;
 }
 
 /*Modal front office*/

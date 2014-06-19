@@ -43,105 +43,117 @@
 
 
 <div style="display:none">
-<div id="myModal" class="reveal-modal">
-	<div class="froggy-negociator-container-modal">
-		<div class="froggy-negociator-breadcrumb-container">
-			<ul>
-				<li class="froggy-negociator-step-indicator froggy-negociator-current-step" id="froggy-negociator-breadcrumb-step1">
-					1. {l s='Negotiation' mod='froggypricenegociator'}
-				</li>
-				<li class="froggy-negociator-step-indicator froggy-negociator-next-step" id="froggy-negociator-breadcrumb-step2">
-					2. {l s='Validation' mod='froggypricenegociator'}
-				</li>
-				<li class="froggy-negociator-step-indicator froggy-negociator-next-step" id="froggy-negociator-breadcrumb-step3">
-					3. {l s='Confirmation' mod='froggypricenegociator'}
-				</li>
-			</ul>
-		</div>
+	<div id="myModal" class="reveal-modal">
+		<div class="froggy-negociator-container-modal">
 
-		<div class="froggy-negociator-modal-step"id="froggy-negociator-modal-step1">
+			{*HEADER STEP*}
+			<div class="froggy-negociator-breadcrumb-container">
+				<ul>
+					<li class="froggy-negociator-step-indicator froggy-negociator-current-step" id="froggy-negociator-breadcrumb-step1">
+						1. {l s='Negotiation' mod='froggypricenegociator'}
+					</li>
+					<li class="froggy-negociator-step-indicator froggy-negociator-next-step" id="froggy-negociator-breadcrumb-step2">
+						2. {l s='Validation' mod='froggypricenegociator'}
+					</li>
+					<li class="froggy-negociator-step-indicator froggy-negociator-next-step" id="froggy-negociator-breadcrumb-step3">
+						3. {l s='Confirmation' mod='froggypricenegociator'}
+					</li>
+				</ul>
+			</div>
+			{*HEADER STEP*}
 
-			<p class="froggy-negociator-title-modal">{l s='You do not have the budget?' mod='froggypricenegociator'}</p>
-			<p class="froggy-negociator-subtitle-modal">{l s='How much you would pay for this product?' mod='froggypricenegociator'}</p>
 
-			<form action="">
+			{*STEP 1 MODAL*}
+			<div class="froggy-negociator-modal-step"id="froggy-negociator-modal-step1">
 
-				<fieldset class="froggy-negociator-input-offer">
-					<input type="text" placeholder="{l s='Make an offer' mod='froggypricenegociator'}" id="froggy-negociator-input-offer"/>
-					<label for="froggy-negociator-input-offer">€</label>
-				</fieldset>
+				<p class="froggy-negociator-title-modal">{l s='You do not have the budget?' mod='froggypricenegociator'}</p>
+				<p class="froggy-negociator-subtitle-modal">{l s='How much you would pay for this product?' mod='froggypricenegociator'}</p>
 
-				<fieldset class="froggy-negociator-progressbar-container">
+				<form action="">
 
-					<input type="radio" class="froggy-negociator-radio" name="progress" value="zero" id="froggy-negociator-zero" checked>
-					<input type="radio" class="froggy-negociator-radio" name="progress" value="five" id="froggy-negociator-five">
-					<input type="radio" class="froggy-negociator-radio" name="progress" value="twentyfive" id="froggy-negociator-twentyfive">
-					<input type="radio" class="froggy-negociator-radio" name="progress" value="fifty" id="froggy-negociator-fifty">
-					<input type="radio" class="froggy-negociator-radio" name="progress" value="seventyfive" id="froggy-negociator-seventyfive">
-					<input type="radio" class="froggy-negociator-radio" name="progress" value="onehundred" id="froggy-negociator-onehundred">
+					<fieldset class="froggy-negociator-input-offer">
+						<input type="text" placeholder="{l s='Make an offer' mod='froggypricenegociator'}" id="froggy-negociator-input-offer"/>
+						<label for="froggy-negociator-input-offer">€</label>
+					</fieldset>
 
-					<p class="froggy-negociator-label-probability">{l s='Chance of success in your negotiation:' mod='froggypricenegociator'}</p>
+					<fieldset class="froggy-negociator-progressbar-container">
 
-					<div class="progress">
-						<div class="progress-bar"></div>
-					</div>
-					<div class="froggy-negociator-comparaison-container">
-						<div class="froggy-negociator-price-info">
-							<p>{l s='Product price:' mod='froggypricenegociator'} <br/><span class="froggy-negociator-price-elements" id="froggy-negociator-product-price"></span></p>
+						<input type="radio" class="froggy-negociator-radio" name="progress" value="zero" id="froggy-negociator-zero" checked>
+						<input type="radio" class="froggy-negociator-radio" name="progress" value="five" id="froggy-negociator-five">
+						<input type="radio" class="froggy-negociator-radio" name="progress" value="twentyfive" id="froggy-negociator-twentyfive">
+						<input type="radio" class="froggy-negociator-radio" name="progress" value="fifty" id="froggy-negociator-fifty">
+						<input type="radio" class="froggy-negociator-radio" name="progress" value="seventyfive" id="froggy-negociator-seventyfive">
+						<input type="radio" class="froggy-negociator-radio" name="progress" value="onehundred" id="froggy-negociator-onehundred">
+
+						<p class="froggy-negociator-label-probability">{l s='Chance of success in your negotiation:' mod='froggypricenegociator'}</p>
+
+						<div class="progress">
+							<div class="progress-bar"></div>
 						</div>
-						<div class="froggy-negociator-price-info" id="froggy-negociator-product-price-reduction-info">
-							<p>{l s='Reduction:' mod='froggypricenegociator'} <br/> <span class="froggy-negociator-price-elements" id="froggy-negociator-product-price-reduction"></span></p>
+						<div class="froggy-negociator-comparaison-container">
+							<div class="froggy-negociator-price-info">
+								<p>{l s='Product price:' mod='froggypricenegociator'} <br/><span class="froggy-negociator-price-elements" id="froggy-negociator-product-price"></span></p>
+							</div>
+							<div class="froggy-negociator-price-info" id="froggy-negociator-product-price-reduction-info">
+								<p>{l s='Reduction:' mod='froggypricenegociator'} <br/> <span class="froggy-negociator-price-elements" id="froggy-negociator-product-price-reduction"></span></p>
+							</div>
 						</div>
-					</div>
-				</fieldset>
-				<fieldset class="froggy-negociator-validation-step1">
-					<input id="froggy-negociator-validation-step1-input-submit" type="submit" value="{l s='Submit my offer' mod='froggypricenegociator'}" />
-					<span id="froggy-negociator-validation-message-step1" class="froggy-negociator-validation-error"></span>
-				</fieldset>
+					</fieldset>
+					<fieldset class="froggy-negociator-validation-step">
+						<input id="froggy-negociator-validation-step1-input-submit" type="submit" value="{l s='Submit my offer' mod='froggypricenegociator'}" />
+						<span id="froggy-negociator-validation-message-step1" class="froggy-negociator-validation-error"></span>
+					</fieldset>
 
-			</form>
+				</form>
 
+			</div>
+			{*STEP 1 MODAL*}
+
+
+			{*STEP 2 MODAL*}
+			<div class="froggy-negociator-modal-step" id="froggy-negociator-modal-step2">
+
+				<p class="froggy-negociator-title-modal">{l s='Negotiated price' mod='froggypricenegociator'}</p>
+				<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-negociated-price"><img src="{$froggypricenegociator.module_dir}views/img/loader.gif" /></p>
+				<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-validation-message-step2"></p>
+
+				<p class="froggy-negociator-subtitle-modal">{l s='Please fill your e-mail address to receive this offer by e-mail and add the product to your cart.' mod='froggypricenegociator'}</p>
+				<p class="froggy-negociator-subtitle-modal"><u>{l s='This offer will be available for 24 hours only!' mod='froggypricenegociator'}</u></p>
+
+				<form action="">
+
+					<fieldset class="froggy-negociator-input-offer">
+						<input type="text" placeholder="{l s='Your e-mail' mod='froggypricenegociator'}" id="froggy-negociator-input-email" value="{$froggypricenegociator.email}" autocomplete="off" />
+					</fieldset>
+
+					<fieldset class="froggy-negociator-validation-step">
+						<input id="froggy-negociator-validation-step2-input-submit" type="submit" value="{l s='Validate my e-mail' mod='froggypricenegociator'}" />
+					</fieldset>
+
+				</form>
+
+			</div>
+			{*STEP 2 MODAL*}
+
+
+			{*STEP 3 MODAL*}
+			<div class="froggy-negociator-modal-step" id="froggy-negociator-modal-step3">
+
+				<p class="froggy-negociator-title-modal">{l s='Negotiated price' mod='froggypricenegociator'}</p>
+				<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-negociated-price-step3"></p>
+				<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-validation-message-step3">{l s='Your negotiation offer has been sent to you by email, it will be available for 24 hours, it has been added to your cart too.' mod='froggypricenegociator'}</p>
+
+				<form action="{if $froggypricenegociator.ps_version eq '1.4'}{$link->getPageLink('order.php')}{else}{$link->getPageLink('order')}{/if}">
+
+					<fieldset class="froggy-negociator-validation-step1">
+						<input id="froggy-negociator-validation-step3-input-submit" type="submit" value="{l s='Go to the cart' mod='froggypricenegociator'}" />
+					</fieldset>
+
+				</form>
+			</div>
+
+			{if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}<a class="close-reveal-modal">&#215;</a>{/if}
 		</div>
-
-
-		<div class="froggy-negociator-modal-step" id="froggy-negociator-modal-step2">
-
-			<p class="froggy-negociator-title-modal">{l s='Negotiated price' mod='froggypricenegociator'}</p>
-			<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-negociated-price"><img src="{$froggypricenegociator.module_dir}views/img/loader.gif" /></p>
-			<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-validation-message-step2"></p>
-
-            <p class="froggy-negociator-subtitle-modal">{l s='Please fill your e-mail address to receive this offer by e-mail and add the product to your cart.' mod='froggypricenegociator'}</p>
-			<p class="froggy-negociator-subtitle-modal"><u>{l s='This offer will be available for 24 hours only!' mod='froggypricenegociator'}</u></p>
-
-			<form action="">
-
-				<fieldset class="froggy-negociator-input-offer">
-					<input type="text" placeholder="{l s='Your e-mail' mod='froggypricenegociator'}" id="froggy-negociator-input-email" value="{$froggypricenegociator.email}" autocomplete="off" />
-				</fieldset>
-
-				<fieldset class="froggy-negociator-validation-step1">
-					<input id="froggy-negociator-validation-step2-input-submit" type="submit" value="{l s='Validate my e-mail' mod='froggypricenegociator'}" />
-				</fieldset>
-
-			</form>
-
-		</div>
-
-		<div class="froggy-negociator-modal-step" id="froggy-negociator-modal-step3">
-
-			<p class="froggy-negociator-title-modal">{l s='Negotiated price' mod='froggypricenegociator'}</p>
-			<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-negociated-price-step3"></p>
-
-			<form action="{if $froggypricenegociator.ps_version eq '1.4'}{$link->getPageLink('order.php')}{else}{$link->getPageLink('order')}{/if}">
-
-				<fieldset class="froggy-negociator-validation-step1">
-					<input id="froggy-negociator-validation-step3-input-submit" type="submit" value="{l s='Go to the cart' mod='froggypricenegociator'}" />
-				</fieldset>
-
-			</form>
-		</div>
-
-		{if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}<a class="close-reveal-modal">&#215;</a>{/if}
+		{*STEP 3 MODAL*}
 	</div>
-</div>
 </div>

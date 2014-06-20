@@ -188,6 +188,13 @@
 	float: none;
 }
 
+#froggy-negociator-input-email-error {
+    color:red;
+    text-align:center;
+    padding: 5px;
+    font-weight: bold;
+}
+
 #froggy-negociator-modal-step2 fieldset.froggy-negociator-input-offer {
 	text-align: center;
 }

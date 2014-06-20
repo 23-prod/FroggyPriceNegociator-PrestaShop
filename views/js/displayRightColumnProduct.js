@@ -258,9 +258,12 @@ function froggyPriceNegociatorDynamizeModal()
 		var checkEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 		// If e-mail is good submit button for step 2 appear
+		$('#froggy-negociator-input-email-error').hide();
 		$('#froggy-negociator-validation-step2-input-submit').addClass('froggy-negociator-button-disabled');
 		if (checkEmail.test(email))
 			$('#froggy-negociator-validation-step2-input-submit').removeClass('froggy-negociator-button-disabled');
+		else if (email != '')
+			$('#froggy-negociator-input-email-error').show();
 	}
 
 	// When an offer is validated

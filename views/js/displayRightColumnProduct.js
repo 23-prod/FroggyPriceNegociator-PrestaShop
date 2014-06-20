@@ -270,14 +270,15 @@ function froggyPriceNegociatorDynamizeModal()
 		$('#froggy-negociator-validation-step2-input-submit').addClass('froggy-negociator-button-disabled');
 		if (checkEmail.test(email))
 			$('#froggy-negociator-validation-step2-input-submit').removeClass('froggy-negociator-button-disabled');
-		else if (email != '')
-			$('#froggy-negociator-input-email-error').show();
 	}
 
 	// When an offer is validated
 	$('#froggy-negociator-validation-step2-input-submit').click(function() {
 		if ($(this).hasClass('froggy-negociator-button-disabled'))
+		{
+			$('#froggy-negociator-input-email-error').show();
 			return false;
+		}
 		froggyPriceNegociatorValidatePriceAjax();
 		return false;
 	});

@@ -44,8 +44,9 @@ $(document).ready(function() {
     });
 
     // When document is ready, if merchant click on combinations tab, we add the price negociator fields
-    $('#link-Combinations').click(function() {
-
+    $('#link-Combinations').click(function() { froggyPriceNegociatorInitCombination(); });
+	function froggyPriceNegociatorInitCombination()
+	{
         if ($('#froggypricenegociator-combination-option').length == 0)
         {
             var tmp = fc_pn_negociator_options.replace(/id="froggypricenegociator-/g, 'id="froggypricenegociator-combination-');
@@ -80,7 +81,6 @@ $(document).ready(function() {
 
             }, 500);
         }
-
-    });
+    }
 
 });

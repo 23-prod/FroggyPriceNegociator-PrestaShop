@@ -127,7 +127,8 @@ function froggyPriceNegociatorUpdate(combination, init)
 			var price_min = price_min_selector.val();
 			price_min = price_min.replace(',', '.');
 			price_min = price_min.replace(/[^\d.-]/g, '');
-			price_min_selector.val(price_min);
+			if (price_min_selector.val() != price_min)
+				price_min_selector.val(price_min);
 
 			// Calcul max percent reduction
             var reduction_percent_max = 100 - (price_min * 100 / current_price);

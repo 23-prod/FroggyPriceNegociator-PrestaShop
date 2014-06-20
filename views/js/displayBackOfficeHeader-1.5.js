@@ -48,7 +48,7 @@ $(document).ready(function() {
 
 	function froggyPriceNegociatorInitCombination()
 	{
-        if ($('#froggypricenegociator-combination-option').length == 0)
+        if ($('#froggypricenegociator-combination-option').length == 0 && $('#tr_unit_impact').length != 0)
         {
             var tmp = fc_pn_negociator_options.replace(/id="froggypricenegociator-/g, 'id="froggypricenegociator-combination-');
             $('#tr_unit_impact').parent().parent().after(tmp);

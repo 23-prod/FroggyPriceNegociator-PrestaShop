@@ -138,6 +138,7 @@
 
                         <fieldset class="froggy-negociator-validation-step">
                             <input id="froggy-negociator-validation-step2-input-submit" type="submit" value="{l s='Validate my e-mail' mod='froggypricenegociator'}" />
+							<p id="froggy-negociator-validation-step2-loader"><img src="{$froggypricenegociator.module_dir}views/img/loader.gif" /></p>
                         </fieldset>
 
                     </form>

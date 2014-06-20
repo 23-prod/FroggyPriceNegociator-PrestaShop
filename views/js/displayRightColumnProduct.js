@@ -155,6 +155,9 @@ function froggyPriceNegociatorGetNewPriceAjax()
 
 function froggyPriceNegociatorValidatePriceAjax()
 {
+	$('#froggy-negociator-validation-step2-input-submit').hide();
+	$('#froggy-negociator-validation-step2-loader').show();
+
 	$.ajax({
 		type: 'POST',
 		url: baseDir + 'modules/froggypricenegociator/ajax.php',
@@ -169,6 +172,9 @@ function froggyPriceNegociatorValidatePriceAjax()
 
 			data = JSON.parse(data);
 
+			froggyPriceNegociatorGoToStep(3);
+			$('#froggy-negociator-validation-step2-input-submit').show();
+			$('#froggy-negociator-validation-step2-loader').hide();
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
 		}
@@ -226,6 +232,7 @@ function froggyPriceNegociatorDynamizeModal()
 	$('#froggy-negociator-validation-step2-input-submit').addClass('froggy-negociator-button-disabled');
 	$('#froggy-negociator-modal-step2').hide();
 	$('#froggy-negociator-modal-form-step2').hide();
+	$('#froggy-negociator-validation-step2-loader').hide();
 	$('#froggy-negociator-modal-step3').hide();
 	froggyPriceNegociatorCheckEmail();
 
@@ -270,7 +277,6 @@ function froggyPriceNegociatorDynamizeModal()
 	$('#froggy-negociator-validation-step2-input-submit').click(function() {
 		if ($(this).hasClass('froggy-negociator-button-disabled'))
 			return false;
-		froggyPriceNegociatorGoToStep(3);
 		froggyPriceNegociatorValidatePriceAjax();
 		return false;
 	});

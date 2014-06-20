@@ -44,18 +44,16 @@ $(document).ready(function() {
 
 
     // When document is ready, if merchant click on combinations tab, we add the price negociator fields
-    $('#link-Combinations').click(function() {
+    $('#link-Combinations').click(function() { setTimeout(function() { froggyPriceNegociatorInitCombination(); }, 500); });
 
-        if ($('#froggypricenegociator-combination-option').length == 0)
+	function froggyPriceNegociatorInitCombination()
+	{
+        if ($('#froggypricenegociator-combination-option').length == 0 && $('#add_new_combination .panel-footer').length != 0)
         {
             var tmp = fc_pn_negociator_options.replace(/id="froggypricenegociator-/g, 'id="froggypricenegociator-combination-');
             $('#add_new_combination .panel-footer').before(tmp);
             $('#froggypricenegociator-combination-title').css('margin', '0px');
             $('#froggypricenegociator-combination-option-label').text(fc_pn_negociator_label_product_attribute);
-
-            // Init display and binding
-            setTimeout(function() {
-
 
                 // Init
                 var fields_to_watch = new Array(
@@ -67,7 +65,6 @@ $(document).ready(function() {
                 );
                 froggyPriceNegociatorInit(true, fields_to_watch);
 
-
                 // Load configuration combination when an edit button is clicked
                 froggyPriceNegociatorLoadConfigurationCombination(0);
                 $('.edit').click(function() {
@@ -77,11 +74,7 @@ $(document).ready(function() {
                 $('#desc-product-newCombination').click(function() {
                     froggyPriceNegociatorLoadConfigurationCombination(0);
                 });
-
-
-            }, 500);
         }
-
-    });
+    }
 
 });

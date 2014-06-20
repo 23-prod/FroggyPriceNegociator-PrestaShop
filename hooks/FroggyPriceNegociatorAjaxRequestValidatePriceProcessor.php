@@ -205,6 +205,16 @@ class FroggyPriceNegociatorAjaxRequestValidatePriceProcessor extends FroggyHookP
 		if (!FroggyPriceNegociatorObject::isProductEligible($this->id_product, (int)$this->context->customer->id, (int)$this->context->cart->id))
 			return $this->params['ajaxController']->render('error', '');
 
+		// If cart does not exist, we create it
+		if (!Validate::isLoadedObject($this->context->cart))
+		{
+			$this->context->cart = new Cart();
+			$this->context->cart->id_currency = $this->context->currency->id;
+			$this->context->cart->add();
+			if ($this->context->cart->id)
+				$this->context->cookie->id_cart = (int)$this->context->cart->id;
+		}
+
 		// Add product to cart with discount
 		$this->context->cart->updateQty(1, $this->id_product, $this->id_product_attribute);
 		$this->addReductionToCart();

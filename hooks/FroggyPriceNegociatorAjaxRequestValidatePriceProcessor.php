@@ -209,6 +209,7 @@ class FroggyPriceNegociatorAjaxRequestValidatePriceProcessor extends FroggyHookP
 		if (!Validate::isLoadedObject($this->context->cart))
 		{
 			$this->context->cart = new Cart();
+			$this->context->cart->id_lang = $this->id_lang;
 			$this->context->cart->id_currency = $this->context->currency->id;
 			$this->context->cart->add();
 			if ($this->context->cart->id)

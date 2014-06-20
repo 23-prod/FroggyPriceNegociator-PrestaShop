@@ -30,13 +30,13 @@
         {/foreach}
     {/foreach}
 
-	var froggypricenegociator_about_label = '{l s='about' mod='froggypricenegociator'}';
+	var froggypricenegociator_about_label = '{l s='about' mod='froggypricenegociator' js=1}';
 	var froggypricenegociator_message_label = new Array();
-	froggypricenegociator_message_label['step1.too.high'] = '{l s='Your offer is superior to the current price of the product.' mod='froggypricenegociator'}';
-	froggypricenegociator_message_label['step1.too.low'] = '{l s='Your offer is too low.' mod='froggypricenegociator'}';
-	froggypricenegociator_message_label['step2.too.low'] = '{l s='Your offer was too low, here our final offer.' mod='froggypricenegociator'}';
-	froggypricenegociator_message_label['step2.already.negotiated'] = '{l s='You already negotiated the price of this product, here the final offer.' mod='froggypricenegociator'}';
-	froggypricenegociator_message_label['step2.good'] = '{l s='Your offer has been accepted!' mod='froggypricenegociator'}';
+	froggypricenegociator_message_label['step1.too.high'] = '{l s='Your offer is superior to the current price of the product.' mod='froggypricenegociator' js=1}';
+	froggypricenegociator_message_label['step1.too.low'] = '{l s='Your offer is too low.' mod='froggypricenegociator' js=1}';
+	froggypricenegociator_message_label['step2.too.low'] = '{l s='Your offer was too low, here our final offer.' mod='froggypricenegociator' js=1}';
+	froggypricenegociator_message_label['step2.already.negotiated'] = '{l s='You already negotiated the price of this product, here the final offer.' mod='froggypricenegociator' js=1}';
+	froggypricenegociator_message_label['step2.good'] = '{l s='Your offer has been accepted!' mod='froggypricenegociator' js=1}';
 
 
     $(document).ready(function() {

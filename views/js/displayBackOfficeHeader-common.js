@@ -217,7 +217,7 @@ function froggyPriceNegociatorLoadConfigurationCombination(id_product_attribute)
     $('#froggypricenegociator-combination-reduction-percent-max-hidden').val('');
 
     // Set the matching configuration (if there is any)
-    for (i = 1; froggypricenegociator_combinations[i]; i++)
+    for (i = 0; froggypricenegociator_combinations[i]; i++)
     {
         if (froggypricenegociator_combinations[i][0] == id_product_attribute)
         {

@@ -58,7 +58,7 @@ function froggyPriceNegociatorCalculSuccessInAjax()
 	var froggypricenegociator_offer = froggyPriceNegociatorCleanPrice($('#froggy-negociator-input-offer').val());
 
 	// If price is too high, we hide "Submit offer" button, we hide calculated reduction and we display an error message
-	if (froggypricenegociator_offer > froggypricenegociator_current_price)
+	if (froggypricenegociator_offer >= froggypricenegociator_current_price)
 	{
 		$('#froggy-negociator-product-price-reduction').text('-');
 		$('#froggy-negociator-validation-step1-input-submit').hide();

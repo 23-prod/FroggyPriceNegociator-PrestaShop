@@ -201,6 +201,7 @@ a.froggy-price-negociator-flat-button {
 	border: 0;
 	cursor: pointer;
 	margin: 10px 0;
+	text-decoration: none;
 }
 
 a.froggy-price-negociator-flat-button:hover{

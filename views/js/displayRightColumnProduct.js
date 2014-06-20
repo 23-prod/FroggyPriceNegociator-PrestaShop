@@ -45,7 +45,8 @@ function froggyPriceNegociatorCalculReduction()
 	var froggypricenegociator_reduction_label = froggypricenegociator_reduction + ' ( ' + froggypricenegociator_about_label + ' ' + froggypricenegociator_reduction_percent + ' % )';
 
 	// Display cleaned offer price and reduction
-	$('#froggy-negociator-input-offer').val(froggypricenegociator_offer);
+	if ($('#froggy-negociator-input-offer').val() != froggypricenegociator_offer)
+		$('#froggy-negociator-input-offer').val(froggypricenegociator_offer);
 	$('#froggy-negociator-product-price-reduction').text(froggypricenegociator_reduction_label);
 	if (froggypricenegociator_offer == '')
 		$('#froggy-negociator-product-price-reduction').text('-');

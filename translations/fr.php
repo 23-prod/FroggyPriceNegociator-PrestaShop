@@ -40,7 +40,7 @@ $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.6_47
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.6_6f0e94391ffb6f4f6524b76510ce7bda'] = 'Activer le bouton de négociation de prix pour ce produit';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.6_9901fe5eb1d8812155a9588bf4e040a6'] = 'Prix minimum de vente :';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.6_af9a04b78e1f3c42af428cf2f449842c'] = 'Poucentage :';
-$_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_46b3931b9959c927df4fc65fdee94b07'] = 'soit environ';
+$_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_46b3931b9959c927df4fc65fdee94b07'] = 'soit';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_832760a3e079530a86e5b0e630cb6276'] = 'Votre offre est supérieure au prix actuel du produit.';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_1c84da47711db3cc6b17ea8d85fc58ac'] = 'Votre offre est trop basse.';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_44e929fdce9cb5b4c591037f30bc5128'] = 'Votre offre était trop basse, voici notre offre finale.';
@@ -61,6 +61,7 @@ $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_21a40f7c2
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_45c4c9392faaec0a9585ed3acf38ccc9'] = 'Veuillez remplir votre adresse e-mail pour recevoir cette offre par e-mail et ajouter le produit au panier.';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_7b2a7e669d9ced1021cf335494e1277e'] = 'Cette offre sera disponible durant 24h seulement !';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_625f93a63da35ee7150341160460f31e'] = 'Votre e-mail';
+$_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_7d5e62585f08aa60bce0287e82853ddd'] = 'Votre adresse e-mail semble érronée !';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_a5901bd629040b885f4c73645284d780'] = 'Valider mon e-mail';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_f0761363d52d932b690e885a13a79c2c'] = 'Votre offre de négociation vous a été envoyée par e-mail, elle sera valable 24h, le produit a été ajouté à votre panier.';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_5e136fae06a2284367755df5ebb89a80'] = 'Aller au panier';

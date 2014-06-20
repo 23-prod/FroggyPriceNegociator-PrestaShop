@@ -29,6 +29,10 @@ class FroggyPriceNegociatorHookActionCartSaveProcessor extends FroggyHookProcess
 		$addMethod = (version_compare(_PS_VERSION_, '1.5.0') >= 0 ? 'addCartRule' : 'addDiscount');
 		$deleteMethod = (version_compare(_PS_VERSION_, '1.5.0') >= 0 ? 'removeCartRule' : 'deleteDiscount');
 
+		// Check if cart exists
+		if (!Validate::isLoadedObject($this->context->cart))
+			return false;
+
 		// First remove all negotiated reduction
 		$reductions = $this->context->cart->{$getMethod}();
 		foreach ($reductions as $reduction)

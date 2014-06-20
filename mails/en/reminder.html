@@ -6,7 +6,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<title>Responsive Email Template</title>
+<title>Reminder of your offer</title>
                                                                                                                                                                                                                                                                                                                                                                                                         
 <style type="text/css">
 	.ReadMsgBody {width: 100%; background-color: #ffffff;}
@@ -21,7 +21,7 @@
 			
 	@media only screen and (max-width: 479px) {
 					body[yahoo] .deviceWidth {width:280px!important; padding:0;}	
-					body[yahoo] .center {text-align: center!important;}	 
+					body[yahoo] .center {text-align: center!important;}
 			}
 
 </style>
@@ -58,19 +58,19 @@
                     <td style="font-size: 13px; color: #959595; font-weight: normal; text-align: left;line-height: 24px; vertical-align: top; padding:15px 0;border-bottom:1px solid #dbdbdb;" bgcolor="#ffffff">
                         <table>
                             <tr>
-                                <td valign="top" style="padding:0 10px"><a href="#" style="text-decoration: none; color: #444; font-size: 24px; font-weight: bold; font-family:Arial, sans-serif ">Rappel de votre offre ! </a>
+                                <td valign="top" style="padding:0 10px"><a href="#" style="text-decoration: none; color: #444; font-size: 24px; font-weight: bold; font-family:Arial, sans-serif ">Reminder of your offer!</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td valign="top" style="padding:0 10px">
                                     <p style="font-size:13px;margin:0;padding:5px 0 5px;color:#656565;font-family:arial, sans-serif;text-align:left;line-height:18px;">
-                                        <b>Félicitations !</b> vous avez négocié le prix de {product_name} avec succès ! N'oubliez pas cette offres n'est valable que <b>24 heures !</b> Vous pouvez compléter votre achat sur en cliquant sur le bouton ci-dessous :
+                                        <b>Congratulations!</b> You negotiated the price of {product_name} with success! Do not forget this offer is available <b>24 hours only!</b> You can proceed to your order by clicking on the button below:
                                     </p>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <p style="text-align:center"><a href="{order_url}" style="padding:10px 18px;color:#fff;border-radius:5px;background:#43B754;text-decoration:none;font-family:arial, sans-serif;font-size:20px">Passer la commande</a></p>
+                                    <p style="text-align:center"><a href="{order_url}" style="padding:10px 18px;color:#fff;border-radius:5px;background:#43B754;text-decoration:none;font-family:arial, sans-serif;font-size:20px">Proceed the order</a></p>
                                 </td>
                             </tr>
                         </table>
@@ -87,7 +87,7 @@
                                 <td style="font-size: 12px; color: #959595; font-weight: normal; text-align: left; font-family: Georgia, Times, serif; line-height: 18px; vertical-align: top; padding:10px 10px 0 0">
 
                                     <!-- title product -->
-                                    <table>
+                                    <table class="deviceWidth">
                                         <tr>
                                             <td valign="top" style="padding:0 10px 5px 0"><a href="{product_url}" style="text-decoration: none; font-size: 18px; color: #444;font-weight: bold; font-family:Arial, sans-serif ">{product_name}</a>
                                             </td>
@@ -96,7 +96,7 @@
                                     <!-- title product -->
 
                                     <!-- description product -->
-                                    <table>
+                                    <table class="deviceWidth">
                                         <tr>
                                             <td>
                                                 <p style="margin:0;font-size:13px;font-family:arial, sans-serif;color:#444">
@@ -110,41 +110,41 @@
                                     <!-- price info offer -->
                                     <table width="100%" class="deviceWidth">
                                         <tr>
-                                            <td width="50%" align="left"><b style="font-family:arial, sans-serif;font-size:18px;color:#444">Prix accepté :</b></td>
-                                            <td width="50%" align="right"><span style="font-family:arial, sans-serif;color:#43B754;font-weight:bold;font-size:18px">{negociated_price}</span></td>
+                                            <td width="50%"><b style="font-family:arial, sans-serif;font-size:18px;color:#444">Negotiated&nbsp;price:</b></td>
+                                            <td width="50%"><span style="font-family:arial, sans-serif;color:#43B754;font-weight:bold;font-size:18px">{negociated_price}</span></td>
                                         </tr>    
                                     </table>
                                     <table width="100%" class="deviceWidth">
                                         <tr>
-                                            <td width="50%" align="left"><b style="font-family:arial, sans-serif;font-size:13px;color:#444;font-weight:normal">Votre offre :</b></td>
-                                            <td width="50%" align="right"><span style="font-family:arial, sans-serif;color:#444;font-weight:normal;font-size:13px">{your_offer}</span></td>
-                                        </tr>    
+                                            <td width="100%" align="left"><b style="font-family:arial, sans-serif;font-size:13px;color:#444;font-weight:normal">Your&nbsp;offer:</b></td>
+                                            <td width="100%" align="right"><span style="font-family:arial, sans-serif;color:#444;font-weight:normal;font-size:13px">{your_offer}</span></td>
+                                        </tr>
                                     </table>
                                     <table width="100%" class="deviceWidth">
                                         <tr>
-                                            <td width="50%"><b style="font-family:arial, sans-serif;font-size:13px;color:#444;font-weight:normal">Prix d'origine :</b></td>
+                                            <td width="50%"><b style="font-family:arial, sans-serif;font-size:13px;color:#444;font-weight:normal">Initial&nbsp;product&nbsp;price:</b></td>
                                             <td width="50%"><span style="font-family:arial, sans-serif;color:#444;font-weight:normal;font-size:13px">{product_price}</span></td>
-                                        </tr>    
+                                        </tr>
                                     </table>
                                     <table width="100%" class="deviceWidth">
                                         <tr>
-                                            <td width="50%"><b style="font-family:arial, sans-serif;font-size:13px;color:#444;font-weight:normal">Votre économie :</b></td>
+                                            <td width="50%"><b style="font-family:arial, sans-serif;font-size:13px;color:#444;font-weight:normal">Your&nbsp;reduction:</b></td>
                                             <td width="50%"><span style="font-family:arial, sans-serif;color:#444;font-weight:normal;font-size:13px">{price_reduction}</span></td>
-                                        </tr>    
+                                        </tr>
                                     </table>
                                     <table width="100%" class="deviceWidth">
                                         <tr>
-                                            <td width="50%"><b style="font-family:arial, sans-serif;font-size:13px;color:#444;font-weight:normal">Expiration de l'offre :</b></td>
+                                            <td width="50%"><b style="font-family:arial, sans-serif;font-size:13px;color:#444;font-weight:normal">Offer&nbsp;expiration:</b></td>
                                             <td width="50%"><span style="font-family:arial, sans-serif;color:#444;font-weight:normal;font-size:13px">{expiration_date}</span></td>
-                                        </tr>    
+                                        </tr>
                                     </table>
                                     <!-- price info offer -->
                                 </td>
                             </tr>
                         </table>
-                        <table align="right" width="39%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth">
+                        <table align="center" width="39%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth">
                             <tr>
-                                <td valign="top" align="center" class="center" style="padding:10px 0 0 10px">
+                                <td valign="top" align="center" class="center" style="padding:10px 0 0 10px;">
                                         <a href="#"><img width="267" src="{product_image_url}" alt="" border="0" style="display: block;" class="deviceWidth" /></a>
                                 </td>
                             </tr>
@@ -160,19 +160,19 @@
                     <td style="font-size: 13px; color: #959595; font-weight: normal; text-align: left;line-height: 24px; vertical-align: top; padding:15px 0;" bgcolor="#ffffff">
                         <table>
                             <tr>
-                                <td valign="top" style="padding:0 10px"><a href="#" style="text-decoration: none; color: #444; font-size: 18px; font-weight: bold; font-family:Arial, sans-serif ">Vous économisez {price_reduction} sur cette achat ! </a>
+                                <td valign="top" style="padding:0 10px"><a href="#" style="text-decoration: none; color: #444; font-size: 18px; font-weight: bold; font-family:Arial, sans-serif ">You saved {price_reduction} on this purchase! </a>
                                 </td>
                             </tr>
                             <tr>
                                 <td valign="top" style="padding:0 10px">
                                     <p style="font-size:13px;margin:0;padding:5px 0 5px;color:#656565;font-family:arial, sans-serif;text-align:left;line-height:18px;">
-                                    Cette n'est valable que pour 24 heures, une fois le délai dépassé vous ne pourrez plus profitez de cette offre, dépéchez vous de commander avant qu'elle ne se termine!
+										This offer is available for 24 hours only, once the delay is passed, you will not be able to have this reduction, proceed to your order before it's too late!
                                     </p>
                                     <p style="font-size:13px;margin:0;padding:5px 0 5px;color:#656565;font-family:arial, sans-serif;text-align:left;line-height:18px;">
-                                        si vous souhaitez contactez notre service client sur cette offre <a href="{contact_url}" style="color:#00608A">cliquez ici</a>.
+										If you wish to contact our customer service about this offer <a href="{contact_url}" style="color:#00608A">click here</a>.
                                     </p>
                                     <p style="font-size:13px;margin:0;padding:5px 0 5px;color:#656565;font-family:arial, sans-serif;text-align:left;line-height:18px;">
-                                    Nous vous remercions d'avoir utiliser notre site et nous esperons vous revoir très bientôt !
+										We thank you for your visit on our website and hope we will see you again soon!
                                     </p>
                                 </td>
                             </tr>
@@ -197,7 +197,7 @@
                                             <tr>
                                                 <td valign="top" style="font-size: 13px; color: #656565; color:#999; font-family: Arial, sans-serif;" class="center">
 
-                                                   Ce mail vous à été envoyé par {shop_name}
+                                                   This mail has been sent to you by {shop_name}
 
                                                 </td>
                                             </tr>

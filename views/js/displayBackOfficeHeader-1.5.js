@@ -44,7 +44,7 @@ $(document).ready(function() {
     });
 
     // When document is ready, if merchant click on combinations tab, we add the price negociator fields
-    $('#link-Combinations').click(function() { froggyPriceNegociatorInitCombination(); });
+    $('#link-Combinations').click(function() { setTimeout(function() { froggyPriceNegociatorInitCombination(); }, 500); });
 
 	function froggyPriceNegociatorInitCombination()
 	{
@@ -54,26 +54,25 @@ $(document).ready(function() {
             $('#tr_unit_impact').parent().parent().after(tmp);
             $('#froggypricenegociator-combination-option-label').text(fc_pn_negociator_label_product_attribute);
 
-                // Init
-                var fields_to_watch = new Array(
-                    '#attribute_price_impact',
-                    '#attribute_price',
-                    '#attribute_priceTI',
-                    '#froggypricenegociator-combination-price-min',
-                    '#froggypricenegociator-combination-reduction-percent-max'
-                );
-                froggyPriceNegociatorInit(true, fields_to_watch);
+			// Init
+			var fields_to_watch = new Array(
+				'#attribute_price_impact',
+				'#attribute_price',
+				'#attribute_priceTI',
+				'#froggypricenegociator-combination-price-min',
+				'#froggypricenegociator-combination-reduction-percent-max'
+			);
+			froggyPriceNegociatorInit(true, fields_to_watch);
 
-
-                // Load configuration combination when an edit button is clicked
-                froggyPriceNegociatorLoadConfigurationCombination(0);
-                $('.edit').click(function() {
-                    var id_product_attribute = froggyPriceNegociatorGetParamsFromUrl($(this).attr('href'), 'id_product_attribute');
-                    froggyPriceNegociatorLoadConfigurationCombination(id_product_attribute);
-                });
-                $('#desc-product-newCombination').click(function() {
-                    froggyPriceNegociatorLoadConfigurationCombination(0);
-                });
+			// Load configuration combination when an edit button is clicked
+			froggyPriceNegociatorLoadConfigurationCombination(0);
+			$('.edit').click(function() {
+				var id_product_attribute = froggyPriceNegociatorGetParamsFromUrl($(this).attr('href'), 'id_product_attribute');
+				froggyPriceNegociatorLoadConfigurationCombination(id_product_attribute);
+			});
+			$('#desc-product-newCombination').click(function() {
+				froggyPriceNegociatorLoadConfigurationCombination(0);
+			});
         }
     }
 

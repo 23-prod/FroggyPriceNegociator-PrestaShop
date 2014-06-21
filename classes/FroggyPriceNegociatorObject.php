@@ -157,13 +157,17 @@ class FroggyPriceNegociatorObject extends ObjectModel
 		if (FroggyPriceNegociatorNewPriceObject::isPriceAlreadyNegociated($id_product, $id_cart))
 			return false;
 
+		// Check if product is available for order
+		$product = new Product($id_product, false);
+		if ($product->available_for_order != 1)
+			return false;
+		if (!$product->checkQty(1))
+			return false;
+
 		// If the module configuration does not accept new product and if the product is new, the product is not eligible
 		if (Configuration::get('FC_PN_COMPLIANT_NEW') != 1)
-		{
-			$product = new Product($id_product, false);
 			if ($product->isNew())
 				return false;
-		}
 
 		// If the module configuration does not accept product in promotion and if the product is in promotion, the product is not eligible
 		if (Configuration::get('FC_PN_COMPLIANT_PROMO') != 1)

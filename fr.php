@@ -27,7 +27,7 @@ $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.4-1.
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.4-1.5_4762f3445000e3f2b8b95984cdbbc4fa'] = 'Dans ce cas ci, le prix de vente minimum sera';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.4-1.5_6f0e94391ffb6f4f6524b76510ce7bda'] = 'Activer le bouton de négociation de prix pour ce produit';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.4-1.5_9901fe5eb1d8812155a9588bf4e040a6'] = 'Prix minimum de vente :';
-$_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.4-1.5_af9a04b78e1f3c42af428cf2f449842c'] = 'Poucentage :';
+$_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.4-1.5_af9a04b78e1f3c42af428cf2f449842c'] = 'Pourcentage :';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.6_8476bd9f81754a09cfbd05033fbfc46b'] = 'Activer le bouton de négociation de prix pour cette déclinaison produit';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.6_33527bd78f3c5c6025accb410cf7b9b0'] = 'Attention, le prix minimal de vente est supérieur au prix final de vente.';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.6_3e00a3985dcd81e5f3004a189b19a20b'] = 'Négociateur de prix Froggy';

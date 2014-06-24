@@ -1,229 +1,24 @@
+¡ Recogida de su oferta!
 
+¡ Felicitaciones! ¡ Usted negoció el precio de {product_name} con éxito! ¡ No olvide esta oferta es válido sólo 24 horas! Usted puede completar su compra haciendo clic en el botón más abajo:
 
-<!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+Hacer el pedido: {order_url}
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+{product_name}
+{product_description_short}
 
-<title>Responsive Email Template</title>
-                                                                                                                                                                                                                                                                                                                                                                                                        
-<style type="text/css">
-	.ReadMsgBody {width: 100%; background-color: #ffffff;}
-	.ExternalClass {width: 100%; background-color: #ffffff;}
-	body	 {width: 100%; background-color: #ffffff; margin:0; padding:0; -webkit-font-smoothing: antialiased;font-family: Georgia, Times, serif}
-	table {border-collapse: collapse;}
-	
-	@media only screen and (max-width: 670px)  {
-					body[yahoo] .deviceWidth {width:440px!important; padding:0;}	
-					body[yahoo] .center {text-align: center!important;}	 
-			}
-			
-	@media only screen and (max-width: 479px) {
-					body[yahoo] .deviceWidth {width:280px!important; padding:0;}	
-					body[yahoo] .center {text-align: center!important;}	 
-			}
+Precio aceptado: 	{negociated_price}
+Su oferta: 	{your_offer}
+Precio de origen: 	{product_price}
+Su economía: 	{price_reduction}
+Espiración de la oferta: 	{expiration_date}
+Usted ahorra {price_reduction} sobre esta compra.
 
-</style>
-</head>
+Esta oferta es válida sólo para las 24 horas, una vez el plazo pasado usted no podrá más saquar provecho de ésta. ¡ Dépéchez usted de mandar antes de que se acabe!
 
-<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" yahoo="fix" style="font-family: Georgia, Times, serif">
+Si usted desea ponerse en contacto con nuestro servicio al cliente a propósito de esta oferta haga clic aquí: {contact_url}
 
-<!-- Wrapper -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
-	<tr>
-		<td width="100%" valign="top" bgcolor="#ffffff">
+¡ Le agradecemos por haber visitado nuestro sitio y esperamos verle de nuevo muy pronto!
 
-
-            <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0" bgcolor="#eee">
-                <tr>
-                    <td>
-                        <!-- Start Logo -->
-                        <table width="650"  class="deviceWidth" border="0" cellpadding="0" cellspacing="0" align="center">
-                            <tr>
-                                <td valign="top"  align="center" style="padding:0">
-									<a title="{shop_name}" href="{shop_url}"><img style="border: none;" src="{shop_logo}" alt="{shop_name}" /></a>
-                                </td>
-                            </tr>
-                        </table>
-                        <!-- End Logo -->
-                    </td>
-                </tr>
-            </table>
-            <!-- End Header -->
-
-            <!-- One Column -->
-            <table width="650"  class="deviceWidth" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
-                <tr>
-                    <td style="font-size: 13px; color: #959595; font-weight: normal; text-align: left;line-height: 24px; vertical-align: top; padding:15px 0;border-bottom:1px solid #dbdbdb;" bgcolor="#ffffff">
-                        <table>
-                            <tr>
-                                <td valign="top" style="padding:0 10px"><a href="#" style="text-decoration: none; color: #444; font-size: 24px; font-weight: bold; font-family:Arial, sans-serif ">Rappel de votre offre ! </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td valign="top" style="padding:0 10px">
-                                    <p style="font-size:13px;margin:0;padding:5px 0 5px;color:#656565;font-family:arial, sans-serif;text-align:left;line-height:18px;">
-                                        <b>Félicitations !</b> vous avez négocié le prix de {product_name} avec succès ! N'oubliez pas cette offres n'est valable que <b>24 heures !</b> Vous pouvez compléter votre achat sur en cliquant sur le bouton ci-dessous :
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p style="text-align:center"><a href="{order_url}" style="padding:10px 18px;color:#fff;border-radius:5px;background:#43B754;text-decoration:none;font-family:arial, sans-serif;font-size:20px">Passer la commande</a></p>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table><!-- End One Column -->
-
-            <!-- 2 Column little Images & Text Side by SIde -->
-            <table width="650" border="0" cellpadding="0" cellspacing="0" align="center" class="deviceWidth" bgcolor="#ffffff">
-                <tr>
-                    <td style="padding:15px 10px;border-bottom:1px solid #DBDBDB">
-                        <table align="left" width="55%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth">
-                            <tr>
-                                <td style="font-size: 12px; color: #959595; font-weight: normal; text-align: left; font-family: Georgia, Times, serif; line-height: 18px; vertical-align: top; padding:10px 10px 0 0">
-
-                                    <!-- title product -->
-                                    <table>
-                                        <tr>
-                                            <td valign="top" style="padding:0 10px 5px 0"><a href="{product_url}" style="text-decoration: none; font-size: 18px; color: #444;font-weight: bold; font-family:Arial, sans-serif ">{product_name}</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- title product -->
-
-                                    <!-- description product -->
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <p style="margin:0;font-size:13px;font-family:arial, sans-serif;color:#444">
-													{product_description_short}
-                                                </p><br />
-                                                <p style="margin:0;font-size:13px;font-family:arial, sans-serif;color:#656565">
-                                                     
-                                                </p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- description product -->
-
-                                    <!-- price info offer -->
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="50%"><b style="font-family:arial, sans-serif;font-size:18px;color:#444">Prix accepté :</b></td>
-                                            <td width="50%"><span style="font-family:arial, sans-serif;color:#43B754;font-weight:bold;font-size:18px">{negociated_price}</span></td>
-                                        </tr>    
-                                    </table>
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="50%"><b style="font-family:arial, sans-serif;font-size:13px;color:#444;font-weight:normal">Votre offre :</b></td>
-                                            <td width="50%"><span style="font-family:arial, sans-serif;color:#444;font-weight:normal;font-size:13px">{your_offer}</span></td>
-                                        </tr>    
-                                    </table>
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="50%"><b style="font-family:arial, sans-serif;font-size:13px;color:#444;font-weight:normal">Prix d'origine :</b></td>
-                                            <td width="50%"><span style="font-family:arial, sans-serif;color:#444;font-weight:normal;font-size:13px">{product_price}</span></td>
-                                        </tr>    
-                                    </table>
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="50%"><b style="font-family:arial, sans-serif;font-size:13px;color:#444;font-weight:normal">votre économie :</b></td>
-                                            <td width="50%"><span style="font-family:arial, sans-serif;color:#444;font-weight:normal;font-size:13px">{price_reduction}</span></td>
-                                        </tr>    
-                                    </table>
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="50%"><b style="font-family:arial, sans-serif;font-size:13px;color:#444;font-weight:normal">Expiration de l'offre :</b></td>
-                                            <td width="50%"><span style="font-family:arial, sans-serif;color:#444;font-weight:normal;font-size:13px">{expiration_date}</span></td>
-                                        </tr>    
-                                    </table>
-                                    <!-- price info offer -->
-                                </td>
-                            </tr>
-                        </table>
-                        <table align="right" width="39%" cellpadding="0" cellspacing="0" border="0" class="deviceWidth">
-                            <tr>
-                                <td valign="top" align="center" class="center" style="padding:10px 0 0 10px">
-                                        <a href="#"><img width="267" src="{product_image_url}" alt="" border="0" style="display: block;" class="deviceWidth" /></a>
-                                </td>
-                            </tr>
-                        </table> 
-                    </td>
-                </tr>
-            </table><!-- End 2 Column little Images & Text Side by SIde -->
-
-
-            <!-- One Column -->
-            <table width="650"  class="deviceWidth" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
-                <tr>
-                    <td style="font-size: 13px; color: #959595; font-weight: normal; text-align: left;line-height: 24px; vertical-align: top; padding:15px 0;" bgcolor="#ffffff">
-                        <table>
-                            <tr>
-                                <td valign="top" style="padding:0 10px"><a href="#" style="text-decoration: none; color: #444; font-size: 18px; font-weight: bold; font-family:Arial, sans-serif ">Vous économisez {price_reduction} sur cette achat ! </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td valign="top" style="padding:0 10px">
-                                    <p style="font-size:13px;margin:0;padding:5px 0 5px;color:#656565;font-family:arial, sans-serif;text-align:left;line-height:18px;">
-                                    Cette n'est valable que pour 24 heures, une fois le délai dépassé vous ne pourrez plus profitez de cette offre, dépéchez vous de commander avant qu'elle ne se termine!
-                                    </p>
-                                    <p style="font-size:13px;margin:0;padding:5px 0 5px;color:#656565;font-family:arial, sans-serif;text-align:left;line-height:18px;">
-                                        si vous souhaitez contactez notre service client sur cette offre <a href="{contact_url}" style="color:#00608A">cliquez ici</a>.
-                                    </p>
-                                    <p style="font-size:13px;margin:0;padding:5px 0 5px;color:#656565;font-family:arial, sans-serif;text-align:left;line-height:18px;">
-                                    Nous vous remercions d'avoir utiliser notre site et nous esperons vous revoir très bientôt !
-                                    </p>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table><!-- End One Column -->
-
-
-
-
-<div style="height:15px">&nbsp;</div><!-- spacer -->
-
-
-			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
-				<tr>
-					<td bgcolor="#eee" style="padding:10px 0">
-                        <table width="650" border="0" cellpadding="0" cellspacing="0" align="center" class="deviceWidth">
-                            <tr>
-                                <td>                    
-                                        <table width="50%" cellpadding="0" cellspacing="0"  border="0" align="left" class="deviceWidth">
-                                            <tr>
-                                                <td valign="top" style="font-size: 13px; color: #656565; color:#999; font-family: Arial, sans-serif;" class="center">
-
-                                                   Ce mail vous à été envoyé par {shop_name}
-
-                                                </td>
-                                            </tr>
-                                        </table>
-                        
-                                        <table width="50%" cellpadding="0" cellspacing="0"  border="0" align="right" class="deviceWidth">
-                                            <tr>
-                                                <td valign="top" style="font-size: 12px; color: #656565; font-weight: normal; font-family: arial, sans-serif; line-height: 18px; vertical-align: top; text-align:right" class="center">
-                                                <a href="{contact_url}" style="text-decoration:none;color: #00608A">Contact</a>
-                                                </td>
-                                            </tr>
-                                        </table>   
-                        
-                        		</td>
-                        	</tr>
-                        </table>                                                              		
-                    </td>
-                </tr>
-            </table><!-- End 4 Columns -->
-						
-		</td>
-	</tr>
-</table> <!-- End Wrapper -->
-
-</body>
-</html>
+Este e-mail a sido enviado por {shop_name}
+Contacto: {contact_url}

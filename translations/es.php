@@ -17,6 +17,7 @@ $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociatorhookgetcontent
 $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociatorhookgetcontentprocessor_d0f06038b6b3aa5edc07c7a6fd3ca3f9'] = 'Buscar una categoría';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.4-1.5_8476bd9f81754a09cfbd05033fbfc46b'] = 'Activar el botón de negociación de precio para esta declinación producido';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.4-1.5_33527bd78f3c5c6025accb410cf7b9b0'] = 'Atención, el precio mínimo de venta es superior al precio final de venta.';
+$_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.4-1.5_3e00a3985dcd81e5f3004a189b19a20b'] = 'Negociador de precio Froggy';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.4-1.5_476dfb2e51ba4e60c32b971006654559'] = 'Este producto no es eligible a la negociación, las razones posibles son:';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.4-1.5_6d22360f5f75b50493dde8fbfa78ffd3'] = '- Una de las categorías asociadas con este producto ha sido prohibida en la configuración del módulo.';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.4-1.5_be2705b1f5c58426235930731e2de3fd'] = '- El fabricante asociado con este producto ha sido prohibido en la configuración del módulo.';
@@ -38,6 +39,7 @@ $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.6_47
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.6_6f0e94391ffb6f4f6524b76510ce7bda'] = 'Activar el botón de negociación de precio para este producto';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.6_9901fe5eb1d8812155a9588bf4e040a6'] = 'Precio mínimo de venta:';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.6_af9a04b78e1f3c42af428cf2f449842c'] = 'Porcentaje';
+$_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_46b3931b9959c927df4fc65fdee94b07'] = 'según ';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_832760a3e079530a86e5b0e630cb6276'] = 'Su oferta es superior al precio actual del producto.';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_1c84da47711db3cc6b17ea8d85fc58ac'] = 'Su oferta es demasiado baja.';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_44e929fdce9cb5b4c591037f30bc5128'] = 'Su oferta era demasiado baja, he aquí nuestra oferta final.';
@@ -48,6 +50,7 @@ $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_016e5686a
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_13148717f8faa9037f37d28971dfc219'] = 'Validación';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_f4d1ea475eaa85102e2b4e6d95da84bd'] = 'Confirmación';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_6a5c2ca6b14c7f51956ba2c967217534'] = '¿ No tiene el presupuesto?';
+$_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_aca13987bf740d924e0ce54eba41bdb3'] = '¿Cuánto estarías dispuesto a pagar para este producto?';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_1fef23d9e38a66e0708e494aed73d688'] = 'Hacer una oferta';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_febb32f720437bc7864948740f7f3975'] = 'Posibilidad de éxito en su negociación:';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_20a33aa9017d0b0bc90be748bbb6da62'] = 'Precio del producto:';
@@ -165,6 +168,7 @@ $_MODULE['<{froggypricenegociator}prestashop>getcontent_6d122b4b80fe746d4b1cdabd
 $_MODULE['<{froggypricenegociator}prestashop>getcontent_162cc3ac73a73567dff15269d60d6ff4'] = 'Mostrar el botón de negociación de precio después:';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent_783e8e29e6a8c3e22baa58a19420eb4f'] = 'segundos';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent_be5d5d37542d75f93a87094459f76678'] = 'y';
+$_MODULE['<{froggypricenegociator}prestashop>getcontent_84d4c1e294d3e2b5a0b9d15fd4cfe440'] = 'visualización de la página';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent_36092449747eebf226b00ba1feb8973b'] = 'Usted puede retrasar la fijación del botón de negociación de precio, esto permite fijar el botón cuando un cliente vacila en añadir un producto a su cesta.';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent_b831fca1cd778819720424286b0f14bd'] = 'Escriba 0 en los campos si usted desea desactivar la funcionalidad y fijar inmediatamente el botón de negociación.';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent_cb80eb01348db19c76e8574255c8e4f2'] = 'Estilo del botón:';
@@ -177,6 +181,7 @@ $_MODULE['<{froggypricenegociator}prestashop>getcontent_b59b494fce281db87a0a4850
 $_MODULE['<{froggypricenegociator}prestashop>getcontent_554fd8768f165251646ce21ba4998208'] = 'Modo de  visualización';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent_442d84fcdb1f9628babaf80b27b7b9b6'] = 'Esto es Fancybox';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent_f4fcb4e08b7bfc985299b4b374af16b9'] = 'Esto es Reveal modal';
+$_MODULE['<{froggypricenegociator}prestashop>getcontent_28171f651bbbe55fbbf7abd1f714f61b'] = 'visualización cuando el cliente hace clic en el botón de negociación de precio';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent_c9cc8cce247e49bae79f15173ce97354'] = 'Salvaguardar';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent_960b44c579bc2f6818d2daaf9e4c16f0'] = 'Normal';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent_0ab984d91ab0a037bdf692bf0e73c349'] = 'Importante';

@@ -72,9 +72,9 @@ $_MODULE['<{froggypricenegociator}prestashop>getcontent.bootstrap_d1109f3240d262
 $_MODULE['<{froggypricenegociator}prestashop>getcontent.bootstrap_57fe132c158447f26f6c14db9bd3d1ac'] = 'Personalizar';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent.bootstrap_8a44601643e22dd220b8e2f3f389bae5'] = 'Configuración del modo:';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent.bootstrap_2c72556ebfa5f6684ad1178aedf39a93'] = 'Activa la negociación de precio para todo ls producido:';
-$_MODULE['<{froggypricenegociator}prestashop>getcontent.bootstrap_ee17649a611e1b87050fd8a2cc2eafdb'] = 'Activar el botón de negociación de precio para todos los productos (usted no tendrá que configurar de precio mínimo para cada producto)';
+$_MODULE['<{froggypricenegociator}prestashop>getcontent.bootstrap_ee17649a611e1b87050fd8a2cc2eafdb'] = 'Accionar el botón de negociación de precio para todos los productos (usted no tendrá que configurar de precio mínimo para cada producto)';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent.bootstrap_bd78a95046969db5dfb9a90ff3833e56'] = 'Reducción general en porcentaje:';
-$_MODULE['<{froggypricenegociator}prestashop>getcontent.bootstrap_2704c89b380ebdcf14a41777dac305a8'] = 'Si usted activa el botón para todos los productos, usted debe precisar una reducción en porcentaje para todos los productos.';
+$_MODULE['<{froggypricenegociator}prestashop>getcontent.bootstrap_2704c89b380ebdcf14a41777dac305a8'] = 'Si usted accionáis el botón para todos los productos, usted debe precisar una reducción en porcentaje para todos los productos.';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent.bootstrap_308c46626713eaa9265c92d5b5d92308'] = 'Tipo de reducción:';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent.bootstrap_5307061ad8e0965e63977316c63e1033'] = 'Definir un precio de venta mínimo';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent.bootstrap_50daa5ab6e4eec2475537af73dd5e4c2'] = 'Definir un porcentaje de reducción máxima';

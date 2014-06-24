@@ -41,7 +41,7 @@
 					<h4>{l s='Mode configuration:' mod='froggypricenegociator'}</h4>
 
 					<div class="form-group clearfix">
-					<label class="col-lg-3">{l s='Enable price negotiation button on all products:' mod='froggypricenegociator'}</label>
+					<label class="col-lg-3">{l s='Enable price negotiation for all products:' mod='froggypricenegociator'}</label>
 						<div class="col-lg-9">
 							<input type="checkbox" id="FC_PN_ENABLE_GENERAL_OPTION" name="FC_PN_ENABLE_GENERAL_OPTION" value="1"{if $froggypricenegociator.FC_PN_ENABLE_GENERAL_OPTION} checked="checked"{/if} />
 							<p class="help-block">{l s='Enable price negotiation button for all products (you won\'t have to set a configuration for each product).' mod='froggypricenegociator'}</p>
@@ -57,11 +57,11 @@
 					</div>
 
 					<div id="fc-pn-type-block" class="form-group clearfix">
-						<label class="col-lg-3">{l s='Type reduction:' mod='froggypricenegociator'}</label>
+						<label class="col-lg-3">{l s='Reduction type:' mod='froggypricenegociator'}</label>
 						<div class="col-lg-9">
 							<select name="FC_PN_TYPE" id="FC_PN_TYPE">
-								<option value="PRICE_MINI" {if $froggypricenegociator.FC_PN_TYPE eq 'PRICE_MINI'}selected="selected"{/if}>{l s='Define price minimum' mod='froggypricenegociator'}</option>
-								<option value="PERCENT" {if $froggypricenegociator.FC_PN_TYPE eq 'PERCENT'}selected="selected"{/if}>{l s='Define maximum percent' mod='froggypricenegociator'}</option>
+								<option value="PRICE_MINI" {if $froggypricenegociator.FC_PN_TYPE eq 'PRICE_MINI'}selected="selected"{/if}>{l s='Define minimum price sell' mod='froggypricenegociator'}</option>
+								<option value="PERCENT" {if $froggypricenegociator.FC_PN_TYPE eq 'PERCENT'}selected="selected"{/if}>{l s='Define maximum percent reduction' mod='froggypricenegociator'}</option>
 							</select>
 							<p class="help-block">{l s='Please look at the documentation for more details.' mod='froggypricenegociator'}</p>
 						</div>

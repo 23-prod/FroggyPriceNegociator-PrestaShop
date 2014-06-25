@@ -39,6 +39,7 @@ class FroggyPriceNegociator extends FroggyModule
 
 		$this->displayName = $this->l('Froggy Price Negotiator');
 		$this->description = $this->l('Display a price negotiation button on product page for your customers');
+		$this->module_key = 'a928c2276f3debc7d93b667f730d130a';
 	}
 
 	/**

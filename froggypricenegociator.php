@@ -51,6 +51,24 @@ class FroggyPriceNegociator extends FroggyModule
 		return $this->hookGetContent();
 	}
 
+	public function enable($forceAll = false)
+	{
+		FroggyPriceNegociatorNewPriceObject::enableDisableNegociatedReduction(1);
+		return parent::enable($force_all);
+	}
+
+	public function disable($forceAll = false)
+	{
+		FroggyPriceNegociatorNewPriceObject::enableDisableNegociatedReduction(0);
+		return parent::disable($force_all);
+	}
+
+	public function uninstall()
+	{
+		FroggyPriceNegociatorNewPriceObject::enableDisableNegociatedReduction(0);
+		return parent::uninstall();
+	}
+
 	// Retrocompat 1.4
 	public function hookHeader($params) { return $this->hookDisplayHeader($params); }
 	public function hookCart($params) { return $this->hookActionCartSave($params); }

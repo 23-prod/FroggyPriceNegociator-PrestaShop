@@ -202,4 +202,22 @@ class FroggyPriceNegociatorNewPriceObject extends ObjectModel
 			$discount->update();
 		}
 	}
+
+	public static function enableDisableNegociatedReduction($action = 0)
+	{
+		if (version_compare(_PS_VERSION_, '1.5.0') >= 0)
+		{
+			return Db::getInstance()->execute('
+			UPDATE `'._DB_PREFIX_.'cart_rule`
+			SET `active` = '.(int)$action.'
+			WHERE `id_cart_rule` IN (SELECT DISTINCT(`id_cart_rule`) FROM `'._DB_PREFIX_.'fpn_product_new_price`)');
+		}
+		else
+		{
+			return Db::getInstance()->execute('
+			UPDATE `'._DB_PREFIX_.'discount`
+			SET `active` = '.(int)$action.'
+			WHERE `id_discount` IN (SELECT DISTINCT(`id_discount`) FROM `'._DB_PREFIX_.'fpn_product_new_price`)');
+		}
+	}
 }

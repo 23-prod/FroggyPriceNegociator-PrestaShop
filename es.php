@@ -8,6 +8,7 @@ $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociator_1a41ad8b93276
 $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociatorajaxrequestprocessor_fb889045b175b03856ed1f04f0d683fb'] = 'Error sistema, por favor, póngase en contacto con el vendedor';
 $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociatorajaxrequestprocessor_350ddd9efe5f329b7e4d80bd20eafbc3'] = 'La negociación para este producto no está disponible.';
 $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociatorajaxrequestvalidatepriceprocessor_0c9194c0b7efea4c312ecdd683eb80b4'] = 'Precio negociado para';
+$_MODULE['<{froggypricenegociator}prestashop>froggypricenegociatorhookgetcontentprocessor_fa03eb688ad8aa1db593d33dabd89bad'] = 'Raíz';
 $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociatorhookgetcontentprocessor_8cf04a9734132302f96da8e113e80ce5'] = 'Acogida';
 $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociatorhookgetcontentprocessor_ef7de3f485174ff47f061ad27d83d0ee'] = 'Seleccionar';
 $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociatorhookgetcontentprocessor_b56c3bda503a8dc4be356edb0cc31793'] = 'Replegar todo';

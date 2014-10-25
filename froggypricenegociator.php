@@ -53,7 +53,8 @@ class FroggyPriceNegociator extends FroggyModule
 
 	public function enable($forceAll = false)
 	{
-		FroggyPriceNegociatorNewPriceObject::enableDisableNegociatedReduction(1);
+		if (Tools::getValue('enable') == 1)
+			FroggyPriceNegociatorNewPriceObject::enableDisableNegociatedReduction(1);
 		return parent::enable($force_all);
 	}
 

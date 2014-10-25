@@ -31,7 +31,7 @@
     {/foreach}
 
     var fc_pn_negociator_label_product_attribute = '{l s='Enable price negotiation button for this product attribute' mod='froggypricenegociator' js=1}';
-	var fc_pn_negociator_label_price_error = '{l s='Beware, the minimum price sell is superior to the final retail place.'}';
+	var fc_pn_negociator_label_price_error = '{l s='Beware, the minimum price sell is superior to the final retail place.' mod='froggypricenegociator' js=1}';
     var fc_pn_negociator_options = '<h3 id="froggypricenegociator-title">{l s='Froggy Price Negotiator' mod='froggypricenegociator' js=1}</h3> \
     \
     {if $froggypricenegociator.is_product_blacklisted eq '1'}

@@ -82,7 +82,17 @@ class FroggyPriceNegociatorHookDisplayBackOfficeHeaderProcessor extends FroggyHo
 
 	public function run()
 	{
-		if ((Tools::getValue('controller') != 'AdminProducts' && Tools::getValue('tab') != 'AdminCatalog') || Tools::getValue('id_product') < 1)
+		// Retrieve get data
+		$id_product = (int)Tools::getValue('id_product');
+		$tab = strtolower(Tools::getValue('tab'));
+		$controller = strtolower(Tools::getValue('controller'));
+
+		// If we are not on Admin Products section, we exit
+		if ($controller != 'adminproducts' && $tab != 'admincatalog')
+			return '';
+
+		// If we are not updating a product, we exit
+		if ($id_product < 1)
 			return '';
 
 		$this->initProductNegociatorConfiguration();

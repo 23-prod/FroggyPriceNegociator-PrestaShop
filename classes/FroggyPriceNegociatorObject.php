@@ -109,7 +109,7 @@ class FroggyPriceNegociatorObject extends ObjectModel
 	public function __construct($id = null, $id_lang = null, $id_shop = null)
 	{
 		$return = parent::__construct($id, $id_lang, $id_shop);
-		$this->price_min = number_format($this->price_min, 2);
+		$this->price_min = number_format($this->price_min, 2, '.', '');
 		$this->reduction_percent_max = number_format($this->reduction_percent_max, 2);
 		return $return;
 	}

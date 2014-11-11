@@ -37,7 +37,7 @@ class FroggyOverride
 	{
 		// Install overrides
 		try {
-			$this->installOverrides();
+			return $this->installOverrides();
 		} catch (Exception $e) {
 			$this->uninstallOverrides();
 			return false;
@@ -130,6 +130,20 @@ class FroggyOverride
 	 */
 	public function removeOverride($file)
 	{
+		$ps_version = str_replace('.', '', substr(_PS_VERSION_, 0, 3));
+		$override_src = $this->getLocalPath().'override'.DIRECTORY_SEPARATOR.$file;
+		$override_src_version = str_replace('.php', '.'.$ps_version.'.php', $override_src);
+		if (file_exists($override_src_version))
+			$override_src = $override_src_version;
+		$override_dest = _PS_ROOT_DIR_.DIRECTORY_SEPARATOR.'override'.DIRECTORY_SEPARATOR.'classes'.DIRECTORY_SEPARATOR.basename($file, '.php').'.php';
+		if (strpos($file, 'controllers/'))
+			$override_dest = _PS_ROOT_DIR_.DIRECTORY_SEPARATOR.'override'.DIRECTORY_SEPARATOR.'controllers'.DIRECTORY_SEPARATOR.basename($file, '.php').'.php';
+
+		$override_src_base64 = base64_encode(file_get_contents($override_src));
+		$override_dest_base64 = base64_encode(file_get_contents($override_dest));
+		if ($override_src_base64 == $override_dest_base64)
+			@unlink($override_dest);
+
 		return true;
 	}
 

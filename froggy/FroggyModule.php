@@ -201,7 +201,7 @@ class FroggyModule extends Module
 	{
 		$fo = new FroggyOverride($this->name);
 		try {
-			$fo->installOverrides();
+			return $fo->installOverrides();
 		} catch (Exception $e) {
 			$this->_errors[] = sprintf(Tools::displayError('Unable to install override: %s'), $e->getMessage());
 			$fo->uninstallOverrides();

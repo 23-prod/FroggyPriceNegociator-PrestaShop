@@ -61,6 +61,7 @@ class FroggyModule extends Module
 			require(dirname(__FILE__).'/FroggyBackward.php');
 			require_once(dirname(__FILE__).'/FroggyOverride.php');
 		}
+		require_once(dirname(__FILE__).'/FroggyHelperTreeCategories.php');
 
 		// Define local path if not exists (1.4 compatibility)
 		if (!isset($this->local_path))
@@ -451,6 +452,27 @@ class FroggyModule extends Module
 			return parent::display($file, 'views/templates/hook/'.$template, $cacheId, $compileId);
 		else
 			return parent::display($file, $template, $cacheId, $compileId);
+	}
+
+	/**
+	 * Render categories tree method
+	 */
+	public function renderCategoriesTree($id_category_root, $config_name, $field_name)
+	{
+		$categories = array();
+		$categories_selected = Configuration::get($config_name);
+		if (!empty($categories_selected))
+			foreach (json_decode($categories_selected, true) as $key => $category)
+				$categories[] = $category;
+
+		$tree = new FroggyHelperTreeCategories();
+		$tree->setAttributeName($field_name);
+		$tree->setRootCategory($id_category_root);
+		$tree->setLang($this->context->employee->id_lang);
+		$tree->setSelectedCategories($categories);
+		$tree->setContext($this->context);
+		$tree->setModule($this);
+		return $tree->render();
 	}
 
 	/**

@@ -35,6 +35,11 @@ class FroggyPriceNegociator extends FroggyModule
 	 */
 	public function __construct()
 	{
+		$this->name = 'froggypricenegociator';
+		$this->version = '1.0.6';
+		$this->author = 'Froggy Commerce';
+		$this->tab = 'front_office_features';
+
 		parent::__construct();
 
 		$this->displayName = $this->l('Froggy Price Negotiator');
@@ -51,14 +56,14 @@ class FroggyPriceNegociator extends FroggyModule
 		return $this->hookGetContent();
 	}
 
-	public function enable($forceAll = false)
+	public function enable($force_all = false)
 	{
 		if (Tools::getValue('enable') == 1)
 			FroggyPriceNegociatorNewPriceObject::enableDisableNegociatedReduction(1);
 		return parent::enable($force_all);
 	}
 
-	public function disable($forceAll = false)
+	public function disable($force_all = false)
 	{
 		FroggyPriceNegociatorNewPriceObject::enableDisableNegociatedReduction(0);
 		return parent::disable($force_all);

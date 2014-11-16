@@ -199,6 +199,30 @@
 	text-align: center;
 }
 
+
+.froggy-negociator-share-intro{
+	font-weight: bold;
+	color: #24A00A;
+	text-align: center;
+	font-size: 16px;
+	margin-top: 35px;
+}
+
+.froggy-negociator-share-link{
+	width: 40%;
+	padding: 0 5%;
+	float: left;
+}
+
+#froggy-negociator-validation-step3-continue{
+	text-align: right;
+	margin-top: 35px;
+}
+
+#froggy-negociator-validation-step3-continue a{
+	text-decoration: underline;
+}
+
 /*Modal front office*/
 
 

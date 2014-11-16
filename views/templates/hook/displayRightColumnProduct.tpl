@@ -162,6 +162,18 @@
 					</fieldset>
 
 				</form>
+				<div id="froggy-negociator-share-container">
+					<p class="froggy-negociator-share-intro">
+						Votre Négociation à réussi, faite le savoir !
+					</p>
+					<div class="froggy-negociator-share-link froggy-negociator-share-facebook">
+						Partager sur facebook
+					</div>
+					<div class="froggy-negociator-share-link froggy-negociator-share-twitter">
+						Partager sur twitter
+					</div>
+					<p id="froggy-negociator-validation-step3-continue"><a href="" title="{l s='Continuer mes achats'}">{l s='Continuer mes achats'}</a></p>
+				</div>
 			</div>
 
 			{if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}<a class="close-reveal-modal">&#215;</a>{/if}

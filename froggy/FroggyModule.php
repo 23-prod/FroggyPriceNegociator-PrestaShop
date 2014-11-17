@@ -61,6 +61,7 @@ class FroggyModule extends Module
 			require(dirname(__FILE__).'/FroggyBackward.php');
 			require_once(dirname(__FILE__).'/FroggyOverride.php');
 		}
+		require_once(dirname(__FILE__).'/FroggyHelperFormList.php');
 		require_once(dirname(__FILE__).'/FroggyHelperTreeCategories.php');
 
 		// Define local path if not exists (1.4 compatibility)

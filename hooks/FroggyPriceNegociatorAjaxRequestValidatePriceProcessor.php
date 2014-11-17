@@ -46,7 +46,7 @@ class FroggyPriceNegociatorAjaxRequestValidatePriceProcessor extends FroggyHookP
 		$this->customer_offer = (float)Tools::getValue('offer');
 		$this->price_min = (float)$this->params['price_min'];
 		$this->new_price = (float)$this->params['ajaxController']->getNegociatedPriceInCookie($this->id_product, $this->id_product_attribute);
-		$this->reduction = $this->product_price - $this->new_price;
+		$this->reduction = round((float)($this->product_price - $this->new_price), 2);
 		$this->date_expiration = date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s').' + 1 day'));
 	}
 

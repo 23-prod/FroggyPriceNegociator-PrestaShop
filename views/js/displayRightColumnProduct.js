@@ -21,7 +21,10 @@
 
 function froggyPriceNegociatorCleanPrice(value_price)
 {
-	value_price = value_price.replace(',', '.');
+	if (value_price.indexOf('.') > -1)
+		value_price = value_price.replace(',', '');
+	else
+		value_price = value_price.replace(',', '.');
 	value_price = value_price.replace(/[^\d.-]/g, '');
 	return value_price;
 }

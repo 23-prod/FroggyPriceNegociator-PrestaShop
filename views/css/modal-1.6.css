@@ -209,9 +209,12 @@
 }
 
 .froggy-negociator-share-link{
-	width: 40%;
+	width: 50%;
 	padding: 0 5%;
 	float: left;
+}
+.froggy-negociator-share-facebook {
+	text-align: right;
 }
 
 #froggy-negociator-validation-step3-continue{
@@ -278,37 +281,6 @@
 	background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
 	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
 	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
-}
-
-/*
- * Note: using adjacent or general sibling selectors combined with
- *       pseudo classes doesn't work in Safari 5.0 and Chrome 12.
- *       See this article for more info and a potential fix:
- *       http://css-tricks.com/webkit-sibling-bug/
- */
-#froggy-negociator-five:checked ~ .froggy-price-negociator-progress > .froggy-price-negociator-progress-bar {
-	width: 5%;
-	background-color: #f63a0f;
-}
-
-#froggy-negociator-twentyfive:checked ~ .froggy-price-negociator-progress > .froggy-price-negociator-progress-bar {
-	width: 25%;
-	background-color: #f27011;
-}
-
-#froggy-negociator-fifty:checked ~ .froggy-price-negociator-progress > .froggy-price-negociator-progress-bar {
-	width: 50%;
-	background-color: #f2b01e;
-}
-
-#froggy-negociator-seventyfive:checked ~ .froggy-price-negociator-progress > .froggy-price-negociator-progress-bar {
-	width: 75%;
-	background-color: #ccf21b;
-}
-
-#froggy-negociator-onehundred:checked ~ .froggy-price-negociator-progress > .froggy-price-negociator-progress-bar {
-	width: 100%;
-	background-color: #53dc33;
 }
 
 .froggy-negociator-radio {

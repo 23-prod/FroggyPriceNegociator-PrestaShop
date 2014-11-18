@@ -96,8 +96,33 @@ function froggyPriceNegociatorCalculSuccessInAjax()
 		$('#froggy-negociator-validation-message-step1').text('');
 	}
 
-	// We trig the right radio button (for the progress bar)
-	$('#froggy-negociator-' + result).trigger('click');
+	// Update progress bar
+	if (result == 'zero') {
+		$('.froggy-price-negociator-progress > .froggy-price-negociator-progress-bar').css({
+			'width': '100%',
+			'background-color': 'none'
+		});
+	} else if (result == 'twentyfive') {
+		$('.froggy-price-negociator-progress > .froggy-price-negociator-progress-bar').css({
+			'width': '25%',
+			'background-color': '#f27011'
+		});
+	} else if (result == 'fifty') {
+		$('.froggy-price-negociator-progress > .froggy-price-negociator-progress-bar').css({
+			'width': '50%',
+			'background-color': '#f2b01e'
+		});
+	} else if (result == 'seventyfive') {
+		$('.froggy-price-negociator-progress > .froggy-price-negociator-progress-bar').css({
+			'width': '75%',
+			'background-color': '#ccf21b'
+		});
+	} else if (result == 'onehundred') {
+		$('.froggy-price-negociator-progress > .froggy-price-negociator-progress-bar').css({
+			'width': '100%',
+			'background-color': '#53dc33'
+		});
+	}
 }
 
 function froggyPriceNegociatorGoToStep(step)

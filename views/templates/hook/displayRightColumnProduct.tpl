@@ -37,19 +37,6 @@
 	froggypricenegociator_message_label['step2.too.low'] = '{{l s='Your offer was too low, here our final offer.' mod='froggypricenegociator' js=1}|stripslashes|addslashes}';
 	froggypricenegociator_message_label['step2.already.negotiated'] = '{{l s='You already negotiated the price of this product, here the final offer.' mod='froggypricenegociator' js=1}|stripslashes|addslashes}';
 	froggypricenegociator_message_label['step2.good'] = '{{l s='Your offer has been accepted!' mod='froggypricenegociator' js=1}|stripslashes|addslashes}';
-
-
-    $(document).ready(function() {
-        setTimeout(function() {
-        $('.froggy-negociator-progressbar-container').prepend('\
-                <input type="radio" class="froggy-negociator-radio" name="progress" value="zero" id="froggy-negociator-zero" checked>\
-                <input type="radio" class="froggy-negociator-radio" name="progress" value="five" id="froggy-negociator-five">\
-                <input type="radio" class="froggy-negociator-radio" name="progress" value="twentyfive" id="froggy-negociator-twentyfive">\
-                <input type="radio" class="froggy-negociator-radio" name="progress" value="fifty" id="froggy-negociator-fifty">\
-                <input type="radio" class="froggy-negociator-radio" name="progress" value="seventyfive" id="froggy-negociator-seventyfive">\
-                <input type="radio" class="froggy-negociator-radio" name="progress" value="onehundred" id="froggy-negociator-onehundred">');
-		}, 500);
-    });
 </script>
 
 <a href="#myModal" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negotiate the price' mod='froggypricenegociator'}" class="button-12 {$froggypricenegociator.FC_PN_DISPLAY_BUTTON}" style="display: none;">{l s='Negotiate the price' mod='froggypricenegociator'}</a>

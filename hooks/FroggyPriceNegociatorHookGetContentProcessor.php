@@ -92,9 +92,7 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 		if (version_compare(_PS_VERSION_, '1.6.0', '>=') === true)
 		{
 			$helper = new HelperTreeCategories('categories-treeview');
-			$helper->setRootCategory((Shop::getContext() == Shop::CONTEXT_SHOP ? Category::getRootCategory()->id_category : 0))
-				->setSelectedCategories($selected_cat)
-				->setUseCheckBox(true);
+			$helper->setRootCategory((Shop::getContext() == Shop::CONTEXT_SHOP ? Category::getRootCategory()->id_category : 0))->setSelectedCategories($selected_cat)->setUseCheckBox(true);
 			$assign['category_tree'] = $helper->render();
 		}
 		elseif (version_compare(_PS_VERSION_, '1.5', '>'))

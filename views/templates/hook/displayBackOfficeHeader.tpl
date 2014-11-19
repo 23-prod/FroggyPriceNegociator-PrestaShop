@@ -34,6 +34,6 @@
 {else}
     {include file="{$froggypricenegociator.path_template_dir}/displayBackOfficeHeader-html-1.4-1.5.tpl"}
 {/if}
-<script type="text/javascript" src="{$froggypricenegociator.module_dir}views/js/displayBackOfficeHeader-{$froggypricenegociator.ps_version}.js"></script>
-<script type="text/javascript" src="{$froggypricenegociator.module_dir}views/js/displayBackOfficeHeader-common.js"></script>
-<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}views/css/displayBackOfficeHeader-{$froggypricenegociator.ps_version}.css" />
+<script type="text/javascript" src="{$froggypricenegociator.module_dir}js/displayBackOfficeHeader-{$froggypricenegociator.ps_version}.js"></script>
+<script type="text/javascript" src="{$froggypricenegociator.module_dir}js/displayBackOfficeHeader-common.js"></script>
+<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}css/displayBackOfficeHeader-{$froggypricenegociator.ps_version}.css" />

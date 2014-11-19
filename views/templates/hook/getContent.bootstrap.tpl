@@ -225,14 +225,14 @@
 						<div class="col-lg-9">
 							<div class="col-lg-3 text-center style-box-front">
 								<label>
-									<img src="{$module_dir}views/img/fancy.png" />
+									<img src="{$module_dir}img/fancy.png" />
 									<p class="clearfix"><input type="radio" name="FC_PN_DISPLAY_MODE" value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}checked="checked"{/if}/> Fancybox (jQuery)</p>
 								</label>
 								<p class="clearfix"><a id="open-fancy" class="btn btn-default" href="#" data-text="{l s='This is a Fancybox' mod='froggypricenegociator'}">{l s='Preview' mod='froggypricenegociator'}</a></p>
 							</div>
 							<div class="col-lg-3 text-center style-box-front">
 								<label>
-									<img src="{$module_dir}views/img/reveal.png" />
+									<img src="{$module_dir}img/reveal.png" />
 									<p class="clearfix"><input type="radio" name="FC_PN_DISPLAY_MODE" value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}checked="checked"{/if}/> Reveal (Foundation)</p>
 								</label>
 								<p class="clearfix"><a class="btn btn-default" href="#" data-reveal-id="preview-reveal-modal">{l s='Preview' mod='froggypricenegociator'}</a></p>
@@ -255,13 +255,13 @@
 
 
 
-<script type="text/javascript" src="{$froggypricenegociator.module_dir}views/js/getContent-common.js"></script>
-<script type="text/javascript" src="{$froggypricenegociator.module_dir}views/js/jquery.responsiveTabs.min.js"></script>
-<script type="text/javascript" src="{$froggypricenegociator.module_dir}views/js/jquery.reveal.js"></script>
-<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}views/css/style-1.6.css" />
-<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}views/css/responsive-tabs.css" />
-<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}views/css/reveal.css" />
-<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}views/css/buttons.css" />
+<script type="text/javascript" src="{$froggypricenegociator.module_dir}js/getContent-common.js"></script>
+<script type="text/javascript" src="{$froggypricenegociator.module_dir}js/jquery.responsiveTabs.min.js"></script>
+<script type="text/javascript" src="{$froggypricenegociator.module_dir}js/jquery.reveal.js"></script>
+<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}css/style-1.6.css" />
+<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}css/responsive-tabs.css" />
+<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}css/reveal.css" />
+<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}css/buttons.css" />
 
 <script type="text/javascript">
 	var buttons = {

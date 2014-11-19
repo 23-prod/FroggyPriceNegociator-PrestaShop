@@ -162,7 +162,7 @@
 				<div class="margin-form">
 					<div class="main-style-block float">
 						<div>
-							<h3>{l s='Main style'}</h3>
+							<h3>{l s='Main style' mod='froggypricenegociator'}</h3>
 							<ul>
 								<li><input class="button-choice button-choice-main" type="radio" name="button-style" value="froggy-price-negociator-button-front" checked="checked" id="radio-normal-style-button" />
 									<label for="radio-normal-style-button">Normal</label></li>

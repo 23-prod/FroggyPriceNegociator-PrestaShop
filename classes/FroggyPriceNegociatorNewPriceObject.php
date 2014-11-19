@@ -132,6 +132,7 @@ class FroggyPriceNegociatorNewPriceObject extends ObjectModel
 
 		parent::validateFields();
 
+		$fields = array();
 		$fields['id_shop'] = (int)$this->id_shop;
 		$fields['id_product'] = (int)$this->id_product;
 		$fields['id_product_attribute'] = (int)$this->id_product_attribute;

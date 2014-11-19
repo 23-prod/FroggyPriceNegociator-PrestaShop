@@ -1,5 +1,5 @@
 <?php
-/*
+/**
 * 2013-2014 Froggy Commerce
 *
 * NOTICE OF LICENSE

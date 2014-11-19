@@ -67,7 +67,7 @@ class FroggyPriceNegociatorHookDisplayBackOfficeHeaderProcessor extends FroggyHo
 		$assign = array(
 			'path_template_dir' => dirname(__FILE__).'/../views/templates/hook/',
 			'module_dir' => $this->path,
-			'ps_version' => substr(_PS_VERSION_, 0, 3),
+			'ps_version' => Tools::substr(_PS_VERSION_, 0, 3),
 			'currency' => $this->context->currency,
 			'fpn_product' => $this->fpn_product,
 			'combinations' => FroggyPriceNegociatorObject::getCombinationsByIdProduct((int)Tools::getValue('id_product')),
@@ -84,8 +84,8 @@ class FroggyPriceNegociatorHookDisplayBackOfficeHeaderProcessor extends FroggyHo
 	{
 		// Retrieve get data
 		$id_product = (int)Tools::getValue('id_product');
-		$tab = strtolower(Tools::getValue('tab'));
-		$controller = strtolower(Tools::getValue('controller'));
+		$tab = Tools::strtolower(Tools::getValue('tab'));
+		$controller = Tools::strtolower(Tools::getValue('controller'));
 
 		// If we are not on Admin Products section, we exit
 		if ($controller != 'adminproducts' && $tab != 'admincatalog')

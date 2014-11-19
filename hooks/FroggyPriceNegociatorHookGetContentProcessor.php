@@ -75,7 +75,7 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 		foreach ($this->configurations as $conf => $format)
 			$assign[$conf] = Configuration::get($conf);
 		$assign['result'] = $this->configuration_result;
-		$assign['ps_version'] = substr(_PS_VERSION_, 0, 3);
+		$assign['ps_version'] = Tools::substr(_PS_VERSION_, 0, 3);
 
 		$assign['manufacturers'] = Manufacturer::getManufacturers();
 		$assign['selected_manufacturers'] = explode(',', Configuration::get('FC_PN_DISABLE_FOR_BRANDS'));

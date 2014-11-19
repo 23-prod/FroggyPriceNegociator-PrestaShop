@@ -78,12 +78,12 @@ class FroggyPriceNegociatorObject extends ObjectModel
 
 	/*** Retrocompatibility 1.4 ***/
 
-	protected 	$fieldsRequired = array('id_shop', 'id_product', 'price_min', 'reduction_percent_max', 'active');
-	protected 	$fieldsSize = array('id_shop' => 32, 'id_product' => 32, 'price_min' => 32, 'reduction_percent_max' => 32);
-	protected 	$fieldsValidate = array('id_shop' => 'isUnsignedInt', 'id_product' => 'isUnsignedInt', 'price_min' => 'isPrice', 'reduction_percent_max' => 'isFloat');
+	protected $fieldsRequired = array('id_shop', 'id_product', 'price_min', 'reduction_percent_max', 'active');
+	protected $fieldsSize = array('id_shop' => 32, 'id_product' => 32, 'price_min' => 32, 'reduction_percent_max' => 32);
+	protected $fieldsValidate = array('id_shop' => 'isUnsignedInt', 'id_product' => 'isUnsignedInt', 'price_min' => 'isPrice', 'reduction_percent_max' => 'isFloat');
 
-	protected 	$table = 'fpn_product';
-	protected 	$identifier = 'id_fpn_product';
+	protected $table = 'fpn_product';
+	protected $identifier = 'id_fpn_product';
 
 	public function getFields()
 	{

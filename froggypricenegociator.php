@@ -18,13 +18,19 @@
 *  @copyright  2013-2014 Froggy Commerce
 */
 
-// Security
+/*
+ * Security
+ */
 defined('_PS_VERSION_') || require dirname(__FILE__).'/index.php';
 
-// Include Froggy Library
+/*
+ * Include Froggy Library
+ */
 if (!class_exists('FroggyModule', false)) require_once _PS_MODULE_DIR_.'/froggypricenegociator/froggy/FroggyModule.php';
 
-// Require Object Model
+/*
+ * Require Object Model
+ */
 require_once _PS_MODULE_DIR_.'/froggypricenegociator/classes/FroggyPriceNegociatorObject.php';
 require_once _PS_MODULE_DIR_.'/froggypricenegociator/classes/FroggyPriceNegociatorNewPriceObject.php';
 
@@ -75,12 +81,31 @@ class FroggyPriceNegociator extends FroggyModule
 		return parent::uninstall();
 	}
 
-	// Retrocompat 1.4
-	public function hookHeader($params) { return $this->hookDisplayHeader($params); }
-	public function hookCart($params) { return $this->hookActionCartSave($params); }
-	public function hookExtraRight($params) { return $this->hookDisplayRightColumnProduct($params); }
-	public function hookBackOfficeHeader($params) { return $this->hookDisplayBackOfficeHeader($params); }
+	/*
+	 * Retrocompat 1.4
+	 */
+	public function hookHeader($params)
+	{
+		return $this->hookDisplayHeader($params);
+	}
+	public function hookCart($params)
+	{
+		return $this->hookActionCartSave($params);
+	}
+	public function hookExtraRight($params)
+	{
+		return $this->hookDisplayRightColumnProduct($params);
+	}
+	public function hookBackOfficeHeader($params)
+	{
+		return $this->hookDisplayBackOfficeHeader($params);
+	}
 
-	// Compat 1.6
-	public function hookDisplayProductButtons($params) { return $this->hookDisplayRightColumnProduct($params); }
+	/*
+	 * Compat 1.6
+	 */
+	public function hookDisplayProductButtons($params)
+	{
+		return $this->hookDisplayRightColumnProduct($params);
+	}
 }

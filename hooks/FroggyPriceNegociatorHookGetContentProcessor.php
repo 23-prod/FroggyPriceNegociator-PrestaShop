@@ -46,16 +46,21 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 		{
 			foreach ($this->configurations as $conf => $format)
 			{
-				if (is_array($format)) {
+				if (is_array($format))
+				{
 					$value = '';
-					if ($format['type'] == 'multiple') {
+					if ($format['type'] == 'multiple')
+					{
 						$values = Tools::getIsset($format['field']) ? Tools::getValue($format['field']) : '';
-						if (is_array($values)) {
+						if (is_array($values))
+						{
 							$values = array_map('intval', $values);
 							$value = implode(',', $values);
 						}
 					}
-				} else {
+				}
+				else
+				{
 					$value = Tools::getValue($conf);
 					if ($format == 'int')
 						$value = (int)$value;
@@ -92,7 +97,7 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 				->setUseCheckBox(true);
 			$assign['category_tree'] = $helper->render();
 		}
-		elseif (version_compare(_PS_VERSION_,'1.5','>'))
+		elseif (version_compare(_PS_VERSION_, '1.5', '>'))
 		{
 			if (Shop::getContext() == Shop::CONTEXT_SHOP)
 			{

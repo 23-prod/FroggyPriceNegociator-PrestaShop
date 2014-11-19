@@ -19,7 +19,7 @@
  *}
 
 <fieldset id="froggypricenegociator_fieldset">
-	<legend><img src="{$froggypricenegociator.module_dir}logo.png" alt="" width="16" />{l s='Froggy Price Negotiator' mod='froggypricenegociator'}</legend>
+	<legend><img src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}logo.png" alt="" width="16" />{l s='Froggy Price Negotiator' mod='froggypricenegociator'}</legend>
 
     {if isset($froggypricenegociator.result) && $froggypricenegociator.result eq 'ok'}
         <div class="conf confirm">{l s='The new configuration has been saved!' mod='froggypricenegociator'}</div>
@@ -47,7 +47,7 @@
 				<div id="fc-pn-general-reduction-block">
 					<label>{l s='General reduction in percent:' mod='froggypricenegociator'}</label>
 					<div class="margin-form">
-						<input type="text" id="FC_PN_GENERAL_REDUCTION" name="FC_PN_GENERAL_REDUCTION" value="{$froggypricenegociator.FC_PN_GENERAL_REDUCTION}" /> %
+						<input type="text" id="FC_PN_GENERAL_REDUCTION" name="FC_PN_GENERAL_REDUCTION" value="{$froggypricenegociator.FC_PN_GENERAL_REDUCTION|escape:'html':'UTF-8'}" /> %
 						<p class="preference_description">{l s='If you enabled the button for all products, you have to set a reduction in percent for all products.' mod='froggypricenegociator'}</p>
 					</div>
 				</div>
@@ -71,13 +71,13 @@
 
 				<label>{l s='Maximum quantity for negotiated product:' mod='froggypricenegociator'}</label>
 				<div class="margin-form">
-					<input type="text" name="FC_PN_MAX_QUANTITY_BY_PRODUCT" value="{$froggypricenegociator.FC_PN_MAX_QUANTITY_BY_PRODUCT}" />
+					<input type="text" name="FC_PN_MAX_QUANTITY_BY_PRODUCT" value="{$froggypricenegociator.FC_PN_MAX_QUANTITY_BY_PRODUCT|escape:'html':'UTF-8'}" />
 					<p class="preference_description">{l s='Limit the maximum quantity for negotiated products.' mod='froggypricenegociator'}</p>
 				</div>
 
 				<label>{l s='Maximum negotiated products by cart:' mod='froggypricenegociator'}</label>
 				<div class="margin-form">
-					<input type="text" name="FC_PN_MAX_PRODUCT_BY_CART" value="{$froggypricenegociator.FC_PN_MAX_PRODUCT_BY_CART}" />
+					<input type="text" name="FC_PN_MAX_PRODUCT_BY_CART" value="{$froggypricenegociator.FC_PN_MAX_PRODUCT_BY_CART|escape:'html':'UTF-8'}" />
 					<p class="preference_description">{l s='Limit the number of negotiated products by cart.' mod='froggypricenegociator'}</p>
 				</div>
 
@@ -145,8 +145,8 @@
 			<div id="froggy-module-display">
 				<label>{l s='Display price negotiation button after:' mod='froggypricenegociator'}</label>
 				<div class="margin-form">
-					<input type="text" name="FC_PN_DISPLAY_DELAYED" value="{$froggypricenegociator.FC_PN_DISPLAY_DELAYED}" size="2" /> {l s='seconds' mod='froggypricenegociator'}
-					{l s='and' mod='froggypricenegociator'} <input type="text" name="FC_PN_DISPLAY_DELAYED_PAGE" value="{$froggypricenegociator.FC_PN_DISPLAY_DELAYED_PAGE}" size="2" />  {l s='view(s) of the product page.' mod='froggypricenegociator'}
+					<input type="text" name="FC_PN_DISPLAY_DELAYED" value="{$froggypricenegociator.FC_PN_DISPLAY_DELAYED|escape:'html':'UTF-8'}" size="2" /> {l s='seconds' mod='froggypricenegociator'}
+					{l s='and' mod='froggypricenegociator'} <input type="text" name="FC_PN_DISPLAY_DELAYED_PAGE" value="{$froggypricenegociator.FC_PN_DISPLAY_DELAYED_PAGE|escape:'html':'UTF-8'}" size="2" />  {l s='view(s) of the product page.' mod='froggypricenegociator'}
 					<p class="preference_description">
 						{l s='You can delay the display of the price negotiation button, it will permit to display the button when a customer hesitate to add a product to your cart.' mod='froggypricenegociator'}<br />
 						<b>{l s='Put 0 in fields if you want disable this feature and show immediately the button for negotiation.' mod='froggypricenegociator'}</b>
@@ -189,7 +189,7 @@
 					<div class="main-style-block float">
 						<h3>{l s='Preview' mod='froggypricenegociator'}</h3>
 						<a id="froggy-price-negociator-button-preview">{l s='Negotiate the price' mod='froggypricenegociator'}</a>
-						<input type="hidden" name="FC_PN_DISPLAY_BUTTON" value="{$froggypricenegociator.FC_PN_DISPLAY_BUTTON}" />
+						<input type="hidden" name="FC_PN_DISPLAY_BUTTON" value="{$froggypricenegociator.FC_PN_DISPLAY_BUTTON|escape:'html':'UTF-8'}" />
 					</div>
 					<div class="clear clearfix"></div>
 				</div>
@@ -198,14 +198,14 @@
 				<div class="margin-form">
 					<div class="froggy-box-choice">
 						<label>
-							<div><img src="{$module_dir}img/fancy.png" /></div>
+							<div><img src="{$module_dir|escape:'html':'UTF-8'}img/fancy.png" /></div>
 							<input type="radio" name="FC_PN_DISPLAY_MODE" value="FANCYBOX" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'FANCYBOX'}checked="checked"{/if}/> Fancybox (jQuery)
 						</label>
 						<p><a id="open-fancy" class="button" href="#" data-text="{l s='This is a Fancybox' mod='froggypricenegociator'}">{l s='Preview' mod='froggypricenegociator'}</a></p>
 					</div>
 					<div class="froggy-box-choice">
 						<label>
-							<div><img src="{$module_dir}img/reveal.png" /></div>
+							<div><img src="{$module_dir|escape:'html':'UTF-8'}img/reveal.png" /></div>
 							<input type="radio" name="FC_PN_DISPLAY_MODE" value="REVEAL" {if $froggypricenegociator.FC_PN_DISPLAY_MODE eq 'REVEAL'}checked="checked"{/if}/> Reveal (Foundation)
 						</label>
 						<p><a class="button" href="#" data-reveal-id="preview-reveal-modal">{l s='Preview' mod='froggypricenegociator'}</a></p>
@@ -227,17 +227,17 @@
 
 
 
-<script type="text/javascript" src="{$froggypricenegociator.module_dir}js/getContent-common.js"></script>
-<script type="text/javascript" src="{$froggypricenegociator.module_dir}js/jquery.responsiveTabs.min.js"></script>
-<script type="text/javascript" src="{$froggypricenegociator.module_dir}js/jquery.reveal.js"></script>
-<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}css/style-{$froggypricenegociator.ps_version}.css" />
-<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}css/responsive-tabs.css" />
-<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}css/reveal.css" />
-<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}css/buttons.css" />
+<script type="text/javascript" src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}js/getContent-common.js"></script>
+<script type="text/javascript" src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}js/jquery.responsiveTabs.min.js"></script>
+<script type="text/javascript" src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}js/jquery.reveal.js"></script>
+<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}css/style-{$froggypricenegociator.ps_version}.css" />
+<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}css/responsive-tabs.css" />
+<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}css/reveal.css" />
+<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}css/buttons.css" />
 
 {if $froggypricenegociator.ps_version == '1.4'}
-	<script type="text/javascript" src="{$froggypricenegociator.module_dir}../../js/jquery/jquery.fancybox-1.3.4.js"></script>
-	<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir}../../css/jquery.fancybox-1.3.4.css" />
+	<script type="text/javascript" src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}../../js/jquery/jquery.fancybox-1.3.4.js"></script>
+	<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}../../css/jquery.fancybox-1.3.4.css" />
 {/if}
 
 <script type="text/javascript">

@@ -19,14 +19,14 @@
  *}
 
 <script>
-	var FC_PN_DISPLAY_DELAYED = '{$froggypricenegociator.FC_PN_DISPLAY_DELAYED}';
-	var FC_PN_DISPLAY_DELAYED_PAGE = '{$froggypricenegociator.FC_PN_DISPLAY_DELAYED_PAGE}';
-	var FC_PN_ID_PRODUCT = '{$froggypricenegociator.id_product}';
+	var FC_PN_DISPLAY_DELAYED = '{$froggypricenegociator.FC_PN_DISPLAY_DELAYED|escape:'html':'UTF-8'}';
+	var FC_PN_DISPLAY_DELAYED_PAGE = '{$froggypricenegociator.FC_PN_DISPLAY_DELAYED_PAGE|escape:'html':'UTF-8'}';
+	var FC_PN_ID_PRODUCT = '{$froggypricenegociator.id_product|escape:'html':'UTF-8'}';
     var froggypricenegociator_configurations = new Array();
     {foreach from=$froggypricenegociator.configurations key=id_product_attribute item=steps}
-	    froggypricenegociator_configurations[{$id_product_attribute}] = new Array();
+	    froggypricenegociator_configurations[{$id_product_attribute|escape:'html':'UTF-8'}] = new Array();
         {foreach from=$steps key=class item=price}
-		    froggypricenegociator_configurations[{$id_product_attribute}]['{$class}'] = {$price};
+		    froggypricenegociator_configurations[{$id_product_attribute|escape:'html':'UTF-8'}]['{$class|escape:'html':'UTF-8'}'] = {$price|escape:'html':'UTF-8'};
         {/foreach}
     {/foreach}
 
@@ -39,7 +39,7 @@
 	froggypricenegociator_message_label['step2.good'] = '{{l s='Your offer has been accepted!' mod='froggypricenegociator' js=1}|stripslashes|addslashes}';
 </script>
 
-<a href="#myModal" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negotiate the price' mod='froggypricenegociator'}" class="button-12 {$froggypricenegociator.FC_PN_DISPLAY_BUTTON}" style="display: none;">{l s='Negotiate the price' mod='froggypricenegociator'}</a>
+<a href="#myModal" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negotiate the price' mod='froggypricenegociator'}" class="button-12 {$froggypricenegociator.FC_PN_DISPLAY_BUTTON|escape:'html':'UTF-8'}" style="display: none;">{l s='Negotiate the price' mod='froggypricenegociator'}</a>
 
 
 <div style="display:none">
@@ -109,7 +109,7 @@
 			<div class="froggy-negociator-modal-step" id="froggy-negociator-modal-step2">
 
 				<p class="froggy-negociator-title-modal">{l s='Negotiated price' mod='froggypricenegociator'}</p>
-				<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-negociated-price"><img src="{$froggypricenegociator.module_dir}views/img/loader.gif" /></p>
+				<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-negociated-price"><img src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}views/img/loader.gif" /></p>
 				<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-validation-message-step2"></p>
 
                 <div id="froggy-negociator-modal-form-step2">
@@ -119,13 +119,13 @@
                     <form action="">
 
                         <fieldset class="froggy-negociator-input-offer">
-                            <input type="text" placeholder="{l s='Your e-mail' mod='froggypricenegociator'}" id="froggy-negociator-input-email" value="{$froggypricenegociator.email}" autocomplete="off" />
+                            <input type="text" placeholder="{l s='Your e-mail' mod='froggypricenegociator'}" id="froggy-negociator-input-email" value="{$froggypricenegociator.email|escape:'html':'UTF-8'}" autocomplete="off" />
                         </fieldset>
                         <p id="froggy-negociator-input-email-error">{l s='Your email address seems to be wrong!' mod='froggypricenegociator'}</p>
 
                         <fieldset class="froggy-negociator-validation-step">
                             <input id="froggy-negociator-validation-step2-input-submit" type="submit" value="{l s='Validate my e-mail' mod='froggypricenegociator'}" />
-							<p id="froggy-negociator-validation-step2-loader"><img src="{$froggypricenegociator.module_dir}views/img/loader.gif" /></p>
+							<p id="froggy-negociator-validation-step2-loader"><img src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}views/img/loader.gif" /></p>
                         </fieldset>
 
                     </form>

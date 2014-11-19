@@ -26,7 +26,7 @@
     var froggypricenegociator_combinations = new Array();
     {foreach from=$froggypricenegociator.combinations key=kpnc item=pnc}
         {if $pnc.id_product_attribute gt 0}
-            froggypricenegociator_combinations[{$kpnc}] = new Array("{$pnc.id_product_attribute}", "{$pnc.price_min}", "{$pnc.reduction_percent_max}", "{$pnc.active}");
+            froggypricenegociator_combinations[{$kpnc}] = new Array("{$pnc.id_product_attribute|escape:'html':'UTF-8'}", "{$pnc.price_min|escape:'html':'UTF-8'}", "{$pnc.reduction_percent_max|escape:'html':'UTF-8'}", "{$pnc.active|escape:'html':'UTF-8'}");
         {/if}
     {/foreach}
 
@@ -56,18 +56,18 @@
         <tr id="froggypricenegociator-details"> \
             <td class="col-left"><label class="froggypricenegociator-label" id="froggypricenegociator-label-field-2">{{l s='Minimum price sell:' mod='froggypricenegociator' js=1}|stripslashes|addslashes}</label></td> \
             <td> \
-                <input type="text" value="{$froggypricenegociator.fpn_product->price_min}" style="padding-top: 5px;" id="froggypricenegociator-price-min" name="froggypricenegociator_price_min">&nbsp; \
-                <span id="froggypricenegociator-reduction-percent-max">- {$froggypricenegociator.fpn_product->reduction_percent_max}%</span> \
-                <input type="hidden" id="froggypricenegociator-reduction-percent-max-hidden" name="froggypricenegociator_reduction_percent_max" value="{$froggypricenegociator.fpn_product->reduction_percent_max}" /> \
+                <input type="text" value="{$froggypricenegociator.fpn_product->price_min|escape:'html':'UTF-8'}" style="padding-top: 5px;" id="froggypricenegociator-price-min" name="froggypricenegociator_price_min">&nbsp; \
+                <span id="froggypricenegociator-reduction-percent-max">- {$froggypricenegociator.fpn_product->reduction_percent_max|escape:'html':'UTF-8'}%</span> \
+                <input type="hidden" id="froggypricenegociator-reduction-percent-max-hidden" name="froggypricenegociator_reduction_percent_max" value="{$froggypricenegociator.fpn_product->reduction_percent_max|escape:'html':'UTF-8'}" /> \
                 </td> \
             </tr> \
             {else}
         <tr id="froggypricenegociator-details"> \
             <td class="col-left"><label class="froggypricenegociator-label" id="froggypricenegociator-label-field-2">{{l s='Percent:' mod='froggypricenegociator' js=1}|stripslashes|addslashes}</label></td> \
             <td> \
-                - <input type="text" value="{$froggypricenegociator.fpn_product->reduction_percent_max}" style="padding-top: 5px;" id="froggypricenegociator-reduction-percent-max" name="froggypricenegociator_reduction_percent_max"><span id="froggypricenegociator-reduction-percent-max-label">%, {{l s='In that case, the minimum sell price will be' mod='froggypricenegociator' js=1}|stripslashes|addslashes}</span>  \
-                <b><span id="froggypricenegociator-price-min">{$froggypricenegociator.fpn_product->price_min}</span></b> \
-                <input type="hidden" id="froggypricenegociator-price-min-hidden" name="froggypricenegociator_price_min" value="{$froggypricenegociator.fpn_product->price_min}" /> \
+                - <input type="text" value="{$froggypricenegociator.fpn_product->reduction_percent_max|escape:'html':'UTF-8'}" style="padding-top: 5px;" id="froggypricenegociator-reduction-percent-max" name="froggypricenegociator_reduction_percent_max"><span id="froggypricenegociator-reduction-percent-max-label">%, {{l s='In that case, the minimum sell price will be' mod='froggypricenegociator' js=1}|stripslashes|addslashes}</span>  \
+                <b><span id="froggypricenegociator-price-min">{$froggypricenegociator.fpn_product->price_min|escape:'html':'UTF-8'}</span></b> \
+                <input type="hidden" id="froggypricenegociator-price-min-hidden" name="froggypricenegociator_price_min" value="{$froggypricenegociator.fpn_product->price_min|escape:'html':'UTF-8'}" /> \
                 </td> \
             </tr> \
         {/if}

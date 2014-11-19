@@ -26,7 +26,7 @@
     var froggypricenegociator_combinations = new Array();
     {foreach from=$froggypricenegociator.combinations key=kpnc item=pnc}
         {if $pnc.id_product_attribute gt 0}
-        froggypricenegociator_combinations[{$kpnc}] = new Array("{$pnc.id_product_attribute}", "{$pnc.price_min}", "{$pnc.reduction_percent_max}", "{$pnc.active}");
+        froggypricenegociator_combinations[{$kpnc}] = new Array("{$pnc.id_product_attribute|escape:'html':'UTF-8'}", "{$pnc.price_min|escape:'html':'UTF-8'}", "{$pnc.reduction_percent_max|escape:'html':'UTF-8'}", "{$pnc.active|escape:'html':'UTF-8'}");
         {/if}
     {/foreach}
 
@@ -49,7 +49,7 @@
             <div class="col-lg-9 col-lg-offset-3"> \
             <div class="alert alert-warning"> \
             <p>{l s='The general negotiation option has been enabled in the module configuration.' mod='froggypricenegociator' js=1}<br> \
-            {l s='All products (including this one) will have a maximum negotiation of' mod='froggypricenegociator' js=1} {$froggypricenegociator.FC_PN_GENERAL_REDUCTION}%.<br> \
+            {l s='All products (including this one) will have a maximum negotiation of' mod='froggypricenegociator' js=1} {$froggypricenegociator.FC_PN_GENERAL_REDUCTION|escape:'html':'UTF-8'}%.<br> \
             {l s='In that case, the minimum sell price will be' mod='froggypricenegociator' js=1} <b><span id="froggypricenegociator-minimum-sell-price"></span></b>.</p> \
             </div> \
             </div> \
@@ -71,10 +71,10 @@
         <div class="form-group" id="froggypricenegociator-details"> \
                 <label for="froggypricenegociator-price-min" class="control-label col-lg-3 froggypricenegociator-label" id="froggypricenegociator-label-field-2">{l s='Minimum price sell:' mod='froggypricenegociator' js=1}</label> \
                 <div class="input-group col-lg-2"> \
-                <span class="input-group-addon"> {$froggypricenegociator.currency->sign}</span> \
-                <input type="text" value="{$froggypricenegociator.fpn_product->price_min}" id="froggypricenegociator-price-min" name="froggypricenegociator_price_min" maxlength="14"> \
-                <span class="input-group-addon" id="froggypricenegociator-reduction-percent-max">- {$froggypricenegociator.fpn_product->reduction_percent_max}%</span> \
-                <input type="hidden" id="froggypricenegociator-reduction-percent-max-hidden" name="froggypricenegociator_reduction_percent_max" value="{$froggypricenegociator.fpn_product->reduction_percent_max}" /> \
+                <span class="input-group-addon"> {$froggypricenegociator.currency->sign|escape:'html':'UTF-8'}</span> \
+                <input type="text" value="{$froggypricenegociator.fpn_product->price_min|escape:'html':'UTF-8'}" id="froggypricenegociator-price-min" name="froggypricenegociator_price_min" maxlength="14"> \
+                <span class="input-group-addon" id="froggypricenegociator-reduction-percent-max">- {$froggypricenegociator.fpn_product->reduction_percent_max|escape:'html':'UTF-8'}%</span> \
+                <input type="hidden" id="froggypricenegociator-reduction-percent-max-hidden" name="froggypricenegociator_reduction_percent_max" value="{$froggypricenegociator.fpn_product->reduction_percent_max|escape:'html':'UTF-8'}" /> \
                 </div> \
         </div>';
     {else}
@@ -82,9 +82,9 @@
                 <label for="froggypricenegociator-price-min" class="control-label col-lg-3 froggypricenegociator-label" id="froggypricenegociator-label-field-2">{l s='Percent:' mod='froggypricenegociator' js=1}</label> \
                 <div class="input-group col-lg-2"> \
                 <span class="input-group-addon">- %</span> \
-                <input type="text" value="{$froggypricenegociator.fpn_product->reduction_percent_max}" id="froggypricenegociator-reduction-percent-max" name="froggypricenegociator_reduction_percent_max" maxlength="14"> \
-                <span class="input-group-addon" id="froggypricenegociator-price-min">{$froggypricenegociator.fpn_product->price_min} {$froggypricenegociator.currency->sign}</span> \
-                <input type="hidden" id="froggypricenegociator-price-min-hidden" name="froggypricenegociator_price_min" value="{$froggypricenegociator.fpn_product->price_min}" /> \
+                <input type="text" value="{$froggypricenegociator.fpn_product->reduction_percent_max|escape:'html':'UTF-8'}" id="froggypricenegociator-reduction-percent-max" name="froggypricenegociator_reduction_percent_max" maxlength="14"> \
+                <span class="input-group-addon" id="froggypricenegociator-price-min">{$froggypricenegociator.fpn_product->price_min|escape:'html':'UTF-8'} {$froggypricenegociator.currency->sign|escape:'html':'UTF-8'}</span> \
+                <input type="hidden" id="froggypricenegociator-price-min-hidden" name="froggypricenegociator_price_min" value="{$froggypricenegociator.fpn_product->price_min|escape:'html':'UTF-8'}" /> \
                 </div> \
         </div>';
     {/if}

@@ -35,7 +35,7 @@
                         {elseif $field.type eq 'text'}
 							<input type="text" value="{if isset($field.value)}{$field.value|htmlentities}{/if}" name="{$field.name}" id="{$field.name}">
                         {/if}
-                        <p class="help-block">{$field.desc}</p>
+                        <p class="help-block">{$field.desc|escape:'html':'UTF-8'}</p>
                     </div>
                     <br clear="left">
                 </div>
@@ -43,7 +43,7 @@
         {/foreach}
 
 		<div class="panel-footer">
-			<button class="btn btn-default pull-right" name="{$froggyhelper.module_name}-submit" id="{$froggyhelper.module_name}-form-submit-btn" value="1" type="submit">
+			<button class="btn btn-default pull-right" name="{$froggyhelper.module_name|escape:'html':'UTF-8'}-submit" id="{$froggyhelper.module_name|escape:'html':'UTF-8'}-form-submit-btn" value="1" type="submit">
 				<i class="process-icon-save"></i> {l s='Save' mod='froggypricenegociator'}
 			</button>
 		</div>

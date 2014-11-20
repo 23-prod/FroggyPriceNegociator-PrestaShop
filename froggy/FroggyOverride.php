@@ -110,7 +110,7 @@ class FroggyOverride
 	 */
 	public function addOverride($file)
 	{
-		$ps_version = str_replace('.', '', substr(_PS_VERSION_, 0, 3));
+		$ps_version = str_replace('.', '', Tools::substr(_PS_VERSION_, 0, 3));
 		$override_src = $this->getLocalPath().'override'.DIRECTORY_SEPARATOR.$file;
 		$override_src_version = str_replace('.php', '.'.$ps_version.'.php', $override_src);
 		if (file_exists($override_src_version))
@@ -139,8 +139,8 @@ class FroggyOverride
 		if (strpos($file, 'controllers/'))
 			$override_dest = _PS_ROOT_DIR_.DIRECTORY_SEPARATOR.'override'.DIRECTORY_SEPARATOR.'controllers'.DIRECTORY_SEPARATOR.basename($file, '.php').'.php';
 
-		$override_src_base64 = base64_encode(file_get_contents($override_src));
-		$override_dest_base64 = base64_encode(file_get_contents($override_dest));
+		$override_src_base64 = md5(Tools::file_get_contents($override_src));
+		$override_dest_base64 = md5(Tools::file_get_contents($override_dest));
 		if ($override_src_base64 == $override_dest_base64)
 			@unlink($override_dest);
 
@@ -205,7 +205,7 @@ class FroggyOverride
 		$subdir = ($dir) ? $dir.'/' : '';
 		foreach ($files as $file)
 		{
-			if (!$real_ext || (strpos($file, $real_ext) && strpos($file, $real_ext) == (strlen($file) - $real_ext_length)))
+			if (!$real_ext || (strpos($file, $real_ext) && strpos($file, $real_ext) == (Tools::strlen($file) - $real_ext_length)))
 				$filtered_files[] = $subdir.$file;
 
 			if ($recursive && $file[0] != '.' && is_dir($real_path.$file))

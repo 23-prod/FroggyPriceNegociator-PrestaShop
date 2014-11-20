@@ -18,26 +18,26 @@
 *}
 
 
-<table class="table" id="{$froggyhelper.module_name}-{$froggyhelper.configuration.key}-list">
+<table class="table" id="{$froggyhelper.module_name|escape:'html':'UTF-8'}-{$froggyhelper.configuration.key|escape:'html':'UTF-8'}-list">
     <thead>
     <tr>
         {foreach from=$froggyhelper.configuration.list.labels key=field item=label}
-            <th>{$label}</th>
+            <th>{$label|escape:'html':'UTF-8'}</th>
         {/foreach}
-        <th>{l s='Actions' mod=$froggyhelper.module_name}</th>
+        <th>{l s='Actions' mod='froggypricenegociator'}</th>
     </tr>
     </thead>
 	<tbody>
         {foreach from=$froggyhelper.configuration.list.data item=row_data}
         <tr>
             {foreach from=$froggyhelper.configuration.list.labels key=field item=label}
-                <td>{$row_data[$field]}</td>
+                <td>{$row_data[$field]|escape:'html':'UTF-8'}</td>
             {/foreach}
             <td>
 				<div class="btn-group-action">
                     <div class="btn-group pull-right">
-						<a class="delete" title="Delete" onclick="if (confirm('Delete selected item?')) { return true; } else { event.stopPropagation(); event.preventDefault(); };" href="{$froggyhelper.form_url}&delete301Redirection={$row_data.id}">
-							<i class="icon-trash"></i> {l s='Delete' mod=$froggyhelper.module_name}
+						<a class="delete" title="Delete" onclick="if (confirm('Delete selected item?')) { return true; } else { event.stopPropagation(); event.preventDefault(); };" href="{$froggyhelper.form_url|escape:'html':'UTF-8'}&delete301Redirection={$row_data.id|escape:'html':'UTF-8'}">
+							<i class="icon-trash"></i> {l s='Delete' mod='froggypricenegociator'}
 						</a>
 				    </div>
 				</div>

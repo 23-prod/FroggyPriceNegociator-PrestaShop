@@ -19,17 +19,17 @@
 
 
         {foreach from=$froggyhelper.configuration.form key=form_key item=form}
-            <h3>{$form.label}</h3>
+            <h3>{$form.label|escape:'html':'UTF-8'}</h3>
             {foreach from=$form.fields item=field}
                 <div class="form-group">
-                    <label class="control-label col-lg-3" for="{$field.name}"> {$field.label}</label>
+                    <label class="control-label col-lg-3" for="{$field.name|escape:'html':'UTF-8'}"> {$field.label|escape:'html':'UTF-8'}</label>
                     <div class="col-lg-9 ">
                         {if $field.type eq 'radio'}
                             <span class="switch prestashop-switch fixed-width-lg">
-                                    <input type="radio" name="{$field.name}" id="{$field.name}_on" value="1" {if isset($field.value) && $field.value eq 1}checked="checked"{/if} />
-                                    <label for="{$field.name}_on"> {l s='Yes' mod=$froggyhelper.module_name}</label>
+                                    <input type="radio" name="{$field.name|escape:'html':'UTF-8'}" id="{$field.name|escape:'html':'UTF-8'}_on" value="1" {if isset($field.value) && $field.value eq 1}checked="checked"{/if} />
+                                    <label for="{$field.name|escape:'html':'UTF-8'}_on"> {l s='Yes' mod='froggypricenegociator'}</label>
                                     <input type="radio" name="{$field.name}" id="{$field.name}_off" value="0" {if !isset($field.value) || $field.value ne 1}checked="checked"{/if} />
-                                    <label for="{$field.name}_off"> {l s='No' mod=$froggyhelper.module_name}</label>
+                                    <label for="{$field.name|escape:'html':'UTF-8'}_off"> {l s='No' mod='froggypricenegociator'}</label>
                                     <a class="slide-button btn"></a>
                             </span>
                         {elseif $field.type eq 'text'}
@@ -44,6 +44,6 @@
 
 		<div class="panel-footer">
 			<button class="btn btn-default pull-right" name="{$froggyhelper.module_name}-submit" id="{$froggyhelper.module_name}-form-submit-btn" value="1" type="submit">
-				<i class="process-icon-save"></i> {l s='Save' mod=$froggyhelper.module_name}
+				<i class="process-icon-save"></i> {l s='Save' mod='froggypricenegociator'}
 			</button>
 		</div>

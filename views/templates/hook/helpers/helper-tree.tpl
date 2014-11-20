@@ -22,17 +22,17 @@
 *  @license		http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *}
 
-<input type="button" id="category-tree-select-all-{$categories_tree_id}" value="{l s='Select all' mod='sellermania'}" class="button" />
-<input type="button" id="category-tree-unselect-all-{$categories_tree_id}" value="{l s='Unselect all' mod='sellermania'}" class="button" />
+<input type="button" id="category-tree-select-all-{$categories_tree_id|escape:'html':'UTF-8'}" value="{l s='Select all' mod='froggypricenegociator'}" class="button" />
+<input type="button" id="category-tree-unselect-all-{$categories_tree_id|escape:'html':'UTF-8'}" value="{l s='Unselect all' mod='froggypricenegociator'}" class="button" />
 <br><br>
 {$categories_tree}
 
 <script>
-	$('#category-tree-select-all-{$categories_tree_id}').click(function() {
-		$('.categories-tree-checkbox-{$categories_tree_id}').attr('checked', 'checked');
+	$('#category-tree-select-all-{$categories_tree_id|escape:'html':'UTF-8'}').click(function() {
+		$('.categories-tree-checkbox-{$categories_tree_id|escape:'html':'UTF-8'}').attr('checked', 'checked');
 	});
-	$('#category-tree-unselect-all-{$categories_tree_id}').click(function() {
-		$('.categories-tree-checkbox-{$categories_tree_id}').removeAttr('checked');
+	$('#category-tree-unselect-all-{$categories_tree_id|escape:'html':'UTF-8'}').click(function() {
+		$('.categories-tree-checkbox-{$categories_tree_id|escape:'html':'UTF-8'}').removeAttr('checked');
 	});
 </script>
 

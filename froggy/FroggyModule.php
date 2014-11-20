@@ -463,7 +463,7 @@ class FroggyModule extends Module
 		$categories = array();
 		$categories_selected = Configuration::get($config_name);
 		if (!empty($categories_selected))
-			foreach (json_decode($categories_selected, true) as $key => $category)
+			foreach (Tools::jsonDecode($categories_selected, true) as $key => $category)
 				$categories[] = $category;
 
 		$tree = new FroggyHelperTreeCategories();

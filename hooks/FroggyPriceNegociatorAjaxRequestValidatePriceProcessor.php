@@ -164,8 +164,9 @@ class FroggyPriceNegociatorAjaxRequestValidatePriceProcessor extends FroggyHookP
 		$iso = Language::getIsoById($this->id_lang);
 		$id_image = Product::getCover($this->id_product);
 		$id_image = $id_image['id_image'];
+		$picture_size = 'large'.'_'.'default';
 		$product_url = $this->context->link->getProductLink($this->product);
-		$product_image_url = $this->context->link->getImageLink($this->product->link_rewrite, $this->id_product.'-'.$id_image, 'large_default');
+		$product_image_url = $this->context->link->getImageLink($this->product->link_rewrite, $this->id_product.'-'.$id_image, $picture_size);
 
 		// Set templates vars
 		$templateVars = array(

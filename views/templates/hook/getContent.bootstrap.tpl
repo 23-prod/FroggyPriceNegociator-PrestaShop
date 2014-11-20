@@ -116,7 +116,7 @@
 					<div class="form-group clearfix">
 						<label class="col-lg-3">{l s='Disable price negotiation button for the following categories:' mod='froggypricenegociator'}</label>
 						<div class="col-lg-9">
-							{$froggypricenegociator.category_tree}
+							{FroggyDisplaySafeHtml s=$froggypricenegociator.category_tree}
 							<p class="help-block">{l s='If a product is associated to one of these categories, price negotiation button will be disabled.' mod='froggypricenegociator'}</p>
 						</div>
 					</div>

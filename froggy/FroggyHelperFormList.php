@@ -76,6 +76,7 @@ class FroggyHelperFormList
 			'module_name' => $this->module->name,
 			'configuration' => $this->configuration,
 			'form_url' => $this->form_url,
+			'templates_dir' => dirname(__FILE__).'/../../'.$this->module->name.'/views/templates/hook/helpers',
 		);
 
 		$this->context->smarty->assign('froggyhelper', $assign);

@@ -130,7 +130,7 @@ class FroggyOverride
 	 */
 	public function removeOverride($file)
 	{
-		$ps_version = str_replace('.', '', substr(_PS_VERSION_, 0, 3));
+		$ps_version = str_replace('.', '', Tools::substr(_PS_VERSION_, 0, 3));
 		$override_src = $this->getLocalPath().'override'.DIRECTORY_SEPARATOR.$file;
 		$override_src_version = str_replace('.php', '.'.$ps_version.'.php', $override_src);
 		if (file_exists($override_src_version))
@@ -200,7 +200,7 @@ class FroggyOverride
 		$real_ext = false;
 		if (!empty($ext))
 			$real_ext = '.'.$ext;
-		$real_ext_length = strlen($real_ext);
+		$real_ext_length = Tools::strlen($real_ext);
 
 		$subdir = ($dir) ? $dir.'/' : '';
 		foreach ($files as $file)

@@ -75,9 +75,16 @@ class FroggyModule extends Module
 			$this->context->smarty_methods['FroggyGetAdminLink'] = true;
 		}
 
+		// Security function
+		if (!isset($this->context->smarty_methods['FroggyDisplaySafeHtml']))
+		{
+			smartyRegisterFunction($this->context->smarty, 'function', 'FroggyDisplaySafeHtml', 'FroggyDisplaySafeHtml');
+			$this->context->smarty_methods['FroggyDisplaySafeHtml'] = true;
+		}
+
 		// Define module configuration url
 		if (isset($this->context->employee->id))
-			$this->configuration_url = 'index.php?controller=AdminModules&token='.Tools::getAdminTokenLite('AdminModules').'&configure='.$this->name.'&module_name='.$this->name;
+			$this->configuration_url = 'index.php?tab=AdminModules&controller=AdminModules&token='.Tools::getAdminTokenLite('AdminModules').'&configure='.$this->name.'&module_name='.$this->name;
 	}
 
 	/**
@@ -589,13 +596,17 @@ function FroggyGetAdminLink($params, &$smarty)
 		$params['a'] = $match[$params['a']];
 
 	// In 1.4, we build it with cookie for back office or with argument for front office (see froggytoolbar)
-	global $cookie;
 	$tab = $params['a'];
-	$id_employee = $cookie->id_employee;
+	$id_employee = FroggyContext::getContext()->id_employee;
 	if (isset($params['e']))
 		$id_employee = $params['e'];
 	$token = Tools::getAdminToken($tab.(int)Tab::getIdFromClassName($tab).(int)$id_employee);
 
 	// Return link
 	return 'index.php?tab='.$tab.'&token='.$token;
+}
+
+function FroggyDisplaySafeHtml($params, &$smarty)
+{
+	return $params['s'];
 }

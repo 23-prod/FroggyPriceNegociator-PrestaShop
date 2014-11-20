@@ -90,7 +90,6 @@ class FroggyOverride
 		foreach ($overrides as $ko => $vo)
 		{
 			$core_classpath = $this->getClassPath(basename($vo, '.php'), true);
-			$override_classpath = $this->getClassPath(basename($vo, '.php'), false);
 			if (empty($core_classpath))
 				unset($overrides[$ko]);
 		}

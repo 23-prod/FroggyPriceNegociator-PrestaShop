@@ -29,7 +29,6 @@ class FroggyHelperFormList
 {
 	private $configuration;
 	private $form_url;
-	private $default_values;
 	private $module;
 	private $context;
 
@@ -41,11 +40,6 @@ class FroggyHelperFormList
 	public function setFormUrl($form_url)
 	{
 		$this->form_url = $form_url;
-	}
-
-	public function setDefaultValues($default_values)
-	{
-		$this->default_values = $default_values;
 	}
 
 	public function setModule($module)
@@ -64,7 +58,7 @@ class FroggyHelperFormList
 			foreach ($this->configuration['form'] as $key_section => $sections)
 				foreach ($sections['fields'] as $key_field => $field)
 					if (!isset($field['prefill']))
-						$this->configuration['form'][$key_section]['fields'][$key_field]['value'] = Tools::getValue($field['name'], (isset($this->default_values[$field['name']]) ? $this->default_values[$field['name']] : ''));
+						$this->configuration['form'][$key_section]['fields'][$key_field]['value'] = Tools::getValue($field['name'], (isset($field['default_value']) ? $field['default_value'] : ''));
 
 		if (isset($this->configuration['list']['data_request']))
 			$this->configuration['list']['data'] = Db::getInstance()->executeS($this->configuration['list']['data_request']);

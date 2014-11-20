@@ -40,6 +40,5 @@ if (!isset($$var))
 /**
  * Set variables
  */
-global $currentIndex;
 $$var->context = FroggyContext::getContext();
 $$var->smarty = $$var->context->smarty;

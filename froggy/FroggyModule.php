@@ -597,7 +597,7 @@ function FroggyGetAdminLink($params, &$smarty)
 
 	// In 1.4, we build it with cookie for back office or with argument for front office (see froggytoolbar)
 	$tab = $params['a'];
-	$id_employee = FroggyContext::getContext()->id_employee;
+	$id_employee = FroggyContext::getContext()->employee->id;
 	if (isset($params['e']))
 		$id_employee = $params['e'];
 	$token = Tools::getAdminToken($tab.(int)Tab::getIdFromClassName($tab).(int)$id_employee);

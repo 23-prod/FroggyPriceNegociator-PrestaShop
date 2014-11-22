@@ -22,7 +22,10 @@ $(document).ready(function() {
     // When document is ready, if merchant click on link price tab, we add the price negociator fields
     $('#link-Prices').click(function() {
 		froggyPriceNegociatorDisplayConfigurationOptions();
-		setTimeout(function() { froggyPriceNegociatorDisplayConfigurationOptions(); }, 2500);
+		setTimeout(function() { froggyPriceNegociatorDisplayConfigurationOptions(); }, 1000);
+		setTimeout(function() { froggyPriceNegociatorDisplayConfigurationOptions(); }, 2000);
+		setTimeout(function() { froggyPriceNegociatorDisplayConfigurationOptions(); }, 4000);
+		setTimeout(function() { froggyPriceNegociatorDisplayConfigurationOptions(); }, 6000);
     });
 
 
@@ -31,7 +34,7 @@ $(document).ready(function() {
 
 	function froggyPriceNegociatorDisplayConfigurationOptions()
 	{
-		if ($('#froggypricenegociator-option').length == 0)
+		if ($('#froggypricenegociator-option').length == 0 && $('#wholesale_price').length != 0)
 		{
 			$('#finalPrice').parent().parent().parent().parent().after(fc_pn_negociator_options);
 

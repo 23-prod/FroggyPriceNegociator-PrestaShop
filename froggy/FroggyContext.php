@@ -101,13 +101,13 @@ class FroggyContext
 		$this->link = $GLOBALS['link'];
 
 		$this->controller = new FroggyControllerBackwardModule();
-		if (is_object($GLOBALS['cookie']))
+		if (is_object($this->cookie))
 		{
-			$this->currency = new Currency((int)$GLOBALS['cookie']->id_currency);
-			$this->language = new Language((int)$GLOBALS['cookie']->id_lang);
-			$this->country = new Country((int)$GLOBALS['cookie']->id_country);
-			$this->customer = new FroggyCustomerBackwardModule((int)$GLOBALS['cookie']->id_customer);
-			$this->employee = new Employee((int)$GLOBALS['cookie']->id_employee);
+			$this->currency = new Currency((int)$this->cookie->id_currency);
+			$this->language = new Language((int)$this->cookie->id_lang);
+			$this->country = new Country((int)$this->cookie->id_country);
+			$this->customer = new FroggyCustomerBackwardModule((int)$this->cookie->id_customer);
+			$this->employee = new Employee((int)$this->cookie->id_employee);
 		}
 		else
 		{

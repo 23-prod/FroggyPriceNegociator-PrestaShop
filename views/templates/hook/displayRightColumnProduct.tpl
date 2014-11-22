@@ -109,7 +109,7 @@
 			<div class="froggy-negociator-modal-step" id="froggy-negociator-modal-step2">
 
 				<p class="froggy-negociator-title-modal">{l s='Negotiated price' mod='froggypricenegociator'}</p>
-				<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-negociated-price"><img src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}views/img/loader.gif" /></p>
+				<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-negociated-price"><img src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}img/loader.gif" /></p>
 				<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-validation-message-step2"></p>
 
                 <div id="froggy-negociator-modal-form-step2">
@@ -125,7 +125,7 @@
 
                         <fieldset class="froggy-negociator-validation-step">
                             <input id="froggy-negociator-validation-step2-input-submit" type="submit" value="{l s='Validate my e-mail' mod='froggypricenegociator'}" />
-							<p id="froggy-negociator-validation-step2-loader"><img src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}views/img/loader.gif" /></p>
+							<p id="froggy-negociator-validation-step2-loader"><img src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}img/loader.gif" /></p>
                         </fieldset>
 
                     </form>

@@ -21,30 +21,35 @@ $(document).ready(function() {
 
     // When document is ready, if merchant click on link price tab, we add the price negociator fields
     $('#link-Prices').click(function() {
-
-        if ($('#froggypricenegociator-option').length == 0)
-        {
-            $('#finalPrice').parent().parent().parent().parent().after(fc_pn_negociator_options);
-
-            // Init display and binding
-            setTimeout(function() {
-
-                // Init display
-                var fields_to_watch = new Array(
-                    '#priceTE',
-                    '#priceTI',
-                    '#froggypricenegociator-price-min',
-                    '#froggypricenegociator-reduction-percent-max'
-                );
-                froggyPriceNegociatorInit(false, fields_to_watch);
-
-            }, 500);
-        }
+		froggyPriceNegociatorDisplayConfigurationOptions();
+		setTimeout(function() { froggyPriceNegociatorDisplayConfigurationOptions(); }, 2500);
     });
 
 
     // When document is ready, if merchant click on combinations tab, we add the price negociator fields
     $('#link-Combinations').click(function() { setTimeout(function() { froggyPriceNegociatorInitCombination(); }, 500); });
+
+	function froggyPriceNegociatorDisplayConfigurationOptions()
+	{
+		if ($('#froggypricenegociator-option').length == 0)
+		{
+			$('#finalPrice').parent().parent().parent().parent().after(fc_pn_negociator_options);
+
+			// Init display and binding
+			setTimeout(function() {
+
+				// Init display
+				var fields_to_watch = new Array(
+					'#priceTE',
+					'#priceTI',
+					'#froggypricenegociator-price-min',
+					'#froggypricenegociator-reduction-percent-max'
+				);
+				froggyPriceNegociatorInit(false, fields_to_watch);
+
+			}, 500);
+		}
+	}
 
 	function froggyPriceNegociatorInitCombination()
 	{

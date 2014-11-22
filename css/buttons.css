@@ -18,6 +18,12 @@
 */
 
 
+/*container button*/
+p.container-button-netotiate-front{
+	padding: 0 10px;
+	text-align: right;
+}
+
 /*standard button*/
 a.froggy-price-negociator-button-front{
     display: inline-block;

@@ -209,11 +209,8 @@
 
 .froggy-negociator-share-link{
 	width: 50%;
-	padding: 0 5%;
 	float: left;
-}
-.froggy-negociator-share-facebook {
-	text-align: right;
+	text-align: center;
 }
 
 #froggy-negociator-validation-step3-continue{

@@ -65,6 +65,9 @@ $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_7d5e62585
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_a5901bd629040b885f4c73645284d780'] = 'Validar mi correo electrónico';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_f0761363d52d932b690e885a13a79c2c'] = 'Su oferta de negociación le ha sido enviada por correo electrónico, será válida las 24 horas, el producto ha sido añadido a su cesta.';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_5e136fae06a2284367755df5ebb89a80'] = 'Ir a la cesta';
+$_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_1fdd9fd33b2582aa48dd4cb8eff97cca'] = '¡ Su negociación es un éxito, comparta!';
+$_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_7c62b77c9c5d789d9b3e0be87513cc2d'] = '¡ Acabo de negociar el precio de este producto!';
+$_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_db0a7fc1b9790cfe3f353bc69b6efdfc'] = 'Continuar sus compras';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent.bootstrap_3e00a3985dcd81e5f3004a189b19a20b'] = 'Negociador de precio Froggy';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent.bootstrap_4725c2b6db34f755b89b741c1d45bc71'] = 'La nueva configuración ha sido salvaguardada.';
 $_MODULE['<{froggypricenegociator}prestashop>getcontent.bootstrap_eb631b70ae7c721773f91b506c815082'] = 'Configuración';

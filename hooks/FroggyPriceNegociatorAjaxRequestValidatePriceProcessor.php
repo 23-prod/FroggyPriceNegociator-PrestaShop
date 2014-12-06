@@ -186,7 +186,7 @@ class FroggyPriceNegociatorAjaxRequestValidatePriceProcessor extends FroggyHookP
 		// Sending e-mails
 		if (file_exists(dirname(__FILE__).'/../mails/'.$iso.'/reminder.txt') &&
 			file_exists(dirname(__FILE__).'/../mails/'.$iso.'/reminder.html'))
-			if (Mail::Send((int)Configuration::get('PS_LANG_DEFAULT'), 'reminder', $this->module->l('Negotiated price', $this->id_lang), $templateVars, $this->email, null, Configuration::get('PS_SHOP_EMAIL'), Configuration::get('PS_SHOP_NAME'), null, null, dirname(__FILE__).'/../mails/'))
+			if (Mail::Send((int)$this->id_lang, 'reminder', $this->module->l('Negotiated price'), $templateVars, $this->email, null, Configuration::get('PS_SHOP_EMAIL'), Configuration::get('PS_SHOP_NAME'), null, null, dirname(__FILE__).'/../mails/'))
 				return $this->params['ajaxController']->render('success', '');
 		return $this->params['ajaxController']->render('error', '');
 	}

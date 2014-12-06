@@ -8,6 +8,7 @@ $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociator_1a41ad8b93276
 $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociatorajaxrequestprocessor_fb889045b175b03856ed1f04f0d683fb'] = 'Erreur système, veuillez contacter le marchand';
 $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociatorajaxrequestprocessor_350ddd9efe5f329b7e4d80bd20eafbc3'] = 'La négociation pour ce produit n\'est pas disponible.';
 $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociatorajaxrequestvalidatepriceprocessor_0c9194c0b7efea4c312ecdd683eb80b4'] = 'Prix négocié pour';
+$_MODULE['<{froggypricenegociator}prestashop>froggypricenegociatorajaxrequestvalidatepriceprocessor_21a40f7c23f0e739a2d62790407402aa'] = 'Prix négocié';
 $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociatorhookgetcontentprocessor_fa03eb688ad8aa1db593d33dabd89bad'] = 'Racine';
 $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociatorhookgetcontentprocessor_8cf04a9734132302f96da8e113e80ce5'] = 'Accueil';
 $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociatorhookgetcontentprocessor_ef7de3f485174ff47f061ad27d83d0ee'] = 'selectionné';

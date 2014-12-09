@@ -35,6 +35,11 @@ function froggyPriceNegociatorRefreshPrice(empty_fields)
 	{
 		$('#froggy-negociator-input-offer').val('');
 		$('#froggy-negociator-validation-message-step1').text('');
+		$('#froggy-negociator-validation-step1-input-submit').hide();
+		$('.froggy-price-negociator-progress > .froggy-price-negociator-progress-bar').css({
+			'width': '100%',
+			'background-color': 'none'
+		});
 	}
 	$('#froggy-negociator-product-price').text($('#our_price_display').text());
 }

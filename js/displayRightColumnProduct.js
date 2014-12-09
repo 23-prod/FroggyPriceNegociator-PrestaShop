@@ -29,8 +29,13 @@ function froggyPriceNegociatorCleanPrice(value_price)
 	return value_price;
 }
 
-function froggyPriceNegociatorRefreshPrice()
+function froggyPriceNegociatorRefreshPrice(empty_fields)
 {
+	if (empty_fields)
+	{
+		$('#froggy-negociator-input-offer').val('');
+		$('#froggy-negociator-validation-message-step1').text('');
+	}
 	$('#froggy-negociator-product-price').text($('#our_price_display').text());
 }
 
@@ -255,7 +260,7 @@ function froggyPriceNegociatorDisplayButtonWithDelay()
 function froggyPriceNegociatorDynamizeModal()
 {
 	// Init : Empty reduction block, hide "Submit offer button" and retrieve product price
-	froggyPriceNegociatorRefreshPrice();
+	froggyPriceNegociatorRefreshPrice(true);
 	$('#froggy-negociator-input-offer').val('');
 	$('#froggy-negociator-validation-step1-input-submit').hide();
 	$('#froggy-negociator-validation-step2-input-submit').addClass('froggy-negociator-button-disabled');
@@ -267,13 +272,13 @@ function froggyPriceNegociatorDynamizeModal()
 
 	// Refresh price when we click on the negociate button
 	$('#froggypricenegociator-button').click(function() {
-		froggyPriceNegociatorRefreshPrice();
+		froggyPriceNegociatorRefreshPrice(true);
 		froggyPriceNegociatorCalculReduction();
 	});
 
 	// When an offer is wrote
 	$('#froggy-negociator-input-offer').keyup(function() {
-		froggyPriceNegociatorRefreshPrice();
+		froggyPriceNegociatorRefreshPrice(false);
 		froggyPriceNegociatorCalculReduction();
 		froggyPriceNegociatorCalculSuccessInAjax();
 	});

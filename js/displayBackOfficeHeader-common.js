@@ -125,7 +125,10 @@ function froggyPriceNegociatorUpdate(combination, init)
 
 			// Uniformize value
 			var price_min = price_min_selector.val();
-			price_min = price_min.replace(',', '.');
+			if (price_min.indexOf('.') > -1)
+				price_min = price_min.replace(',', '');
+			else
+				price_min = price_min.replace(',', '.');
 			price_min = price_min.replace(/[^\d.-]/g, '');
 			if (price_min_selector.val() != price_min)
 				price_min_selector.val(price_min);
@@ -217,19 +220,20 @@ function froggyPriceNegociatorLoadConfigurationCombination(id_product_attribute)
     $('#froggypricenegociator-combination-reduction-percent-max').val('');
     $('#froggypricenegociator-combination-reduction-percent-max-hidden').val('');
 
-    // Set the matching configuration (if there is any)
-    for (i = 0; froggypricenegociator_combinations[i]; i++)
-    {
-        if (froggypricenegociator_combinations[i][0] == id_product_attribute)
-        {
-            if (froggypricenegociator_combinations[i][3] == "1")
-                $('#froggypricenegociator-combination-option').attr("checked", true);
-            $('#froggypricenegociator-combination-price-min').val(froggypricenegociator_combinations[i][1]);
-            $('#froggypricenegociator-combination-price-min-hidden').val(froggypricenegociator_combinations[i][1]);
-            $('#froggypricenegociator-combination-reduction-percent-max').val(froggypricenegociator_combinations[i][2]);
-            $('#froggypricenegociator-combination-reduction-percent-max-hidden').val(froggypricenegociator_combinations[i][2]);
-        }
-    }
+	// Set the matching configuration (if there is any)
+	froggypricenegociator_combinations.forEach(function(combination, index, array) {
+
+		if (combination[0] == id_product_attribute)
+		{
+			if (combination[3] == "1")
+				$('#froggypricenegociator-combination-option').attr("checked", true);
+			$('#froggypricenegociator-combination-price-min').val(combination[1]);
+			$('#froggypricenegociator-combination-price-min-hidden').val(combination[1]);
+			$('#froggypricenegociator-combination-reduction-percent-max').val(combination[2]);
+			$('#froggypricenegociator-combination-reduction-percent-max-hidden').val(combination[2]);
+		}
+
+	});
 
     // Check if box is checked (we hide the input text if not) and we update price min and percent max
     froggyPriceNegociatorOptionStatus(true);

@@ -89,37 +89,25 @@ class FroggyPriceNegociatorHookGetContentProcessor extends FroggyHookProcessor
 		$assign['selected_groups'] = explode(',', Configuration::get('FC_PN_DISABLE_FOR_CUSTS'));
 
 		$selected_cat = explode(',', $assign['FC_PN_DISABLE_FOR_CATS']);
-		if (version_compare(_PS_VERSION_, '1.6.0', '>=') === true)
+
+		$helper = new FroggyHelperTreeCategories();
+		if (version_compare(_PS_VERSION_, '1.5', '>') && Shop::getContext() == Shop::CONTEXT_SHOP)
 		{
-			$helper = new HelperTreeCategories('categories-treeview');
-			$helper->setRootCategory((Shop::getContext() == Shop::CONTEXT_SHOP ? Category::getRootCategory()->id_category : 0))->setSelectedCategories($selected_cat)->setUseCheckBox(true);
-			$assign['category_tree'] = $helper->render();
-		}
-		elseif (version_compare(_PS_VERSION_, '1.5', '>'))
-		{
-			if (Shop::getContext() == Shop::CONTEXT_SHOP)
-			{
-				$root_category = Category::getRootCategory();
-				$root_category = array('id_category' => $root_category->id_category, 'name' => $root_category->name);
-			}
-			else
-				$root_category = array('id_category' => '0', 'name' => $this->module->l('Root'));
-			$helper = new Helper();
-			$assign['category_tree'] = $helper->renderCategoryTree($root_category, $selected_cat, 'categoryBox');
+			$category = Category::getRootCategory();
+			$helper->setRootCategory($category->id_category);
 		}
 		else
-		{
-			$trads = array(
-				'Home' => $this->module->l('Home'),
-				'selected' => $this->module->l('selected'),
-				'Collapse All' => $this->module->l('Collapse All'),
-				'Expand All' => $this->module->l('Expand All'),
-				'Check All' => $this->module->l('Check All'),
-				'Uncheck All'  => $this->module->l('Uncheck All'),
-				'search'  => $this->module->l('Search a category')
-			);
-			$assign['category_tree'] = Helper::renderAdminCategorieTree($trads, $selected_cat, 'categoryBox');
-		}
+			$helper->setRootCategory(1);
+
+		$helper->setSelectedCategories($selected_cat);
+		$helper->setAttributeName('categoryBox');
+		$helper->setModule($this->module);
+		if (version_compare(_PS_VERSION_, '1.5', '>'))
+			$helper->setContext(Context::getContext());
+		else
+			$helper->setContext(FroggyContext::getContext());
+
+		$assign['category_tree'] = $helper->render();
 
 		$this->smarty->assign($this->module->name, $assign);
 		return $this->module->fcdisplay(__FILE__, 'getContent.tpl');

@@ -12,7 +12,7 @@ Votre offre : 	{your_offer}
 Prix d'origine : 	{product_price}
 Votre économie : 	{price_reduction}
 Expiration de l'offre : 	{expiration_date}
-Vous économisez {price_reduction} sur cette achat !
+Vous économisez {price_reduction} sur cet achat !
 
 Cette offre n'est valable que pour 24 heures, une fois le délai dépassé vous ne pourrez plus profitez de celle-ci. Dépéchez vous de commander avant qu'elle ne se termine!
 

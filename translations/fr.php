@@ -43,7 +43,7 @@ $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_b59b494fc
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_016e5686a3e19a16d84129542aa14646'] = 'Négociation';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_13148717f8faa9037f37d28971dfc219'] = 'Validation';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_f4d1ea475eaa85102e2b4e6d95da84bd'] = 'Confirmation';
-$_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_6a5c2ca6b14c7f51956ba2c967217534'] = 'Vous n\'avez pas le budget ?';
+$_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_6a5c2ca6b14c7f51956ba2c967217534'] = 'Ce produit dépasse votre budget ?';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_aca13987bf740d924e0ce54eba41bdb3'] = 'Combien seriez vous prêt à payer pour ce produit ?';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_1fef23d9e38a66e0708e494aed73d688'] = 'Faire une offre';
 $_MODULE['<{froggypricenegociator}prestashop>displayrightcolumnproduct_febb32f720437bc7864948740f7f3975'] = 'Chance de succès dans votre négociation :';

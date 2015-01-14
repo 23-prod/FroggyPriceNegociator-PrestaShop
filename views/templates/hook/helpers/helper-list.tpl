@@ -24,7 +24,7 @@
         {foreach from=$froggyhelper.configuration.list.labels key=field item=label}
             <th style="width:100px">{$label|escape:'html':'UTF-8'}</th>
         {/foreach}
-        <th><div class="btn-group pull-right">{l s='Actions' mod='froggytoolbarv2'}</div></th>
+        <th><div class="btn-group pull-right">{l s='Actions' mod='froggypricenegociator'}</div></th>
     </tr>
     </thead>
 	<tbody>
@@ -37,7 +37,7 @@
 				<div class="btn-group-action">
                     <div class="btn-group pull-right">
 						<a class="delete" title="Delete" onclick="if (confirm('Delete selected item?')) { return true; } else { event.stopPropagation(); event.preventDefault(); };" href="{$froggyhelper.form_url}&delete-{$froggyhelper.configuration.key|escape:'html':'UTF-8'}={$row_data.id|intval}">
-							<i class="icon-trash"></i> {l s='Delete' mod='froggytoolbarv2'}
+							<i class="icon-trash"></i> {l s='Delete' mod='froggypricenegociator'}
 						</a>
 				    </div>
 				</div>

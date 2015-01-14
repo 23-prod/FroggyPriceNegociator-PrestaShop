@@ -18,8 +18,8 @@
  * @license   Unauthorized copying of this file, via any medium is strictly prohibited
  *}
 
-<input type="button" id="category-tree-select-all-{$categories_tree_id|intval}" value="{l s='Select all' mod='froggytoolbarv2'}" class="button" />
-<input type="button" id="category-tree-unselect-all-{$categories_tree_id|intval}" value="{l s='Unselect all' mod='froggytoolbarv2'}" class="button" />
+<input type="button" id="category-tree-select-all-{$categories_tree_id|intval}" value="{l s='Select all' mod='froggypricenegociator'}" class="button" />
+<input type="button" id="category-tree-unselect-all-{$categories_tree_id|intval}" value="{l s='Unselect all' mod='froggypricenegociator'}" class="button" />
 <br><br>
 {FroggyDisplaySafeHtml s=$categories_tree}
 

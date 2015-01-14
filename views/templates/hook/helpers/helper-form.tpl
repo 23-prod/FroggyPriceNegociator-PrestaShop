@@ -27,9 +27,9 @@
                         {if $field.type eq 'radio'}
                             <span class="switch prestashop-switch fixed-width-lg">
                                     <input type="radio" name="{$field.name}" id="{$field.name}_on" value="1" {if isset($field.value) && $field.value eq 1}checked="checked"{/if} />
-                                    <label for="{$field.name|escape:'html':'UTF-8'}_on"> {l s='Yes' mod='froggytoolbarv2'}</label>
+                                    <label for="{$field.name|escape:'html':'UTF-8'}_on"> {l s='Yes' mod='froggypricenegociator'}</label>
                                     <input type="radio" name="{$field.name}" id="{$field.name}_off" value="0" {if !isset($field.value) || $field.value ne 1}checked="checked"{/if} />
-                                    <label for="{$field.name|escape:'html':'UTF-8'}_off"> {l s='No' mod='froggytoolbarv2'}</label>
+                                    <label for="{$field.name|escape:'html':'UTF-8'}_off"> {l s='No' mod='froggypricenegociator'}</label>
                                     <a class="slide-button btn"></a>
                             </span>
                         {elseif $field.type eq 'text'}
@@ -52,6 +52,6 @@
 
 		<div class="margin-form">
 			<button class="button" name="{$froggyhelper.module_name|escape:'html':'UTF-8'}-submit" id="{$froggyhelper.module_name|escape:'html':'UTF-8'}-form-submit-btn" value="1" type="submit">
-				 {l s='Save' mod='froggytoolbarv2'}
+				 {l s='Save' mod='froggypricenegociator'}
 			</button>
 		</div>

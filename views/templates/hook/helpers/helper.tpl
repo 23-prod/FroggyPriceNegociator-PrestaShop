@@ -29,7 +29,7 @@
             {include file="{$froggyhelper.templates_dir}/helper-list.tpl"}
         {/if}
 
-        {if isset({$froggyhelper.configuration.form})}
+        {if isset($froggyhelper.configuration.form)}
             {include file="{$froggyhelper.templates_dir}/helper-form.tpl"}
         {/if}
 

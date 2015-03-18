@@ -34,6 +34,8 @@
                             </span>
                         {elseif $field.type eq 'text'}
 							<input type="text" value="{if isset($field.value)}{$field.value|htmlentities}{/if}" name="{$field.name}" id="{$field.name}">
+                        {elseif $field.type eq 'file'}
+							<input type="file" name="{$field.name}" id="{$field.name}">
                         {elseif $field.type eq 'select'}
 							<select name="{$field.name|escape:'html':'UTF-8'}" id="{$field.name|escape:'html':'UTF-8'}">
                                 {foreach from=$field.values key=option_label item=option_value}

@@ -1,0 +1,35 @@
+Ricorda la tua Offerta!
+
+Congratulazioni! Il prezzo negoziato per {product_name} ha avuto esito positivo. Non dimenticare che questa offerta è disponibile solo per 24 ore! Puoi completare il tuo acquisto cliccando il bottone in basso:
+
+Completa Ordine: {order_url}
+
+{product_name}
+{product_description_short}
+
+Prezzo Negoziato: 	{negociated_price}
+La tua offerta: 	{your_offer}
+Prezzo iniziale del prodotto: 	{product_price}
+Importo riduzione: 	{price_reduction}
+L’offerta scade: 	{expiration_date}
+Stai risparmiando {price_reduction} su questo acquisto!
+
+Questa offerta è disponibile solo per 24 ore, allo scadere del termine non protrai più usufruire di questa riduzione. Completa il tuo ordine prima che sia troppo tardi!
+
+Se per questa offerta desideri contattare il servizio clienti clicca qui.
+
+Ti ringraziamo per aver visitato il nostro sito web ed a presto con {shop_name}!
+
+Questa mail è stata inviata da {shop_name}
+Contatti: {contact_url}
+
+
+
+
+
+
+
+
+
+
+

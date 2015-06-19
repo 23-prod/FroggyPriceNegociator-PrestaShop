@@ -53,6 +53,8 @@ class FroggyPriceNegociatorAjaxRequestValidatePriceProcessor extends FroggyHookP
 
 	public function getAttributesNameFromIdProductAttribute()
 	{
+		if ((int)$this->id_product_attribute < 1)
+			return '';
 		$names = Db::getInstance()->executeS('
 		SELECT `name`
 		FROM `'._DB_PREFIX_.'attribute_lang`

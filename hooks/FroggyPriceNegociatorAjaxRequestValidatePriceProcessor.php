@@ -204,6 +204,10 @@ class FroggyPriceNegociatorAjaxRequestValidatePriceProcessor extends FroggyHookP
 		// Retrieve infos
 		$this->init();
 
+		// Check if price exists for this combination
+		if ($this->new_price === false)
+			return $this->params['ajaxController']->render('error', '');
+
 		// Check if product is eligible
 		if (!FroggyPriceNegociatorObject::isProductEligible($this->id_product, (int)$this->context->customer->id, (int)$this->context->cart->id))
 			return $this->params['ajaxController']->render('error', '');

@@ -597,3 +597,11 @@ function FroggyDisplaySafeHtml($params, &$smarty)
 {
     return $params['s'];
 }
+
+function FroggyDisplayDate($date, $id_lang = null, $full = false, $separator = null)
+{
+    if (version_compare(_PS_VERSION_, '1.6.0') >= 0) {
+        return Tools::displayDate($date, null, $full, null);
+    }
+    return Tools::displayDate($date, $id_lang, $full, $separator);
+}

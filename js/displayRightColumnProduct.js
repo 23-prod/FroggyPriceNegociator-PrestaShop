@@ -269,6 +269,7 @@ function froggyPriceNegociatorDynamizeModal()
 	$('#froggy-negociator-input-offer').val('');
 	$('#froggy-negociator-validation-step1-input-submit').hide();
 	$('#froggy-negociator-validation-step2-input-submit').addClass('froggy-negociator-button-disabled');
+	$('#froggy-negociator-modal-step1').show();
 	$('#froggy-negociator-modal-step2').hide();
 	$('#froggy-negociator-modal-form-step2').hide();
 	$('#froggy-negociator-validation-step2-loader').hide();
@@ -334,4 +335,24 @@ function froggyPriceNegociatorDynamizeModal()
 $(document).ready(function() {
 	froggyPriceNegociatorDisplayButtonWithDelay();
 	froggyPriceNegociatorDynamizeModal();
+});
+
+
+
+/** Handle attribute switch **/
+
+$(document).on('click', '.color_pick', function(e){
+	e.preventDefault();
+	froggyPriceNegociatorDynamizeModal();
+});
+
+$(document).on('change', '.attribute_select', function(e){
+	e.preventDefault();
+	froggyPriceNegociatorDynamizeModal();
+});
+
+$(document).on('click', '.attribute_radio', function(e){
+	e.preventDefault();
+	froggyPriceNegociatorDynamizeModal();
+
 });

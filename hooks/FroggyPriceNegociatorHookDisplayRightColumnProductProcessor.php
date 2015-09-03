@@ -37,6 +37,7 @@ class FroggyPriceNegociatorHookDisplayRightColumnProductProcessor extends Froggy
 			'FC_PN_DISPLAY_DELAYED' => Configuration::get('FC_PN_DISPLAY_DELAYED'),
 			'FC_PN_DISPLAY_DELAYED_PAGE' => Configuration::get('FC_PN_DISPLAY_DELAYED_PAGE'),
 			'FC_PN_DISPLAY_BUTTON' => Configuration::get('FC_PN_DISPLAY_BUTTON'),
+			'current_currency' => $this->context->currency
 		);
 		$this->smarty->assign($this->module->name, $assign);
 		return $this->module->fcdisplay(__FILE__, 'displayRightColumnProduct.tpl');

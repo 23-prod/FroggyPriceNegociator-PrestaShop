@@ -72,8 +72,15 @@
 				<form action="">
 
 					<fieldset class="froggy-negociator-input-offer">
+						{if $froggypricenegociator.current_currency->format % 2 != 0}
+							<label for="froggy-negociator-input-offer">{$froggypricenegociator.current_currency->sign}</label>
+						{/if}
+
 						<input type="text" placeholder="{l s='Make an offer' mod='froggypricenegociator'}" id="froggy-negociator-input-offer" autocomplete="off" />
-						<label for="froggy-negociator-input-offer">€</label>
+
+						{if $froggypricenegociator.current_currency->format % 2 == 0}
+							<label for="froggy-negociator-input-offer">{$froggypricenegociator.current_currency->sign}</label>
+						{/if}
 					</fieldset>
 
 					<fieldset class="froggy-negociator-progressbar-container">

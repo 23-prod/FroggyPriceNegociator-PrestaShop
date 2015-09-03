@@ -24,28 +24,24 @@
  */
 defined('_PS_VERSION_') || require dirname(__FILE__).'/index.php';
 
-/**
- * Backward function compatibility
- * Need to be called for each module in 1.4
- */
+abstract class FroggyHookProcessor
+{
+    public $module;
+    public $context;
+    public $path;
+    public $smarty;
+    public $params;
 
-/**
- * Get out if the context is already defined
- */
-if (!in_array('FroggyContext', get_declared_classes())) {
-    require_once(dirname(__FILE__).'/FroggyContext.php');
+    /**
+     * @param FroggyModule $module
+     * @param array $args
+     */
+    public function __construct($args)
+    {
+        foreach ($args as $key => $value) {
+            if (property_exists($this, $key)) {
+                $this->{$key} = $value;
+            }
+        }
+    }
 }
-
-/**
- * If not under an object we don't have to set the context
- */
-$var = 'this';
-if (!isset($$var)) {
-    return;
-}
-
-/**
- * Set variables
- */
-$$var->context = FroggyContext::getContext();
-$$var->smarty = $$var->context->smarty;

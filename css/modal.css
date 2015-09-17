@@ -82,11 +82,11 @@
 	color:#777;
 	border-left: none;
 	width: calc(10% - 1px);
-	font-size: 30px;
+	font-size: 18px;
 	padding: 0.25em 0;
 	text-align: center;
 	line-height: 30px;
-	height: 30px;
+	height: 36px;
 	cursor: pointer;
 	float: left;
 }

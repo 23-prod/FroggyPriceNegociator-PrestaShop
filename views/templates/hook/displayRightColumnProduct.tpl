@@ -19,7 +19,7 @@
  *}
 
 <script>
-	var FC_PN_DISPLAY_DELAYED = '{$froggypricenegociator.FC_PN_DISPLAY_DELAYED|escape:'html':'UTF-8'}';
+	var FC_PN_DISPLAY_DELAYED = '{if $froggypricenegociator.FC_PN_DISPLAY_DELAYED gt 0}{$froggypricenegociator.FC_PN_DISPLAY_DELAYED|escape:'html':'UTF-8'}{else}1{/if}';
 	var FC_PN_DISPLAY_DELAYED_PAGE = '{$froggypricenegociator.FC_PN_DISPLAY_DELAYED_PAGE|escape:'html':'UTF-8'}';
 	var FC_PN_ID_PRODUCT = '{$froggypricenegociator.id_product|escape:'html':'UTF-8'}';
     var froggypricenegociator_configurations = new Array();

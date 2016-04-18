@@ -44,7 +44,7 @@ class FroggyPriceNegociatorAjaxRequestGetNewPriceProcessor extends FroggyHookPro
 		}
 
 		// Calculate new price
-		if ($offer > $price_min)
+		if ($offer >= $price_min)
 		{
 			$case = 'good';
 			$price_min = $offer;

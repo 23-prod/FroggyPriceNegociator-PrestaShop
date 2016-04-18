@@ -249,7 +249,10 @@ class FroggyPriceNegociatorObject extends ObjectModel
 
 		// Check type configuration and calculate minimum price
 		if (Configuration::get('FC_PN_TYPE') == 'PRICE_MINI')
+		{
 			$price_min = $fpno->price_min;
+			$price_min = Tools::convertPrice($price_min, Context::getContext()->currency);
+		}
 		else
 		{
 			$percent_reduction = $fpno->reduction_percent_max;

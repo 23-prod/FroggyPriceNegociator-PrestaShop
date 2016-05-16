@@ -21,39 +21,37 @@
 
 class FroggyPriceNegociatorAjaxRequestGetNewPriceProcessor extends FroggyHookProcessor
 {
-	/**
-	 * Get new price
-	 * @param float $price_min
-	 * @return string json data
-	 */
-	public function run()
-	{
-		// Init
-		$case = 'too.low';
-		$price_min = (float)$this->params['price_min'];
-		$offer = (float)Tools::getValue('offer');
-		$id_product = (int)Tools::getValue('id_product');
-		$id_product_attribute = (int)Tools::getValue('id_product_attribute');
+    /**
+     * Get new price
+     * @param float $price_min
+     * @return string json data
+     */
+    public function run()
+    {
+        // Init
+        $case = 'too.low';
+        $price_min = (float)$this->params['price_min'];
+        $offer = (float)Tools::getValue('offer');
+        $id_product = (int)Tools::getValue('id_product');
+        $id_product_attribute = (int)Tools::getValue('id_product_attribute');
 
-		// If price has already been negotiated, we return the price
-		if ($this->params['ajaxController']->getNegociatedPriceInCookie($id_product, $id_product_attribute) !== false)
-		{
-			$case = 'already.negotiated';
-			$price_min = $this->params['ajaxController']->getNegociatedPriceInCookie($id_product, $id_product_attribute);
-			return $this->params['ajaxController']->render('success', Tools::displayPrice($price_min), $case);
-		}
+        // If price has already been negotiated, we return the price
+        if ($this->params['ajaxController']->getNegociatedPriceInCookie($id_product, $id_product_attribute) !== false) {
+            $case = 'already.negotiated';
+            $price_min = $this->params['ajaxController']->getNegociatedPriceInCookie($id_product, $id_product_attribute);
+            return $this->params['ajaxController']->render('success', Tools::displayPrice($price_min), $case);
+        }
 
-		// Calculate new price
-		if ($offer >= $price_min)
-		{
-			$case = 'good';
-			$price_min = $offer;
-		}
+        // Calculate new price
+        if ($offer >= $price_min) {
+            $case = 'good';
+            $price_min = $offer;
+        }
 
-		// Save negotiated price in cookie
-		$this->params['ajaxController']->saveNegociatedPriceInCookie($id_product, $id_product_attribute, $price_min);
+        // Save negotiated price in cookie
+        $this->params['ajaxController']->saveNegociatedPriceInCookie($id_product, $id_product_attribute, $price_min);
 
-		// Render result
-		return $this->params['ajaxController']->render('success', Tools::displayPrice($price_min), $case);
-	}
+        // Render result
+        return $this->params['ajaxController']->render('success', Tools::displayPrice($price_min), $case);
+    }
 }

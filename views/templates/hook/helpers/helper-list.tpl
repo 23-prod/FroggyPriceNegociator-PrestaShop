@@ -18,11 +18,11 @@
  * @license   Unauthorized copying of this file, via any medium is strictly prohibited
  *}
 
-<table class="table" id="{$froggyhelper.module_name|escape:'html':'UTF-8'}-{$froggyhelper.configuration.key|escape:'html':'UTF-8'}-list">
+<table class="table" id="{$froggyhelper.module_name|escape:'htmlall':'UTF-8'}-{$froggyhelper.configuration.key|escape:'htmlall':'UTF-8'}-list">
     <thead>
     <tr>
         {foreach from=$froggyhelper.configuration.list.labels key=field item=label}
-            <th style="width:100px">{$label|escape:'html':'UTF-8'}</th>
+            <th style="width:100px">{$label|escape:'htmlall':'UTF-8'}</th>
         {/foreach}
         <th><div class="btn-group pull-right">{l s='Actions' mod='froggypricenegociator'}</div></th>
     </tr>
@@ -31,12 +31,12 @@
         {foreach from=$froggyhelper.configuration.list.data item=row_data}
         <tr>
             {foreach from=$froggyhelper.configuration.list.labels key=field item=label}
-                <td>{$row_data[$field]|escape:'html':'UTF-8'}</td>
+                <td>{$row_data[$field]|escape:'htmlall':'UTF-8'}</td>
             {/foreach}
             <td>
 				<div class="btn-group-action">
                     <div class="btn-group pull-right">
-						<a class="delete" title="Delete" onclick="if (confirm('Delete selected item?')) { return true; } else { event.stopPropagation(); event.preventDefault(); };" href="{$froggyhelper.form_url}&delete-{$froggyhelper.configuration.key|escape:'html':'UTF-8'}={$row_data.id|intval}">
+						<a class="delete" title="Delete" onclick="if (confirm('Delete selected item?')) { return true; } else { event.stopPropagation(); event.preventDefault(); };" href="{$froggyhelper.form_url|escape:'htmlall':'UTF-8'}&delete-{$froggyhelper.configuration.key|escape:'htmlall':'UTF-8'}={$row_data.id|intval}">
 							<i class="icon-trash"></i> {l s='Delete' mod='froggypricenegociator'}
 						</a>
 				    </div>

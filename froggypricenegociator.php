@@ -22,91 +22,97 @@
 /*
  * Security
  */
-defined('_PS_VERSION_') || require dirname(__FILE__).'/index.php';
+defined('_PS_VERSION_') || require dirname(__FILE__) . '/index.php';
 
 /*
  * Include Froggy Library
  */
-if (!class_exists('FroggyModule', false)) require_once _PS_MODULE_DIR_.'/froggypricenegociator/froggy/FroggyModule.php';
+if (!class_exists('FroggyModule', false)) {
+    require_once _PS_MODULE_DIR_ . '/froggypricenegociator/froggy/FroggyModule.php';
+}
 
 /*
  * Require Object Model
  */
-require_once _PS_MODULE_DIR_.'/froggypricenegociator/classes/FroggyPriceNegociatorObject.php';
-require_once _PS_MODULE_DIR_.'/froggypricenegociator/classes/FroggyPriceNegociatorNewPriceObject.php';
+require_once _PS_MODULE_DIR_ . '/froggypricenegociator/classes/FroggyPriceNegociatorObject.php';
+require_once _PS_MODULE_DIR_ . '/froggypricenegociator/classes/FroggyPriceNegociatorNewPriceObject.php';
 
 class FroggyPriceNegociator extends FroggyModule
 {
-	/**
-	 * Constructor
-	 */
-	public function __construct()
-	{
-		$this->name = 'froggypricenegociator';
-		$this->version = '1.0.20';
-		$this->author = 'Froggy Commerce';
-		$this->tab = 'front_office_features';
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->name = 'froggypricenegociator';
+        $this->version = '1.0.20';
+        $this->author = 'Froggy Commerce';
+        $this->tab = 'front_office_features';
 
-		parent::__construct();
+        parent::__construct();
 
-		$this->displayName = $this->l('Froggy Price Negotiator');
-		$this->description = $this->l('Display a price negotiation button on product page for your customers');
-		$this->module_key = 'a928c2276f3debc7d93b667f730d130a';
-	}
+        $this->displayName = $this->l('Froggy Price Negotiator');
+        $this->description = $this->l('Display a price negotiation button on product page for your customers');
+        $this->module_key = 'a928c2276f3debc7d93b667f730d130a';
+    }
 
-	/**
-	 * Configuration method
-	 * @return string $html
-	 */
-	public function getContent()
-	{
-		return $this->hookGetContent();
-	}
+    /**
+     * Configuration method
+     * @return string $html
+     */
+    public function getContent()
+    {
+        return $this->hookGetContent();
+    }
 
-	public function enable($force_all = false)
-	{
-		if (Tools::getValue('enable') == 1)
-			FroggyPriceNegociatorNewPriceObject::enableDisableNegociatedReduction(1);
-		return parent::enable($force_all);
-	}
+    public function enable($force_all = false)
+    {
+        if (Tools::getValue('enable') == 1) {
+            FroggyPriceNegociatorNewPriceObject::enableDisableNegociatedReduction(1);
+        }
+        return parent::enable($force_all);
+    }
 
-	public function disable($force_all = false)
-	{
-		FroggyPriceNegociatorNewPriceObject::enableDisableNegociatedReduction(0);
-		return parent::disable($force_all);
-	}
+    public function disable($force_all = false)
+    {
+        FroggyPriceNegociatorNewPriceObject::enableDisableNegociatedReduction(0);
+        return parent::disable($force_all);
+    }
 
-	public function uninstall()
-	{
-		FroggyPriceNegociatorNewPriceObject::enableDisableNegociatedReduction(0);
-		return parent::uninstall();
-	}
+    public function uninstall()
+    {
+        FroggyPriceNegociatorNewPriceObject::enableDisableNegociatedReduction(0);
+        return parent::uninstall();
+    }
 
-	/*
-	 * Retrocompat 1.4
-	 */
-	public function hookHeader($params)
-	{
-		return $this->hookDisplayHeader($params);
-	}
-	public function hookCart($params)
-	{
-		return $this->hookActionCartSave($params);
-	}
-	public function hookExtraRight($params)
-	{
-		return $this->hookDisplayRightColumnProduct($params);
-	}
-	public function hookBackOfficeHeader($params)
-	{
-		return $this->hookDisplayBackOfficeHeader($params);
-	}
+    /*
+     * Retrocompat 1.4
+     */
+    public function hookHeader($params)
+    {
+        return $this->hookDisplayHeader($params);
+    }
 
-	/*
-	 * Compat 1.6
-	 */
-	public function hookDisplayProductButtons($params)
-	{
-		return $this->hookDisplayRightColumnProduct($params);
-	}
+    public function hookCart($params)
+    {
+        return $this->hookActionCartSave($params);
+    }
+
+    public function hookExtraRight($params)
+    {
+        return $this->hookDisplayRightColumnProduct($params);
+    }
+
+    public function hookBackOfficeHeader($params)
+    {
+        return $this->hookDisplayBackOfficeHeader($params);
+    }
+
+    /*
+     * Compat 1.6
+     */
+    public function hookDisplayProductButtons($params)
+    {
+        return $this->hookDisplayRightColumnProduct($params);
+    }
 }

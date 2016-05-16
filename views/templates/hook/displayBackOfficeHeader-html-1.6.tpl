@@ -22,7 +22,7 @@
     var froggypricenegociator_combinations = new Array();
     {foreach from=$froggypricenegociator.combinations key=kpnc item=pnc}
         {if $pnc.id_product_attribute gt 0}
-        froggypricenegociator_combinations[{$kpnc}] = new Array("{$pnc.id_product_attribute|escape:'html':'UTF-8'}", "{$pnc.price_min|escape:'html':'UTF-8'}", "{$pnc.reduction_percent_max|escape:'html':'UTF-8'}", "{$pnc.active|escape:'html':'UTF-8'}");
+        froggypricenegociator_combinations[{$kpnc|escape:'html':'UTF-8'}] = new Array("{$pnc.id_product_attribute|escape:'html':'UTF-8'}", "{$pnc.price_min|escape:'html':'UTF-8'}", "{$pnc.reduction_percent_max|escape:'html':'UTF-8'}", "{$pnc.active|escape:'html':'UTF-8'}");
         {/if}
     {/foreach}
 

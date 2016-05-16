@@ -20,6 +20,6 @@
 
 <ul class="froggy-categories-tree">
 {foreach from=$categories_tree_branches item=branch}
-	<li><input type="checkbox" class="categories-tree-checkbox-{$categories_tree_id}" name="{$categories_tree_attribute_name}[]" value="{$branch.id_category}"{if $branch.checked} checked{/if} /> {$branch.name}{$branch.children}</li>
+	<li><input type="checkbox" class="categories-tree-checkbox-{$categories_tree_id|escape:'htmlall':'UTF-8'}" name="{$categories_tree_attribute_name|escape:'htmlall':'UTF-8'}[]" value="{$branch.id_category|escape:'htmlall':'UTF-8'}"{if $branch.checked} checked{/if} /> {$branch.name|escape:'htmlall':'UTF-8'}{FroggyDisplaySafeHtml s=$branch.children}</li>
 {/foreach}
 </ul>

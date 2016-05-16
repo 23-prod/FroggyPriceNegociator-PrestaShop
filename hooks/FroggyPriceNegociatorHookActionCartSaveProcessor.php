@@ -21,53 +21,59 @@
 
 class FroggyPriceNegociatorHookActionCartSaveProcessor extends FroggyHookProcessor
 {
-	public function run()
-	{
-		// Retrocompatibility
-		$nameVariable = (version_compare(_PS_VERSION_, '1.5.0') >= 0 ? 'id_cart_rule' : 'id_discount');
-		$getMethod = (version_compare(_PS_VERSION_, '1.5.0') >= 0 ? 'getCartRules' : 'getDiscounts');
-		$addMethod = (version_compare(_PS_VERSION_, '1.5.0') >= 0 ? 'addCartRule' : 'addDiscount');
-		$deleteMethod = (version_compare(_PS_VERSION_, '1.5.0') >= 0 ? 'removeCartRule' : 'deleteDiscount');
+    public function run()
+    {
+        // Retrocompatibility
+        $nameVariable = (version_compare(_PS_VERSION_, '1.5.0') >= 0 ? 'id_cart_rule' : 'id_discount');
+        $getMethod = (version_compare(_PS_VERSION_, '1.5.0') >= 0 ? 'getCartRules' : 'getDiscounts');
+        $addMethod = (version_compare(_PS_VERSION_, '1.5.0') >= 0 ? 'addCartRule' : 'addDiscount');
+        $deleteMethod = (version_compare(_PS_VERSION_, '1.5.0') >= 0 ? 'removeCartRule' : 'deleteDiscount');
 
-		// Check if cart exists
-		if (!Validate::isLoadedObject($this->context->cart))
-			return false;
+        // Check if cart exists
+        if (!Validate::isLoadedObject($this->context->cart)) {
+            return false;
+        }
 
-		// First remove all negotiated reduction
-		$reductions = $this->context->cart->{$getMethod}();
-		foreach ($reductions as $reduction)
-			if (FroggyPriceNegociatorNewPriceObject::isNegociationReduction($reduction[$nameVariable]))
-				$this->context->cart->{$deleteMethod}($reduction[$nameVariable]);
+        // First remove all negotiated reduction
+        $reductions = $this->context->cart->{$getMethod}();
+        foreach ($reductions as $reduction) {
+            if (FroggyPriceNegociatorNewPriceObject::isNegociationReduction($reduction[$nameVariable])) {
+                $this->context->cart->{$deleteMethod}($reduction[$nameVariable]);
+            }
+        }
 
-		// Then retrieve products and negociated prices matching this cart
-		$products = $this->context->cart->getProducts();
-		$negociated_prices = FroggyPriceNegociatorNewPriceObject::getNewPricesByCartId($this->context->cart->id);
+        // Then retrieve products and negociated prices matching this cart
+        $products = $this->context->cart->getProducts();
+        $negociated_prices = FroggyPriceNegociatorNewPriceObject::getNewPricesByCartId($this->context->cart->id);
 
-		// Add authorized negociated price
-		$negociated_prices_added_to_cart = array();
-		foreach ($products as $product)
-			foreach ($negociated_prices as $price)
-				if ($price['id_product'] == $product['id_product'] && $price['id_product_attribute'] == $product['id_product_attribute'] && !isset($negociated_prices_added_to_cart[$product['id_product'].'-'.$product['id_product_attribute']]) && $price['date_expiration'] > date('Y-m-d H:i:s'))
-				{
-					// Save to negotiated price added to cart to avoid trickery (doublon)
-					$negociated_prices_added_to_cart[$product['id_product'].'-'.$product['id_product_attribute']] = true;
+        // Add authorized negociated price
+        $negociated_prices_added_to_cart = array();
+        foreach ($products as $product) {
+            foreach ($negociated_prices as $price) {
+                if ($price['id_product'] == $product['id_product'] && $price['id_product_attribute'] == $product['id_product_attribute'] && !isset($negociated_prices_added_to_cart[$product['id_product'] . '-' . $product['id_product_attribute']]) && $price['date_expiration'] > date('Y-m-d H:i:s')) {
+                    // Save to negotiated price added to cart to avoid trickery (doublon)
+                    $negociated_prices_added_to_cart[$product['id_product'] . '-' . $product['id_product_attribute']] = true;
 
-					// Check max negotiated product authorized by cart
-					if (count($negociated_prices_added_to_cart) <= Configuration::get('FC_PN_MAX_PRODUCT_BY_CART'))
-					{
-						// Refresh reduction amount depending on cart quantity
-						FroggyPriceNegociatorNewPriceObject::refreshReductionAmount($price[$nameVariable], $product['cart_quantity'], $price['reduction']);
+                    // Check max negotiated product authorized by cart
+                    if (count($negociated_prices_added_to_cart) <= Configuration::get('FC_PN_MAX_PRODUCT_BY_CART')) {
+                        // Refresh reduction amount depending on cart quantity
+                        FroggyPriceNegociatorNewPriceObject::refreshReductionAmount($price[$nameVariable], $product['cart_quantity'], $price['reduction']);
 
-						// Add reduction to the cart
-						$this->context->cart->{$addMethod}($price[$nameVariable]);
-					}
-				}
+                        // Add reduction to the cart
+                        $this->context->cart->{$addMethod}($price[$nameVariable]);
+                    }
+                }
+            }
+        }
 
 
-		// If negotiated prices are not compliant with other discount and if there is at least one negotiated price in cart, we delete other discounts
-		if (Configuration::get('FC_PN_COMPLIANT_DISCOUNT') != 1 && count($negociated_prices_added_to_cart) > 0)
-			foreach ($reductions as $reduction)
-				if (!FroggyPriceNegociatorNewPriceObject::isNegociationReduction($reduction[$nameVariable]))
-					$this->context->cart->{$deleteMethod}($reduction[$nameVariable]);
-	}
+        // If negotiated prices are not compliant with other discount and if there is at least one negotiated price in cart, we delete other discounts
+        if (Configuration::get('FC_PN_COMPLIANT_DISCOUNT') != 1 && count($negociated_prices_added_to_cart) > 0) {
+            foreach ($reductions as $reduction) {
+                if (!FroggyPriceNegociatorNewPriceObject::isNegociationReduction($reduction[$nameVariable])) {
+                    $this->context->cart->{$deleteMethod}($reduction[$nameVariable]);
+                }
+            }
+        }
+    }
 }

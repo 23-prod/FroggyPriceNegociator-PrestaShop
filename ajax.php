@@ -20,20 +20,18 @@
  */
 
 $configPath = '../../config/config.inc.php';
-if (file_exists($configPath))
-{
-	include($configPath);
-	$controller = new FrontController();
-	$controller->init();
+if (file_exists($configPath)) {
+    include($configPath);
+    $controller = new FrontController();
+    $controller->init();
 
-	if (file_exists(dirname(__FILE__).'/froggypricenegociator.php'))
-	{
-		include(dirname(__FILE__).'/froggypricenegociator.php');
-		$fpn = new FroggyPriceNegociator();
-		echo $fpn->ajaxRequest();
-	}
-	else
-		die('Class module wasn\'t found');
+    if (file_exists(dirname(__FILE__) . '/froggypricenegociator.php')) {
+        include(dirname(__FILE__) . '/froggypricenegociator.php');
+        $fpn = new FroggyPriceNegociator();
+        echo $fpn->ajaxRequest();
+    } else {
+        die('Class module wasn\'t found');
+    }
+} else {
+    die('Config file is missing');
 }
-else
-	die('Config file is missing');

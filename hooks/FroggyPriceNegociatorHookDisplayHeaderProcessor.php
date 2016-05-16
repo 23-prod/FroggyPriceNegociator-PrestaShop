@@ -21,26 +21,26 @@
 
 class FroggyPriceNegociatorHookDisplayHeaderProcessor extends FroggyHookProcessor
 {
-	public function includeMedia()
-	{
-		if (Tools::getValue('id_product') < 1)
-			return true;
+    public function includeMedia()
+    {
+        if (Tools::getValue('id_product') < 1) {
+            return true;
+        }
 
-		$this->context->controller->addCss($this->path.'css/buttons.css');
-		$this->context->controller->addCss($this->path.'css/modal'.(version_compare(_PS_VERSION_, '1.6.0') >= 0 ? '-1.6' : '').'.css');
-		if (Configuration::get('FC_PN_DISPLAY_MODE') == 'REVEAL')
-		{
-			$this->context->controller->addCss($this->path.'css/reveal.css');
-			$this->context->controller->addJs($this->path.'js/jquery.reveal.js');
-		}
-		else
-			$this->context->controller->addJs($this->path.'js/jquery.fancybox.action.js');
-		$this->context->controller->addJs($this->path.'js/displayRightColumnProduct.js');
-	}
+        $this->context->controller->addCss($this->path . 'css/buttons.css');
+        $this->context->controller->addCss($this->path . 'css/modal' . (version_compare(_PS_VERSION_, '1.6.0') >= 0 ? '-1.6' : '') . '.css');
+        if (Configuration::get('FC_PN_DISPLAY_MODE') == 'REVEAL') {
+            $this->context->controller->addCss($this->path . 'css/reveal.css');
+            $this->context->controller->addJs($this->path . 'js/jquery.reveal.js');
+        } else {
+            $this->context->controller->addJs($this->path . 'js/jquery.fancybox.action.js');
+            $this->context->controller->addJs($this->path . 'js/displayRightColumnProduct.js');
+        }
+    }
 
-	public function run()
-	{
-		$this->includeMedia();
-		$this->module->hookActionCartSave();
-	}
+    public function run()
+    {
+        $this->includeMedia();
+        $this->module->hookActionCartSave();
+    }
 }

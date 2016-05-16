@@ -30,13 +30,13 @@
         {/foreach}
     {/foreach}
 
-	var froggypricenegociator_about_label = '{{l s='about' mod='froggypricenegociator' js=1}|stripslashes|addslashes}';
+	var froggypricenegociator_about_label = '{{l s='about' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8'}';
 	var froggypricenegociator_message_label = new Array();
-	froggypricenegociator_message_label['step1.too.high'] = '{{l s='Your offer is superior to the current price of the product.' mod='froggypricenegociator' js=1}|stripslashes|addslashes}';
-	froggypricenegociator_message_label['step1.too.low'] = '{{l s='Your offer is too low.' mod='froggypricenegociator' js=1}|stripslashes|addslashes}';
-	froggypricenegociator_message_label['step2.too.low'] = '{{l s='Your offer was too low, here our final offer.' mod='froggypricenegociator' js=1}|stripslashes|addslashes}';
-	froggypricenegociator_message_label['step2.already.negotiated'] = '{{l s='You already negotiated the price of this product, here the final offer.' mod='froggypricenegociator' js=1}|stripslashes|addslashes}';
-	froggypricenegociator_message_label['step2.good'] = '{{l s='Your offer has been accepted!' mod='froggypricenegociator' js=1}|stripslashes|addslashes}';
+	froggypricenegociator_message_label['step1.too.high'] = '{{l s='Your offer is superior to the current price of the product.' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8'}';
+	froggypricenegociator_message_label['step1.too.low'] = '{{l s='Your offer is too low.' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8'}';
+	froggypricenegociator_message_label['step2.too.low'] = '{{l s='Your offer was too low, here our final offer.' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8'}';
+	froggypricenegociator_message_label['step2.already.negotiated'] = '{{l s='You already negotiated the price of this product, here the final offer.' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8'}';
+	froggypricenegociator_message_label['step2.good'] = '{{l s='Your offer has been accepted!' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8'}';
 </script>
 <p class="container-button-netotiate-front">
 	<a href="#myModal" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negotiate the price' mod='froggypricenegociator'}" class="button-12 {$froggypricenegociator.FC_PN_DISPLAY_BUTTON|escape:'html':'UTF-8'}" style="display: none;">{l s='Negotiate the price' mod='froggypricenegociator'}</a>
@@ -73,13 +73,13 @@
 
 					<fieldset class="froggy-negociator-input-offer">
 						{if $froggypricenegociator.current_currency->format % 2 != 0}
-							<label for="froggy-negociator-input-offer">{$froggypricenegociator.current_currency->sign}</label>
+							<label for="froggy-negociator-input-offer">{$froggypricenegociator.current_currency->sign|escape:'htmlall':'UTF-8'}</label>
 						{/if}
 
 						<input type="text" placeholder="{l s='Make an offer' mod='froggypricenegociator'}" id="froggy-negociator-input-offer" autocomplete="off" />
 
 						{if $froggypricenegociator.current_currency->format % 2 == 0}
-							<label for="froggy-negociator-input-offer">{$froggypricenegociator.current_currency->sign}</label>
+							<label for="froggy-negociator-input-offer">{$froggypricenegociator.current_currency->sign|escape:'htmlall':'UTF-8'}</label>
 						{/if}
 					</fieldset>
 
@@ -149,7 +149,7 @@
 				<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-negociated-price-step3"></p>
 				<p class="froggy-negociator-subtitle-modal" id="froggy-negociator-validation-message-step3">{l s='Your negotiation offer has been sent to you by email, it will be available for 24 hours, it has been added to your cart too.' mod='froggypricenegociator'}</p>
 
-				<form action="{if $froggypricenegociator.ps_version eq '1.4'}{$link->getPageLink('order.php')}{else}{$link->getPageLink('order')}{/if}">
+				<form action="{if $froggypricenegociator.ps_version eq '1.4'}{$link->getPageLink('order.php')|escape:'htmlall':'UTF-8'}{else}{$link->getPageLink('order')|escape:'htmlall':'UTF-8'}{/if}">
 
 					<fieldset class="froggy-negociator-validation-step">
 						<input id="froggy-negociator-validation-step3-input-submit" type="submit" value="{l s='Go to the cart' mod='froggypricenegociator'}" />

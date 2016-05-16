@@ -21,42 +21,44 @@
 
 class FroggyPriceNegociatorHookDisplayRightColumnProductProcessor extends FroggyHookProcessor
 {
-	public function display()
-	{
-		// Check if there is a possible negotiation on product
-		$configurations = FroggyPriceNegociatorObject::getProductCombinationsNegociationSuccessChance((int)Tools::getValue('id_product'));
+    public function display()
+    {
+        // Check if there is a possible negotiation on product
+        $configurations = FroggyPriceNegociatorObject::getProductCombinationsNegociationSuccessChance((int)Tools::getValue('id_product'));
 
-		$assign = array(
-			'path_template_dir' => dirname(__FILE__).'/../views/templates/hook/',
-			'module_dir' => $this->path,
-			'configurations' => $configurations,
-			'email' => (isset($this->context->customer->email) ? $this->context->customer->email : ''),
-			'ps_version' => Tools::substr(_PS_VERSION_, 0, 3),
-			'id_product' => (int)Tools::getValue('id_product'),
-			'FC_PN_DISPLAY_MODE' => Configuration::get('FC_PN_DISPLAY_MODE'),
-			'FC_PN_DISPLAY_DELAYED' => Configuration::get('FC_PN_DISPLAY_DELAYED'),
-			'FC_PN_DISPLAY_DELAYED_PAGE' => Configuration::get('FC_PN_DISPLAY_DELAYED_PAGE'),
-			'FC_PN_DISPLAY_BUTTON' => Configuration::get('FC_PN_DISPLAY_BUTTON'),
-			'current_currency' => $this->context->currency
-		);
-		$this->smarty->assign($this->module->name, $assign);
-		return $this->module->fcdisplay(__FILE__, 'displayRightColumnProduct.tpl');
-	}
+        $assign = array(
+            'path_template_dir' => dirname(__FILE__) . '/../views/templates/hook/',
+            'module_dir' => $this->path,
+            'configurations' => $configurations,
+            'email' => (isset($this->context->customer->email) ? $this->context->customer->email : ''),
+            'ps_version' => Tools::substr(_PS_VERSION_, 0, 3),
+            'id_product' => (int)Tools::getValue('id_product'),
+            'FC_PN_DISPLAY_MODE' => Configuration::get('FC_PN_DISPLAY_MODE'),
+            'FC_PN_DISPLAY_DELAYED' => Configuration::get('FC_PN_DISPLAY_DELAYED'),
+            'FC_PN_DISPLAY_DELAYED_PAGE' => Configuration::get('FC_PN_DISPLAY_DELAYED_PAGE'),
+            'FC_PN_DISPLAY_BUTTON' => Configuration::get('FC_PN_DISPLAY_BUTTON'),
+            'current_currency' => $this->context->currency
+        );
+        $this->smarty->assign($this->module->name, $assign);
+        return $this->module->fcdisplay(__FILE__, 'displayRightColumnProduct.tpl');
+    }
 
-	public function run()
-	{
-		// Retrieve product ID
-		$id_product = (int)Tools::getValue('id_product');
+    public function run()
+    {
+        // Retrieve product ID
+        $id_product = (int)Tools::getValue('id_product');
 
-		// Check product ID
-		if ($id_product < 1)
-			return '';
+        // Check product ID
+        if ($id_product < 1) {
+            return '';
+        }
 
-		// Check if product is eligible
-		if (!FroggyPriceNegociatorObject::isProductEligible($id_product, (int)$this->context->customer->id, (int)$this->context->cart->id))
-			return '';
+        // Check if product is eligible
+        if (!FroggyPriceNegociatorObject::isProductEligible($id_product, (int)$this->context->customer->id, (int)$this->context->cart->id)) {
+            return '';
+        }
 
-		// Return display
-		return $this->display();
-	}
+        // Return display
+        return $this->display();
+    }
 }

@@ -21,54 +21,56 @@
 
 class FroggyPriceNegociatorAjaxRequestProcessor extends FroggyHookProcessor
 {
-	private $methods = array(
-		'get.new.price' => 'ajaxRequestGetNewPrice',
-		'validate.price' => 'ajaxRequestValidatePrice',
-	);
+    private $methods = array(
+        'get.new.price' => 'ajaxRequestGetNewPrice',
+        'validate.price' => 'ajaxRequestValidatePrice',
+    );
 
 
-	public function render($status, $message, $case = '')
-	{
-		return Tools::jsonEncode(array('status' => $status, 'message' => $message, 'case' => $case));
-	}
+    public function render($status, $message, $case = '')
+    {
+        return Tools::jsonEncode(array('status' => $status, 'message' => $message, 'case' => $case));
+    }
 
-	public function getNegociatedPriceInCookie($id_product, $id_product_attribute)
-	{
-		if (isset($this->context->cookie->froggypricenegociator))
-		{
-			$data = (array)Tools::jsonDecode($this->context->cookie->froggypricenegociator);
-			if (isset($data[$id_product.'-'.$id_product_attribute]))
-			{
-				$productPrice = Product::getPriceStatic($id_product, true, $id_product_attribute);
-				if ($data[$id_product.'-'.$id_product_attribute] < $productPrice)
-					return (float)$data[$id_product.'-'.$id_product_attribute];
-			}
-		}
-		return false;
-	}
+    public function getNegociatedPriceInCookie($id_product, $id_product_attribute)
+    {
+        if (isset($this->context->cookie->froggypricenegociator)) {
+            $data = (array)Tools::jsonDecode($this->context->cookie->froggypricenegociator);
+            if (isset($data[$id_product . '-' . $id_product_attribute])) {
+                $productPrice = Product::getPriceStatic($id_product, true, $id_product_attribute);
+                if ($data[$id_product . '-' . $id_product_attribute] < $productPrice) {
+                    return (float)$data[$id_product . '-' . $id_product_attribute];
+                }
+            }
+        }
+        return false;
+    }
 
-	public function saveNegociatedPriceInCookie($id_product, $id_product_attribute, $price)
-	{
-		$data = array();
-		if (isset($this->context->cookie->froggypricenegociator))
-			$data = (array)Tools::jsonDecode($this->context->cookie->froggypricenegociator);
-		$data[$id_product.'-'.$id_product_attribute] = $price;
-		$this->context->cookie->froggypricenegociator = Tools::jsonEncode($data);
-	}
+    public function saveNegociatedPriceInCookie($id_product, $id_product_attribute, $price)
+    {
+        $data = array();
+        if (isset($this->context->cookie->froggypricenegociator)) {
+            $data = (array)Tools::jsonDecode($this->context->cookie->froggypricenegociator);
+        }
+        $data[$id_product . '-' . $id_product_attribute] = $price;
+        $this->context->cookie->froggypricenegociator = Tools::jsonEncode($data);
+    }
 
 
-	public function run()
-	{
-		// Check arguments
-		if ((int)Tools::getValue('id_product') < 0 || (float)Tools::getValue('offer') < 0 || !isset($this->methods[Tools::getValue('method')]))
-			return $this->render('error', $this->module->l('System error, please contact the merchant.'));
+    public function run()
+    {
+        // Check arguments
+        if ((int)Tools::getValue('id_product') < 0 || (float)Tools::getValue('offer') < 0 || !isset($this->methods[Tools::getValue('method')])) {
+            return $this->render('error', $this->module->l('System error, please contact the merchant.'));
+        }
 
-		// Check if there is a possible negotiation on specific id_product & id_product_attribute
-		$price_min = FroggyPriceNegociatorObject::getProductMinimumPrice((int)Tools::getValue('id_product'), (int)Tools::getValue('id_product_attribute'));
-		if ($price_min === false)
-			return $this->render('error', $this->module->l('The negotiation for this product is not available.'));
+        // Check if there is a possible negotiation on specific id_product & id_product_attribute
+        $price_min = FroggyPriceNegociatorObject::getProductMinimumPrice((int)Tools::getValue('id_product'), (int)Tools::getValue('id_product_attribute'));
+        if ($price_min === false) {
+            return $this->render('error', $this->module->l('The negotiation for this product is not available.'));
+        }
 
-		// Call method
-		return $this->module->{$this->methods[Tools::getValue('method')]}(array('ajaxController' => $this, 'price_min' => $price_min));
-	}
+        // Call method
+        return $this->module->{$this->methods[Tools::getValue('method')]}(array('ajaxController' => $this, 'price_min' => $price_min));
+    }
 }

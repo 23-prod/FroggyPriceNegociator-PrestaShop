@@ -230,7 +230,7 @@
 <script type="text/javascript" src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}js/getContent-common.js"></script>
 <script type="text/javascript" src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}js/jquery.responsiveTabs.min.js"></script>
 <script type="text/javascript" src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}js/jquery.reveal.js"></script>
-<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}css/style-{$froggypricenegociator.ps_version}.css" />
+<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}css/style-{$froggypricenegociator.ps_version|escape:'htmlall':'UTF-8'}.css" />
 <link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}css/responsive-tabs.css" />
 <link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}css/reveal.css" />
 <link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}css/buttons.css" />

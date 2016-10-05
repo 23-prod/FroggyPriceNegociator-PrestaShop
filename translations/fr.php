@@ -1,14 +1,9 @@
 <?php
 
 global $_MODULE;
-
 $_MODULE = array();
 $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociator_3e00a3985dcd81e5f3004a189b19a20b'] = 'Négociateur de prix Froggy';
 $_MODULE['<{froggypricenegociator}prestashop>froggypricenegociator_1a41ad8b93276414ee56419fe180d8ce'] = 'Affiche un bouton de négociation de prix sur les pages produit pour vos clients';
-$_MODULE['<{froggypricenegociator}prestashop>froggypricenegociator_fb889045b175b03856ed1f04f0d683fb'] = 'Une erreur est survenue, veuillez contacter le marchand.';
-$_MODULE['<{froggypricenegociator}prestashop>froggypricenegociator_350ddd9efe5f329b7e4d80bd20eafbc3'] = 'La négociation pour ce produit n\'est pas disponible.';
-$_MODULE['<{froggypricenegociator}prestashop>froggypricenegociator_0c9194c0b7efea4c312ecdd683eb80b4'] = 'Prix négocié pour';
-$_MODULE['<{froggypricenegociator}prestashop>froggypricenegociator_21a40f7c23f0e739a2d62790407402aa'] = 'Prix négocié';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.4-1.5_8476bd9f81754a09cfbd05033fbfc46b'] = 'Activer le bouton de négociation de prix pour cette déclinaison produit';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.4-1.5_33527bd78f3c5c6025accb410cf7b9b0'] = 'Attention, le prix minimal de vente est supérieur au prix final de vente.';
 $_MODULE['<{froggypricenegociator}prestashop>displaybackofficeheader-html-1.4-1.5_3e00a3985dcd81e5f3004a189b19a20b'] = 'Négociateur de prix Froggy';

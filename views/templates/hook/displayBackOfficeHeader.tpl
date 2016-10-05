@@ -30,6 +30,6 @@
 {else}
     {include file="{$froggypricenegociator.path_template_dir}/displayBackOfficeHeader-html-1.4-1.5.tpl"}
 {/if}
-<script type="text/javascript" src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}js/displayBackOfficeHeader-{$froggypricenegociator.ps_version|escape:'html':'UTF-8'}.js"></script>
-<script type="text/javascript" src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}js/displayBackOfficeHeader-common.js"></script>
-<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}css/displayBackOfficeHeader-{$froggypricenegociator.ps_version|escape:'html':'UTF-8'}.css" />
+<script type="text/javascript" src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}views/js/displayBackOfficeHeader-{$froggypricenegociator.ps_version|escape:'html':'UTF-8'}.js"></script>
+<script type="text/javascript" src="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}views/js/displayBackOfficeHeader-common.js"></script>
+<link type="text/css" rel="stylesheet" href="{$froggypricenegociator.module_dir|escape:'html':'UTF-8'}views/css/displayBackOfficeHeader-{$froggypricenegociator.ps_version|escape:'html':'UTF-8'}.css" />

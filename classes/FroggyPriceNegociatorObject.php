@@ -184,7 +184,14 @@ class FroggyPriceNegociatorObject extends ObjectModel
 
         // If the module configuration does not accept product in promotion and if the product is in promotion, the product is not eligible
         if (Configuration::get('FC_PN_COMPLIANT_PROMO') != 1) {
-            if (count(SpecificPrice::getByProductId($id_product)) >= 1) {
+            $nb_specific_prices = 0;
+            $specific_prices = SpecificPrice::getByProductId($id_product);
+            foreach ($specific_prices as $specific_price) {
+                if ($specific_price['from'] <= date('Y-m-d H:i:s') && $specific_price['to'] > date('Y-m-d H:i:s')) {
+                    $nb_specific_prices++;
+                }
+            }
+            if ($nb_specific_prices >= 1) {
                 return false;
             }
         }

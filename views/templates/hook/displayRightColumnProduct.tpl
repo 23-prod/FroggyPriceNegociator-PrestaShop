@@ -39,11 +39,11 @@
 	froggypricenegociator_message_label['step2.good'] = '{{l s='Your offer has been accepted!' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8'}';
 </script>
 <p class="container-button-netotiate-front">
-	<a href="#myModal" id="froggypricenegociator-button" data-reveal-id="myModal" title="{l s='Negotiate the price' mod='froggypricenegociator'}" class="button-12 {$froggypricenegociator.FC_PN_DISPLAY_BUTTON|escape:'html':'UTF-8'}" style="display: none;">{l s='Negotiate the price' mod='froggypricenegociator'}</a>
+	<a href="#froggy-negociator-modal" id="froggypricenegociator-button" data-reveal-id="froggy-negociator-modal" title="{l s='Negotiate the price' mod='froggypricenegociator'}" class="button-12 {$froggypricenegociator.FC_PN_DISPLAY_BUTTON|escape:'html':'UTF-8'}" style="display: none;">{l s='Negotiate the price' mod='froggypricenegociator'}</a>
 </p>
 
 <div style="display:none">
-	<div id="myModal" class="reveal-modal">
+	<div id="froggy-negociator-modal" class="reveal-modal">
 		<div class="froggy-negociator-container-modal">
 
 			{*HEADER STEP*}

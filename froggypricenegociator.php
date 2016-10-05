@@ -45,7 +45,7 @@ class FroggyPriceNegociator extends FroggyModule
     public function __construct()
     {
         $this->name = 'froggypricenegociator';
-        $this->version = '1.0.22';
+        $this->version = '1.0.23';
         $this->author = 'Froggy Commerce';
         $this->tab = 'front_office_features';
 

@@ -196,10 +196,16 @@ class FroggyPriceNegociatorNewPriceObject extends ObjectModel
 
         if (version_compare(_PS_VERSION_, '1.5.0') >= 0) {
             $cart_rule = new CartRule((int)$id_reduction);
+            if (!Validate::isLoadedObject($cart_rule)) {
+                return false;
+            }
             $cart_rule->reduction_amount = ($reduction * $quantity);
             $cart_rule->update();
         } else {
             $discount = new Discount((int)$id_reduction);
+            if (!Validate::isLoadedObject($discount)) {
+                return false;
+            }
             $discount->value = ($reduction * $quantity);
             $discount->update();
         }

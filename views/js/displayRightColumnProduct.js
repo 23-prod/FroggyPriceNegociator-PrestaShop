@@ -214,6 +214,21 @@ function froggyPriceNegociatorValidatePriceAjax()
 			froggyPriceNegociatorGoToStep(3);
 			$('#froggy-negociator-validation-step2-input-submit').show();
 			$('#froggy-negociator-validation-step2-loader').hide();
+
+			// Update ajax cart if exists
+			if ($('.ajax_cart_quantity').length) {
+
+				// Two cases : Cart is empty or not empty
+				if (!$('.ajax_cart_quantity').is(':visible')) {
+					$('.ajax_cart_quantity').text(1);
+					$('.ajax_cart_quantity').show();
+					$('.ajax_cart_product_txt_s').show();
+					$('.ajax_cart_no_product').hide();
+				} else {
+					var new_total_quantity = parseInt($('.ajax_cart_quantity').first().text()) + 1;
+					$('.ajax_cart_quantity').text(new_total_quantity);
+				}
+			}
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
 		}

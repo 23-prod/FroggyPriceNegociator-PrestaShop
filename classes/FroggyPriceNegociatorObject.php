@@ -187,7 +187,9 @@ class FroggyPriceNegociatorObject extends ObjectModel
             $nb_specific_prices = 0;
             $specific_prices = SpecificPrice::getByProductId($id_product);
             foreach ($specific_prices as $specific_price) {
-                if ($specific_price['from'] <= date('Y-m-d H:i:s') && $specific_price['to'] > date('Y-m-d H:i:s')) {
+                if (($specific_price['from'] <= date('Y-m-d H:i:s') && $specific_price['to'] > date('Y-m-d H:i:s')) ||
+                    ($specific_price['from'] <= date('Y-m-d H:i:s') && $specific_price['to'] == '0000-00-00 00:00:00') ||
+                    ($specific_price['from'] == '0000-00-00 00:00:00' && $specific_price['to'] == '0000-00-00 00:00:00')) {
                     $nb_specific_prices++;
                 }
             }

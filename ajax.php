@@ -26,7 +26,9 @@ if (file_exists($configPath)) {
     $controller->init();
 
     if (file_exists(dirname(__FILE__) . '/froggypricenegociator.php')) {
-        include(dirname(__FILE__) . '/froggypricenegociator.php');
+        if (!class_exists('FroggyPriceNegociator')) {
+            require_once(dirname(__FILE__) . '/froggypricenegociator.php');
+        }
         $fpn = new FroggyPriceNegociator();
         echo $fpn->ajaxRequest();
     } else {

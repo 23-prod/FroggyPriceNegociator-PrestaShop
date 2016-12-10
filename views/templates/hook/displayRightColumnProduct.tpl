@@ -32,11 +32,11 @@
 
 	var froggypricenegociator_about_label = '{{l s='about' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8'}';
 	var froggypricenegociator_message_label = new Array();
-	froggypricenegociator_message_label['step1.too.high'] = '{{l s='Your offer is superior to the current price of the product.' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8'}';
-	froggypricenegociator_message_label['step1.too.low'] = '{{l s='Your offer is too low.' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8'}';
-	froggypricenegociator_message_label['step2.too.low'] = '{{l s='Your offer was too low, here our final offer.' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8'}';
-	froggypricenegociator_message_label['step2.already.negotiated'] = '{{l s='You already negotiated the price of this product, here the final offer.' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8'}';
-	froggypricenegociator_message_label['step2.good'] = '{{l s='Your offer has been accepted!' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8'}';
+	froggypricenegociator_message_label['step1.too.high'] = '{html_entity_decode({l s='Your offer is superior to the current price of the product.' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8')}';
+	froggypricenegociator_message_label['step1.too.low'] = '{html_entity_decode({l s='Your offer is too low.' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8')}';
+	froggypricenegociator_message_label['step2.too.low'] = '{html_entity_decode({l s='Your offer was too low, here our final offer.' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8')}';
+	froggypricenegociator_message_label['step2.already.negotiated'] = '{html_entity_decode({l s='You already negotiated the price of this product, here the final offer.' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8')}';
+	froggypricenegociator_message_label['step2.good'] = '{html_entity_decode({l s='Your offer has been accepted!' mod='froggypricenegociator' js=1}|stripslashes|addslashes|escape:'htmlall':'UTF-8')}';
 </script>
 <p class="container-button-netotiate-front">
 	<a href="#froggy-negociator-modal" id="froggypricenegociator-button" data-reveal-id="froggy-negociator-modal" title="{l s='Negotiate the price' mod='froggypricenegociator'}" class="button-12 {$froggypricenegociator.FC_PN_DISPLAY_BUTTON|escape:'html':'UTF-8'}" style="display: none;">{l s='Negotiate the price' mod='froggypricenegociator'}</a>

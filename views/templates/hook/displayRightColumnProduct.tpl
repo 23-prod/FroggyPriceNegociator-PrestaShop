@@ -185,7 +185,7 @@
 
 	<!-- Your share button code -->
 	<div class="fb-share-button"
-		 data-href="{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}"
+		 data-href="http://{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}"
 		 data-layout="button_count">
 	</div>
 </div>

@@ -1,6 +1,6 @@
 {
 	"tab" : "front_office_features",
-	"version": "1.0.25",
+	"version": "1.0.26",
 	"need_instance": 0,
 
     "hooks": {

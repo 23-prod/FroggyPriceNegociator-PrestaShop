@@ -2,7 +2,7 @@
 <module>
 	<name>froggypricenegociator</name>
 	<displayName><![CDATA[N&eacute;gociateur de prix Froggy]]></displayName>
-	<version><![CDATA[1.0.25]]></version>
+	<version><![CDATA[1.0.26]]></version>
 	<description><![CDATA[Affiche un bouton de n&eacute;gociation de prix sur les pages produit pour vos clients]]></description>
 	<author><![CDATA[Froggy Commerce]]></author>
 	<tab><![CDATA[front_office_features]]></tab>

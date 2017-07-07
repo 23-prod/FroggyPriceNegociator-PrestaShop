@@ -304,7 +304,9 @@
 
 #froggypricenegociator-facebook-share-preload {
 	opacity:0;
+	height: 0px;
 }
 #froggypricenegociator-twitter-share-preload {
 	opacity:0;
+	height: 0px;
 }

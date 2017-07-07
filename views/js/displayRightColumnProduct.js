@@ -215,6 +215,9 @@ function froggyPriceNegociatorValidatePriceAjax()
 			$('#froggy-negociator-validation-step2-input-submit').show();
 			$('#froggy-negociator-validation-step2-loader').hide();
 
+			$('#froggy-negociator-share-facebook').html($('#froggypricenegociator-facebook-share-preload').html());
+            $('#froggy-negociator-share-twitter').html($('#froggypricenegociator-twitter-share-preload').html());
+
 			// Update ajax cart if exists
 			if ($('.ajax_cart_quantity').length) {
 

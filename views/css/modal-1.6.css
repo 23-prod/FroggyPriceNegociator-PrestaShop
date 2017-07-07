@@ -302,3 +302,9 @@
 	background: rgba(0, 0, 0, 0.25);
 }
 
+#froggypricenegociator-facebook-share-preload {
+	opacity:0;
+}
+#froggypricenegociator-twitter-share-preload {
+	opacity:0;
+}
